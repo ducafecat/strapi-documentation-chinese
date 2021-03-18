@@ -43,7 +43,7 @@ To set a new filter:
 5. (optional) 点击 the add button ![icon add new](../assets/content-manager/icon_add2.png) to add another condition-based filter.
 6. 点击 the **Apply** button.
 
-::: tip NOTE
+::: tip 注意
 When active, filters are displayed next to the **Filters** button. They can be removed by clicking on the delete icon ![icon delete](../assets/content-manager/icon_delete2.png).
 :::
 
@@ -61,7 +61,7 @@ New entries are only considered created once some of their content has been writ
 
 Right above the list view table, on the right side of the interface, a settings button <Fa-Cog /> is displayed. It allows to access the configurations that can be set for the list view of your collection type (see [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md)), and to choose which fields to display in the table.
 
-::: tip NOTE
+::: tip 注意
 Configuring the displayed field of the table in the way detailed below is only temporary: the configurations will be reset as soon as the page is refreshed or when navigating the admin panel outside the Content Manager. For permanent configurations, please refer to [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md).
 :::
 
@@ -73,8 +73,8 @@ To temporarily configure the fields displayed in the table:
 2. In the Displayed Fields section, tick the boxes associated with the field you want to be displayed in the table.
 3. Untick the boxes associated with the fields you do not want to be displayed in the table.
 
-::: tip NOTE
-Relational fields can also be displayed in the list view. Please refer to [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md) for more information on their specificities.
+::: tip 注意
+Relational fields can also be displayed in the list view. Please refer to [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md) 了解详情 on their specificities.
 
 :::
 

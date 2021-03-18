@@ -2,11 +2,11 @@
 sidebarDepth: 3
 ---
 
-# Configurations
+# 配置
 
-Your application configuration lives in the `config` folder. All the configuration files are loaded on startup and can be accessed through the configuration provider.
+应用程序配置位于 `config` 文件夹中。所有配置文件都在启动时加载，可以通过配置提供程序访问。
 
-When you have a file `./config/server.js` with the following config:
+当你有一个 `./config/server.js` 文件，配置如下:
 
 ```js
 module.exports = {
@@ -14,26 +14,26 @@ module.exports = {
 };
 ```
 
-You can access it as
+你可以通过以下方式访问它:
 
 ```js
 strapi.config.get('server.host', 'defaultValueIfUndefined');
 ```
 
-Nested keys are accessible with `dot-notation`.
+使用点符号可以访问嵌套键 `dot-notation` 。
 
-:::tip NOTE
-Notice that the filename is used as a prefix to access the configurations.
+:::tip 注意
+文件名用作访问配置的前缀。
 :::
 
-## Required configurations
+## 所需配置
 
-### Database
+### 数据库
 
-This file lets you define database connections that will be used to store your application content.
+此文件允许您定义用于存储应用程序内容的数据库连接。
 
-::: tip NOTE
-You can find [supported database and versions](/developer-docs/latest/setup-deployment-guides/installation/cli.md#databases) in the local installation process.
+::: tip 注意
+您可以在本地安装过程中找到 [受支持的数据库和版本](/developer-docs/latest/setup-deployment-guides/installation/cli.md#databases) 。
 :::
 
 **Path —** `./config/database.js`.
@@ -42,18 +42,18 @@ You can find [supported database and versions](/developer-docs/latest/setup-depl
 
 ::: tab Bookshelf
 
-- `defaultConnection` (string): Connection by default for models which are not related to a specific `connection`. Default value: `default`.
+- `defaultConnection` (string): Connection by default for models which are not related to a specific `connection`. 默认值: `default`.
 - `connections` List of all available connections.
   - `default`
     - `connector` (string): Connector used by the current connection. Will be `bookshelf`.
     - `settings` Useful for external session stores such as Redis.
       - `client` (string): Database client to create the connection. `sqlite` or `postgres` or `mysql`.
-      - `host` (string): Database host name. Default value: `localhost`.
+      - `host` (string): Database host name. 默认值: `localhost`.
       - `port` (integer): Database port.
       - `database` (string): Database name.
       - `username` (string): Username used to establish the connection.
       - `password` (string): Password used to establish the connection.
-      - `timezone` (string): Set the default behavior for local time. Default value: `utc` [Timezone options](https://www.php.net/manual/en/timezones.php).
+      - `timezone` (string): Set the default behavior for local time. 默认值: `utc` [Timezone options](https://www.php.net/manual/en/timezones.php).
       - `schema` (string): Set the default database schema. **Used only for Postgres DB.**
       - `ssl` (boolean/object): For ssl database connection. Object is used to pass certificate files as strings.
     - `options` Options used for database connection.
@@ -72,14 +72,14 @@ You can find [supported database and versions](/developer-docs/latest/setup-depl
 
 ::: tab Mongoose
 
-- `defaultConnection` (string): Connection by default for models which are not related to a specific `connection`. Default value: `default`.
+- `defaultConnection` (string): Connection by default for models which are not related to a specific `connection`. 默认值: `default`.
 - `connections` List of all available connections.
   - `default`
     - `connector` (string): Connector used by the current connection. Will be `mongoose`.
     - `settings` Useful for external session stores such as Redis.
       - `client` (string): Database client to create the connection. Will be `mongo`.
-      - `host` (string): Database host name. Default value: `localhost`.
-      - `port` (integer): Database port. Default value: `27017`.
+      - `host` (string): Database host name. 默认值: `localhost`.
+      - `port` (integer): Database port. 默认值: `27017`.
       - `database` (string): Database name.
       - `username` (string): Username used to establish the connection.
       - `password` (string): Password used to establish the connection.
@@ -124,7 +124,7 @@ module.exports = ({ env }) => ({
 });
 ```
 
-Please note that if you need client side SSL CA verification you will need to use the `ssl:{}` object with the fs module to convert your CA certificate to a string. You can see an example below:
+请注意，如果您需要客户端 SSL CA 验证，您将需要使用带有 fs 模块的 `ssl:{}` 对象将您的 CA 证书转换为字符串。你可以在下面看到一个例子:
 
 ```js
 module.exports = ({ env }) => ({
@@ -225,19 +225,19 @@ module.exports = ({ env }) => ({
 ::::
 
 ::: tip
-Take a look at the [database's guide](/developer-docs/latest/setup-deployment-guides/configurations.md#databases-installation-guides) for more details.
+请参阅 [数据库指南](/developer-docs/latest/setup-deployment-guides/configurations.md#databases-installation-guides) 以获得更多细节。
 :::
 
-#### Configuration in database
+#### 数据库配置
 
-Configuration files are not multi server friendly. So we created a data store for config you will want to update in production.
+配置文件对多服务器不友好。因此，我们为配置创建了一个数据存储，您希望在生产中进行更新。
 
 ##### Get settings
 
-- `environment` (string): Sets the environment you want to store the data in. By default it's current environment (can be an empty string if your config is environment agnostic).
-- `type` (string): Sets if your config is for an `api`, `plugin` or `core`. By default it's `core`.
-- `name` (string): You have to set the plugin or api name if `type` is `api` or `plugin`.
-- `key` (string, required): The name of the key you want to store.
+- `environment` (string): 设置要存储数据的环境。默认情况下，它的当前环境(如果您的配置是环境不可知的，则可以是空字符串).
+- `type` (string): 设置配置是否为 `api`, `plugin` or `core`. 默认是 `core`.
+- `name` (string): 你必须设置插件或 api 名称, 如果 `type` 是 `api` 或者 `plugin`.
+- `key` (string, required): 要存储的密钥的名称.
 
 ```js
 // strapi.store(object).get(object);
@@ -254,7 +254,7 @@ await pluginStore.get({ key: 'grant' });
 
 ##### Set settings
 
-- `value` (any, required): The value you want to store.
+- `value` (any, required): 要存储的值.
 
 ```js
 // strapi.store(object).set(object);
@@ -274,27 +274,26 @@ await pluginStore.set({
 });
 ```
 
-#### Databases installation guides
+#### 数据库安装指南
 
-Strapi gives you the option to choose the most appropriate database for your project. It currently supports **PostgreSQL**, **MongoDB**, **SQLite**, **MySQL** and
-**MariaDB**. The following documentation covers how to install these databases locally (for development purposes) and on various hosted or cloud server solutions (for staging or production purposes).
+Strapi 为您提供了为您的项目选择最合适的数据库的选项。它目前支持 **PostgreSQL**, **MongoDB**, **SQLite**, **MySQL** 和 **MariaDB**。下面的文档介绍了如何在本地(出于开发目的)和各种托管服务器或云服务器解决方案(出于登台或生产目的)上安装这些数据库。
 
-::: tip
-Deploying **Strapi** itself is covered in the [Deployment Guide](/developer-docs/latest/setup-deployment-guides/deployment.md).
+::: tip 提示
+[部署指南](/developer-docs/latest/setup-deployment-guides/deployment.md) 中包含了部署 Strapi 本身。
 :::
 
 <DatabasesLinks>
 </DatabasesLinks>
 
-### Server
+### 服务器
 
 :::: tabs
 
-::: tab Minimal
+::: tab 最小
 
-#### Minimal Server Config
+#### 最小化服务器配置
 
-This is the default config created with any new project, all these keys are required at the very least, environmental configs do not need to contain all these values so long as they exist in the default `./config/server.js`.
+这是用任何新项目创建的默认配置，所有这些键都是必需的，环境配置不需要包含所有这些值，只要它们存在于默认值中。`/config/server.js`.
 
 **Path —** `./config/server.js`.
 
@@ -312,11 +311,11 @@ module.exports = ({ env }) => ({
 
 :::
 
-::: tab Full
+::: tab 完整
 
-#### Full Server Config
+#### 全服务器配置
 
-This is an example of a full configuration, typically certain keys do not need to present in environmental configs, and not all of these keys are required. Please see the table below to see what each key does.
+这是一个完整配置的示例，通常某些密钥不需要出现在环境配置中，并且不需要所有这些密钥。请看下面的表格，看看每个键是做什么的。
 
 **Path —** `./config/server.js`.
 
@@ -366,38 +365,38 @@ module.exports = ({ env }) => ({
 
 ##### Available options
 
-| Property                                | Description                                                                                                                                                                                                                                                                                                                                                                 | Type              | Default                                                                                                                          |
-| --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `host`                                  | Host name                                                                                                                                                                                                                                                                                                                                                                   | string            | `localhost`                                                                                                                      |
-| `port`                                  | Port on which the server should be running.                                                                                                                                                                                                                                                                                                                                 | integer           | `1337`                                                                                                                           |
-| `socket`                                | Listens on a socket. Host and port are cosmetic when this option is provided and likewise use `url` to generate proper urls when using this option. This option is useful for running a server without exposing a port and using proxy servers on the same machine (e.g [Heroku nginx buildpack](https://github.com/heroku/heroku-buildpack-nginx#requirements-proxy-mode)) | string \| integer | `/tmp/nginx.socket`                                                                                                              |
-| `emitErrors`                            | Enable errors to be emitted to `koa` when they happen in order to attach custom logic or use error reporting services.                                                                                                                                                                                                                                                      | boolean           | `false`                                                                                                                          |
-| `url`                                   | Public url of the server. Required for many different features (ex: reset password, third login providers etc.). Also enables proxy support such as Apache or Nginx, example: `https://mywebsite.com/api`. The url can be relative, if so, it is used with `http://${host}:${port}` as the base url. An absolute url is however **recommended**.                            | string            | `''`                                                                                                                             |
-| `proxy`                                 | Set the koa variable `app.proxy`. When `true`, proxy header fields will be trusted.                                                                                                                                                                                                                                                                                         | boolean           | `false`                                                                                                                          |
-| `cron`                                  | Cron configuration (powered by [`node-schedule`](https://github.com/node-schedule/node-schedule))                                                                                                                                                                                                                                                                           | Object            |                                                                                                                                  |
-| `cron.enabled`                          | Enable or disable CRON tasks to schedule jobs at specific dates.                                                                                                                                                                                                                                                                                                            | boolean           | `false`                                                                                                                          |
-| `admin`                                 | Admin panel configuration                                                                                                                                                                                                                                                                                                                                                   | Object            |                                                                                                                                  |
-| `admin.auth`                            | Authentication configuration                                                                                                                                                                                                                                                                                                                                                | Object            |                                                                                                                                  |
-| `admin.auth.secret`                     | Secret used to encode JWT tokens                                                                                                                                                                                                                                                                                                                                            | string            | `undefined`                                                                                                                      |
-| `admin.auth.events`                     | Record of all the events subscribers registered for the authentication                                                                                                                                                                                                                                                                                                      | object            | `{}`                                                                                                                             |
-| `admin.auth.events.onConnectionSuccess` | Function called when an admin user log in successfully to the administration panel                                                                                                                                                                                                                                                                                          | function          | `undefined`                                                                                                                      |
-| `admin.auth.events.onConnectionError`   | Function called when an admin user fails to log in to the administration panel                                                                                                                                                                                                                                                                                              | function          | `undefined`                                                                                                                      |
-| `admin.url`                             | Url of your admin panel. Default value: `/admin`. Note: If the url is relative, it will be concatenated with `url`.                                                                                                                                                                                                                                                         | string            | `/admin`                                                                                                                         |
-| `admin.autoOpen`                        | Enable or disabled administration opening on start.                                                                                                                                                                                                                                                                                                                         | boolean           | `true`                                                                                                                           |
-| `admin.watchIgnoreFiles`                | Add custom files that should not be watched during development. See more [here](https://github.com/paulmillr/chokidar#path-filtering) (property `ignored`).                                                                                                                                                                                                                 | Array(string)     | `[]`                                                                                                                             |
-| `admin.host`                            | Use a different host for the admin panel. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                               | string            | `localhost`                                                                                                                      |
-| `admin.port`                            | Use a different port for the admin panel. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                               | string            | `8000`                                                                                                                           |
-| `admin.serveAdminPanel`                 | If false, the admin panel won't be served. Note: the `index.html` will still be served, see [defaultIndex option](/developer-docs/latest/setup-deployment-guides/configurations.md#global-middlewares)                                                                                                                                                                      | boolean           | `true`                                                                                                                           |
-| `admin.forgotPassword`                  | Settings to customize the forgot password email (see more here: [Forgot Password Email](/developer-docs/latest/development/admin-customization.md#forgot-password-email))                                                                                                                                                                                                   | Object            | {}                                                                                                                               |
-| `admin.forgotPassword.emailTemplate`    | Email template as defined in [email plugin](/developer-docs/latest/development/plugins/email.md#programmatic-usage)                                                                                                                                                                                                                                                         | Object            | [Default template](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/config/email-templates/forgot-password.js) |
-| `admin.forgotPassword.from`             | Sender mail address                                                                                                                                                                                                                                                                                                                                                         | string            | Default value defined in your [provider configuration](/developer-docs/latest/development/plugins/email.md#configure-the-plugin) |
-| `admin.forgotPassword.replyTo`          | Default address or addresses the receiver is asked to reply to                                                                                                                                                                                                                                                                                                              | string            | Default value defined in your [provider configuration](/developer-docs/latest/development/plugins/email.md#configure-the-plugin) |
+| Property                                | Description                                                                                                                                                                                                                                                                                                                                                                                                 | Type              | Default                                                                                                                          |
+| --------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| `host`                                  | 主机名                                                                                                                                                                                                                                                                                                                                                                                                      | string            | `localhost`                                                                                                                      |
+| `port`                                  | 服务器应在其上运行的端口                                                                                                                                                                                                                                                                                                                                                                                    | integer           | `1337`                                                                                                                           |
+| `socket`                                | 提供此选项时，对套接字进行侦听。Listens on a socket. Host and port are cosmetic when this option is provided and likewise use `url` to generate proper urls when using this option. This option is useful for running a server without exposing a port and using proxy servers on the same machine (e.g [Heroku nginx buildpack](https://github.com/heroku/heroku-buildpack-nginx#requirements-proxy-mode)) | string \| integer | `/tmp/nginx.socket`                                                                                                              |
+| `emitErrors`                            | 允许将错误发送到 `koa` 当它们发生时，以便附加自定义逻辑或使用错误报告服务.                                                                                                                                                                                                                                                                                                                                  | boolean           | `false`                                                                                                                          |
+| `url`                                   | 服务器的公共 url。Public url of the server. Required for many different features (ex: reset password, third login providers etc.). Also enables proxy support such as Apache or Nginx, example: `https://mywebsite.com/api`. The url can be relative, if so, it is used with `http://${host}:${port}` as the base url. An absolute url is however **recommended**.                                          | string            | `''`                                                                                                                             |
+| `proxy`                                 | 代理，设置 koa 变量 `app.proxy`. When `true`, proxy header fields will be trusted.                                                                                                                                                                                                                                                                                                                          | boolean           | `false`                                                                                                                          |
+| `cron`                                  | 计划任务 Cron configuration (powered by [`node-schedule`](https://github.com/node-schedule/node-schedule))                                                                                                                                                                                                                                                                                                  | Object            |                                                                                                                                  |
+| `cron.enabled`                          | 是否启用计划任务 启用或禁用 CRON tasks to schedule jobs at specific dates.                                                                                                                                                                                                                                                                                                                                  | boolean           | `false`                                                                                                                          |
+| `admin`                                 | 管理面板配置                                                                                                                                                                                                                                                                                                                                                                                                | Object            |                                                                                                                                  |
+| `admin.auth`                            | 认证配置                                                                                                                                                                                                                                                                                                                                                                                                    | Object            |                                                                                                                                  |
+| `admin.auth.secret`                     | 用于对 JWT 令牌进行编码                                                                                                                                                                                                                                                                                                                                                                                     | string            | `undefined`                                                                                                                      |
+| `admin.auth.events`                     | 为身份验证注册的所有事件订阅者的记录                                                                                                                                                                                                                                                                                                                                                                        | object            | `{}`                                                                                                                             |
+| `admin.auth.events.onConnectionSuccess` | 当管理用户成功登录到管理面板时调用                                                                                                                                                                                                                                                                                                                                                                          | function          | `undefined`                                                                                                                      |
+| `admin.auth.events.onConnectionError`   | 当管理员用户未能登录到管理面板时调用                                                                                                                                                                                                                                                                                                                                                                        | function          | `undefined`                                                                                                                      |
+| `admin.url`                             | 管理面板的网址。Default value: `/admin`. Note: If the url is relative, it will be concatenated with `url`.                                                                                                                                                                                                                                                                                                  | string            | `/admin`                                                                                                                         |
+| `admin.autoOpen`                        | 启动时启用或禁用管理打开                                                                                                                                                                                                                                                                                                                                                                                    | boolean           | `true`                                                                                                                           |
+| `admin.watchIgnoreFiles`                | 添加在开发过程中不应该被监视的自定义文件. See more [here](https://github.com/paulmillr/chokidar#path-filtering) (property `ignored`).                                                                                                                                                                                                                                                                       | Array(string)     | `[]`                                                                                                                             |
+| `admin.host`                            | 对管理面板使用不同的主机. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                                                                               | string            | `localhost`                                                                                                                      |
+| `admin.port`                            | 对管理面板使用不同的端口. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                                                                               | string            | `8000`                                                                                                                           |
+| `admin.serveAdminPanel`                 | 如果为 false，将不会提供管理面板. Note: the `index.html` will still be served, see [defaultIndex option](/developer-docs/latest/setup-deployment-guides/configurations.md#global-middlewares)                                                                                                                                                                                                               | boolean           | `true`                                                                                                                           |
+| `admin.forgotPassword`                  | 设置自定义忘记密码的电子邮件 (更多信息: [Forgot Password Email](/developer-docs/latest/development/admin-customization.md#forgot-password-email))                                                                                                                                                                                                                                                           | Object            | {}                                                                                                                               |
+| `admin.forgotPassword.emailTemplate`    | 定义的电子邮件模板 [email plugin](/developer-docs/latest/development/plugins/email.md#programmatic-usage)                                                                                                                                                                                                                                                                                                   | Object            | [Default template](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/config/email-templates/forgot-password.js) |
+| `admin.forgotPassword.from`             | 发件人邮件地址                                                                                                                                                                                                                                                                                                                                                                                              | string            | 默认值 defined in your [provider configuration](/developer-docs/latest/development/plugins/email.md#configure-the-plugin)        |
+| `admin.forgotPassword.replyTo`          | 要求接收者回复的默认地址或地址                                                                                                                                                                                                                                                                                                                                                                              | string            | 默认值 defined in your [provider configuration](/developer-docs/latest/development/plugins/email.md#configure-the-plugin)        |
 
-### Formats
+### 格式
 
-You can either use `.js` or `.json` files to configure your application.
+您可以使用 `.js` 或 `.json` 文件来配置您的应用程序。
 
-When using a `.js` you can either export an object:
+当使用 `.js` 时，你可以导出一个对象:
 
 ```js
 module.exports = {
@@ -405,7 +404,7 @@ module.exports = {
 };
 ```
 
-or a function returning a configuration object (recommended usage). The function will get access to the [`env` utility](#casting-environment-variables).
+或者一个返回配置对象的函数(推荐用法)。该函数将访问 `env` [ utility](#casting-environment-variables) 。
 
 ```js
 module.exports = ({ env }) => {
@@ -415,20 +414,19 @@ module.exports = ({ env }) => {
 };
 ```
 
-## Optional configurations
+## 可选配置
 
-### Environment
+### 环境
 
-In case you need specific static configurations for specific environments, and using environment variables becomes tedious, Strapi configurations can be created per environment in `./config/env/{env}/{filename}`.
+如果您需要特定环境的特定静态配置，并且使用环境变量会变得单调乏味，那么可以在 `./config/env/{env}/{filename}` 。
 
-These configurations will be merged into the base configurations defined in the `./config` folder.
-The environment is based on the `NODE_ENV` environment variable (defaults to `development`).
+这些配置将合并到 `./config` 文件夹。该环境基于 `NODE_ENV` 环境变量(默认为 `development`)。
 
-When starting Strapi with `NODE_ENV=production` it will load the configuration from `./config/*` and `./config/env/production/*`. Everything defined in the production config will override the default config.
+当使用 `NODE_ENV=production` 启动 Strapi 时，它将从 `./config/*` 和 `./config/env/production/*` 生产配置中定义的所有内容都将覆盖默认配置。
 
-In combination with environment variables this pattern becomes really powerful.
+结合环境变量，这种模式变得非常强大。
 
-Examples:
+例子:
 
 `./config/server.js`
 
@@ -446,7 +444,7 @@ module.exports = ({ env }) => ({
 });
 ```
 
-When starting your application:
+启动应用程序时:
 
 ```bash
 yarn start
@@ -463,33 +461,33 @@ HOST=10.0.0.1 NODE_ENV=production yarn start
 # uses host 10.0.0.1
 ```
 
-### Environment variables
+### 环境变量
 
-#### List of Strapi's environment variables
+#### Strapi 环境变量列表
 
-Some settings can only be modified through environment variables. Here is a list of those settings are associated environment variable names:
+有些设置只能通过环境变量进行修改。下面是这些设置的相关环境变量名称:
 
-| name                                 | description                                                                                                           | type    | default         |
-| ------------------------------------ | --------------------------------------------------------------------------------------------------------------------- | ------- | --------------- |
-| `STRAPI_DISABLE_UPDATE_NOTIFICATION` | Don't show the notification message about updating strapi in the terminal                                             | boolean | `false`         |
-| `STRAPI_HIDE_STARTUP_MESSAGE`        | Don't show the startup message in the terminal                                                                        | boolean | `false`         |
-| `STRAPI_TELEMETRY_DISABLED`          | Don't send telemetry usage data to Strapi                                                                             | boolean | `false`         |
-| `STRAPI_LOG_TIMESTAMP`               | Add the timestamp info in logs                                                                                        | boolean | `false`         |
-| `STRAPI_LOG_LEVEL`                   | Select the level of logs among `fatal`, `error`, `warn`, `info`, `debug`, `trace`                                     | string  | `'info'`        |
-| `STRAPI_LOG_FORCE_COLOR`             | Force colors to be displayed even in environments that are not supposed to have colors enabled (ex: outside of a TTY) | boolean | `true`          |
-| `STRAPI_LOG_PRETTY_PRINT`            | Log lines are displayed as text instead of as object                                                                  | boolean | `true`          |
-| `STRAPI_LICENSE`                     | The license key to activate the Enterprise Edition                                                                    | string  | `undefined`     |
-| `NODE_ENV`                           | Type of environment where the app is running                                                                          | string  | `'development'` |
-| `BROWSER`                            | Open the admin panel in the browser after startup                                                                     | boolean | `true`          |
-| `ENV_PATH`                           | Path to the file that contains your environment variables                                                             | string  | `'./.env'`      |
+| name                                 | description                                                     | type    | default         |
+| ------------------------------------ | --------------------------------------------------------------- | ------- | --------------- |
+| `STRAPI_DISABLE_UPDATE_NOTIFICATION` | 不要在终端显示关于更新 strapi 的通知消息                        | boolean | `false`         |
+| `STRAPI_HIDE_STARTUP_MESSAGE`        | 不要在终端显示启动消息                                          | boolean | `false`         |
+| `STRAPI_TELEMETRY_DISABLED`          | 不要向 Strapi 发送使用数据                                      | boolean | `false`         |
+| `STRAPI_LOG_TIMESTAMP`               | 在日志中添加时间戳信息                                          | boolean | `false`         |
+| `STRAPI_LOG_LEVEL`                   | 选择日志级别 `fatal`, `error`, `warn`, `info`, `debug`, `trace` | string  | `'info'`        |
+| `STRAPI_LOG_FORCE_COLOR`             | 强制颜色即使在不允许启用颜色的环境中也要显示(例如: 在 TTY 之外) | boolean | `true`          |
+| `STRAPI_LOG_PRETTY_PRINT`            | 日志行显示为文本而不是对象                                      | boolean | `true`          |
+| `STRAPI_LICENSE`                     | 激活企业版的许可证密钥                                          | string  | `undefined`     |
+| `NODE_ENV`                           | 应用程序运行的环境类型                                          | string  | `'development'` |
+| `BROWSER`                            | 启动后打开浏览器中的管理面板                                    | boolean | `true`          |
+| `ENV_PATH`                           | 包含环境变量的文件的路径                                        | string  | `'./.env'`      |
 
-#### Configuration using environment variables
+#### 使用环境变量的配置
 
-In most use cases you will have different configurations between your environments. For example: your database credentials.
+在大多数情况下，环境之间会有不同的配置。例如: 数据库凭据。
 
-Instead of writing those credentials into your configuration files, you can define those variables in a `.env` file at the root of your application.
+您可以在配置文件中定义这些变量，而不是将这些凭据写入配置文件。在应用程序的根目录下创建一个 `.env` 文件。
 
-**Example:**
+例子:\*\*
 
 **Path —** `.env`
 
@@ -497,15 +495,15 @@ Instead of writing those credentials into your configuration files, you can defi
 DATABASE_PASSWORD=acme
 ```
 
-If you want to customize the path of the `.env` file to load you can set an environment variable called `ENV_PATH` before starting your application:
+如果要自定义。在启动应用程序之前，你可以设置一个叫做 `ENV_PATH` 的环境变量文件 `.env`:
 
 ```sh
 $ ENV_PATH=/absolute/path/to/.env npm run start
 ```
 
-Now you can access those variables in your configuration files and application. You can use `process.env.{varName}` to access those variables anywhere.
+现在，您可以在配置文件和应用程序中访问这些变量。可以使用 `process.env.{varName}` 在任何地方访问这些变量。
 
-In your configuration files you will have access to a `env` utility that allows defining defaults and casting values.
+在您的配置文件中，您可以访问一个 `env` 实用程序，该实用程序允许定义默认值和强制转换值。
 
 **Path —** `./config/database.js`
 
@@ -521,7 +519,7 @@ module.exports = ({ env }) => ({
 });
 ```
 
-#### Casting environment variables
+#### 铸造环境变量
 
 ```js
 // Returns the env if defined without casting it
@@ -562,31 +560,32 @@ module.exports = ({ env }) => ({
 });
 ```
 
-#### Available options
+#### 可选方案
 
-| Property                      | Description                                                                                                                                                       | Type         | Default |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------- |
-| `responses`                   | Global API response configuration                                                                                                                                 | Object       |         |
-| `responses.privateAttributes` | Set of globally defined attributes to be treated as private. E.g. `_v` when using MongoDb or timestamps like `created_at`, `updated_at` can be treated as private | String array | `[]`    |
-| `rest`                        | REST API configuration                                                                                                                                            | Object       |         |
-| `rest.defaultLimit`           | Specifies default `_limit` parameter used in API calls                                                                                                            | Integer      | `100`   |
-| `rest.maxLimit`               | Specifies max allowed number that can be requested as `_limit`. Default to `null` which fetches all results                                                       | Integer      | `null`  |
+| Property                      | Description                                                                                                    | Type         | Default |
+| ----------------------------- | -------------------------------------------------------------------------------------------------------------- | ------------ | ------- |
+| `responses`                   | 全局 API 响应配置                                                                                              | Object       |         |
+| `responses.privateAttributes` | E.g. 一组全局定义的属性作为私有属性处理 `_v` 当使用 MongoDb 或时间戳时 `created_at`, `updated_at` 可以视为私有 | String array | `[]`    |
+| `rest`                        | REST API 配置                                                                                                  | Object       |         |
+| `rest.defaultLimit`           | 指定默认值 `_limit` API 调用中使用的参数                                                                       | Integer      | `100`   |
+| `rest.maxLimit`               | 指定可以请求的最大允许数字 `_limit`. 默认为 `null` 所有结果都会出来                                            | Integer      | `null`  |
 
-### Plugins
+### 插件
 
-A plugin is like a small independent sub-application. It has its own business logic with dedicated models, controllers, services, middlewares or hooks. It can also have its own UI integrated in the admin panel.
+插件就像一个小型的独立子应用程序。它有自己的业务逻辑，包括专用模型、控制器、服务、中间件或钩子。它还可以在管理面板中集成自己的 UI。
 
 ::: tip
-Please refer to the [plugins documentation](/developer-docs/latest/development/local-plugins-customization.md) for more information.
+
+更多信息请参考 [插件文档](/developer-docs/latest/development/local-plugins-customization.md) 。
 :::
 
-### Hooks
+### 钩子
 
-The hooks are modules that add functionality to the core. They are loaded during the server boot.
+钩子是向核心添加功能的模块，它们在服务器引导期间加载。
 
-#### Structure
+#### 结构
 
-##### File structure
+##### 文件结构
 
 ```js
 module.exports = strapi => {
@@ -613,18 +612,18 @@ module.exports = strapi => {
 };
 ```
 
-- `defaults` (object): Contains the default configurations.
-- `initialize` (function): Called during the server boot.
+- `defaults` (object): 包含默认配置.
+- `initialize` (function): 在服务器引导期间调用.
 
-The [configurations](#configuration-and-activation) of the hook are accessible through `strapi.config.hook.settings.**`.
+钩子的 [配置](#configuration-and-activation) 可以通过 `strapi.config.hook.settings.**` 访问。
 
-The hooks are accessible through the `strapi.hook` variable.
+钩子可以通过 `strapi.hook` 变量访问。
 
-##### Node modules
+##### 节点模块
 
-Every folder that follows this name pattern `strapi-hook-*` in your `./node_modules` folder will be loaded as a hook.
+在 `./node_modules` 文件夹中，遵循此名称模式 `strapi-hook-*` 的每个文件夹都将作为钩子加载。
 
-A hook needs to follow the structure below:
+钩子需要遵循下面的结构:
 
 ```
 /strapi-hook-[...]
@@ -635,11 +634,11 @@ A hook needs to follow the structure below:
 - README.md
 ```
 
-The `index.js` is the entry point to your hook. It should look like the example above.
+`index.js` 是钩子的入口点，它应该看起来像上面的例子。
 
-##### Custom local hooks
+##### 自定义本地钩子
 
-The framework allows loading hooks from the project directly without having to install them from npm. It's a great way to take advantage of the features of the hooks system for code that doesn't need to be shared between apps. To achieve this, you have to create a `./hooks` folder at the root of your project and put the hooks into it.
+框架允许直接从项目加载钩子，而不必从 npm 安装钩子。这是一个很好的方法，可以利用钩子系统的特性来编写不需要在应用程序之间共享的代码。要做到这一点，你必须创建一个 `./hooks` 文件夹放在项目的根目录下，并将 hooks 放入其中。
 
 ```
 /project
@@ -658,9 +657,9 @@ The framework allows loading hooks from the project directly without having to i
 - server.js
 ```
 
-#### Configuration and activation
+#### 配置和激活
 
-To activate and configure hooks with custom options, you need to add/edit your `./config/hook.js` file in your Strapi app. A hook specific timeout value will overwrite the global timeout value, the default `timeout` value is 1000 milliseconds.
+要使用自定义选项激活和配置钩子，您需要添加/编辑您的 `./config/hook.js` 文件放在 Strapi 应用程序中。钩子特定的 `timeout` 值将覆盖全局超时值，默认超时值为 1000 毫秒。
 
 ```js
 module.exports = {
@@ -674,13 +673,13 @@ module.exports = {
 };
 ```
 
-### Middlewares
+### 中间件
 
-The middlewares are functions which are composed and executed in a stack-like manner upon request. If you are not familiar with the middleware stack in Koa, we highly recommend you to read the [Koa's documentation introduction](http://koajs.com/#introduction).
+中间件是根据请求以类似堆栈的方式组合和执行的函数。如果您不熟悉 Koa 的中间件堆栈，我们强烈建议您阅读 [Koa 介绍文档](http://koajs.com/#introduction) 。
 
-#### Structure
+#### 结构
 
-##### File structure
+##### 文件结构
 
 ```js
 module.exports = strapi => {
@@ -699,15 +698,15 @@ module.exports = strapi => {
 };
 ```
 
-- `initialize` (function): Called during the server boot.
+- `initialize` (function): 在服务器引导期间调用.
 
-The middlewares are accessible through the `strapi.middleware` variable.
+中间件可以通过 `strapi.middleware` 变量访问。
 
-##### Node modules
+##### NodeJS 模块
 
-Every folder that follows this name pattern `strapi-middleware-*` in your `./node_modules` folder will be loaded as a middleware.
+在 `./node_modules` 文件夹中，遵循此名称模式的 `strapi-middleware-*` 每个文件夹都将作为中间件加载。
 
-A middleware needs to follow the structure below:
+中间件需要遵循以下结构:
 
 ```
 /middleware
@@ -718,11 +717,11 @@ A middleware needs to follow the structure below:
 - README.md
 ```
 
-The `index.js` is the entry point to your middleware. It should look like the example above.
+`index.js` 是您的中间件的入口点，它应该类似于上面的例子。
 
-##### Custom middlewares
+##### 自定义中间件
 
-The framework allows the application to override the default middlewares and add new ones. You have to create a `./middlewares` folder at the root of your project and put the middlewares into it.
+该框架允许应用程序覆盖默认中间件并添加新中间件。你必须创建一个 `./middlewares` 文件夹放在项目的根目录下，并将中间件放入其中。
 
 ```
 /project
@@ -739,25 +738,25 @@ The framework allows the application to override the default middlewares and add
 - server.js
 ```
 
-Every middleware will be injected into the Koa stack. To manage the load order, please refer to the [Middleware order section](#load-order).
+每一个中间件都将被注入到 Koa 堆栈中。要管理加载订单，请参阅 [中间件订单部分](#load-order) 。
 
-#### Configuration and activation
+#### 配置和激活
 
-To configure the middlewares of your application, you need to create or edit the `./config/middleware.js` file in your Strapi app.
+要配置应用程序的中间件，需要在 Strapi 应用程序中创建或编辑 `./config/middleware.js` 文件。
 
-By default this file doesn't exist, you will have to create it.
+默认情况下，这个文件不存在，您必须创建它。
 
-**Available options**
+可选方案
 
-- `timeout` (integer): Defines the maximum allowed milliseconds to load a middleware.
-- `load` (Object): Configuration middleware loading. See details [here](#load-order)
-- `settings` (Object): Configuration of each middleware
-  - `{middlewareName}` (Object): Configuration of one middleware
-    - `enabled` (boolean): Tells Strapi to run the middleware or not
+- `timeout` (integer): 定义加载中间件所允许的最大毫秒.
+- `load` (Object): 请参阅详细信息 [here](#load-order)
+- `settings` (Object): 每个中间件的配置
+  - `{middlewareName}` (Object): 配置一个中间件
+    - `enabled` (boolean): 告诉 Strapi 是否运行中间件
 
-##### Settings
+##### 设置
 
-**Example**:
+例子:
 
 **Path —** `./config/middleware.js`.
 
@@ -772,9 +771,9 @@ module.exports = {
 };
 ```
 
-##### Load order
+##### 加载顺序
 
-The middlewares are injected into the Koa stack asynchronously. Sometimes it happens that some of these middlewares need to be loaded in a specific order. To define a load order, create or edit the file `./config/middleware.js`.
+中间件被异步注入到 Koa 堆栈中。有时候这些中间件需要按照特定的顺序加载。若要定义加载顺序，请创建或编辑文件 `./config/middleware.js` .
 
 **Path —** `./config/middleware.js`.
 
@@ -791,13 +790,13 @@ module.exports = {
 ```
 
 - `load`:
-  - `before`: Array of middlewares that need to be loaded in the first place. The order of this array matters.
-  - `order`: Array of middlewares that need to be loaded in a specific order.
-  - `after`: Array of middlewares that need to be loaded at the end of the stack. The order of this array matters.
+  - `before`: 首先需要加载的中间件数组。这个数组的顺序很重要.
+  - `order`: 需要按特定顺序加载的中间件数组.
+  - `after`: 需要在堆栈末尾加载的中间件数组。这个数组的顺序很重要.
 
-#### Core middleware configurations
+#### 核心中间件配置
 
-The core of Strapi embraces a small list of middlewares for performances, security and great error handling.
+Strapi 的核心包括了一小部分中间件，用于性能、安全和大错误处理。
 
 - boom
 - cors
@@ -820,87 +819,90 @@ The core of Strapi embraces a small list of middlewares for performances, securi
 - xss
 
 ::: tip
-The following middlewares cannot be disabled: responses, router, logger and boom.
+
+无法禁用下列中间件: responses, router, logger and boom.
 :::
 
-##### Global middlewares
+##### 全局中间件
 
 - `favicon`
-  - `path` (string): Path to the favicon file. Default value: `favicon.ico`.
-  - `maxAge` (integer): Cache-control max-age directive in ms. Default value: `86400000`.
+  - `path` (string): 图标文件的路径. 默认值: `favicon.ico`.
+  - `maxAge` (integer): Cache-control max-age 指令. 默认值 毫秒: `86400000`.
 - `public`
-  - `path` (string): Path to the public folder. Default value: `./public`.
-  - `maxAge` (integer): Cache-control max-age directive in ms. Default value: `60000`.
-  - `defaultIndex` (boolean): Display default index page at `/` and `/index.html`. Default value: `true`.
+  - `path` (string): 公用文件夹的路径: `./public`.
+  - `maxAge` (integer): Cache-control max-age 指令. 默认值 毫秒: `60000`.
+  - `defaultIndex` (boolean): 将缺省索引页面显示为 `/` 和 `/index.html`. 默认值: `true`.
 
-##### Request middlewares
+##### 请求中间件
 
 - `session`
-  - `enabled` (boolean): Enable or disable sessions. Default value: `false`.
+  - `enabled` (boolean): 启用或禁用会话. 默认值: `false`.
 - `logger`
-  - `level` (string): Default log level. Default value: `debug`.
-  - `exposeInContext` (boolean): Expose logger in context so it can be used through `strapi.log.info(‘my log’)`. Default value: `true`.
-  - `requests` (boolean): Enable or disable requests logs. Default value: `false`.
-- `parser` (See [koa-body](https://github.com/dlau/koa-body#options) for more information)
-  - `enabled`(boolean): Enable or disable parser. Default value: `true`.
-  - `multipart` (boolean): Enable or disable multipart bodies parsing. Default value: `true`.
-  - `jsonLimit` (string|integer): The byte (if integer) limit of the JSON body. Default value: `1mb`.
-  - `formLimit` (string|integer): The byte (if integer) limit of the form body. Default value: `56k`.
-  - `queryStringParser` (see [qs](https://github.com/ljharb/qs) for a full list of options).
-    - `arrayLimit` (integer): the maximum length of an array in the query string. Any array members with an index of greater than the limit will instead be converted to an object with the index as the key. Default value: `100`.
-    - `depth` (integer): maximum parsing depth of nested query string objects. Default value: `20`.
+  - `level` (string): 默认日志级别. 默认值: `debug`.
+  - `exposeInContext` (boolean): Expose logger in context so it can be used through `strapi.log.info(‘my log’)`. 默认值: `true`.
+  - `requests` (boolean): 在上下文中暴露日志记录器. 默认值: `false`.
+- `parser` (See [koa-body](https://github.com/dlau/koa-body#options) 了解详情)
+  - `enabled`(boolean): 启用或禁用 解析器. 默认值: `true`.
+  - `multipart` (boolean): 启用或禁用 multipart bodies 解析. 默认值: `true`.
+  - `jsonLimit` (string|integer): The byte (if integer) 限制 JSON body. 默认值: `1mb`.
+  - `formLimit` (string|integer): The byte (if integer) 限制 form body. 默认值: `56k`.
+  - `queryStringParser` (看 [qs](https://github.com/ljharb/qs) 以获取完整的选项列表).
+    - `arrayLimit` (integer): 查询字符串中数组的最大长度。索引大于限制的任何数组成员都将转换为索引作为键的对象。默认值: `100`.
+    - `depth` (integer): 嵌套查询字符串对象的最大解析深度. 默认值: `20`.
 
 ::: tip
-The session doesn't work with `mongo` as a client. The package that we should use is broken for now.
+
+这个会话在 `mongo` 作为客户机时不起作用。我们应该使用的包现在已经坏了。
 :::
 
-##### Response middlewares
+##### 响应中间件
 
 - [`gzip`](https://en.wikipedia.org/wiki/Gzip)
-  - `enabled` (boolean): Enable or not GZIP response compression.
-  - `options` (Object): Allow passing of options from [koa-compress](https://github.com/koajs/compress#options).
+  - `enabled` (boolean): 启用或不启用 GZIP 响应压缩.
+  - `options` (Object): 允许从 [koa-compress](https://github.com/koajs/compress#options).
 - `responseTime`
-  - `enabled` (boolean): Enable or not `X-Response-Time header` to response. Default value: `false`.
+  - `enabled` (boolean): 允许或不允许 `X-Response-Time header` to response. 默认值: `false`.
 - `poweredBy`
-  - `enabled` (boolean): Enable or not `X-Powered-By` header to response. Default value: `true`.
-  - `value` (string): The value of the header. Default value: `Strapi <strapi.io>`
+  - `enabled` (boolean): 允许或不允许 `X-Powered-By` header to response. 默认值: `true`.
+  - `value` (string): 头部的值. 默认值: `Strapi <strapi.io>`
 
 ::: tip
-`gzip` compression via `koa-compress` uses [Brotli](https://en.wikipedia.org/wiki/Brotli) by default, but is not configured with sensible defaults for most cases. If you experience slow response times with `gzip` enabled, consider disabling Brotli by passing `{br: false}` as an option. You may also pass more sensible params with `{br: { params: { // YOUR PARAMS HERE } }}`
+
+通过 `koa-compress` 压缩的 `gzip` 在默认情况下使用 [Brotli](https://en.wikipedia.org/wiki/Brotli) ，但在大多数情况下没有使用合理的默认配置。如果您在启用 `gzip` 时遇到响应速度慢的问题，可以考虑通过传递 `{br: false}` 作为一个选项来禁用 Brotli。还可以使用 `{br: { params: { // YOUR PARAMS HERE } }}` 传递更合理的 PARAMS
 :::
 
-##### Security middlewares
+##### 安全中间件
 
 - [`csp`](https://en.wikipedia.org/wiki/Content_Security_Policy)
-  - `enabled` (boolean): Enable or disable CSP to avoid Cross Site Scripting (XSS) and data injection attacks.
-  - `policy` (string): Configures the `Content-Security-Policy` header. If not specified uses default value. Default value: `undefined`.
+  - `enabled` (boolean): 启用或禁用 CSP 以避免 XSS 跨网站脚本攻击和数据注入攻击.
+  - `policy` (string): 配置 `Content-Security-Policy` 响应头. 如果没有指定，则使用默认值: `undefined`.
 - [`p3p`](https://en.wikipedia.org/wiki/P3P)
-  - `enabled` (boolean): Enable or disable p3p.
+  - `enabled` (boolean): 启用或禁用 p3p.
 - [`hsts`](https://en.wikipedia.org/wiki/HTTP_Strict_Transport_Security)
-  - `enabled` (boolean): Enable or disable HSTS.
-  - `maxAge` (integer): Number of seconds HSTS is in effect. Default value: `31536000`.
-  - `includeSubDomains` (boolean): Applies HSTS to all subdomains of the host. Default value: `true`.
+  - `enabled` (boolean): 启用或禁用 HSTS.
+  - `maxAge` (integer): 生效的秒数 HSTS. 默认值: `31536000`.
+  - `includeSubDomains` (boolean): 将 HSTS 应用于主机的所有子域. 默认值: `true`.
 - [`xframe`](https://en.wikipedia.org/wiki/Clickjacking)
-  - `enabled` (boolean): Enable or disable `X-FRAME-OPTIONS` headers in response.
-  - `value` (string): The value for the header, e.g. DENY, SAMEORIGIN or ALLOW-FROM uri. Default value: `SAMEORIGIN`.
+  - `enabled` (boolean): 启用或禁用 `X-FRAME-OPTIONS` 响应头.
+  - `value` (string): 头部的值, e.g. DENY, SAMEORIGIN or ALLOW-FROM uri. 默认值: `SAMEORIGIN`.
 - [`xss`](https://en.wikipedia.org/wiki/Cross-site_scripting)
-  - `enabled` (boolean): Enable or disable XSS to prevent Cross Site Scripting (XSS) attacks in older IE browsers (IE8).
+  - `enabled` (boolean): 启用或禁用 XSS 来防止旧版 IE 浏览器(IE8)中的跨网站脚本攻击.
 - [`cors`](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing)
-  - `enabled` (boolean): Enable or disable CORS to prevent your server to be requested from another domain.
-  - `origin` (string or array): Allowed URLs (`http://example1.com, http://example2.com`, `['http://www.example1.com', 'http://example1.com']` or allows everyone `*`). Default value: `*`.
-  - `expose` (array): Configures the `Access-Control-Expose-Headers` CORS header. If not specified, no custom headers are exposed. Default value: `["WWW-Authenticate", "Server-Authorization"]`.
-  - `maxAge` (integer): Configures the `Access-Control-Max-Age` CORS header. Default value: `31536000`.
-  - `credentials` (boolean): Configures the `Access-Control-Allow-Credentials` CORS header. Default value: `true`.
-  - `methods` (array)|String - Configures the `Access-Control-Allow-Methods` CORS header. Default value: `["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"]`.
-  - `headers` (array): Configures the `Access-Control-Allow-Headers` CORS header. If not specified, defaults to reflecting the headers specified in the request's Access-Control-Request-Headers header. Default value: `["Content-Type", "Authorization", "X-Frame-Options"]`.
+  - `enabled` (boolean): 启用或禁用 CORS 以防止您的服务器从其他域请求.
+  - `origin` (string or array): Allowed URLs (`http://example1.com, http://example2.com`, `['http://www.example1.com', 'http://example1.com']` or allows everyone `*`). 默认值: `*`.
+  - `expose` (array): 配置 `Access-Control-Expose-Headers` CORS header. If not specified, no custom headers are exposed. 默认值: `["WWW-Authenticate", "Server-Authorization"]`.
+  - `maxAge` (integer): 配置 `Access-Control-Max-Age` CORS header. 默认值: `31536000`.
+  - `credentials` (boolean): 配置 `Access-Control-Allow-Credentials` CORS header. 默认值: `true`.
+  - `methods` (array)|String - 配置 `Access-Control-Allow-Methods` CORS header. 默认值: `["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS", "HEAD"]`.
+  - `headers` (array): 配置 `Access-Control-Allow-Headers` CORS header. If not specified, defaults to reflecting the headers specified in the request's Access-Control-Request-Headers header. 默认值: `["Content-Type", "Authorization", "X-Frame-Options"]`.
 - `ip`
-  - `enabled` (boolean): Enable or disable IP blocker. Default value: `false`.
-  - `whiteList` (array): Whitelisted IPs. Default value: `[]`.
-  - `blackList` (array): Blacklisted IPs. Default value: `[]`.
+  - `enabled` (boolean): 启用或禁用 IP blocker. 默认值: `false`.
+  - `whiteList` (array): Whitelisted IPs. 默认值: `[]`.
+  - `blackList` (array): Blacklisted IPs. 默认值: `[]`.
 
-#### Example
+#### 例子
 
-Create your custom middleware.
+创建自定义中间件.
 
 **Path —** `./middlewares/timer/index.js`
 
@@ -922,9 +924,9 @@ module.exports = strapi => {
 };
 ```
 
-Enable the middleware in environments settings.
+在环境设置中启用中间件.
 
-Load a middleware at the very first place
+首先加载一个中间件
 
 **Path —** `./config/middleware.js`
 
@@ -945,11 +947,11 @@ module.exports = {
 };
 ```
 
-### Functions
+### 功能
 
-The `./config/functions/` folder contains a set of JavaScript files in order to add dynamic and logic based configurations.
+`./config/functions/` 包含一组 JavaScript 文件，以便添加动态和基于逻辑的配置。
 
-All functions that are exposed in this folder are accessible via `strapi.config.functions['fileName']();`
+可以通过 `strapi.config.functions['fileName']();` 访问该文件夹中公开的所有函数;
 
 <!-- The text above will be identified as a broken link by the check-links VuePress plugin, because its syntax looks like an empty link. You can safely ignore the error. -->
 
@@ -957,17 +959,17 @@ All functions that are exposed in this folder are accessible via `strapi.config.
 
 **Path —** `./config/functions/bootstrap.js`.
 
-The `bootstrap` function is called at every server start. You can use it to add a specific logic at this moment of your server's lifecycle.
+`bootstrap` 函数在每个服务器启动时调用。您可以使用它在服务器生命周期的此时添加特定的逻辑。
 
-Here are some use cases:
+下面是一些用例:
 
-- Create an admin user if there isn't one.
-- Fill the database with some necessary data.
-- Load some environment variables.
+- 创建一个管理员用户，如果没有的话.
+- 用一些必要的数据填充数据库.
+- 加载一些环境变量.
 
-The bootstrap function can be synchronous or asynchronous.
+引导函数可以是同步或异步的.
 
-**Synchronous**
+**同步**
 
 ```js
 module.exports = () => {
@@ -975,7 +977,7 @@ module.exports = () => {
 };
 ```
 
-**Return a promise**
+**返回 promise 函数**
 
 ```js
 module.exports = () => {
@@ -983,7 +985,7 @@ module.exports = () => {
 };
 ```
 
-**Asynchronous**
+**异步**
 
 ```js
 module.exports = async () => {
@@ -991,17 +993,18 @@ module.exports = async () => {
 };
 ```
 
-#### CRON tasks
+#### CRON 任务
 
-CRON tasks allow you to schedule jobs (arbitrary functions) for execution at specific dates, with optional recurrence rules. It only uses a single timer at any given time (rather than reevaluating upcoming jobs every second/minute).
+CRON 任务允许您使用可选的循环规则为特定日期的执行调度作业(任意函数)。它在任何给定的时间只使用一个计时器(而不是每秒/分钟重新评估即将到来的作业)。
 
-This feature is powered by [`node-schedule`](https://www.npmjs.com/package/node-schedule) node modules. Check it for more information.
+此功能由 [`node-schedule`](https://www.npmjs.com/package/node-schedule) 模块提供，点击了解详情。
 
 ::: warning
-Make sure the `enabled` cron config is set to `true` in `./config/server.js` file.
+
+确保 `enabled` 的 cron 配置在 `./config/server.js` 文件中设置为 true。
 :::
 
-The cron format consists of:
+Cron 格式:
 
 ```
 *    *    *    *    *    *
@@ -1015,7 +1018,7 @@ The cron format consists of:
 └───────────────────────── second (0 - 59, OPTIONAL)
 ```
 
-To define a CRON job, add your logic like below:
+要定义 CRON 作业，添加如下逻辑:
 
 **Path —** `./config/functions/cron.js`.
 
@@ -1032,7 +1035,7 @@ module.exports = {
 };
 ```
 
-If your CRON task is required to run based on a specific timezone then you can configure the task like below:
+如果您的 CRON 任务需要基于特定的时区运行，那么您可以像下面这样配置任务:
 
 ```js
 module.exports = {
@@ -1053,17 +1056,17 @@ module.exports = {
 };
 ```
 
-#### Database ORM customization
+#### 数据库 ORM 定制
 
-When present, they are loaded to let you customize your database connection instance, for example for adding some plugin, customizing parameters, etc.
+当出现这些插件时，它们会被加载，以便您可以自定义数据库连接实例，例如添加一些插件、自定义参数等。
 
-You will need to install the plugin using the normal `npm install the-plugin-name` or any of the other supported package tools such as yarn then follow the below examples to load them.
+你需要使用正常的 `npm install the-plugin-name` 或者其他支持的包工具(比如 yarn)来安装插件，然后按照下面的例子来加载它们。
 
 :::: tabs
 
 ::: tab Mongoose
 
-As an example, for using the `mongoose-simple-random` plugin for MongoDB, you can register it like this:
+举个例子，对于使用 MongoDB 的 `mongoose-simple-random` 插件，你可以这样注册:
 
 **Path —** `./config/functions/mongoose.js`.
 
@@ -1081,7 +1084,7 @@ module.exports = (mongoose, connection) => {
 
 ::: tab Bookshelf
 
-Another example would be using the `bookshelf-uuid` plugin for MySQL, you can register it like this:
+另一个例子是为 MySQL 使用 `bookshelf-uuid` 插件，你可以这样注册它:
 
 **Path —** `./config/functions/bookshelf.js`.
 
@@ -1097,49 +1100,52 @@ module.exports = (bookshelf, connection) => {
 
 ::::
 
-### Public assets
+### 公共资产
 
-Public assets are static files such as images, video, css, etc. that you want to make accessible to the outside world.
+公共资产是静态文件，如 images, video, css, etc，您希望外部世界可以访问这些文件。
 
-Because an API may need to serve static assets, every new Strapi project includes by default, a folder named `/public`. Any file located in this directory is accessible if the request's path doesn't match any other defined route and if it matches a public file name.
+因为 API 可能需要为静态资产服务，所以每个新的 Strapi 项目默认都包含一个名为 `/public` 的文件夹。如果请求的路径与任何其他已定义的路由不匹配，并且与公共文件名匹配，则可以访问位于此目录中的任何文件。
 
-Example:
+例子:
 
-An image named `company-logo.png` in `./public/` is accessible through `/company-logo.png` URL.
+可以通过 `/company-logo.png` URL 访问名为 `company-logo.png` 在 `./public/` 目录下的图像。
 
 ::: tip
-`index.html` files are served if the request corresponds to a folder name (`/pictures` url will try to serve `public/pictures/index.html` file).
+
+如果请求对应于一个文件夹名称( `/pictures` url 将尝试提供 `public/pictures/index.html` 文件) ，那么将提供 `index.html` 文件。
 :::
 
 ::: warning
-The dotfiles are not exposed. It means that every file name that starts with `.`, such as `.htaccess` or `.gitignore`, are not served.
+
+`.` 开头的都是隐藏文件，不对外公开。例如 `.htaccess` 或 `.gitignore` 不能访问。
 :::
 
-### Single Sign On <GoldBadge link="https://strapi.io/pricing/" withLinkIcon />
+### 单点登录 <GoldBadge link="https://strapi.io/pricing/" withLinkIcon />
 
-***
+---
 
-Single-Sign-On on Strapi allows you to configure additional sign-in and sign-up methods for your administration panel.
+Strapi 上的单点登录允许您为管理面板配置额外的登录和注册方法。
 
-::: warning CAUTION
-It is currently not possible to associate a unique SSO provider to an email address used for a Strapi account, meaning that the access to a Strapi account cannot be restricted to only one SSO provider. For more information and workarounds to solve this issue, [please refer to the dedicated GitHub issue](https://github.com/strapi/strapi/issues/9466#issuecomment-783587648).
+::: warning 注意
+
+目前不可能将唯一的 SSO 提供者与用于 Strapi 帐户的电子邮件地址关联，这意味着对 Strapi 帐户的访问不能仅限于一个 SSO 提供者。有关解决这个问题的更多信息和解决方法，请参考 [专门的 GitHub issue](https://github.com/strapi/strapi/issues/9466#issuecomment-783587648) 。
 :::
 
-#### Prerequisites
+#### 先决条件
 
-- A Strapi application running on version 3.5.0 or higher is required.
-- To configure SSO on your application, you will need an EE license with a Gold plan.
-- Make sure Strapi is part of the applications you can access with your provider. For example, with Microsoft (Azure) Active Directory, you must first ask someone with the right permissions to add Strapi to the list of allowed applications. Please refer to your provider(s) documentation to learn more about that.
+- 需要在3.5.0或更高版本上运行 Strapi 应用程序.
+- 要在应用程序上配置 SSO，您将需要一个带有 Gold 计划的 EE 许可证.
+- 确保 Strapi 是您可以通过供应商访问的应用程序的一部分。例如，使用 Microsoft (Azure) Active Directory，您必须首先询问具有正确权限的人，以便将 Strapi 添加到允许的应用程序列表中。请参考您的提供商文档以了解更多相关信息
 
-#### Usage
+#### 用法
 
-SSO configuration lives in the server configuration of your application found within `/config/server.js`.
+SSO 配置存在于 `/config/server.js` 中应用程序的服务器配置中。
 
-##### Accessing the configuration
+##### 访问配置
 
-The providers' configuration should be written within the `admin.auth.providers` path of the server configuration.
+提供者的配置应该在服务器配置的 `admin.auth.providers` 路径中编写。
 
-`admin.auth.providers` is an array of [provider configuration](#provider-configuration).
+`admin.auth.providers` 是以数组的方式配置 [provider 配置](#provider-configuration).
 
 ```javascript
 module.exports = ({ env }) => ({
@@ -1153,79 +1159,81 @@ module.exports = ({ env }) => ({
 });
 ```
 
-##### Provider Configuration
+##### Provider 配置
 
-A provider's configuration is a Javascript object built with the following properties:
+Provider 提供者的配置是一个 Javascript 对象，它具有以下属性:
 
-| Name             | Required | Type     | Description                                                                                                            |
-| ---------------- | -------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| `uid`            | true     | string   | The UID of the strategy. It must match the strategy's name                                                             |
-| `displayName`    | true     | string   | The name that will be used on the login page to reference the provider                                                 |
-| `icon`           | false    | string   | An image URL. If specified, it will replace the displayName on the login page                                          |
-| `createStrategy` | true     | function | A factory that will build and return a new passport strategy for your provider. Takes the strapi instance as parameter |
+| Name             | Required | Type     | Description                                                  |
+| ---------------- | -------- | -------- | ------------------------------------------------------------ |
+| `uid`            | true     | string   | 策略的 UID。它必须匹配策略的名称                             |
+| `displayName`    | true     | string   | 将在登录页面上用于引用提供程序的名称                         |
+| `icon`           | false    | string   | 一个图像 URL。如果指定，它将替换登录页面上的 `displayName`   |
+| `createStrategy` | true     | function | 工厂函数，它将为您的供应商构建并返回一个新的 `passport` 策略 |
 
 ::: tip
-The `uid` property is the unique identifier of each strategy and is generally found in the strategy's package. If you are not sure of what it refers to, please contact the maintainer of the strategy.
+
+`uid` 属性是每个 strategy 的唯一标识符，通常可以在 strategy 包中找到。如果您不确定它指的是什么，请与策略的维护人员联系。
 :::
 
 ###### The `createStrategy` Factory
 
-A passport strategy is usually built by instantiating it using 2 parameters: the configuration object, and the verify function.
+Passport 策略通常使用两个参数实例化它: 配置对象和验证函数。
 
 <!-- Title below is supposed to be an h7, so one level deeper than "The `createStrategy` Factory. But h7 is not a thing, so using bold instead. 🤷 -->
-**Configuration Object**
 
-The configuration object depends on the strategy needs, but often asks for a callback URL to be redirected to once the connection has been made on the provider side.
+**配置对象**
 
-You can generate a specific callback URL for your provider using the `getStrategyCallbackURL` method. This URL also needs to be written on the provider side in order to allow redirection from it.
+配置对象取决于 strategy 需求，但通常要求在提供者端建立连接后将回调 URL 重定向到。
 
-The format of the callback URL is the following: `/admin/connect/<provider_uid>`.
+可以使用 `getStrategyCallbackURL` 方法为提供程序生成特定的回调 URL。这个 URL 也需要写在提供者端，以便允许从它重定向。
+
+回调 URL 的格式如下: `/admin/connect/<provider_uid>` 。
 
 ::: tip
-`strapi.admin.services.passport.getStrategyCallbackURL` is a Strapi helper you can use to get a callback URL for a specific provider. It takes a provider name as a parameter and returns a URL.
+
+`strapi.admin.services.passport.getStrategyCallbackURL`  是一个 Strapi 帮助器，您可以使用它获取特定提供者的回调 URL。它接受提供程序名称作为参数并返回 URL。
 :::
 
-If needed, this is also where you will put your client ID and secret key for your OAuth2 application.
+如果需要，这也是为 OAuth2 应用程序放置客户机 ID 和密钥的地方。
 
-**Verify Function**
+**验证功能**
 
-The verify function is used here as a middleware allowing the user to transform and make extra processing on the data returned from the provider API.
+这里使用 verify 函数作为中间件，允许用户对从提供者 API 返回的数据进行转换和额外处理。
 
-This function always takes a `done` method as last parameter which is used to transfer needed data to the Strapi layer of SSO.
+这个函数总是以一个 `done` 方法作为最后的参数，用于将需要的数据传输到 SSO 的 Strapi 层。
 
-Its signature is the following: `void done(error: any, data: object);` and it follows the following rules:
+它的签名如下:`void done(error: any, data: object);` 它遵循以下规则:
 
-- If `error` is not set to `null`, then the data sent is ignored, and the controller will throw an error.
-- If the SSO's auto-registration feature is disabled, then the `data` object only need to be composed of an `email` property.
-- If the SSO's auto-registration feature is enabled, then you will need to define (in addition to the `email`) either a `username` property or both `firstname` and `lastname` within the `data` oject.
+- 如果 `error` 没有设置 `null`, 然后发送的数据被忽略，控制器将抛出一个错误.
+- 如果 SSO 的自动注册特性被禁用，则 `data` 对象只需要由 `email` 适配.
+- 如果启用了SSO的自动注册功能，那么您将需要（除了 `email` 之外）定义一个 `username` 属性，或者在 `data` 对象中定义 `firstname` 和 `lastname` 。
 
-###### Adding a provider
+###### 添加一个 provider
 
-Adding a new provider means adding a new way for your administrators to log-in.
+添加新的提供程序意味着为管理员添加登录的新方法。
 
-To achieve a great flexibility and a large choice of provider, Strapi uses [Passport.js](http://www.passportjs.org/). Any valid passport strategy that doesn't need additional custom data should therefore work with Strapi.
+为了获得更大的灵活性和更多的供应商选择，Strapi 使用了 [Passport.js](http://www.passportjs.org/) 。因此，任何不需要额外自定义数据的有效护照策略都应该与 Strapi 协同工作。
 
 ::: warning
-Strategies such as [ldapauth](https://github.com/vesse/passport-ldapauth) don't work out of the box since they require extra data to be sent from the admin panel.
-If you want to add an LDAP provider to your application, you will need to write a [custom strategy](http://www.passportjs.org/packages/passport-custom/).
-You can also use services such as Okta and Auth0 as bridge services.
+
+像 [ldapauth](https://github.com/vesse/passport-ldapauth)  这样的策略不能立即生效，因为它们需要从管理面板发送额外的数据。如果希望向应用程序添加 LDAP 提供程序，则需要编写 [custom strategy](http://www.passportjs.org/packages/passport-custom/) 。你也可以使用 `Okta` 和 `Auth0` 等服务作为桥接服务。
 :::
 
-###### Configuring the provider
+###### 配置 provider
 
-To configure a provider, follow the procedure below:
+要配置提供者，请遵循以下步骤:
 
-1. Make sure to import your strategy in your server configuration file, either from an installed package or a local file.
-2. You'll need to add a new item to the `admin.auth.providers` array in your server configuration that will match the [format given above](#provider-configuration)
-3. Restart your application, the provider should appear on your admin login page.
+1. 请确保从已安装的包或本地文件导入服务器配置文件中的策略.
+2. 你需要添加一个新项到 `admin.auth.providers` 在服务器配置中使用匹配 [format given above](#provider-configuration)
+3. 重新启动应用程序，提供商应该出现在您的管理员登录页面.
 
-##### Examples
+##### 例子
 
 :::::: tabs
 
 ::::: tab Google
 
-Using: [passport-google-oauth2](https://github.com/mstade/passport-google-oauth2)
+使用: [passport-google-oauth2](https://github.com/mstade/passport-google-oauth2)
 
 :::: tabs
 
@@ -1293,7 +1301,7 @@ module.exports = ({ env }) => ({
 
 ::::: tab Github
 
-Using: [passport-github](https://github.com/cfsghost/passport-github)
+使用: [passport-github](https://github.com/cfsghost/passport-github)
 
 :::: tabs
 
@@ -1359,7 +1367,7 @@ module.exports = ({ env }) => ({
 
 ::::: tab Discord
 
-Using: [passport-discord](https://github.com/nicholastay/passport-discord#readme)
+使用: [passport-discord](https://github.com/nicholastay/passport-discord#readme)
 
 :::: tabs
 
@@ -1424,7 +1432,7 @@ module.exports = ({ env }) => ({
 :::::
 ::::: tab Microsoft
 
-Using: [passport-azure-ad-oauth2](https://github.com/auth0/passport-azure-ad-oauth2#readme)
+使用: [passport-azure-ad-oauth2](https://github.com/auth0/passport-azure-ad-oauth2#readme)
 
 :::: tabs
 
@@ -1495,14 +1503,13 @@ module.exports = ({ env }) => ({
 :::::
 ::::::
 
-##### Advanced Customization
+##### 高级定制
 
-###### Admin Panel URL
+###### 管理面板网址
 
-If your administration panel lives on a different host/port than your Strapi server, you will need to modify the admin URL.
-To do so, head to your `/config/server.js` configuration file and tweak the `admin.url` field.
+如果管理面板所在的主机/端口与 Strapi 服务器不同，则需要修改管理 URL。为此，请转到 `/config/server.js` 配置文件并调整 `admin.url` 字段。
 
-For example, if your admin application has been started on `https://api.example.com`, your configuration will look like the following:
+例如，如果你的管理应用程序是在 `https://api.example.com` 上启动的，那么你的配置如下所示:
 
 `/config/server.js`
 
@@ -1516,17 +1523,17 @@ module.exports = () => ({
 });
 ```
 
-###### Custom Logic
+###### 自定义逻辑
 
-In some scenarios, you will want to write additional logic for your connection workflow such as:
+在某些情况下，您需要为您的连接工作流编写额外的逻辑，例如:
 
-- Restricting connection and registration for a specific domain
-- Triggering actions on connection attempt
-- Analytics
+- 限制特定域的连接和注册
+- 触发连接尝试的动作
+- 分析
 
-The easiest way to do so is to plug into the verify function of your strategy and write some code.
+最简单的方法是插入您的策略的 verify 函数并编写一些代码。
 
-For example, if you want to allow only people with an official strapi.io email address, you can instantiate your strategy like this:
+例如，如果你想只允许拥有官方 strapi.io 电子邮件地址的人，你可以这样实例化你的策略:
 
 ```javascript
 const strategyInstance = new Strategy(configuration, ({ email, username }, done) => {
@@ -1541,14 +1548,13 @@ const strategyInstance = new Strategy(configuration, ({ email, username }, done)
 });
 ```
 
-###### Authentication Events
+###### 认证事件
 
-The SSO feature adds a new [authentication event](/developer-docs/latest/setup-deployment-guides/configurations.md#available-options): `onSSOAutoRegistration`.
+SSO 特性添加了一个新的 [身份验证事件](/developer-docs/latest/setup-deployment-guides/configurations.md#available-options): `onSSOAutoRegistration`.
 
-This event is triggered whenever a user is created using the auto-register feature added by SSO.
-It contains the created user (`event.user`), and the provider used to make the registration (`event.provider`).
+每当使用 SSO 添加的自动注册特性创建用户时，都会触发此事件。它包含创建的用户(`event.user`)和用于进行注册的提供程序(event.provider)。
 
-Example:
+例子:
 
 `/config/server.js`
 
@@ -1575,3 +1581,4 @@ module.exports = () => ({
   },
 });
 ```
+

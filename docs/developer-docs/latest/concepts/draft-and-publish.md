@@ -27,7 +27,7 @@ It is also possible to activate or deactivate the feature when creating a new co
 
 ## Switching from draft to published content
 
-::: tip NOTE
+::: tip 注意
 Publishing content may require specific roles and permissions. For example, in the Community version, the default roles grant permission to editors to publish content, but authors can only create and edit drafts.
 :::
 

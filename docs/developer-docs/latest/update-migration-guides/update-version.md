@@ -2,7 +2,7 @@
 
 With this guide you will know how to upgrade your application to the latest version of Strapi.
 
-::: tip NOTE
+::: tip 注意
 When a new version of Strapi is available, you will be notified both in your terminal, and in the admin panel. <br>
 Also note that you can check the **Settings > Application** section of the admin panel to have more information on:
 

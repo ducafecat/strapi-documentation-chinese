@@ -9,7 +9,7 @@ In Strapi, writing content consists in filling up fields, which are meant to con
 To write or edit content:
 
 1. Access the edit view of your collection or single type.
-2. Write your content, following the available field schema. You can refer to the table below for more information and instructions on how to fill up each field type.
+2. Write your content, following the available field schema. You can refer to the table below 了解详情 and instructions on how to fill up each field type.
 
 | Field name  | Instructions                                                                                                                                                                                                                                                                                                                                                              |
 | ----------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -61,7 +61,7 @@ The repeatable component entries can be reordered or deleted directly in the edi
 - Use the drag & drop button ![icon dragdrop](../assets/content-manager/icon_dragdrop.png) to reorder entries of your repeatable component.
 - Use the trash button ![icon delete](../assets/content-manager/icon_delete3.png) to delete an entry from your repeatable component.
 
-::: tip NOTE
+::: tip 注意
 Unlike regular fields, the order of the entries of a repeatable component is important. It should correspond exactly to how end-users will read/see the content.
 :::
 
@@ -81,7 +81,7 @@ Dynamic zones' components can also be reordered or deleted directly in the edit 
 - Use the arrow button ![icon reorder](../assets/content-manager/icon_reorder.png) to reorder components in your dynamic zone.
 - Use the trash button ![icon delete](../assets/content-manager/icon_delete3.png) to delete a component from your dynamic zone.
 
-::: tip NOTE
+::: tip 注意
 Unlike regular fields, the order of the fields and components inside a dynamic field is important. It should correspond exactly to how end-users will read/see the content.
 :::
 

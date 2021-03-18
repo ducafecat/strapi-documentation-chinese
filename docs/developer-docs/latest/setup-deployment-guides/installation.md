@@ -1,9 +1,9 @@
 # Installation
 
-Strapi gives you many possible installation options for your project or application. Strapi can be installed on your computer or services such as Render, DigitalOcean, Amazon AWS, or Platform.sh. The following documentation covers many different options to install Strapi and getting started on using it.
+Strapi 为您的项目或应用程序提供了许多可能的安装选项。Strapi 可以安装在您的计算机上，也可以安装在诸如 Render、 DigitalOcean、 Amazon AWS 或 Platform.sh 等服务上。下面的文档涵盖了安装 Strapi 和开始使用它的许多不同选项。
 
-::: tip
-For a more detailed overview of deployment please see the [related documentation](./deployment.md).
+::: tip 提示
+有关部署的更详细概述，请参阅 [阅相关文档](./deployment.md)。
 :::
 
 <div>
@@ -23,7 +23,7 @@ For a more detailed overview of deployment please see the [related documentation
 		</template>
 		<template #title>CLI</template>
 		<template #description>
-			Create a project in your local machine using the CLI.
+			使用 CLI 在本地计算机中创建项目。
 		</template>
 	</InstallLink>
 </div>
@@ -35,7 +35,7 @@ For a more detailed overview of deployment please see the [related documentation
 		</template>
 		<template #title>Docker</template>
 		<template #description>
-			Has everything you need to get started; no need to install, configure, or manage additional packages on your server.
+			具有启动所需的所有内容; 不需要在服务器上安装、配置或管理其他包。
 		</template>
 	</InstallLink>
 </div>
@@ -47,7 +47,7 @@ For a more detailed overview of deployment please see the [related documentation
 		</template>
 		<template #title>DigitalOcean One-Click</template>
 		<template #description>
-			Your project setup in one click with DigitalOcean
+			用 DigitalOcean 一键设置你的项目
 		</template>
 	</InstallLink>
 </div>
@@ -59,7 +59,7 @@ For a more detailed overview of deployment please see the [related documentation
 		</template>
 		<template #title>Platform.sh One-Click</template>
 		<template #description>
-			Your project setup in one click with Platform.sh
+			用 Platform.sh 一键设置项目
 		</template>
 	</InstallLink>
 </div>
@@ -71,7 +71,7 @@ For a more detailed overview of deployment please see the [related documentation
 		</template>
 		<template #title>Render One-Click</template>
 		<template #description>
-			Deploy your project on Render in one click
+			Render One-Click 部署你的项目
 		</template>
 	</InstallLink>
 </div>

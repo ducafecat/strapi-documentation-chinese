@@ -8,7 +8,6 @@ To extend this package you will have to create an `admin` folder at the root of 
 
 In this folder you will be able to override admin files and functions.
 
-
 ## Customization options
 
 The administration panel can be customized according to your needs, so you can make it reflect your identity.
@@ -120,7 +119,6 @@ The AdminUI package source can be easily found in `./node_modules/strapi-admin/s
 
 For example, to change the top-left displayed admin panel's color, copy the `./node_modules/strapi-admin/admin/src/components/LeftMenu/LeftMenuHeader` folder to `./admin/src/components/LeftMenu/LeftMenuHeader` (create these folders if they don't exist) and change the styles inside `./admin/src/components/LeftMenu/LeftMenuHeader/Wrapper.js`.
 
-
 Thus, you are replacing the files that would normally be in `node_modules/strapi-admin/admin/src` and directing them to `admin/src/some/file/path`.
 
 To apply your changes you need to rebuild your admin panel
@@ -220,7 +218,6 @@ module.exports = {
 };
 ```
 
-
 ## Deployment
 
 The administration is nothing more than a React front-end application calling an API. The front-end and the back-end are independent and can be deployed on different servers which brings us to different scenarios:
@@ -272,10 +269,9 @@ After running `yarn build` with this configuration, the folder `build` will be c
 
 The administration URL will then be `http://yourfrontend.com` and every request from the panel will hit the backend at `http://yourbackend.com`.
 
-::: tip NOTE
+::: tip 注意
 If you add a path to the `url` option, it won't prefix your app. To do so, you need to also use a proxy server like Nginx. More [here](/developer-docs/latest/setup-deployment-guides/deployment.md#optional-software-guides).
 :::
-
 
 ## Forgot Password Email
 

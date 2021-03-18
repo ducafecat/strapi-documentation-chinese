@@ -140,7 +140,7 @@ Here is the list of endpoints generated for each of your **Content Types**.
 
 | Method | Path              | Description                       |
 | :----- | :---------------- | :-------------------------------- |
-| GET    | `/{content-type}` | Get the {content-type} content  |
+| GET    | `/{content-type}` | Get the {content-type} content    |
 | PUT    | `/{content-type}` | Update the {content-type} content |
 | DELETE | `/{content-type}` | Delete the {content-type} content |
 
@@ -804,7 +804,6 @@ DELETE http://localhost:1337/restaurants/1
 
 ::::
 
-
 ## API Parameters
 
 <!-- See the [parameter concepts](../concepts/parameters.md) for details. -->
@@ -873,7 +872,7 @@ or
 
 ### Complex queries
 
-::: tip NOTE
+::: tip 注意
 `OR` and `AND` operations are available starting from v3.1.0
 :::
 
@@ -883,7 +882,7 @@ We are taking advantage of the capability of `qs` to parse nested objects to cre
 
 This will give you full power to create complex queries with logical `AND` and `OR` operations.
 
-::: tip NOTE
+::: tip 注意
 We strongly recommend using `qs` directly to generate complex queries instead of creating them manually.
 :::
 
@@ -958,7 +957,7 @@ await request(`/restaurant?${query}`);
 // GET /restaurants?_where[stars][0]=1&_where[stars][1]=2
 ```
 
-::: tip NOTE
+::: tip 注意
 When using the `in` and `nin` filters the array is not transformed into a OR.
 :::
 
@@ -1068,7 +1067,7 @@ Skip a specific number of entries (especially useful for pagination).
 
 ### Publication State
 
-::: tip NOTE
+::: tip 注意
 This parameter can only be used on models with the **Draft & Publish** feature activated
 :::
 
@@ -1091,7 +1090,7 @@ OR
 
 `GET /articles?_publicationState=preview`
 
-::: tip NOTE
+::: tip 注意
 If you only want to retrieve your draft entries, you can combine the `preview` mode and the `published_at` field.
 `GET /articles?_publicationState=preview&published_at_null=true`
 :::

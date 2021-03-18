@@ -27,7 +27,7 @@ The Relational fields box allows to choose which entries the relational fields s
 Instead of choosing an entry by scrolling the list, you can click any drop-down list from the Relational fields box and type to search a specific entry.
 :::
 
-::: tip NOTE
+::: tip 注意
 If the Draft & Publish feature (see [Saving, publishing and deleting content](saving-and-publishing-content.md)) is activated for the content-type the relational field belongs to, you will notice blue or green dots next to the entries names in the drop-down list. They indicate the status of the entry, respectively draft or published content.
 :::
 

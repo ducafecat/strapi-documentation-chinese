@@ -2,44 +2,44 @@
 sidebarDepth: 0
 ---
 
-# Collected Usage Information
+# 收集的使用资料
 
-We are committed to providing a solution, with Strapi, that exceeds the expectations of the users and community. We are also committed to continuing to develop and make Strapi even better than it is today. To that end, Strapi contains a feature in which anonymous and otherwise non-sensitive data is collected. This data is collectively aggregated for all our users, which when taken together give us a better global understanding of how users are interacting and using Strapi.
+我们致力于提供一个解决方案，与 Strapi，这超出了用户和社区的期望。我们也致力于继续发展，使 Strapi 甚至比今天更好。为此，Strapi 包含一个收集匿名和非敏感数据的特性。这些数据是我们所有用户的集合，当这些数据合在一起时，我们就能更好地理解用户是如何交互和使用 Strapi 的。
 
-## Context
+## 背景
 
-The number of developers using Strapi is growing significantly. As mentioned earlier, we are committed to providing the best experience to our users. We will always continue to do hands-on UI/UX testing, surveys, issue tracking, roadmap votes, etc... and otherwise talk with the Strapi Community while striving to understand and deliver what is being asked for and what is needed, by any means available.
+使用 Strapi 的开发商数量正在显著增长。如前所述，我们致力于为用户提供最佳体验。我们将继续进行实际的 UI/UX 测试、调查、问题跟踪、路线图投票等等。以其他方式与 Strapi 社区交谈，同时努力理解和传递什么是被要求的，什么是需要的，通过任何可用的手段。
 
-However, these above actions alone are often insufficient to maintain an overall picture of some aspects of the global usage of Strapi and its features. Globally aggregated data helps us answer and make choices around questions like these:
+然而，仅凭上述这些行动往往不足以全面了解 Strapi 在全球的使用情况及其特点。全球聚合的数据帮助我们回答这样的问题并做出选择:
 
-- Are our users using a particular feature or not? For those who are using it, what do they use it for? Is it activated and used alongside another plugin? Which specific plugin? Or something else, like, only in development/production?
-- How long does setting up a project take? If the global install time increases, does it mean that users are encountering issues or the process is simply too complicated?
-- What type of errors our users are facing?
-- What are the most used plugins?
-- Should we focus our efforts to being compatible with Node 12? Maybe our community uses version 12, in greater percentages than the global Node.js community?
-- And more...
+- 我们的用户是否使用了某个特定的功能？对于那些使用它的人，他们用它做什么？它是否被激活并与其他插件一起使用？哪个插件？或者其他什么，比如，只在开发/生产中？
+- 建立一个项目需要多长时间？如果全局安装时间增加，是否意味着用户遇到了问题，或者过程过于复杂？
+- 我们的用户正面临哪些类型的错误？
+- 最常用的插件是什么？
+- 我们是否应该集中精力与 Node 12 兼容？ 也许我们社区使用的版本 12 比全球 Node.js 社区使用的百分比更高？
+- 还有更多...
 
-Without these metrics, we wouldn't be able to make the right choices as we continue to move forward with the roadmap and provide what you, the community and users, are asking for.
+如果没有这些度量标准，我们将无法做出正确的选择，因为我们将继续向前推进路线图，并提供您、社区和用户所要求的东西。
 
-## Collected data
+## 收集的数据
 
-The following data is collected:
+收集的数据如下:
 
-- Unique project ID (generated with UUID)
-- Unique machine ID (generated with [node-machine-id](https://www.npmjs.com/package/node-machine-id))
-- Environment state (development, staging, production)
-- System information (OS)
-- Build configurations
+- 唯一的项目 ID (用 UUID 生成)
+- 唯一的机器 ID (generated with [node-machine-id](https://www.npmjs.com/package/node-machine-id))
+- 环境状态 (development, staging, production)
+- 系统资料 (OS)
+- 构建配置
 
 ::: warning GDPR
-The collected data are of a non-sensitive nature and no personal data is collected. We are compliant with the European GDPR recommendations (see our [Privacy Policy](https://strapi.io/privacy)). We do not collect databases configurations, password or custom variables. Any data collected (as above) is secured, encrypted and anonymized.
+所收集的资料属非敏感性质，不会收集任何个人资料。我们遵守欧洲 [Privacy Policy](https://strapi.io/privacy)。我们不收集数据库配置、密码或自定义变量。所有收集到的数据(如上所述)都是安全的、加密的和匿名的。
 :::
 
-### Opt-out
+### 选择退出
 
-You can easily disable the default data collection feature.
+您可以轻松地禁用默认的数据收集特性。
 
-Should you decide to opt-out, you may do so by removing the `uuid` property in the `package.json` file located within the root of your project. This will automatically disable this feature.
+如果您决定选择退出，可以通过删除项目根目录中 `package.json` 文件中的 `uuid` 属性来实现。这将自动禁用此功能。
 
 ```json
 {
@@ -52,6 +52,6 @@ Should you decide to opt-out, you may do so by removing the `uuid` property in t
 }
 ```
 
-::: tip NOTE
-Should you have any questions regarding this feature, feel free to email [privacy@strapi.io](mailto:privacy@strapi.io).
+::: tip 注意
+如果你对这个功能有任何疑问，请发邮件至 [privacy@strapi.io](mailto:privacy@strapi.io)。
 :::

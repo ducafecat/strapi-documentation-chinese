@@ -2,7 +2,7 @@
 
 [Platform.sh](https://platform.sh/) gives you an easy way to get started and deploy your Strapi application.
 
-You can find the template [source code](https://github.com/platformsh-templates/strapi#customizations) on Platform.sh GitHub for more information.
+You can find the template [source code](https://github.com/platformsh-templates/strapi#customizations) on Platform.sh GitHub 了解详情.
 
 [[toc]]
 

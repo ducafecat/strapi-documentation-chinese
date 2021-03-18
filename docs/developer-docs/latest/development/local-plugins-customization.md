@@ -17,8 +17,8 @@ In a new terminal window:
 
 Generate a new plugin: `cd /path/to/myDevelopmentProject && strapi generate:plugin my-plugin`
 
-::: tip NOTE
-After you have successfully generated a plugin, you need to run `strapi build` which adds the new plugin to the admin panel. 
+::: tip 注意
+After you have successfully generated a plugin, you need to run `strapi build` which adds the new plugin to the admin panel.
 :::
 
 ## Plugin Folders and Files Architecture
@@ -87,13 +87,13 @@ Each route of a plugin is prefixed by the name of the plugin (eg: `/my-plugin/my
 
 The CLI can be used to generate files in the plugins folders.
 
-Please refer to the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) for more information.
+Please refer to the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 
 ### Controllers
 
 Controllers contain functions executed according to the requested route.
 
-Please refer to the [Controllers documentation](/developer-docs/latest/development/backend-customization.md#controllers) for more information.
+Please refer to the [Controllers documentation](/developer-docs/latest/development/backend-customization.md#controllers) 了解详情.
 
 ### Models
 
@@ -116,7 +116,7 @@ module.exports = {
 
 Also, the table/collection name won't be `users` because you already have a `User` model. That's why, the framework will automatically prefix the table/collection name for this model with the name of the plugin. Which means in our example, the table/collection name of the `User` model of our plugin `Users & Permissions` will be `users-permissions_users`. If you want to force the table/collection name of the plugin's model, you can add the `collectionName` attribute in your model.
 
-Please refer to the [Models documentation](/developer-docs/latest/development/backend-customization.md#models) for more information.
+Please refer to the [Models documentation](/developer-docs/latest/development/backend-customization.md#models) 了解详情.
 
 ### Policies
 
@@ -158,8 +158,7 @@ A plugin can have its own policies, such as adding security rules. For instance,
 }
 ```
 
-Please refer to the [Policies documentation](/developer-docs/latest/development/backend-customization.md#policies) for more information.
-
+Please refer to the [Policies documentation](/developer-docs/latest/development/backend-customization.md#policies) 了解详情.
 
 ## Front-end Development
 
@@ -234,7 +233,7 @@ The properties of the config object are as follows:
 | type            | string        | success                  | `success`, `warning` or `info`                                                                                               |
 | message         | object/string | app.notification.success | The main message to display (works with i18n message object, `{ id: 'app.notification.success', defaultMessage: 'Saved!' }`) |
 | title           | object/string | null                     | Add a title to the notification                                                                                              |
-| link            | object        | null                     | Add a link to the notification message `{ url: String, label: String|Object, target:String }`                                               |
+| link            | object        | null                     | Add a link to the notification message `{ url: String, label: String|Object, target:String }`                                |
 | timeout         | number        | 2500                     | Time in ms before the notification is closed                                                                                 |
 | blockTransition | boolean       | false                    | Block the notification transitions to remove the timeout                                                                     |
 | uid             | string        | null                     | Custom the notification uid                                                                                                  |
@@ -272,7 +271,7 @@ Here are its properties:
 | name                      | string  | The plugin's name retrieved from the package.json                                                                                                                                                                       |
 | pluginLogo                | file    | The plugin's logo                                                                                                                                                                                                       |
 | preventComponentRendering | boolean | Whether or not display the plugin's blockerComponent instead of the main component                                                                                                                                      |
-| settings                  | object  | Refer to the [Plugins settings API](/developer-docs/latest/development/local-plugins-customization.md#plugin-s-front-end-settings-api)                                                                                                                                                         |
+| settings                  | object  | Refer to the [Plugins settings API](/developer-docs/latest/development/local-plugins-customization.md#plugin-s-front-end-settings-api)                                                                                  |
 | reducers                  | object  | The plugin's redux reducers                                                                                                                                                                                             |
 | trads                     | object  | The plugin's translation files                                                                                                                                                                                          |
 
@@ -338,7 +337,7 @@ export default strapi => {
 
 The component is generated by default when you create a new plugin. Use this component to execute some logic when the app is loading. When the logic has been executed this component should emit the `isReady` event so the user can interact with the application.
 
-::: tip NOTE
+::: tip 注意
 Below is the Initializer component of the content-type-builder plugin.
 
 It checks whether or not the auto-reload feature is enabled and depending on this value changes the mainComponent of the plugin.
@@ -772,7 +771,6 @@ function Inputs({ autoFocus, keys, layout, name, onBlur }) {
 | getFields     |               | Retrieve all the Fields                |
 | registerField | {Object}      | Register a Field                       |
 | removeField   |               | Remove a Field                         |
-
 
 ## Plugin's front-end settings API
 

@@ -146,7 +146,7 @@ Do not change the `openapi` field of the `settings.json`
 
 :::
 
-::: tip NOTE
+::: tip 注意
 
 When you change a field in the settings.json file you need to manually restart your server.
 

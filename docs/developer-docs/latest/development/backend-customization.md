@@ -126,7 +126,7 @@ The policies are defined in each `./api/**/config/policies/` folders and plugins
 
 There are several ways to create a policy.
 
-- Using the CLI `strapi generate:policy isAuthenticated`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) for more information.
+- Using the CLI `strapi generate:policy isAuthenticated`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 - Manually create a JavaScript file named `isAuthenticated.js` in `./config/policies/`.
 
 **Path —** `./config/policies/isAuthenticated.js`.
@@ -582,7 +582,7 @@ You can also create custom controllers to build your own business logic and API 
 
 There are two ways to create a controller:
 
-- Using the CLI `strapi generate:controller restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) for more information.
+- Using the CLI `strapi generate:controller restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) 了解详情.
 - Manually create a JavaScript file in `./api/**/controllers`.
 
 #### Adding Endpoints
@@ -1060,7 +1060,7 @@ You can also create custom services to build your own business logic.
 
 There are two ways to create a service.
 
-- Using the CLI `strapi generate:service restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) for more information.
+- Using the CLI `strapi generate:service restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 - Manually create a JavaScript file named in `./api/**/services/`.
 
 #### Example
@@ -1635,7 +1635,7 @@ If you are just starting out it is very convenient to generate some models with 
 
 #### For Content Types models
 
-Use the CLI and run the following command `strapi generate:model restaurant name:string description:text`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) for more information.
+Use the CLI and run the following command `strapi generate:model restaurant name:string description:text`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 
 This will create two files located at `./api/restaurant/models`:
 
@@ -1657,7 +1657,7 @@ Or you can create your component manually by following the file path described p
 Additional settings can be set on models:
 
 - `kind` (string) - Define if the model is a Collection Type (`collectionType`) of a Single Type (`singleType`) - _only for Content Types_
-- `connection` (string) - Connection name which must be used. Default value: `default`.
+- `connection` (string) - Connection name which must be used. 默认值: `default`.
 - `collectionName` (string) - Collection name (or table name) in which the data should be stored.
 - `globalId` (string) - Global variable name for this model (case-sensitive) - _only for Content Types_
 - `attributes` (object) - Define the data structure of your model. Find available options [below](#define-the-attributes).
@@ -1709,7 +1709,7 @@ The info key on the model-json states information about the model. This informat
 
 The options key on the model-json states.
 
-- `timestamps`: This tells the model which attributes to use for timestamps. Accepts either `boolean` or `Array` of strings where first element is create date and second element is update date. Default value when set to `true` for Bookshelf is `["created_at", "updated_at"]` and for MongoDB is `["createdAt", "updatedAt"]`.
+- `timestamps`: This tells the model which attributes to use for timestamps. Accepts either `boolean` or `Array` of strings where first element is create date and second element is update date. 默认值 when set to `true` for Bookshelf is `["created_at", "updated_at"]` and for MongoDB is `["createdAt", "updatedAt"]`.
 
 - `privateAttributes`: This configuration allows to treat a set of attributes as private, even if they're not actually defined as attributes in the model. Accepts an `Array` of strings. It could be used to remove from API responses timestamps or `_v` when using MongoDB. The set of `privateAttributes` defined in the model are merged with the `privateAttributes` defined in the global Strapi configuration.
 
@@ -2787,7 +2787,7 @@ You will see the trigger request appear and get the result.
 
 ![Trigger result](../assets/concepts/webhooks/trigger_result.png)
 
-#### Enable or disable a webhook
+#### 启用或禁用 a webhook
 
 You can enable or disable a webhook from the list view directly.
 

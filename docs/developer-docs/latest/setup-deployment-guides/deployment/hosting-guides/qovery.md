@@ -87,13 +87,13 @@ routers:
 For more information about the `.qovery.yml` file, please refer to [the Qovery application documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications).
 :::
 
-::: tip NOTE
+::: tip 注意
 Alternatively, you can deploy your Strapi application with a PostgreSQL database in the Qovery dashboard.
 :::
 
 ### 3. Add a Dockerfile (optional)
 
-By default, Qovery uses Buildpacks to build and run your Strapi application. But it is also possible to build and run your application by providing a `Dockerfile` (see [Quovery documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications/#application-build) for more information).
+By default, Qovery uses Buildpacks to build and run your Strapi application. But it is also possible to build and run your application by providing a `Dockerfile` (see [Quovery documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications/#application-build) 了解详情).
 
 ### 4. Deploy
 

@@ -2,7 +2,7 @@
 
 [DigitalOcean](https://www.digitalocean.com/) provide a simple way to deploy Strapi with an easy click of the mouse.
 
-You can find the image generation [source code](https://github.com/strapi/one-click-deploy/tree/master/digital-ocean) on Strapi's GitHub for more information.
+You can find the image generation [source code](https://github.com/strapi/one-click-deploy/tree/master/digital-ocean) on Strapi's GitHub 了解详情.
 
 [[toc]]
 
