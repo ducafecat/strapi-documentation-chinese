@@ -1,24 +1,22 @@
-# Update Strapi version
+# 更新 Strapi 版本
 
-With this guide you will know how to upgrade your application to the latest version of Strapi.
+有了这个指南，你就会知道如何将你的应用程序升级到 Strapi 的最新版本。
 
 ::: tip 注意
-When a new version of Strapi is available, you will be notified both in your terminal, and in the admin panel. <br>
-Also note that you can check the **Settings > Application** section of the admin panel to have more information on:
+当一个新版本的 Strapi 是可用的，您将得到通知，在您的终端，并在管理面板。还要注意的是，你可以在管理面板的 **Settings > Application** 部分查看更多信息:
 
-- The versions of Strapi and Node you are currently using.
-- If relevant, the versions we recommend you to upgrade to.
+- 你现在使用的 Strapi 和 Node 的版本.
+- 如果相关，我们建议您升级到的版本.
 
 :::
 
 ::: warning CAUTION
-Before you start, make sure your server is not running until the end of the guide!
+在您开始之前，请确保您的服务器没有运行，直到指南结束！
 :::
 
-## Upgrade your dependencies
+## 升级你的依赖关系
 
-Start by upgrading all your Strapi packages in your `package.json`.<br>
-For example upgrading from `3.2.4` to `3.2.5`:
+从升级 package.json 中的所有 Strapi 包开始，例如从 `3.2.4` 升级到 `3.2.5` :
 
 :::: tabs
 
@@ -70,16 +68,15 @@ For example upgrading from `3.2.4` to `3.2.5`:
 
 ::::
 
-After editing the file run either `yarn install` or `npm install` to install the specified version.
+在编辑文件后，运行 `yarn install` 或 `npm install` 来安装指定的版本。
 
 ::: tip
-If the operation doesn't work, you should probably remove your `yarn.lock` or `package-lock.json`. If it still does not work, try again after also removing the folder `node_modules`.
+如果这个操作不起作用，你可能应该移除你的 `yarn.lock` 或 `package-lock.json` 。如果仍然不能工作，请在删除文件夹 `node_modules` 之后再试一次。
 :::
 
-## Rebuild your administration panel
+## 重建您的管理面板
 
-New releases can introduce changes to the administration panel that require a rebuild.
-Rebuild the admin panel with one of the following commands:
+新版本可能会对需要重新生成的管理面板进行更改。使用以下命令之一重新构建管理面板:
 
 ```bash
 yarn build --clean
@@ -87,19 +84,17 @@ yarn build --clean
 npm run build -- --clean
 ```
 
-## Extensions
+## 扩展
 
-If you are using [extensions](/developer-docs/latest/development/plugin-customization.md) to create custom code or modify existing code, you will need to update your code and compare your version to the new changes on the repository. Not updating your extensions can **break your app** in unexpected ways we cannot predict.
+如果使用 [extensions](/developer-docs/latest/development/plugin-customization.md) 创建自定义代码或修改现有代码，则需要更新代码并将版本与存储库上的新更改进行比较。不更新你的扩展会以我们无法预料的方式 **break your app** 。
 
-## Migration guides
+## 迁移指南
 
-Sometimes Strapi introduces **breaking changes** that need more than just the previous steps.
-That is the reason for the [Migration guides](/developer-docs/latest/update-migration-guides/migration-guides.md) page.
-Just make sure when you update your version that a migration guide exists or not.
+有时候，Strapi 会引入一些 **breaking changes** ，这些变化需要的不仅仅是前面的步骤。这就是设置 [Migration guides](/developer-docs/latest/update-migration-guides/migration-guides.md) 页面的原因。只需确保在更新版本时，迁移指南是否存在。
 
-## Start your application
+## 开始你的应用程序
 
-If you have followed the information above, you can start your application with:
+如果你已经遵循了上述的信息，你可以以下列方式开始你的申请:
 
 ```bash
 yarn develop
@@ -107,4 +102,4 @@ yarn develop
 npm run develop
 ```
 
-🎉 Congrats, your application has been migrated!
+🎉 恭喜你，你的应用程序已经迁移了！

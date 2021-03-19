@@ -1,10 +1,10 @@
-# Command Line Interface (CLI)
+# 命令行接口 (CLI)
 
-Strapi comes with a full featured Command Line Interface (CLI) which lets you scaffold and manage your project in seconds.
+Strapi 提供了一个全功能的命令行界面(CLI) ，它可以让您在几秒钟内支架和管理您的项目。
 
 ## strapi new
 
-Create a new project.
+创建一个新项目。
 
 ```bash
 strapi new <name>
@@ -13,20 +13,20 @@ options: [--no-run|--use-npm|--debug|--quickstart|--dbclient=<dbclient> --dbhost
 ```
 
 - **strapi new &#60;name&#62;**<br/>
-  Generates a new project called **&#60;name&#62;** and installs the default plugins through the npm registry.
+  Strapi new < name > 生成一个名为 < name > 的新项目，并通过 npm 注册表安装默认插件。
 
 - **strapi new &#60;name&#62; --debug**<br/>
-  Will display the full error message if one is fired during the database connection.
+  Strapi new < name > -- debug 将显示在数据库连接期间触发的完整错误消息。
 
 - **strapi new &#60;name&#62; --quickstart**<br/>
-  Use the quickstart system to create your app.
+  使用快速启动系统创建你的应用程序。
 
 - **strapi new &#60;name&#62; --quickstart --no-run**<br/>
-  Use the quickstart system to create your app, and do not start the application after creation.
+  使用快速启动系统创建应用程序，创建后不要启动应用程序。
 
 - **strapi new &#60;name&#62; --dbclient=&#60;dbclient&#62; --dbhost=&#60;dbhost&#62; --dbport=&#60;dbport&#62; --dbname=&#60;dbname&#62; --dbusername=&#60;dbusername&#62; --dbpassword=&#60;dbpassword&#62; --dbssl=&#60;dbssl&#62; --dbauth=&#60;dbauth&#62; --dbforce**<br/>
 
-  Generates a new project called **&#60;name&#62;** and skip the interactive database configuration and initialize with these options.
+  生成一个名为 < name > 的新项目，跳过交互式数据库配置并使用这些选项初始化。
 
   - **&#60;dbclient&#62;** can be `mongo`, `postgres`, `mysql`.
   - **&#60;dbssl&#62;** and **&#60;dbauth&#62;** are available only for `mongo` and are optional.
@@ -36,9 +36,9 @@ options: [--no-run|--use-npm|--debug|--quickstart|--dbclient=<dbclient> --dbhost
 
 **Alias**: `dev`
 
-Start a Strapi application with autoReload enabled.
+启动启用 autoReload 的 Strapi 应用程序。
 
-Strapi modifies/creates files at runtime and needs to restart when new files are created. To achieve this, `strapi develop` adds a file watcher and restarts the application when necessary.
+Strapi 在运行时修改/创建文件，并且在创建新文件时需要重新启动。为了实现这一点，`strapi develop` 添加了一个文件监视器，并在必要时重新启动应用程序。
 
 ```
 strapi develop
@@ -46,26 +46,27 @@ options: [--no-build |--watch-admin |--browser ]
 ```
 
 - **strapi develop**<br/>
-  Starts your application with the autoReload enabled
+  启用 autoReload 启动应用程序.
 - **strapi develop --no-build**<br/>
-  Starts your application with the autoReload enabled and skip the administration panel build process
+  启用 autoReload 启动应用程序， 并跳过管理面板生成过程.
 - **strapi develop --watch-admin**<br/>
-  Starts your application with the autoReload enabled and the front-end development server. It allows you to customize the administration panel.
+  启用 autoReload 启动应用程序， 前端开发服务器的情况下启动应用程序。它允许您自定义管理面板.
 - **strapi develop --watch-admin --browser 'google chrome'**<br/>
-  Starts your application with the autoReload enabled and the front-end development server. It allows you to customize the administration panel. Provide a browser name to use instead of the default one, `false` means stop opening the browser.
+  启用 autoReload 启动应用程序， 前端开发服务器启动应用程序。它允许您自定义管理面板。提供一个浏览器名称来代替默认名称,`false` means stop opening the browser. 意味着停止打开浏览器.
 
 ::: tip
-You should never use this command to run a Strapi application in production.
+千万不要使用此命令在生产环境中运行 Strapi 应用程序。
 :::
 
 ## strapi start
 
-Start a Strapi application with autoReload disabled.
+启动禁用 autoReload 的 Strapi 应用程序。
 
-This commands is there to run a Strapi application without restarts and file writes (aimed at production usage).
-Certain features are disabled in the `strapi start` mode because they require application restarts.
+这个命令用于运行 Strapi 应用程序，而不需要重新启动和写入文件(针对生产用途)。
 
-Allowed environment variables:
+某些功能在 `strapi start` 模式下被禁用，因为它们需要重新启动应用程序。
+
+允许的环境变量:
 | Property | Description | Type | Default |
 | --------- | ----------- | ----- | ------- |
 | STRAPI_HIDE_STARTUP_MESSAGE | If `true` then Strapi will not show startup message on boot. Values can be `true` or `false` | string | `false` |
@@ -76,7 +77,7 @@ Allowed environment variables:
 
 ## strapi build
 
-Builds your admin panel.
+建立你的管理面板.
 
 ```bash
 strapi build
@@ -85,19 +86,19 @@ options: [--no-optimization]
 ```
 
 - **strapi build**<br/>
-  Builds the administration panel and minimizing the assets
+  建立管理面板并最小化资产.
 - **strapi build --clean**<br/>
-  Builds the administration panel and delete the previous build and .cache folders
+  生成管理面板并删除以前的生成和. 缓存文件夹.
 - **strapi build --no-optimization**<br/>
-  Builds the administration panel without minimizing the assets. The build duration is faster.
+  在不最小化资产的情况下构建管理面板。构建持续时间更快.
 
 ## strapi configuration:dump
 
 **Alias**: `config:dump`
 
-Dumps configurations to a file or stdout to help you migrate to production.
+将配置转储到文件或 stdout，以帮助您迁移到生产环境。
 
-The dump format will be a JSON array.
+转储格式将是一个 JSON 数组。
 
 ```
 strapi configuration:dump
@@ -113,15 +114,14 @@ Options:
 - `strapi config:dump --file dump.json`
 - `strapi config:dump > dump.json`
 
-All these examples are equivalent.
+这些例子都是等价的。
 
 ::: warning
-When configuring your application you often enter credentials for third party services (e.g authentication providers). Be aware that those credentials will also be dumped into the output of this command.
-In case of doubt, you should avoid committing the dump file into a versioning system. Here are some methods you can explore:
+在配置应用程序时，通常需要输入第三方服务(例如身份验证提供者)的凭据。请注意，这些凭据也将被转储到此命令的输出中。如果有疑问，应该避免将转储文件提交到版本控制系统中。以下是一些你可以探索的方法:
 
-- Copy the file directly to the environment you want and run the restore command there.
-- Put the file in a secure location and download it at deploy time with the right credentials.
-- Encrypt the file before committing and decrypt it when running the restore command.
+- 将文件直接复制到所需的环境中，并在其中运行 restore 命令.
+- 将文件放在安全位置，并在部署时使用正确的凭据下载该文件.
+- 在提交文件之前对其进行加密，并在运行还原命令时对其解密.
 
 :::
 
@@ -129,9 +129,9 @@ In case of doubt, you should avoid committing the dump file into a versioning sy
 
 **Alias**: `config:restore`
 
-Restores a configuration dump into your application.
+将配置转储还原到应用程序中。
 
-The input format must be a JSON array.
+输入格式必须是 JSON 数组。
 
 ```
 strapi configuration:restore
@@ -148,22 +148,23 @@ Options:
 - `cat dump.json | strapi config:restore`
 - `strapi config:restore < dump.json`
 
-All these examples are equivalent.
+这些例子都是等价的。
 
 **Strategies**
 
-When running the restore command, you can choose from three different strategies:
+运行 restore 命令时，您可以选择三种不同的策略:
 
-- **replace**: Will create missing keys and replace existing ones.
-- **merge**: Will create missing keys and merge existing keys with their new value.
-- **keep**: Will create missing keys and keep existing keys as is.
+- **replace**: 将创建缺少的键并替换现有的键.
+- **merge**: 将创建缺少的键并将现有键与其新值合并.
+- **keep**: 将创建缺少的密钥并保持现有密钥不变.
 
 ## strapi admin:reset-user-password
 
 **Alias** `admin:reset-password`
 
-Reset an admin user's password.
-You can pass the email and new password as options or set them interactivly if you call the command without passing the options.
+别名管理员: 重置密码
+
+重置管理员用户的密码。您可以将电子邮件和新密码作为选项传递，或者如果调用该命令而不传递选项，则可以交互式地设置它们。
 
 **例子**
 
@@ -171,7 +172,7 @@ You can pass the email and new password as options or set them interactivly if y
 strapi admin:reset-user-password --email=chef@strapi.io --password=Gourmet1234
 ```
 
-**Options**
+**选择**
 
 | Option         | Type   | Description               |
 | -------------- | ------ | ------------------------- |
@@ -181,7 +182,7 @@ strapi admin:reset-user-password --email=chef@strapi.io --password=Gourmet1234
 
 ## strapi generate:api
 
-Scaffold a complete API with its configurations, controller, model and service.
+脚手架一个完整的 API 及其配置、控制器、模型和服务。
 
 ```bash
 strapi generate:api <name> [<attribute:type>]
@@ -206,12 +207,12 @@ options: [--plugin <name>]
   例子: `strapi generate:api product --plugin content-manager`
 
 ::: tip
-The first letter of the filename will be uppercase.
+文件名的第一个字母是大写的。
 :::
 
 ## strapi generate:controller
 
-Create a new controller.
+创建一个新控制器。
 
 ```bash
 strapi generate:controller <name>
@@ -233,12 +234,12 @@ options: [--api <name>|--plugin <name>]
   Generates an empty controller called **&#60;name&#62;** in the `./plugins/<plugin>/controllers` folder.
 
 ::: tip
-The first letter of the filename will be uppercase.
+文件名的第一个字母是大写的。
 :::
 
 ## strapi generate:model
 
-Create a new model.
+创建一个新模型。
 
 ```bash
 strapi generate:model <name> [<attribute:type>]
@@ -272,12 +273,12 @@ options: [--api <name>|--plugin <name>|--draft-and-publish <boolean>]
   Generates an empty model called **&#60;name&#62;** in the `./plugins/<plugin>/models` folder with the draft/publish feature enabled
 
 ::: tip
-The first letter of the filename will be uppercase.
+文件名的第一个字母是大写的。
 :::
 
 ## strapi generate:service
 
-Create a new service.
+创建一个新的服务。
 
 ```bash
 strapi generate:service <name>
@@ -299,12 +300,12 @@ options: [--api <name>|--plugin <name>]
   Generates an empty service called **&#60;name&#62;** in the `./plugins/<plugin>/services` folder.
 
 ::: tip
-The first letter of the filename will be uppercase.
+文件名的第一个字母是大写的。
 :::
 
 ## strapi generate:policy
 
-Create a new policy.
+创建一个新的策略。
 
 ```bash
 strapi generate:policy <name>
@@ -327,7 +328,7 @@ options: [--api <name>|--plugin <name>]
 
 ## strapi generate:plugin
 
-Create a new plugin skeleton.
+创建一个新的插件框架。
 
 ```bash
 strapi generate:plugin <name>
@@ -342,7 +343,7 @@ strapi generate:plugin <name>
 
 ## strapi install
 
-Install a plugin in the project.
+在项目中安装插件。
 
 ```bash
 strapi install <name>
@@ -354,12 +355,12 @@ strapi install <name>
   例子: `strapi install graphql` will install the plugin `strapi-plugin-graphql`
 
 ::: warning
-Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.
+一些插件有管理面板集成，你的管理面板可能需要重建。这可能需要一些时间。
 :::
 
 ## strapi uninstall
 
-Uninstall a plugin from the project.
+从项目中卸载插件。
 
 ```bash
 strapi uninstall <name>
@@ -378,12 +379,12 @@ options [--delete-files]
   例子: `strapi uninstall graphql --delete-files` will remove the plugin `strapi-plugin-graphql` and all the files in `./extensions/graphql`
 
 ::: warning
-Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.
+一些插件有管理面板集成，你的管理面板可能需要重建。这可能需要一些时间。
 :::
 
 ## strapi console
 
-Start the server and eval commands in your application in real time.
+实时启动应用程序中的服务器和 eval 命令。
 
 ```bash
 strapi console
@@ -391,7 +392,7 @@ strapi console
 
 ## strapi version
 
-Print the current globally installed Strapi version.
+打印当前全局安装的 Strapi 版本。
 
 ```bash
 strapi version
@@ -399,7 +400,7 @@ strapi version
 
 ## strapi help
 
-List CLI commands.
+列出 CLI 命令。
 
 ```
 strapi help

@@ -1,23 +1,23 @@
-# Migrations guides
+# 迁移指南
 
-Please also refer to the following [update guide](update-version.md) for a better understanding of how to update your project.
+请参阅以下 [update guide](update-version.md) ，以便更好地了解如何更新您的项目。
 
-**Pay special attention to the [note](update-version.md#extensions) about upgrading if you are using the extensions system.**
+**如果您正在使用扩展系统，请特别注意有关升级的说明 [note](update-version.md#extensions) 。**
 
-## Instructions
+## 使用说明
 
-When upgrading you will need to follow every migration guide between your current version and the one you are upgrading to.
+升级时，您需要遵循当前版本和升级到的版本之间的每个迁移指南。
 
 **例子**
 
-If you were upgrading from the `3.0.0-beta.19.5` to `3.2.0`, here are the following guides you would have to follow:
+如果你正在从 `3.0.0-beta.19.5` 升级到 `3.2.0` ，以下是你需要遵循的指南:
 
 - Migration guide from beta.19.4+ to beta.20.
 - Migration guide from beta.20+ to stable.
 - Migration guide from 3.0.x to 3.1.x.
 - Migration guide from 3.1.x to 3.2.3.
 
-## V3 guides
+## V3 引导
 
 - [Migration guide from 3.4.x to 3.4.4](migration-guides/migration-guide-3.4.x-to-3.4.4.md)
 - [Migration guide from 3.3.x to 3.4.0](migration-guides/migration-guide-3.3.x-to-3.4.0.md)
@@ -26,11 +26,11 @@ If you were upgrading from the `3.0.0-beta.19.5` to `3.2.0`, here are the follow
 - [Migration guide from 3.1.x to 3.2.3](migration-guides/migration-guide-3.1.x-to-3.2.x.md)
 - [Migration guide from 3.0.x to 3.1.x](migration-guides/migration-guide-3.0.x-to-3.1.x.md)
 
-## Beta guides
+## 测试指南
 
 ::: warning
 
-The Strapi Beta version is no longer supported, you should upgrade to the V3 Stable.
+不再支持 Strapi Beta 版，您应该升级到 V3 稳定版。
 
 :::
 
@@ -42,12 +42,11 @@ The Strapi Beta version is no longer supported, you should upgrade to the V3 Sta
 - [Migration guide from beta.16+ to beta.17.4](migration-guides/migration-guide-beta.16-to-beta.17.4.md)
 - [Migration guide from beta.15 to beta.16](migration-guides/migration-guide-beta.15-to-beta.16.md)
 
-## Alpha guides
+## Alpha 引导
 
 ::: warning
 
-The Strapi Alpha version is no longer supported, you should upgrade to the V3 Stable.
-If you have issues upgrading, it's our general recommendation to create a new project.
+不再支持 Strapi Alpha 版，你应该升级到 V3 稳定版。如果您有升级问题，我们一般建议您创建一个新项目。
 
 :::
 
