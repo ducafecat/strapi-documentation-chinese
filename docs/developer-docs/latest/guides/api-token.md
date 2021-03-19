@@ -1,40 +1,39 @@
-# API tokens
+# API 令牌
 
-In this guide we will see how you can create an API token system to execute request as an authenticated user.
+在本指南中，我们将了解如何创建一个 API 令牌系统来作为经过身份验证的用户执行请求。
 
-This feature is in our [roadmap](https://portal.productboard.com/strapi/1-public-roadmap/c/40-api-access-token-with-permissions).
-This guide is a workaround to achieve this feature before we support it natively in strapi.
+这个特性在我们的 [roadmap](https://portal.productboard.com/strapi/1-public-roadmap/c/40-api-access-token-with-permissions) 。这个指南是一个工作方法，以实现这个功能之前，我们支持它在原生 strapi。
 
-## Introduction
+## 引言
 
-The goal is to be able to request API endpoints with a query parameter `token` that authenticates as a user. `eg. /restaurants?token=my-secret-token`.
+目标是能够使用查询参数 `token` 以用户身份验证请求 API 终结点 `eg. /restaurants?token=my-secret-token` 。
 
-To achieve this feature in development, we will have to customize the `users-permissions` plugin. This guide will help you understand how to customize all your applications. You can read more about [Strapi plugins and customization](/developer-docs/latest/development/plugin-customization.md).
+为了在开发中实现这个功能，我们必须自定义用户权限插件。本指南将帮助您了解如何自定义所有应用程序。你可以阅读更多关于 [Strapi 插件和定制的内容](/developer-docs/latest/development/plugin-customization.md)。
 
-## Create the Token Content Type
+## 创建令牌内容类型
 
-To manage your tokens, you will have to create a new Content Type named `token`.
+要管理您的令牌，您必须创建一个新的名为 `token` 的 Content Type。
 
 - `string` attribute named `token`
 - `relation` attribute **Token** (`user`) - **Token** has and belongs to one **User** - **User** (`token`)
 
-Then add some users and create some token linked to these users.
+然后添加一些用户并创建一些链接到这些用户的令牌。
 
-## Setup the file to override
+## 设置文件以覆盖
 
-We now have to customize the function that verifies the `token` token. Strapi has an Authentication process that uses `JWT` tokens, we will reuse this function to customize the verification.
+我们现在必须自定义验证 `token` 标记的函数。Strapi 有一个使用 `JWT` 令牌的 Authentication 流程，我们将重用这个函数来定制验证。
 
-[Here is the function](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-users-permissions/config/policies/permissions.js) that manages the JWT validation.
+下面是管理 JWT [验证的函数](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-users-permissions/config/policies/permissions.js)。
 
-To be able to customize it, you will have to create a new file in your application `./extensions/users-permissions/config/policies/permissions.js`.
+为了能够对其进行定制，您必须在应用程序中创建一个新文件 `./extensions/users-permissions/config/policies/permissions.js`。
 
-Then copy the original function that is on GitHub and paste it in your new file.
+然后复制 GitHub 上的原始函数并粘贴到新文件中。
 
-When it's done, the Strapi application will use this function instead of the core one. We are ready to customize it.
+完成后，Strapi 应用程序将使用这个函数而不是核心函数。我们准备定制它。
 
-## Add token validation logic
+## 添加令牌验证逻辑
 
-You will have to update the first lines of this function.
+您必须更新这个函数的第一行。
 
 **Path —** `./extensions/users-permissions/config/policies/permissions.js`
 
@@ -91,4 +90,4 @@ module.exports = async (ctx, next) => {
       ...
 ```
 
-And tada! You can now create a token, link it to a user and use it in your URLs with `token` as query parameters.
+还有，嗒嗒！您现在可以创建一个令牌，将其链接到用户，并在 url 中使用它作为查询参数的令牌。
