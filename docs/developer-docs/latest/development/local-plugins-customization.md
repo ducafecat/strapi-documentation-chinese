@@ -1,30 +1,31 @@
-# Local plugins
+# 本地插件
 
-## Quick start
+## 快速启动
 
-Strapi allows you to create local plugins that will work exactly the same as external ones. All your local plugins will be located in the `./plugins` folder of your application.
+Strapi 允许你创建与外部插件工作方式完全相同的本地插件。所有的本地插件都将位于 `./plugins` 文件夹。
 
-### Development Environment Setup
+### 开发环境设置
 
-Create a development project
+创建一个开发项目
 
-1. Create a new project `cd .. && strapi new myDevelopmentProject`.
-2. `cd myDevelopmentProject && strapi develop` To start the Strapi project
+1. 创建一个新项目 `cd .. && strapi new myDevelopmentProject`.
+2. `cd myDevelopmentProject && strapi develop` 启动 Strapi 项目
 
-### Plugin development Setup
+### 插件开发设置
 
-In a new terminal window:
+在新的终端窗口中:
 
-Generate a new plugin: `cd /path/to/myDevelopmentProject && strapi generate:plugin my-plugin`
+生成一个新的插件: `cd /path/to/myDevelopmentProject && strapi generate:plugin my-plugin`
 
 ::: tip 注意
-After you have successfully generated a plugin, you need to run `strapi build` which adds the new plugin to the admin panel.
+在你成功生成了一个插件之后，你需要运行 `strapi build` ，将新的插件添加到管理面板中。
 :::
 
-## Plugin Folders and Files Architecture
+## 插件文件夹和文件架构
 
-The logic of a plugin is located at its root directory `./plugins/**`. The admin panel related parts of each plugin are contained in the `/admin` folder.
-The folders and files structure are the following:
+插件的逻辑位于其根目录 `./plugins/**` .每个插件的管理面板相关部分都包含在 `/admin` 文件夹中。
+
+文件夹和文件结构如下:
 
 ```
 plugin/
@@ -55,21 +56,21 @@ plugin/
 
 <!--- DEVELOPMENT OF LOCAL PLUGIN --->
 
-## Back-end Development
+## 后端开发
 
-This section explains how the 'back-end part' of your plugin works.
+本节将解释插件的 “后端部分” 是如何工作的。
 
 ### Routes
 
-The plugin API routes are defined in the `./plugins/**/config/routes.json` file.
+插件 API 路由在 `./plugins/**/config/routes.json` 文件中定义。
 
 ::: tip
-Please refer to [router documentation](/developer-docs/latest/development/backend-customization.md#routing) for information.
+请参考 [路由器文档](/developer-docs/latest/development/backend-customization.md#routing) 中的信息。
 :::
 
-**Route prefix**
+**路由前缀**
 
-Each route of a plugin is prefixed by the name of the plugin (eg: `/my-plugin/my-plugin-route`). 使用 `prefix` key you can change this option to something custom. You can disable the prefix, by setting the `config.prefix` key to an empty string.
+插件的每个路由都以插件的名称作为前缀(例如: `/my-plugin/my-plugin-route`)。使用 `prefix` 可以将此选项更改为自定义选项。您可以通过将 `config.prefix` 键设置为空字符串来禁用前缀。
 
 ```json
 {
@@ -83,27 +84,27 @@ Each route of a plugin is prefixed by the name of the plugin (eg: `/my-plugin/my
 }
 ```
 
-### CLI
+### CLI 命令行
 
-The CLI can be used to generate files in the plugins folders.
+CLI 可用于在插件文件夹中生成文件。
 
-Please refer to the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
+有关更多信息，请参考 [CLI 文档](/developer-docs/latest/developer-resources/cli/CLI.md) 。
 
-### Controllers
+### Controllers 控制器
 
-Controllers contain functions executed according to the requested route.
+控制器包含根据请求的路由执行的功能。
 
-Please refer to the [Controllers documentation](/developer-docs/latest/development/backend-customization.md#controllers) 了解详情.
+有关更多信息，请参阅 [控制器文档](/developer-docs/latest/development/backend-customization.md#controllers)。
 
-### Models
+### Models 模型
 
-A plugin can have its own models.
+插件可以有自己的模型。
 
-#### Table/Collection naming
+#### Table/Collection 表格/集合命名
 
-Sometimes it happens that the plugins inject models that have the same name as yours. Let's take a quick example.
+有时候插件注入的模型和你的名字一样。让我们举个简单的例子。
 
-You already have `User` model defining in your `./api/user/models/User.settings.json` API. And you decide to install the `Users & Permissions` plugin. This plugin also contains a `User` model. To avoid the conflicts, the plugins' models are not globally exposed which means you cannot access to the plugin's model like this:
+你已经有 `User` 模型在你的 `./api/user/models/User.settings.json` API.你决定安装 `Users & Permissions` 插件。这个插件还包含一个 `User` 模型。为了避免冲突，插件的模型不是全局公开的，这意味着你不能像这样访问插件的模型:
 
 ```js
 module.exports = {
@@ -114,15 +115,15 @@ module.exports = {
 };
 ```
 
-Also, the table/collection name won't be `users` because you already have a `User` model. That's why, the framework will automatically prefix the table/collection name for this model with the name of the plugin. Which means in our example, the table/collection name of the `User` model of our plugin `Users & Permissions` will be `users-permissions_users`. If you want to force the table/collection name of the plugin's model, you can add the `collectionName` attribute in your model.
+此外，表/集合名称不是 `users` ，因为您已经有了一个 `users` 模型。这就是为什么框架会自动将插件的名称作为这个模型的表/集合名称的前缀。这意味着在我们的示例中，我们的插件 `Users & Permissions` 的用户模型的表/集合名称将是 `users-permissions_users`。如果希望强制插件模型的表/集合名称，可以在模型中添加 `collectionName` 属性。
 
-Please refer to the [Models documentation](/developer-docs/latest/development/backend-customization.md#models) 了解详情.
+有关更多信息，请参阅 [模型文档](/developer-docs/latest/development/backend-customization.md#models) 。
 
-### Policies
+### Policies 策略
 
-#### Global policies
+#### 全局策略
 
-A plugin can also use a globally exposed policy in the current Strapi project.
+在当前的 Strapi 项目中，插件也可以使用全球公开的策略。
 
 ```json
 {
@@ -139,9 +140,9 @@ A plugin can also use a globally exposed policy in the current Strapi project.
 }
 ```
 
-#### Plugin policies
+#### 插件策略
 
-A plugin can have its own policies, such as adding security rules. For instance, if the plugin includes a policy named `isAuthenticated`, the syntax to use this policy would be:
+插件可以有自己的策略，比如添加安全规则。例如，如果插件包含一个名为 `isAuthenticated` 的策略，那么使用这个策略的语法是:
 
 ```json
 {
@@ -158,17 +159,17 @@ A plugin can have its own policies, such as adding security rules. For instance,
 }
 ```
 
-Please refer to the [Policies documentation](/developer-docs/latest/development/backend-customization.md#policies) 了解详情.
+有关更多信息 [Policies documentation](/developer-docs/latest/development/backend-customization.md#policies) 了解详情.
 
-## Front-end Development
+## 前端开发
 
-Strapi's admin panel and plugins system aim to be an easy and powerful way to create new features.
+Strapi 的管理面板和插件系统旨在成为一种简单而强大的方式来创建新的功能。
 
-The admin panel is a [React](https://facebook.github.io/react/) application which can embed other React applications. These other React applications are the `admin` parts of each Strapi's plugins.
+管理面板是一个 [React](https://facebook.github.io/react/) 应用程序，可以嵌入其他 React 应用程序。这些 React 应用程序是每个 Strapi 插件的 `admin` 部分。
 
-### Environment setup
+### 环境设置
 
-To enable local plugin development, you need to start your application with the front-end development mode activated:
+要启用本地插件开发，您需要启动应用程序时激活前端开发模式:
 
 :::: tabs
 
@@ -194,33 +195,33 @@ $ npm run develop -- --watch-admin
 
 ### API
 
-#### Strapi global variable
+#### Strapi 全局变量
 
-The administration exposes a global variable that is accessible for all the plugins.
+`administration` 公开了一个所有插件都可以访问的全局变量。
 
 ##### `strapi.backendURL`
 
-Retrieve the back-end URL. (e.g. `http://localhost:1337`).
+检索后端网址(例如 http://localhost:1337)。
 
 ##### `strapi.currentLanguage`
 
-Retrieve the administration panel default language (e.g. `en-US`)
+检索管理面板默认语言(例如 `en-US`)
 
 ##### `strapi.languages`
 
-Array of the administration panel's supported languages. (e.g. `['ar', 'en', 'fr', ...]`).
+管理面板支持的语言数组. (e.g. `['ar', 'en', 'fr', ...]`).
 
 ##### `strapi.lockApp()`
 
-Display a loader that will prevent the user from interacting with the application.
+显示将阻止用户与应用程序交互的加载程序。
 
 ##### `strapi.unlockApp()`
 
-Remove the loader so the user can interact with the application
+删除加载程序，以便用户可以与应用程序交互
 
 ##### `strapi.notification`
 
-Use this command anywhere in your code.
+在代码中的任何地方使用此命令。
 
 ```js
 strapi.notification.toggle(config);
@@ -238,7 +239,7 @@ The properties of the config object are as follows:
 | blockTransition | boolean       | false                    | Block the notification transitions to remove the timeout                                                                     |
 | uid             | string        | null                     | Custom the notification uid                                                                                                  |
 
-The previous notification API is still working but will display a warning message in the console
+之前的通知 API 仍在工作，但将在控制台中显示警告消息
 
 ```js
 strapi.notification.error('app.notification.error');
@@ -249,13 +250,13 @@ strapi.notification.warning('app.notification.warning');
 
 ##### `strapi.remoteURL`
 
-The administration url (e.g. `http://localhost:4000/admin`).
+管理网址(例如 http://localhost:4000/admin )。
 
-#### Main plugin object
+#### 主插件对象
 
-Each plugin exports all its configurations in an object. This object is located in `my-plugin/admin/src/index.js`
+每个插件导出一个对象中的所有配置 `my-plugin/admin/src/index.js`
 
-Here are its properties:
+以下是它的属性:
 
 | key                       | type    | Description                                                                                                                                                                                                             |
 | ------------------------- | ------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -275,9 +276,9 @@ Here are its properties:
 | reducers                  | object  | The plugin's redux reducers                                                                                                                                                                                             |
 | trads                     | object  | The plugin's translation files                                                                                                                                                                                          |
 
-#### Displaying the plugin's link in the main menu
+#### 在主菜单中显示插件的链接
 
-To display a plugin link into the main menu the plugin needs to export a menu object.
+为了在主菜单中显示一个插件链接，插件需要导出一个菜单对象。
 
 **Path —** `plugins/my-plugin/admin/src/index.js`.
 
@@ -333,14 +334,14 @@ export default strapi => {
 };
 ```
 
-#### Initializer
+#### 初始化程序
 
-The component is generated by default when you create a new plugin. Use this component to execute some logic when the app is loading. When the logic has been executed this component should emit the `isReady` event so the user can interact with the application.
+在创建新插件时，默认情况下会生成该组件。使用此组件在应用程序加载时执行一些逻辑。当逻辑已经执行时，该组件应该发出 `isReady` 事件，以便用户可以与应用程序交互。
 
 ::: tip 注意
-Below is the Initializer component of the content-type-builder plugin.
+下面是 content-type-builder 内容类型构建器插件的 `Initializer` 组件。
 
-It checks whether or not the auto-reload feature is enabled and depending on this value changes the mainComponent of the plugin.
+它检查是否启用了自动重新加载特性，并根据这个值更改插件的主要组件。
 :::
 
 ```js
@@ -404,23 +405,23 @@ Initializer.propTypes = {
 export default Initializer;
 ```
 
-#### Injected Components
+#### 注入组件
 
 (Coming soon)
 
-#### Routing
+#### Routing 路由选择
 
-The routing is based on the [React Router V5](https://reacttraining.com/react-router/web/guides/philosophy), due to it's implementation each route is declared in the `containers/App/index.js` file.
+路由基于 [React Router V5](https://reacttraining.com/react-router/web/guides/philosophy) ，由于它的实现，每个路由都在 `containers/App/index.js` 文件中声明。
 
 ::: tip
-Each route defined in a plugin must be prefixed by the plugin's id.
+插件中定义的每条路由都必须以插件 id 作为前缀。
 :::
 
-**Route declaration :**
+**Route 声明 :**
 
-Let's say that you want to create a route `/user` with params `/:id` associated with the container UserPage.
+假设您想要创建一个路由/用户，该路由 `/user` 具有与容器 `UserPage` 关联的 params `/:id`。
 
-The declaration would be as follows :
+宣言内容如下:
 
 **Path —** `plugins/my-plugin/admin/src/containers/App/index.js`.
 
@@ -451,19 +452,21 @@ class App extends React.Component {
 
 #### Styling
 
-The administration panel uses [styled-components](https://styled-components.com/) for writing css.
+管理面板使用 [styled-components](https://styled-components.com/) 来编写 css。
 
 #### i18n
 
-[React Intl](https://github.com/yahoo/react-intl) provides React components and an API to format dates, numbers, and strings, including pluralization and handling translations.
+[React Intl](https://github.com/yahoo/react-intl) 提供 React 组件和 API 来格式化日期、数字和字符串，包括多元化和处理翻译。
 
-**Usage**
+**用法**
 
-We recommend to set all your components text inside the translations folder.
+我们建议将所有组件文本设置在翻译文件夹中。
 
-The example below shows how to use i18n inside your plugin.
+下面的例子展示了如何在你的插件中使用 i18n。
 
-**Define all your ids with the associated message:**
+用相关的消息定义所有的 id:
+
+**用相关的消息定义所有的 ids:**
 
 **Path —** `./plugins/my-plugin/admin/src/translations/en.json`.
 
@@ -481,7 +484,7 @@ The example below shows how to use i18n inside your plugin.
 }
 ```
 
-**Usage inside a component**
+**组件内部的用法**
 
 **Path —** `./plugins/my-plugin/admin/src/components/Foo/index.js`.
 
@@ -499,15 +502,15 @@ const Foo = props => (
 export default Foo;
 ```
 
-See [the documentation](https://github.com/yahoo/react-intl/wiki/Components#formattedmessage) for more extensive usage.
+请参考 [the documentation](https://github.com/yahoo/react-intl/wiki/Components#formattedmessage) 了解更广泛的用法。
 
 #### Global context
 
-All plugins are wrapped inside the `GlobalContextProvider`, in this object you will have access to all plugins object as well as other utilities.
+所有的插件都包装在 `GlobalContextProvider` 中，在这个对象中你可以访问所有的插件对象以及其他实用程序。
 
-Usage:
+用法:
 
-**Inside a functional component:**
+**功能组件内部:**
 
 ```js
 import React from 'react';
@@ -522,7 +525,7 @@ const Foo = () => {
 };
 ```
 
-**Inside a class component:**
+**类组件内部:**
 
 ```js
 import React from 'react';
@@ -541,28 +544,28 @@ class Foo extends React.Component {
 
 <!--- LOCAL PLUGIN API --->
 
-## Plugin's front-end Field API
+## 插件的前端字段 API
 
-As plugins developer you may need to add custom fields in your application. To do so, a **Field API** is available in order for a plugin to register a field which will be available for all plugins.
+作为插件开发者，您可能需要在应用程序中添加自定义字段。要做到这一点，一个 **Field API** 是可用的，以便插件注册一个字段，这将是可用的所有插件。
 
 ::: warning NOTE
 
-Currently, only the content manager uses this API to extend its current fields.
+目前，只有内容管理器使用此 API 扩展其当前字段。
 
 :::
 
-### Registering a new field
+### 注册一个新 field
 
-Registering a field can be made in two different ways:
+注册一个字段可以用两种不同的方式:
 
-1. During the load phase of a plugin
-2. 使用 provided `react-hook` in a component.
+1. 在插件的加载阶段
+2. 使用 provided `react-hook` 在组件中.
 
-#### Registering a field during the load of a plugin
+#### 在加载插件时注册一个字段
 
-Registering a field during the load phase of a plugin can be done as follows:
+在插件的加载阶段注册一个字段可以这样做:
 
-1. Create a new Field type (in this example a **`media`** field type):
+1. 创建一个新的字段类型 (在此示例中 一个 **`media`** 字段类型):
 
 **Path —** `plugins/my-plugin/admin/src/components/InputMedia/index.js`.
 
@@ -578,7 +581,7 @@ const InputMedia = props => {
 export default InputMedia;
 ```
 
-2. Register the field into the application:
+2. 将字段注册到应用程序中:
 
 **Path —** `plugins/my-plugin/admin/src/index.js`.
 
@@ -611,13 +614,13 @@ export default strapi => {
 };
 ```
 
-By doing so, all the plugins from your project will be able to use the newly registered **Field** type.
+通过这样做，所有的插件从您的项目将能够使用新注册的 **Field** 字段类型。
 
-#### Registering a field inside a React Component
+#### 在 React 组件中注册一个字段
 
-The other way to register a **Field** is to use the provided `react-hook`: **`useStrapi`** it can be done in the `Initializer` Component so it is accessible directly when the user is logged in, if you decide to register your plugin in another component than the `Initializer` the **Field** will only be registered in the administration panel once the component is mounted (the user has navigated to the view where the **Field** is registered).
+注册 **Field** 的另一种方法是使用提供的 `react-hook`: **`useStrapi`**，它可以在 `Initializer` 组件中完成，因此当用户登录时可以直接访问它，如果您决定在另一个组件中注册您的插件而不是 `Initializer`，那么 **Field** 将只在组件挂载后才在管理面板中注册(用户已经导航到注册 **Field** 的视图)。
 
-1. Register the **Field** in the `Initializer` Component:
+1. 注册 **Field** 字段在 `Initializer` 组件:
 
 **Path —** `plugins/my-plugin/admin/src/containers/Initializer/index.js`.
 
@@ -658,7 +661,7 @@ Initializer.propTypes = {
 export default Initializer;
 ```
 
-2. Add the `Initializer` component to your plugin so it is mounted in the administration panel once the user is logged in:
+2. 添加一个 `Initializer` 组件作为你的插件，当用户登录时触发:
 
 ```js
 import pluginPkg from '../../package.json';
@@ -693,9 +696,9 @@ export default strapi => {
 };
 ```
 
-### Consuming the Field API
+### 使用 Field API
 
-Consuming the **Field** API can only be done by using the provided `react-hook` **`useStrapi`**. Here's an example from the **content-manager** plugin:
+使用 **Field** API 只能通过使用提供的 `react-hook` **`useStrapi`** 来完成。下面是 **content-manager** 插件的一个例子:
 
 **Path —** `~/strapi-plugin-content-manager/admin/src/components/Inputs/index.js`.
 
@@ -763,33 +766,33 @@ function Inputs({ autoFocus, keys, layout, name, onBlur }) {
 }
 ```
 
-### Field API definition
+### Field API 定义
 
-| Method        | Param         | Description                            |
-| :------------ | :------------ | :------------------------------------- |
-| getField      | {String} type | Retrieve a Field depending on the type |
-| getFields     |               | Retrieve all the Fields                |
-| registerField | {Object}      | Register a Field                       |
-| removeField   |               | Remove a Field                         |
+| Method        | Param         | Description        |
+| :------------ | :------------ | :----------------- |
+| getField      | {String} type | 根据类型检索 Field |
+| getFields     |               | 检索所有 Field     |
+| registerField | {Object}      | 注册一个 Field     |
+| removeField   |               | 删除一个 Field     |
 
-## Plugin's front-end settings API
+## 插件的前端设置 API
 
-As plugins developer you may need to add some settings into the main application **`Settings`** view (it corresponds to the `Settings` link located in the menu). To do so an API is available in order for a plugin to add links into the main view.
+作为插件开发者，您可能需要在主应用程序 **`Settings`** 视图中添加一些设置(它对应于菜单中的 `Settings` 链接)。要做到这一点，一个 API 是可用的，以便插件添加链接到主视图。
 
-These settings can be declared directly into the main plugin object so they will dynamically be injected into the view.
+这些设置可以直接声明到主插件对象中，这样就可以动态地将它们注入到视图中。
 
-### Adding a setting
+### 增加一个设置
 
-The front-end part of a plugin exports a function which registers the plugin in the administration panel. The argument is composed of two main parameters:
+插件的前端部分导出一个函数，该函数在管理面板中注册该插件。参数由两个主要参数组成:
 
 - `registerPlugin`: `Function`
 - `settingsBaseURL`: `String`
 
-#### Creating the links into the view's menu
+#### 创建视图菜单中的链接
 
-Each plugin that comes with a setting object will create a new section into the view's menu.
+每个带有设置对象的插件都会在视图的菜单中创建一个新的部分。
 
-The menu section can be declared as follows:
+菜单部分可以声明如下:
 
 **Path —** `plugins/my-plugin/admin/src/index.js`.
 
@@ -854,13 +857,13 @@ export default strapi => {
 };
 ```
 
-At this point, the plugin creates a new section (**_Super cool setting_**) which will contains two links `Setting page 1` and `Setting page 2` these links don't point to any component as the corresponding one as not been declared yet.
+在这一点上，该插件创建了一个新的部分(**_Super cool setting_**) ，将包含两个链接`Setting page 1`和`Setting page 2`这些链接不指向任何组件作为相应的一个尚未宣布。
 
-#### Declaring the setting Component
+#### 声明设置组件
 
-The exported Setting component which receives `settingsBaseURL` as props in order to generate a dynamic routing which should be used to associate the two endpoints created with their corresponding components.
+导出的 Setting 组件接收 `settingsBaseURL` 作为道具，以便生成一个动态路由，该路由应用于将创建的两个端点与其相应的组件关联起来。
 
-With the configuration from above we could easily create our plugin Settings view.
+通过上面的配置，我们可以轻松地创建我们的插件设置视图。
 
 **Path —** `plugins/my-plugin/admin/src/containers/Settings/index.js`.
 
@@ -897,7 +900,7 @@ Settings.propTypes = {
 export default Settings;
 ```
 
-Now that the `Settings` component is declared in your plugin the only thing left is to add it to your settings configuration:
+现在 `Settings` 组件已经在你的插件中声明，剩下的唯一事情就是将它添加到你的设置配置中:
 
 **Path —** `plugins/my-plugin/admin/src/index.js`.
 
@@ -958,9 +961,9 @@ export default strapi => {
 };
 ```
 
-### Adding a setting into the global section
+### 全局添加一个设置
 
-In order to add a link into the global section of the settings view you need to create a global array containing the links you want to add:
+为了将链接添加到设置视图的全局部分，您需要创建一个全局数组，其中包含您要添加的链接:
 
 **Path —** `plugins/my-plugin/admin/src/index.js`.
 
@@ -1036,5 +1039,5 @@ export default strapi => {
 ```
 
 ::: danger
-It is currently not possible to add a link into another plugin's setting section
+目前不可能添加到另一个插件的设置部分的链接
 :::

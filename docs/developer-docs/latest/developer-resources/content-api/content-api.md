@@ -301,7 +301,7 @@ Returns entries matching the query filters. You can read more about parameters [
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 GET http://localhost:1337/restaurants
@@ -311,7 +311,7 @@ GET http://localhost:1337/restaurants
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```json
 [
@@ -384,7 +384,7 @@ Returns an entry by id.
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 GET http://localhost:1337/restaurants/1
@@ -394,7 +394,7 @@ GET http://localhost:1337/restaurants/1
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```json
 {
@@ -465,7 +465,7 @@ Returns the count of entries matching the query filters. You can read more about
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 GET http://localhost:1337/restaurants/count
@@ -475,7 +475,7 @@ GET http://localhost:1337/restaurants/count
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```
 1
@@ -493,7 +493,7 @@ Creates an entry and returns its value.
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 POST http://localhost:1337/restaurants
@@ -530,7 +530,7 @@ POST http://localhost:1337/restaurants
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```json
 {
@@ -602,7 +602,7 @@ Fields that aren't sent in the query are not changed in the db. Send a `null` va
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 PUT http://localhost:1337/restaurants/1
@@ -648,7 +648,7 @@ PUT http://localhost:1337/restaurants/1
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```json
 {
@@ -725,7 +725,7 @@ Deletes an entry by id and returns its value.
 
 ::: tab Request
 
-**Example request**
+**示例 request**
 
 ```js
 DELETE http://localhost:1337/restaurants/1
@@ -735,7 +735,7 @@ DELETE http://localhost:1337/restaurants/1
 
 ::: tab Response
 
-**Example response**
+**示例 response**
 
 ```json
 {

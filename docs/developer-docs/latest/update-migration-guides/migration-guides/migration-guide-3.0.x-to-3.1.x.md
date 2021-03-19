@@ -22,7 +22,7 @@ npm info strapi@3.1.x version
 
 Then, update your `package.json` with the highest version given by the previous command.
 
-**Example —** `package.json`
+**示例 —** `package.json`
 
 ```json
 {

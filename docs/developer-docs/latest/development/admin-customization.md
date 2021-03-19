@@ -87,7 +87,7 @@ export default trads;
 
 与后端覆盖系统类似，在 `my-app/extensions/<plugin-name>/admin/` 中添加的任何文件都将被复制并使用，而不是原始文件(请小心使用)。
 
-**Example: 更改内容编辑器 WYSIWYG**
+**示例: 更改内容编辑器 WYSIWYG**
 
 ```bash
 cd my-app/extensions

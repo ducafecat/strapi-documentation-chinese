@@ -1,23 +1,22 @@
-# Strapi plugins
+# Strapi 插件
 
-In Strapi you can install plugins in your `node_modules`. This allows for easy updates and respect best practices. To customize those installed plugins you can work in the `/extensions` directory. It contains all the plugins' customizable files.
+在 Strapi，你可以在你的 `node_modules` 中安装插件。这允许简单的更新和尊重最佳实践。要自定义那些已安装的插件，您可以在 `/extensions` 目录中工作。它包含所有插件的可定制文件。
 
-Some plugins will create files in these folders so you can then modify them. You can also create certain files manually to add some custom configuration.
+一些插件会在这些文件夹中创建文件，这样你就可以修改它们了。您还可以手动创建某些文件以添加某些自定义配置。
 
-Extensions folder structure:
+扩展文件夹结构:
 
 - `extensions/`
-  - `**`: Plugin Id
-    - `admin`: You can extend a plugin's admin by creating a file with the same name, doing so will override the original one.
-    - `config`: You can extend a plugin's configuration by adding a settings.json file with your custom configuration.
-    - `models`: Contains the plugin's models that you have overwritten (e.g. when you add a relation to the User model).
-    - `controllers`: You can extend the plugin's controllers by creating controllers with the same names and override certain methods.
-    - `services`: You can extend the plugin's services by creating services with the same names and override certain methods.
+  - `**`: 插件 Id
+    - `admin`: 你可以通过创建一个同名的文件来扩展插件的管理，这样做会覆盖原来的文件.
+    - `config`: 您可以通过添加带有自定义配置的 settings.json 文件来扩展插件的配置.
+    - `models`: 包含您已经覆盖的插件模型(例如，当您向用户模型添加关系时).
+    - `controllers`: 可以通过创建名称相同的控制器并覆盖某些方法来扩展插件的控制器.
+    - `services`: 你可以通过创建相同名称的服务和覆盖某些方法来扩展插件的服务.
 
 ::: warning
-When using **extensions** you will need to update your code whenever you upgrade your strapi version. Not updating and comparing your **extensions** with the new changes on the repository, can break your app in unexpected ways that we cannot predict in the [migration guides](/developer-docs/latest/update-migration-guides/migration-guides.md).
+在使用 **extensions** 时，每当升级 strapi 版本时，都需要更新代码。不更新你的 **extensions** 并将其与存储库中的新变化进行比较，可能会以我们在 [迁移指南](/developer-docs/latest/update-migration-guides/migration-guides.md) 中无法预料的方式破坏你的应用程序。
 :::
-
 
 <PluginsLinks>
 </PluginsLinks>

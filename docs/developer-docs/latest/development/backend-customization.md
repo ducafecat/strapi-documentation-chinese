@@ -2696,7 +2696,7 @@ Webhook 的工作方式是通过 HTTP 请求(通常是 POST 请求)将信息传�
 - `webhooks`
   - `defaultHeaders`: 你可以设置默认的标题来使用你的 webhook 请求。此选项被 webhook 本身中设置的头部覆盖.
 
-**Example configuration**
+**示例 configuration**
 
 ```js
 module.exports = {
@@ -2827,7 +2827,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 创建新条目时触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2853,7 +2853,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 更新条目时触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2879,7 +2879,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 删除条目时触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2905,7 +2905,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 发布条目时触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2932,7 +2932,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 未发布条目时触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2959,7 +2959,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 当您在创建条目时或通过媒体界面上传文件时，将触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -2987,7 +2987,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 当您替换媒体或通过媒体界面更新媒体的元数据时，将触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {
@@ -3015,7 +3015,7 @@ You can delete a webhook by clicking on the `trash` icon.
 
 只有在通过媒体界面删除媒体时才会触发此事件。
 
-**Example payload**
+**示例 payload**
 
 ```json
 {

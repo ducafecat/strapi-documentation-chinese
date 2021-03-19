@@ -30,7 +30,7 @@ This config is using the sub-domain that is dedicated to Strapi only. It will bi
 
 ---
 
-Example Domain: `api.example.com`
+示例 Domain: `api.example.com`
 
 **Path —** `/etc/caddy/Caddyfile`
 
@@ -55,7 +55,7 @@ Please note that this config is not focused on the frontend hosting, you will mo
 
 ---
 
-Example Domain: `example.com/api`
+示例 Domain: `example.com/api`
 
 **Path —** `/etc/caddy/Caddyfile`
 
@@ -86,9 +86,9 @@ Please note that this config is not focused on the frontend hosting, you will mo
 
 ---
 
-Example API Domain: `example.com/api`
+示例 API Domain: `example.com/api`
 
-Example Admin Domain: `example.com/dashboard`
+示例 Admin Domain: `example.com/dashboard`
 
 **Path —** `/etc/caddy/Caddyfile`
 
@@ -122,7 +122,7 @@ In order to take full advantage of a proxied Strapi application you will need to
 
 ---
 
-Example Domain: `api.example.com`
+示例 Domain: `api.example.com`
 
 **Path —** `config/server.js`
 
@@ -142,7 +142,7 @@ module.exports = ({ env }) => ({
 
 ---
 
-Example Domain: `example.com/api`
+示例 Domain: `example.com/api`
 
 **Path —** `config/server.js`
 
@@ -162,9 +162,9 @@ module.exports = ({ env }) => ({
 
 ---
 
-Example API Domain: `example.com/api`
+示例 API Domain: `example.com/api`
 
-Example Admin Domain: `example.com/dashboard`
+示例 Admin Domain: `example.com/dashboard`
 
 **Path —** `config/server.js`
 
