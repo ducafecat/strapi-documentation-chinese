@@ -113,7 +113,7 @@ module.exports = {
 };
 ```
 
-The same modification was made to `strapi.query()`. Read more about **Queries** [here](/developer-docs/latest/development/backend-customization.md#queries).
+The same modification was made to `strapi.query()`. Read more about **Queries** [这里](/developer-docs/latest/development/backend-customization.md#queries).
 
 Keep in mind that if you are running custom ORM queries with Bookshelf or Mongoose you will still have to call `toJSON` or `toObject`. Check out this section about [custom queries](/developer-docs/latest/development/backend-customization.md#api-reference).
 

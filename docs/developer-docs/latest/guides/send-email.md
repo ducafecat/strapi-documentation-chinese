@@ -18,7 +18,7 @@ If you check the controller file of your generated API `./api/{content-type}/con
 
 And that is what we will do to add our custom code.
 
-## Example
+## 例子
 
 To keep the code example easy to follow, we will just have a `Comment` content type and omit the `Author` and `Article` relations.
 

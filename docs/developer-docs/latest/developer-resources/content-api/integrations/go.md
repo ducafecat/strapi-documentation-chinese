@@ -4,7 +4,6 @@ This integration guide is following the [Getting started guide](/developer-docs/
 
 If you haven't gone through the getting started guide, the way you request a Strapi API with [GO](https://golang.org/) remains the same except that you will not fetch the same content.
 
-
 ### Create a Go file
 
 Be sure to have Go installed on your computer.
@@ -16,13 +15,11 @@ touch strapi.go
 Go has inbuilt module/package needed to make HTTP Requests like GET, POST PUT, DELETE.
 We will use it("net/http") along with other modules/packages.
 
-
 ### GET Request your collection type
 
 Execute a `GET` request on the `restaurant` Collection Type in order to fetch all your restaurants.
 
 Be sure that you activated the `find` permission for the `restaurant` Collection Type.
-
 
 _Request_
 
@@ -33,33 +30,35 @@ response, error := http.Get("http://localhost:1337/restaurants")
 _Response_
 
 ```json
-[{
-  "id": 1,
-  "name": "Biscotte Restaurant",
-  "description": "Welcome to Biscotte restaurant! Restaurant Biscotte offers a cuisine based on fresh, quality products, often local, organic when possible, and always produced by passionate producers.",
-  "created_at": "2021-03-31T11:37:16.964Z",
-  "updated_at": "2021-03-31T11:37:16.975Z",
-  "categories": [{
-      "id": 1,
-      "name": "French Food",
-      "created_by": 1,
-      "updated_by": 1,
-      "created_at": "2021-03-31T11:36:23.164Z",
-      "updated_at": "2021-03-31T11:36:23.172Z"
-    },
-    {
-      "id": 2,
-      "name": "Brunch ",
-      "published_at": "2021-03-07T10:10:19.608Z",
-      "created_at": "2021-03-07T10:10:14.477Z",
-      "updated_at": "2021-03-07T10:10:19.649Z"
-    }
-  ]
-}]
+[
+  {
+    "id": 1,
+    "name": "Biscotte Restaurant",
+    "description": "Welcome to Biscotte restaurant! Restaurant Biscotte offers a cuisine based on fresh, quality products, often local, organic when possible, and always produced by passionate producers.",
+    "created_at": "2021-03-31T11:37:16.964Z",
+    "updated_at": "2021-03-31T11:37:16.975Z",
+    "categories": [
+      {
+        "id": 1,
+        "name": "French Food",
+        "created_by": 1,
+        "updated_by": 1,
+        "created_at": "2021-03-31T11:36:23.164Z",
+        "updated_at": "2021-03-31T11:36:23.172Z"
+      },
+      {
+        "id": 2,
+        "name": "Brunch ",
+        "published_at": "2021-03-07T10:10:19.608Z",
+        "created_at": "2021-03-07T10:10:14.477Z",
+        "updated_at": "2021-03-07T10:10:19.649Z"
+      }
+    ]
+  }
+]
 ```
 
-### Example
-
+### 例子
 
 ```go
 package main
@@ -85,12 +84,12 @@ func getD() {
 	}
 }
 ```
+
 ### POST Request your collection type
 
 Execute a `POST` request on the `restaurant` Collection Type in order to create a restaurant.
 
 Be sure that you activated the `create` permission for the `restaurant` Collection Type and the `find` permission for the `category` Collection type.
-
 
 _Request_
 
@@ -116,7 +115,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 ```go
 package main
@@ -159,29 +158,27 @@ func postD() {
     log.Fatalf("An Error Occured %v", error)
   }
   defer resp.Body.Close()
-  //Read the response body
+  //阅读 response body
   body, error := ioutil.ReadAll(resp.Body)
   if error != nil {
     log.Fatalln(error)
   }
   fmt.Println(string(body))
 }
-```	  
-
+```
 
 ### PUT Request your collection type
 
 Execute a `PUT` request on the `restaurant` Collection Type in order to update the category of a restaurant.
 
 Be sure that you activated the `update` permission for the `restaurant` Collection Type.
-PUT Request is sligtly different as we need to target the particular thing we want update. We do this by first making a request to http://localhost:1337/restaurants/1 and then update what we want to update. In this example, we are going to update  "Biscotte Restaurant" to "Restaurant Home".
-
+PUT Request is sligtly different as we need to target the particular thing we want update. We do this by first making a request to http://localhost:1337/restaurants/1 and then update what we want to update. 在这个例子中, we are going to update "Biscotte Restaurant" to "Restaurant Home".
 
 _Request_
 
 ```go
 putRest, _ := json.Marshal(map[string]string {
-  "name": "Resturant Homes",    
+  "name": "Resturant Homes",
 })
 client := &http.Client{}
 url := "http://localhost:1337/restaurants/1"
@@ -199,7 +196,8 @@ _Response_
   "published_at": "2021-03-07T10:10:46.949Z",
   "created_at": "2021-03-07T10:08:53.929Z",
   "updated_at": "2021-03-07T14:06:01.567Z",
-  "categories": [{
+  "categories": [
+    {
       "id": 1,
       "name": "French Food",
       "published_at": "2021-03-07T10:09:43.232Z",
@@ -217,8 +215,7 @@ _Response_
 }
 ```
 
-
-### Example
+### 例子
 
 ```go
 package main
@@ -263,7 +260,7 @@ func postD() {
 		log.Fatalf("An Error Occured %v", error)
 	}
 	defer resp.Body.Close()
-	// Read the response body
+	// 阅读 response body
 	body, error := ioutil.ReadAll(resp.Body)
 	if error != nil {
 		log.Fatalln(error)

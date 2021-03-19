@@ -12,7 +12,7 @@ Before going any further into this user guide, we recommend you to acknowledge t
 
 - **License and Pricing Plans** <br> As a Strapi user you have the choice between using the Community Edition, which is entirely free, or one of the 3 paying plans of the Enterprise Edition: Bronze, Silver, and Gold (see [Pricing and Plans](https://strapi.io/pricing)). In this user guide if a feature is only available for a specific plan of the Enterprise Edition, a badge is displayed beside the section's title to indicate the name of the plan.
 
-- **Roles and Permissions** <br> Some features of the admin panel, as well as the content managed with Strapi itself, are ruled by a system of permissions. From your Strapi admin panel, you have the possibility to define, at a detailed level, the roles and permissions of all administrators and end-users. In this user guide, all features and possible options are documented. It is however possible, depending on your role and permissions, that you may not be able to access all these features and options. In that case, please refer to the main Super Admin of your Strapi application.
+- **Roles and Permissions** <br> Some features of the admin panel, as well as the content managed with Strapi itself, are ruled by a system of permissions. From your Strapi admin panel, you have the possibility to define, at a detailed level, the roles and permissions of all administrators and end-users. In this user guide, all features and possible options are documented. It is however possible, depending on your role and permissions, that you may not be able to access all these features and options. In that case, 访问 the main Super Admin of your Strapi application.
 
 With all this in mind, you should be ready to start your Strapi experience!
 

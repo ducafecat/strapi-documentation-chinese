@@ -10,7 +10,7 @@ Here is the [GraphQL documentation](/developer-docs/latest/development/plugins/g
 
 ## Setup the application
 
-In this example, we will use a **Restaurant** API.
+在这个例子中, we will use a **Restaurant** API.
 
 Make sure you have a **Content Type** with some entries.
 

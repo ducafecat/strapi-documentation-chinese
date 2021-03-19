@@ -38,13 +38,13 @@ To allow customizations, the server will now serve the files in your `./public` 
 
 From now on, if you don't have any `index.html` file in your `./public` folder, the server will render the default Strapi homepage.
 
-You can now also disable this behavior with the `public.defaultIndex` option. Read the documentation [here](/developer-docs/latest/setup-deployment-guides/configurations.md).
+You can now also disable this behavior with the `public.defaultIndex` option. 阅读 documentation [这里](/developer-docs/latest/setup-deployment-guides/configurations.md).
 
 ## Upload plugin settings
 
 A lot of our users have been requesting that we move some back-end specific configurations to files. While implementing the media library feature, we decided to move the upload plugin settings to files.
 
-This means that you now have to configure your provider directly in the files. You can read the documentation [here](/developer-docs/latest/development/plugins/upload.md#using-a-provider) to update.
+This means that you now have to configure your provider directly in the files. You can read the documentation [这里](/developer-docs/latest/development/plugins/upload.md#using-a-provider) to update.
 
 ## MongoDB Media relation changes
 
@@ -61,7 +61,7 @@ You will hence need to migrate your `mongo` database to avoid losing references 
 
 ### Backup your database
 
-When running in production, you should always backup your database before running migrations. To backup a `mongo` database, look at the documentation [here](https://docs.mongodb.com/manual/core/backups/)
+When running in production, you should always backup your database before running migrations. To backup a `mongo` database, look at the documentation [这里](https://docs.mongodb.com/manual/core/backups/)
 
 ### Export model metadatas
 

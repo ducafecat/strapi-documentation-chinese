@@ -8,7 +8,7 @@ It is often required that the author of an entry is the only user allowed to edi
 
 This is a feature that is requested a lot and in this guide we will show how to implement it.
 
-## Example
+## 例子
 
 For this example, we will need an Article Content Type.
 

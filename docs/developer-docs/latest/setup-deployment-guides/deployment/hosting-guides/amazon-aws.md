@@ -349,7 +349,7 @@ module.exports = ({ env }) => ({
 });
 ```
 
-Checkout the documentation about using an upload provider [here](/developer-docs/latest/development/plugins/upload.md#using-a-provider).
+Checkout the documentation about using an upload provider [这里](/developer-docs/latest/development/plugins/upload.md#using-a-provider).
 
 #### 4. Push your local changes to your project's GitHub repository.
 
@@ -392,7 +392,7 @@ Ensure you are logged in as a **non-root** user. You will install **PM2** global
 npm install pm2@latest -g
 ```
 
-Now, you will need to configure an `ecosystem.config.js` file. This file will set `env` variables that connect Strapi to your database. It will also be used to restart your project whenever any changes are made to files within the Strapi file system itself (such as when an update arrived from Github). You can read more about this file [here](https://pm2.keymetrics.io/docs/usage/application-declaration/).
+Now, you will need to configure an `ecosystem.config.js` file. This file will set `env` variables that connect Strapi to your database. It will also be used to restart your project whenever any changes are made to files within the Strapi file system itself (such as when an update arrived from Github). You can read more about this file [这里](https://pm2.keymetrics.io/docs/usage/application-declaration/).
 
 - You will need to open your `nano` editor and then `copy/paste` the following:
 
@@ -656,7 +656,7 @@ sudo systemctl start webhook
 sudo systemctl status webhook
 ```
 
-- You may test your **webhook** by following the instructions [here](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync#step-4-testing-the-webhook).
+- You may test your **webhook** by following the instructions [这里](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync#step-4-testing-the-webhook).
 
 ### Further steps to take
 

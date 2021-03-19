@@ -107,9 +107,9 @@ upstream strapi {
 
 In the DigitalOcean one-click application a service user is used in which it's home directory is located at `/srv/strapi`. Likewise the actual Strapi application is located within this home directory at `/srv/strapi/strapi-development`.
 
-Please note that with this application it is initially created and ran in the `development` environment to allow for creating models. **You should not use this directly in production**, it is recommended that you configure a private git repository to commit changes into and create a new application directory within the service user's home (Example: `/srv/strapi/strapi-production`). To run the new `production` or `staging` environments you can refer to the [PM2 Documentation](https://pm2.keymetrics.io/docs/usage/quick-start/#managing-processes).
+Please note that with this application it is initially created and ran in the `development` environment to allow for creating models. **You should not use this directly in production**, it is recommended that you configure a private git repository to commit changes into and create a new application directory within the service user's home (Example: `/srv/strapi/strapi-production`). To run the new `production` or `staging` environments you can refer to the [PM2 文档](https://pm2.keymetrics.io/docs/usage/quick-start/#managing-processes).
 
-## Using the Service Account
+## 使用 Service Account
 
 By default the Strapi application will be running under a "service account", this is an account that is extremely limited into what it can do and access. The purpose of using a service account is to help protect your system from security threats.
 

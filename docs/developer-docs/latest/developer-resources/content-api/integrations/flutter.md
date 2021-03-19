@@ -20,18 +20,16 @@ We'll use [http](https://pub.dev/packages/http) for making HTTP requests.
 - Update the `pubspec.yaml` file with the following:
 
 ```yaml
-...
+
+---
 dependencies:
   flutter:
     sdk: flutter
-
-
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.0
   http: ^0.12.2
-...
 ```
 
 - Install your dependencies by running the following command:
@@ -104,7 +102,7 @@ Execute a `POST` request on the `restaurant` Collection Type in order to create 
 
 Be sure that you activated the `create` permission for the `restaurant` Collection Type and the `find` permission for the `category` Collection type.
 
-In this example a `japanese` category has been created which has the id: 3.
+在这个例子中 a `japanese` category has been created which has the id: 3.
 
 _Request_
 

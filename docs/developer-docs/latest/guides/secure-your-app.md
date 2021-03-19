@@ -3,7 +3,7 @@
 In this guide we will see how you can secure your Strapi application by using a third party provider.
 
 ::: tip
-In this example we will use [Sqreen](https://sqreen.com).
+在这个例子中 we will use [Sqreen](https://sqreen.com).
 :::
 
 Their [onboarding](https://my.sqreen.com/new-application#nodejs-agent) is really easy to follow and understand.

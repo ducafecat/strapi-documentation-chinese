@@ -16,7 +16,7 @@ Please complete the installation steps appropriate to your operating system.
 
 Follow these steps to [install MongoDB onto your Windows 10](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-windows/) environment (The Windows Sub-System for Linux (WSL) is unsupported by MongoDB):
 
-1. Download the `MongoDB Community Edition Server` for Windows [here](https://www.mongodb.com/download-center/community?jmp=docs). Select `MongoDB Community Server` and verify the options that match your computer. Then `Download` the package and follow the installation instructions to complete the process.
+1. Download the `MongoDB Community Edition Server` for Windows [这里](https://www.mongodb.com/download-center/community?jmp=docs). Select `MongoDB Community Server` and verify the options that match your computer. Then `Download` the package and follow the installation instructions to complete the process.
 
 2. After successfully installing MongoDB, the MongoDB service is started. To begin using MongoDB, connect a mongo.exe shell to the running MongoDB instance.
 
@@ -70,7 +70,7 @@ Follow these steps to [install MongoDB onto your Ubuntu](https://docs.mongodb.co
 sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 9DA31620334BD75D9DCB49F368818C72E52529D4
 ```
 
-2. Next, add the repository for 18.04. Repositories for other versions of Ubuntu are found [here](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
+2. Next, add the repository for 18.04. Repositories for other versions of Ubuntu are found [这里](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/).
 
 ```bash
 echo "deb [ arch=amd64 ] https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.0.list
@@ -201,7 +201,7 @@ You have successfully installed Strapi with MongoDB on your local development en
 
 ## Install on Atlas: MongoDB Atlas
 
-Follow these steps to configure a local Strapi project to use a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) free 512 MB account in production. (Please see [MongoDB Atlas Documentation](https://docs.atlas.mongodb.com/getting-started/) if you have any questions.)
+Follow these steps to configure a local Strapi project to use a [MongoDB Atlas](https://www.mongodb.com/cloud/atlas) free 512 MB account in production. (Please see [MongoDB Atlas 文档](https://docs.atlas.mongodb.com/getting-started/) if you have any questions.)
 
 - You must have already [created your Strapi project using MongoDB](/developer-docs/latest/setup-deployment-guides/configurations/databases/mongodb.md#_2-install-strapi-locally-with-mongodb).
 - You must have already created a [free MongoDB Atlas account](https://www.mongodb.com/cloud/atlas).
@@ -267,7 +267,7 @@ You must use remove some string and it has to look like so:
 `mongodb://paulbocuse:<password>@strapi-heroku-shard-00-00-oxxxo.mongodb.net:27017,strapi-heroku-shard-00-01-oxxxo.mongodb.net:27017,strapi-heroku-shard-00-02-oxxxo.mongodb.net:27017/test?ssl=true`
 
 ::: warning
-Please note the `<password>` after your `username`. In this example, after `mongodb://paulbocuse:`. You will need to replace the `<password>` with the password you created earlier for this user in your **MongoDB Atlas** account.
+Please note the `<password>` after your `username`. 在这个例子中, after `mongodb://paulbocuse:`. You will need to replace the `<password>` with the password you created earlier for this user in your **MongoDB Atlas** account.
 :::
 
 ### 5. Update and replace your existing `/database.js` config file for the appropriate environment (development | production).
@@ -307,7 +307,7 @@ The above configuration will create a database called `strapi`, the _default dat
 :::
 
 ::: danger WARNING
-We recommend replacing sensitive (eg. "URI string" above) information in your database configuration files before uploading your project to a public repository such as GitHub. For more information about using environment variables, please read [configurations](/developer-docs/latest/setup-deployment-guides/configurations.md).
+We recommend replacing sensitive (eg. "URI string" above) information in your database configuration files before uploading your project to a public repository such as GitHub. 详细信息 about using environment variables, please read [configurations](/developer-docs/latest/setup-deployment-guides/configurations.md).
 
 :::
 

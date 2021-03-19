@@ -81,7 +81,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 `./src/pages/Index.vue`
 
@@ -158,7 +158,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 `./src/pages/Index.vue`
 

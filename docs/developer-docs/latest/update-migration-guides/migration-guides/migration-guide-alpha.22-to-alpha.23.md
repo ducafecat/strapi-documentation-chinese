@@ -3,7 +3,7 @@
 **Here are the major changes:**
 
 - Fix send email user register
-- Documentation
+- 文档
 
 **Useful links:**
 

@@ -69,7 +69,7 @@ Please refer to [router documentation](/developer-docs/latest/development/backen
 
 **Route prefix**
 
-Each route of a plugin is prefixed by the name of the plugin (eg: `/my-plugin/my-plugin-route`). Using the `prefix` key you can change this option to something custom. You can disable the prefix, by setting the `config.prefix` key to an empty string.
+Each route of a plugin is prefixed by the name of the plugin (eg: `/my-plugin/my-plugin-route`). 使用 `prefix` key you can change this option to something custom. You can disable the prefix, by setting the `config.prefix` key to an empty string.
 
 ```json
 {
@@ -556,7 +556,7 @@ Currently, only the content manager uses this API to extend its current fields.
 Registering a field can be made in two different ways:
 
 1. During the load phase of a plugin
-2. Using the provided `react-hook` in a component.
+2. 使用 provided `react-hook` in a component.
 
 #### Registering a field during the load of a plugin
 

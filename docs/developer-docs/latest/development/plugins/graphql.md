@@ -74,7 +74,7 @@ By default, the [Shadow CRUD](#shadow-crud) feature is enabled and the GraphQL i
 
 Security limits on maximum number of items in your response by default is limited to 100, however you can change this on the following config option `amountLimit`. This should only be changed after careful consideration of the drawbacks of a large query which can cause what would basically be a DDoS (Distributed Denial of Service). And may cause abnormal load on your Strapi server, as well as your database server.
 
-You can also setup any [Apollo Server options](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#apolloserver) with the `apolloServer` option. For example, you can enable the tracing feature, which is supported by the playground to track the response time of each part of your query. To enable this feature just change/add the `"tracing": true` option in the GraphQL settings file. You can read more about the tracing feature from Apollo [here](https://www.apollographql.com/docs/apollo-server/federation/metrics/).
+You can also setup any [Apollo Server options](https://www.apollographql.com/docs/apollo-server/api/apollo-server/#apolloserver) with the `apolloServer` option. For example, you can enable the tracing feature, which is supported by the playground to track the response time of each part of your query. To enable this feature just change/add the `"tracing": true` option in the GraphQL settings file. You can read more about the tracing feature from Apollo [这里](https://www.apollographql.com/docs/apollo-server/federation/metrics/).
 
 You can edit these configurations by creating following file.
 
@@ -312,7 +312,7 @@ To simplify and automate the build of the GraphQL schema, we introduced the Shad
 If you use a local plugin, the controller methods of your plugin are not created by default. In order for the Shadow CRUD to work you have to define them in your controllers for each of your models. You can find examples of controllers `findOne`, `find`, `create`, `update` and `delete` there : [Core controllers](/developer-docs/latest/development/backend-customization.md#controllers).
 :::
 
-### Example
+### 例子
 
 If you've generated an API called `Restaurant` using the CLI `strapi generate:api restaurant` or the administration panel, your model looks like this:
 
@@ -546,7 +546,7 @@ module.exports = {
   - `Query` (object): lets you define custom resolver, policies for a query.
   - `Mutation` (object): lets you define custom resolver, policies for a mutation.
 
-### Example
+### 例子
 
 Let say we are using the same previous `Restaurant` model.
 
@@ -772,7 +772,7 @@ module.exports = {
 };
 ```
 
-In this example, the policy `isAuthenticated` located in the `users-permissions` plugin will be executed first. Then, the `isOwner` policy located in the `Restaurant` API `./api/restaurant/config/policies/isOwner.js`. Next, it will execute the `logging` policy located in `./config/policies/logging.js`. Finally, the resolver will be executed.
+在这个例子中, the policy `isAuthenticated` located in the `users-permissions` plugin will be executed first. Then, the `isOwner` policy located in the `Restaurant` API `./api/restaurant/config/policies/isOwner.js`. Next, it will execute the `logging` policy located in `./config/policies/logging.js`. Finally, the resolver will be executed.
 
 ::: tip
 There is no custom resolver in that case, so it will execute the default resolver (Restaurant.find) provided by the Shadow CRUD feature.
@@ -801,7 +801,7 @@ module.exports = {
 };
 ```
 
-In this example, it will execute the `findByChef` action of the `Restaurant` controller. It also means that the resolver will apply on the `restaurants` query the permissions defined on the `findByChef` action (through the administration panel).
+在这个例子中, it will execute the `findByChef` action of the `Restaurant` controller. It also means that the resolver will apply on the `restaurants` query the permissions defined on the `findByChef` action (through the administration panel).
 
 ::: tip
 The `obj` parameter is available via `ctx.params` and the `options` are available via `ctx.query` in the controller's action.

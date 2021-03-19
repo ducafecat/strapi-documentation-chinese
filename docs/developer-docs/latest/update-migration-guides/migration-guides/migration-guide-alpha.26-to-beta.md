@@ -257,7 +257,7 @@ If you have made some modifications to one of your plugins, you will have to do 
 
 The main principle is to keep only the files you modified and move them to the `./extensions/pluginName` folder.
 
-Read the following instructions for more details.
+阅读 following instructions for more details.
 
 #### Config
 
@@ -698,7 +698,7 @@ Numerous changes have been made to the admin with the release of beta:
 
 Customizing the admin is as simple as creating a file in the `./admin` folder of your app. You need to make sure the file you want to customize is at the same location in your `./admin` folder as it is in the `strapi-admin` package. For a reference you can look at the [source code](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/admin).
 
-### Example
+### 例子
 
 You can modify the logo of the app by creating a file `./admin/src/assets/images/logo-strapi.png` to replace the admin logo.
 
@@ -729,7 +729,7 @@ If you haven't created any relation with the `User` model in your `Content Types
 
 Finally, if you have chosen to migrate your previous admin users in the new `strapi_administrator` collection but your `User` model has at least one relation with another model, then you may need to keep both the `strapi_administrator` and `users-pemrissions_user` collection manually in sync.
 
-**Example**: Some of your application users can edit their profile and access the admin panel. If they change their email you need to make sure their `administrator` entity also changes email.
+**例子**: Some of your application users can edit their profile and access the admin panel. If they change their email you need to make sure their `administrator` entity also changes email.
 ::: warning
 We really recommend separating you users from your administrators to avoid this situation which is not a good practice.
 :::
@@ -746,7 +746,7 @@ For example, `Heroku` will run the build script for you and set `NODE_ENV=produc
 
 ### Running the project
 
-Previously, you could run your project by running `node server.js`. The beta version removes the `server.js` file, and so you will have to either run `npm run start` or manually create a `server.js` file (read more [here](#migrating-server-js))
+Previously, you could run your project by running `node server.js`. The beta version removes the `server.js` file, and so you will have to either run `npm run start` or manually create a `server.js` file (read more [这里](#migrating-server-js))
 
 #### PM2
 

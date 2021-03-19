@@ -12,7 +12,7 @@ const sidebar = {
     },
     {
       collapsable: false,
-      title: '⚙️ Setup & Deployment',
+      title: '⚙️ 安装 & 部署',
       children: [
         ['/developer-docs/latest/setup-deployment-guides/installation.md', '安装'],
         ['/developer-docs/latest/setup-deployment-guides/file-structure.md', '工程项目结构'],
@@ -22,12 +22,12 @@ const sidebar = {
     },
     {
       collapsable: false,
-      title: '🔧 Development',
+      title: '🔧 开发',
       children: [
-        ['/developer-docs/latest/development/backend-customization.md', 'Backend customization'],
-        ['/developer-docs/latest/development/admin-customization.md', 'Admin panel customization'],
-        ['/developer-docs/latest/development/plugin-customization.md', 'Strapi plugins'],
-        ['/developer-docs/latest/development/local-plugins-customization.md', 'Local plugins'],
+        ['/developer-docs/latest/development/backend-customization.md', '后端'],
+        ['/developer-docs/latest/development/admin-customization.md', '管理面板'],
+        ['/developer-docs/latest/development/plugin-customization.md', 'Strapi 插件'],
+        ['/developer-docs/latest/development/local-plugins-customization.md', '本地插件'],
       ],
     },
     {

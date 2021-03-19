@@ -7,12 +7,12 @@ This guide explains how to update an existing Strapi project so it can be deploy
 With persistent disks and managed PostgreSQL databases, 21YunBox gives you multiple different ways to store your content. 21YunBox services come with fully managed SSL, so it's no longer necessary to set up a proxy server to secure your Strapi app. Since 21YunBox services are automatically restarted if they become unresponsive, you don't need to use a process manager like `pm2` either.
 
 ::: tip
-For more information consult [21YunBox's Deploy Strapi guide](https://www.21yunbox.com/docs/#/deploy-strapi)
+详细信息 consult [21YunBox's Deploy Strapi guide](https://www.21yunbox.com/docs/#/deploy-strapi)
 :::
 
 ## Prerequisites
 
-This guide assumes you already have a Strapi project to deploy. If you need a project, use the [Quick Start](/developer-docs/latest/getting-started/quick-start.md) to get started or fork 21YunBox's Strapi Examples:
+This guide assumes you already have a Strapi project to deploy. If you need a project, use the [Quick Start](/developer-docs/latest/getting-started/quick-start.md) to get started or fork 21YunBox's Strapi 例子:
 
 - [Strapi with SQLite Starter](https://gitee.com/eryiyunbox-examples/hello-strapi-sqlite)
 - [Strapi with Postgres Starter](https://gitee.com/eryiyunbox-examples/hello-strapi-postgres)

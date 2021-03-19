@@ -59,7 +59,7 @@ npm install
 This version comes with a new feature: Role & Permissions for the administrators. In the process, the authentication system for administrators has been updated and the `secret` used to encode the jwt token is not automatically generated anymore.
 In order to make the login work again you need to define the `secret` you want to use in `server.js`.
 
-**Example**
+**例子**
 
 1. Generate a secure token.
 

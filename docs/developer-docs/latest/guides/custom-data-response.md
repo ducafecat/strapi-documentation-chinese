@@ -14,7 +14,7 @@ If you check the controller file of your generated API `./api/{content-type}/con
 
 And that is what we will do to manage our custom data response.
 
-## Example
+## 例子
 
 In our example we will use a restaurant type with a chef. By default when you fetch restaurants, you will get all information for the chef.
 Let's consider you don't want to expose the chef's email for privacy reasons.

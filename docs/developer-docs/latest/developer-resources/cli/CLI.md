@@ -107,7 +107,7 @@ Options:
   -p, --pretty       Format the output JSON with indentation and line breaks (default: false)
 ```
 
-**Examples**
+**例子**
 
 - `strapi configuration:dump -f dump.json`
 - `strapi config:dump --file dump.json`
@@ -141,7 +141,7 @@ Options:
   -s, --strategy <strategy>  Strategy name, one of: "replace", "merge", "keep". Defaults to: "replace"
 ```
 
-**Examples**
+**例子**
 
 - `strapi configuration:restore -f dump.json`
 - `strapi config:restore --file dump.json -s replace`
@@ -165,7 +165,7 @@ When running the restore command, you can choose from three different strategies
 Reset an admin user's password.
 You can pass the email and new password as options or set them interactivly if you call the command without passing the options.
 
-**Example**
+**例子**
 
 ```bash
 strapi admin:reset-user-password --email=chef@strapi.io --password=Gourmet1234
@@ -198,12 +198,12 @@ options: [--plugin <name>]
 - **strapi generate:api &#60;name&#62; &#60;attribute:type&#62;**<br/>
   Generates an API called **&#60;name&#62;** in the `./api` folder at the root of your project. The model will already contain an attribute called **&#60;attribute&#62;** with the type property set to **&#60;type&#62;**.
 
-  Example: `strapi generate:api product name:string description:text price:integer`
+  例子: `strapi generate:api product name:string description:text price:integer`
 
 - **strapi generate:api &#60;name&#62; --plugin &#60;plugin&#62;**<br/>
   Generates an API called **&#60;name&#62;** in the `./plugins/<plugin>` folder.
 
-  Example: `strapi generate:api product --plugin content-manager`
+  例子: `strapi generate:api product --plugin content-manager`
 
 ::: tip
 The first letter of the filename will be uppercase.
@@ -222,12 +222,12 @@ options: [--api <name>|--plugin <name>]
 - **strapi generate:controller &#60;name&#62;**<br/>
   Generates an empty controller called **&#60;name&#62;** in the `./api/<name>/controllers` folder.
 
-  Example: `strapi generate:controller category` will create the controller at `./api/category/controllers/Category.js`.
+  例子: `strapi generate:controller category` will create the controller at `./api/category/controllers/Category.js`.
 
 - **strapi generate:controller &#60;name&#62; --api &#60;api&#62;**<br/>
   Generates an empty controller called **&#60;name&#62;** in the `./api/<api>/controllers` folder.
 
-  Example: `strapi generate:controller category --api product` will create the controller at `./api/product/controllers/Category.js`.
+  例子: `strapi generate:controller category --api product` will create the controller at `./api/product/controllers/Category.js`.
 
 - **strapi generate:controller &#60;name&#62; --plugin &#60;plugin&#62;**<br/>
   Generates an empty controller called **&#60;name&#62;** in the `./plugins/<plugin>/controllers` folder.
@@ -250,17 +250,17 @@ options: [--api <name>|--plugin <name>|--draft-and-publish <boolean>]
   Generates an empty model called **&#60;name&#62;** in the `./api/<name>/models` folder. It will create two files.
   The first one will be **&#60;name&#62;.js** which contains your lifecycle callbacks and another **&#60;name&#62;.settings.json** that will list your attributes and options.
 
-  Example: `strapi generate:model category` will create these two files `./api/category/models/Category.js` and `./api/category/models/Category.settings.json`.
+  例子: `strapi generate:model category` will create these two files `./api/category/models/Category.js` and `./api/category/models/Category.settings.json`.
 
 - **strapi generate:model &#60;name&#62; &#60;attribute:type&#62;**<br/>
   Generates an empty model called **&#60;name&#62;** in the `./api/<name>/models` folder. The file **&#60;name&#62;.settings.json** will already contain a list of attribute with their associated **&#60;type&#62;**.
 
-  Example: `strapi generate:model category name:string description:text` will create these two files `./api/category/models/Category.js` and `./api/category/models/Category.settings.json`. This last file will contain two attributes `name` with the type `string` and `description` with type `text`.
+  例子: `strapi generate:model category name:string description:text` will create these two files `./api/category/models/Category.js` and `./api/category/models/Category.settings.json`. This last file will contain two attributes `name` with the type `string` and `description` with type `text`.
 
 - **strapi generate:model &#60;name&#62; --api &#60;api&#62;**<br/>
   Generates an empty model called **&#60;name&#62;** in the `./api/<api>/models` folder.
 
-  Example: `strapi generate:model category --api product` will create these two files:
+  例子: `strapi generate:model category --api product` will create these two files:
 
   - `./api/product/models/Category.js`
   - `./api/product/models/Category.settings.json`.
@@ -288,12 +288,12 @@ options: [--api <name>|--plugin <name>]
 - **strapi generate:service &#60;name&#62;**<br/>
   Generates an empty service called **&#60;name&#62;** in the `./api/<name>/services` folder.
 
-  Example: `strapi generate:service category` will create the service at `./api/category/services/Category.js`.
+  例子: `strapi generate:service category` will create the service at `./api/category/services/Category.js`.
 
 - **strapi generate:service &#60;name&#62; --api &#60;api&#62;**<br/>
   Generates an empty service called **&#60;name&#62;** in the `./api/<api>/services` folder.
 
-  Example: `strapi generate:service category --api product` will create the service at `./api/product/services/Category.js`.
+  例子: `strapi generate:service category --api product` will create the service at `./api/product/services/Category.js`.
 
 - **strapi generate:service &#60;name&#62; --plugin &#60;plugin&#62;**<br/>
   Generates an empty service called **&#60;name&#62;** in the `./plugins/<plugin>/services` folder.
@@ -315,12 +315,12 @@ options: [--api <name>|--plugin <name>]
 - **strapi generate:policy &#60;name&#62;**<br/>
   Generates an empty policy called **&#60;name&#62;** in the `./config/policies` folder.
 
-  Example: `strapi generate:policy isAuthenticated` will create the policy at `./config/policies/isAuthenticated.js`.
+  例子: `strapi generate:policy isAuthenticated` will create the policy at `./config/policies/isAuthenticated.js`.
 
 - **strapi generate:policy &#60;name&#62; --api &#60;api&#62;**<br/>
   Generates an empty policy called **&#60;name&#62;** in the `./api/<api>/config/policies` folder. This policy will be scoped and only accessible by the **&#60;api&#62;** routes.
 
-  Example: `strapi generate:policy isAuthenticated --api product` will create the policy at `./api/product/config/policies/isAuthenticated.js`.
+  例子: `strapi generate:policy isAuthenticated --api product` will create the policy at `./api/product/config/policies/isAuthenticated.js`.
 
 - **strapi generate:policy &#60;name&#62; --plugin &#60;plugin&#62;**<br/>
   Generates an empty policy called **&#60;name&#62;** in the `./plugins/<plugin>/config/policies` folder. This policy will be scoped and accessible only by the **&#60;plugin&#62;** routes.
@@ -336,7 +336,7 @@ strapi generate:plugin <name>
 - **strapi generate:plugin &#60;name&#62;**<br/>
   Generates an empty plugin called **&#60;name&#62;** in the `./plugins` folder.
 
-  Example: `strapi generate:plugin user` will create the plugin at `./plugins/user`.
+  例子: `strapi generate:plugin user` will create the plugin at `./plugins/user`.
 
 Please refer to the [local plugins](/developer-docs/latest/development/local-plugins-customization.md) section to know more.
 
@@ -351,7 +351,7 @@ strapi install <name>
 - **strapi install &#60;name&#62;**<br/>
   Installs a plugin called **&#60;name&#62;**.
 
-  Example: `strapi install graphql` will install the plugin `strapi-plugin-graphql`
+  例子: `strapi install graphql` will install the plugin `strapi-plugin-graphql`
 
 ::: warning
 Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.
@@ -370,12 +370,12 @@ options [--delete-files]
 - **strapi uninstall &#60;name&#62;**<br/>
   Uninstalls a plugin called **&#60;name&#62;**.
 
-  Example: `strapi uninstall graphql` will remove the plugin `strapi-plugin-graphql`
+  例子: `strapi uninstall graphql` will remove the plugin `strapi-plugin-graphql`
 
 - **strapi uninstall &#60;name&#62; --delete-files**<br/>
   Uninstalls a plugin called **&#60;name&#62;** and removes the files in `./extensions/name/`
 
-  Example: `strapi uninstall graphql --delete-files` will remove the plugin `strapi-plugin-graphql` and all the files in `./extensions/graphql`
+  例子: `strapi uninstall graphql --delete-files` will remove the plugin `strapi-plugin-graphql` and all the files in `./extensions/graphql`
 
 ::: warning
 Some plugins have admin panel integrations, your admin panel might have to be rebuilt. This can take some time.

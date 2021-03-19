@@ -84,7 +84,7 @@ routers:
 ```
 
 ::: tip TIP
-For more information about the `.qovery.yml` file, please refer to [the Qovery application documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications).
+详细信息 about the `.qovery.yml` file, 访问 [the Qovery application documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications).
 :::
 
 ::: tip 注意

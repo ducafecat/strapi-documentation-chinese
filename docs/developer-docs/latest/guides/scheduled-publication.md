@@ -6,7 +6,7 @@ This guide will explain how to create an article schedule system.
 
 What we want here is to be able to set a publication date for an article, and at this date, switch the `draft` state to `published`.
 
-## Example
+## 例子
 
 For this example, we will have to add a `publish_at` attribute to the **Article** Content Type.
 

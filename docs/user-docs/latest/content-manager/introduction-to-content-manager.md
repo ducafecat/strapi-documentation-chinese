@@ -62,7 +62,7 @@ New entries are only considered created once some of their content has been writ
 Right above the list view table, on the right side of the interface, a settings button <Fa-Cog /> is displayed. It allows to access the configurations that can be set for the list view of your collection type (see [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md)), and to choose which fields to display in the table.
 
 ::: tip 注意
-Configuring the displayed field of the table in the way detailed below is only temporary: the configurations will be reset as soon as the page is refreshed or when navigating the admin panel outside the Content Manager. For permanent configurations, please refer to [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md).
+Configuring the displayed field of the table in the way detailed below is only temporary: the configurations will be reset as soon as the page is refreshed or when navigating the admin panel outside the Content Manager. For permanent configurations, 访问 [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md).
 :::
 
 ![Displayed fields in the settings of a list view in the Content Manager](../assets/content-manager/content-manager_displayed-fields.png)

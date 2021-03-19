@@ -7,7 +7,7 @@ sidebarDepth: 2
 In this guide we will see how you can run basic unit tests for a Strapi application using a testing framework.
 
 ::: tip
-In this example we will use [Jest](https://jestjs.io/) Testing Framework with a focus on simplicity and
+在这个例子中 we will use [Jest](https://jestjs.io/) Testing Framework with a focus on simplicity and
 [Supertest](https://github.com/visionmedia/supertest) Super-agent driven library for testing node.js HTTP servers using a fluent API
 :::
 
@@ -187,7 +187,9 @@ Ran all test suites.
 
 ::: tip
 In the example we'll use and example `Hello world` `/hello` endpoint from [controllers](/developer-docs/latest/development/backend-customization.md#example-2) section.
+
 <!-- the link below is reported to have a missing hash by the check-links plugin, but everything is fine 🤷 -->
+
 :::
 
 Some might say that API tests are not unit but limited integration tests, regardless of nomenclature, let's continue with testing first endpoint.

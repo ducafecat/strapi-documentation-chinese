@@ -1,16 +1,16 @@
-# Backend customization
+# 后端定制
 
 <!--- BEGINNING OF ROUTING --->
 
-## Routing
+## Routing 路由
 
-`./api/**/config/routes.json` files define all available endpoints for the clients.
+`./api/**/config/routes.json` 文件定义客户机的所有可用端点.
 
-By default, Strapi generates endpoints for all your Content Types. More information is in the [Content API](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints) documentation.
+默认情况下，Strapi 为所有的 `Content Types` 生成端点，更多内容参考 [Content API](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints) 。
 
-### How to create a route?
+### 如何创建一条路由?
 
-You have to edit the `routes.json` file in one of your APIs folders (`./api/**/config/routes.json`) and manually add a new route object into the `routes` array.
+您必须在您的一个 api 文件夹中编辑 `routes.json` 文件(`./api/**/config/routes.json`)并手动向 routes 数组中添加一个新的 `route` array 对象。
 
 **Path —** `./api/**/config/routes.json`.
 
@@ -45,19 +45,19 @@ You have to edit the `routes.json` file in one of your APIs folders (`./api/**/c
 }
 ```
 
-- `method` (string): Method or array of methods to hit the route (e.g. `GET`, `POST`, `PUT`, `HEAD`, `DELETE`, `PATCH`).
-- `path` (string): URL starting with `/` (e.g. `/restaurants`).
-- `handler` (string): Action to execute when the route is hit following this syntax `<Controller>.<action>`.
+- `method` (string): 命中路由的方法的方法或数组 (e.g. `GET`, `POST`, `PUT`, `HEAD`, `DELETE`, `PATCH`).
+- `path` (string): 启动路径 URL `/` (e.g. `/restaurants`).
+- `handler` (string): 当按照此语法命中路由时执行的操作 `<Controller>.<action>`.
 - `config`
-  - `policies` (array): Array of policy names or paths ([see more](#policies))
+  - `policies` (array): 策略名称或路径的数组 ([更多查看](#policies))
 
 ::: tip
-You can exclude the entire `config` object if you do not want the route to be checked by the [Users & Permissions plugin](/developer-docs/latest/development/plugins/users-permissions.md).
+如果你不想让 [用户&权限插件](/developer-docs/latest/development/plugins/users-permissions.md) 检查路由，你可以排除整个 `config` 对象。
 :::
 
-### Dynamic parameters
+### 动态参数
 
-The router used by Strapi allows you to create dynamic routes where you can use parameters and simple regular expressions. These parameters will be exposed in the `ctx.params` object. For more details, please refer to the [PathToRegex](https://github.com/pillarjs/path-to-regexp) documentation.
+Strapi 使用的路由器允许您创建可以使用参数和简单正则表达式的动态路由。这些参数将在 `ctx.params` 对象中公开。有关更多细节，请参考 [PathToRegex](https://github.com/pillarjs/path-to-regexp) 文档。
 
 ```json
 {
@@ -82,9 +82,9 @@ The router used by Strapi allows you to create dynamic routes where you can use 
 }
 ```
 
-#### Example
+#### 例子
 
-Route definition with URL params
+带有 URL 参数的路由定义
 
 ```json
 {
@@ -101,7 +101,7 @@ Route definition with URL params
 }
 ```
 
-Get the URL param in the controller
+获取控制器中的 URL 参数
 
 ```js
 module.exports = {
@@ -115,19 +115,18 @@ module.exports = {
 
 <!--- BEGINNING OF POLICIES --->
 
-## Policies
+## Policies 策略
 
-Policies are functions which have the ability to execute specific logic on each request before it reaches the controller's action. They are mostly used for securing business logic easily.
-Each route of the project can be associated to an array of policies. For example, you can create a policy named `isAdmin`, which obviously checks that the request is sent by an admin user, and use it for critical routes.
+策略是能够在每个请求到达控制器的操作之前对其执行特定逻辑的函数。它们主要用于简单地保护业务逻辑。项目的每个路由都可以关联到一组策略。例如，您可以创建名为 `isAdmin` 的策略，该策略显然检查请求是否由管理员用户发送，并将其用于关键路由。
 
-The policies are defined in each `./api/**/config/policies/` folders and plugins. They are respectively exposed through `strapi.api.**.config.policies` and `strapi.plugins.**.config.policies`. The global policies are defined at `./config/policies/` and accessible via `strapi.config.policies`.
+策略定义在了 `./api/**/config/policies/` 目录中. 它们分别通过 `strapi.api.**.config.policies` 和 `strapi.plugins.**.config.policies` 配置策略。全局策略定义在 `./config/policies/` ，可通过 `strapi.config.policies` 访问。
 
-### How to create a policy?
+### 如何制定策略 policy?
 
-There are several ways to create a policy.
+有几种方法可以创建一个策略 policy.
 
-- Using the CLI `strapi generate:policy isAuthenticated`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
-- Manually create a JavaScript file named `isAuthenticated.js` in `./config/policies/`.
+- 使用 CLI `strapi generate:policy isAuthenticated`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
+- 手动创建一个 JavaScript 文件，名字 `isAuthenticated.js` 放在 `./config/policies/` 目录下.
 
 **Path —** `./config/policies/isAuthenticated.js`.
 
@@ -142,19 +141,22 @@ module.exports = async (ctx, next) => {
 };
 ```
 
-In this example, we are verifying that a session is open. If it is the case, we call the `next()` method that will execute the next policy or controller's action. Otherwise, a 401 error is returned.
+在这个示例中，我们正在验证一个会话是否打开。如果是这种情况，我们调用 `next()` 方法来执行下一个策略或控制器的操作。否则，返回一个 `401` 错误。
 
-### Usage
+> 401 HTTP 状态码表示没有登录认证
 
-To apply policies to a route, you need to associate an array of policies to it. There are two kinds of policies: global and scoped.
+### 用法
+
+要将策略应用于路由，需要将一组策略与其关联。有两种策略: global 策略和 scoped 策略。
 
 ::: warning
-To apply policies with GraphQL please see the [following guide](/developer-docs/latest/development/plugins/graphql.md#execute-a-policy-before-a-resolver).
+
+要使用 GraphQL 应用策略，请参阅 [以下指南](/developer-docs/latest/development/plugins/graphql.md#execute-a-policy-before-a-resolver)。
 :::
 
-#### Global policies
+#### Global 策略
 
-The global policies can be associated to any route in your project.
+全局策略可以关联到项目中的任何路由。
 
 **Path —** `./api/restaurant/routes.json`.
 
@@ -173,15 +175,15 @@ The global policies can be associated to any route in your project.
 }
 ```
 
-Before executing the `find` action in the `Restaurant.js` controller, the global policy `isAuthenticated` located in `./config/policies/isAuthenticated.js` will be called.
+在 `Restaurant.js` 控制器中执行 `find` 操作之前，将调用位于 `./config/policies/isAuthenticated.js` 中的全局策略 `isAuthenticated` 。
 
 ::: tip
-You can put as much policy as you want in this array. However be careful about the performance impact.
+您可以在这个数组中放置任意多的策略，但是要注意对性能的影响。
 :::
 
-#### Plugins policies
+#### 插件策略
 
-Plugins can add and expose policies into your app. For example, the plugin **Users & Permissions** comes with useful policies to ensure that the user is well authenticated or has the rights to perform an action.
+插件可以在你的应用程序中添加和公开策略。例如，插件 Users & Permissions 附带了有用的策略，以确保用户得到良好的身份验证或拥有执行操作的权限。
 
 **Path —** `./api/restaurant/config/routes.json`.
 
@@ -200,11 +202,11 @@ Plugins can add and expose policies into your app. For example, the plugin **Use
 }
 ```
 
-The policy `isAuthenticated` located in the `users-permissions` plugin will be executed before the `find` action in the `Restaurant.js` controller.
+位于 `users-permissions` 插件中的策略 `isAuthenticated` 将在 `Restaurant.js` 控制器中的 `find` 操作之前执行。
 
-#### API policies
+#### 插件策略
 
-The API policies can be associated to the routes defined in the API where they have been declared.
+API 策略可以与在 API 中定义的路由相关联，这些路由是在 API 中声明的。
 
 **Path —** `./api/restaurant/config/policies/isAdmin.js`.
 
@@ -236,11 +238,11 @@ module.exports = async (ctx, next) => {
 }
 ```
 
-The policy `isAdmin` located in `./api/restaurant/config/policies/isAdmin.js` will be executed before the `find` action in the `Restaurant.js` controller.
+位于 `./api/restaurant/config/policies/isAdmin.js` 中的策略 `isAdmin` 将在 `Restaurant.js` 控制器中的 `find` 操作之前执行。
 
-#### Using a policy outside its api
+#### 使用 api 之外的策略
 
-To use a policy in another api you can reference it with the following syntax: `{apiName}.{policyName}`.
+要在另一个 api 中使用策略，可以使用以下语法引用它: `{apiName}.{policyName}` 。
 
 **Path —** `./api/category/config/routes.json`.
 
@@ -259,9 +261,9 @@ To use a policy in another api you can reference it with the following syntax: `
 }
 ```
 
-### Advanced usage
+### 高级使用
 
-As it's explained above, the policies are executed before the controller's action. It looks like an action that you can make `before` the controller's action. You can also execute a logic `after`.
+如上所述，策略在控制器的操作之前执行。它看起来像是在控制器动作 `before` 可以执行的动作。您还可以在 `after`。
 
 **Path —** `./config/policies/custom404.js`.
 
@@ -280,9 +282,9 @@ module.exports = async (ctx, next) => {
 
 <!--- BEGINNING OF CONTROLLERS --->
 
-## Controllers
+## Controllers 控制器
 
-Controllers are JavaScript files which contain a set of methods called **actions** reached by the client according to the requested route. It means that every time a client requests the route, the action performs the business logic coded and sends back the response. They represent the _C_ in the _MVC_ pattern. In most cases, the controllers will contain the bulk of a project's business logic.
+控制器是 JavaScript 文件，其中包含一组方法，称为客户机根据请求的路由到达的动作。这意味着每次客户机请求路由时，操作都执行业务逻辑编码并发送回响应。它们在 MVC 模式中表示 c。在大多数情况下，控制器将包含项目的大部分业务逻辑。
 
 ```js
 module.exports = {
@@ -293,35 +295,34 @@ module.exports = {
 };
 ```
 
-In this example, any time a web browser is pointed to the `/hello` URL on your app, the page will display the text: `Hello World!`.
+在这个例子中，任何时候浏览器指向应用程序上的 `/hello` URL，页面都会显示文本: `Hello World!`.
 
-The controllers are defined in each `./api/**/controllers/` folder. Every JavaScript file put in these folders will be loaded as a controller. They are also available through the `strapi.controllers` and `strapi.api.**.controllers` global variables.
+控制器定义在每个 `./api/**/controllers/` .放在这些文件夹中的每个 JavaScript 文件都将作为控制器加载。它们也可以通过 `strapi.controllers` 和 `strapi.api.**.controllers` 全局变量。
 
-### Core controllers
+### 核心控制器
 
-When you create a new `Content Type` you will see a new empty controller has been created. This is because Strapi builds a generic controller for your models by default and allows you to override and extend it in the generated files.
+当您创建一个新的 `Content Type` 时，您将看到一个新的空控制器已被创建。这是因为 Strapi 默认为您的模型构建了一个通用控制器，并允许您在生成的文件中覆盖和扩展它。
 
-#### Extending a Model Controller
+#### 扩展模型控制器
 
-Here are the core methods (and their current implementation).
-You can simply copy and paste this code in your own controller file to customize the methods.
+以下是核心方法(及其当前实现)。您只需将此代码复制并粘贴到自己的控制器文件中，即可自定义方法。
 
 ::: warning
-In the following example we will assume your controller, service and model are named `restaurant`
+在下面的示例中，我们将假设您的控制器、服务和模型命名为 `restaurant`
 :::
 
-##### Utils
+##### Utils 工具类
 
-First require the utility functions
+首先引入 'strapi-utils' 包
 
 ```js
 const { parseMultipartData, sanitizeEntity } = require('strapi-utils');
 ```
 
-- `parseMultipartData`: This function parses Strapi's formData format.
-- `sanitizeEntity`: This function removes all private fields from the model and its relations.
+- `parseMultipartData`: 此函数解析 Strapi 的 formData 格式.
+- `sanitizeEntity`: 此函数从模型及其关系中删除所有私有字段.
 
-##### Collection Type
+##### Collection Type 集合类型
 
 :::: tabs
 
@@ -492,7 +493,7 @@ module.exports = {
 
 ::::
 
-##### Single Type
+##### Single Type 单一类型
 
 :::: tabs
 
@@ -576,26 +577,26 @@ module.exports = {
 
 ::::
 
-### Custom controllers
+### 自定义控制器
 
-You can also create custom controllers to build your own business logic and API endpoints.
+您还可以创建自定义控制器来构建自己的业务逻辑和 API Endpoint 端点。
 
-There are two ways to create a controller:
+创建控制器有两种方法:
 
-- Using the CLI `strapi generate:controller restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) 了解详情.
-- Manually create a JavaScript file in `./api/**/controllers`.
+- 使用 CLI `strapi generate:controller restaurant`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) 了解详情.
+- 手动创建 JavaScript 文件 `./api/**/controllers`.
 
-#### Adding Endpoints
+#### 添加 Endpoints
 
-Each controller’s action must be an `async` function.
-Every action receives a `context` (`ctx`) object as first parameter containing the [request context](/developer-docs/latest/development/backend-customization.md#responses) and the [response context](/developer-docs/latest/development/backend-customization.md#responses).
+每个控制器的操作必须是一个 `async` 异步函数。
 
-#### Example
+每个操作都接收一个 `context` (`ctx`) 对象作为第一个参数，其中包含 [request context](/developer-docs/latest/development/backend-customization.md#responses) 和 [response context](/developer-docs/latest/development/backend-customization.md#responses) 。
 
-In this example, we are defining a specific route in `./api/hello/config/routes.json` that takes `Hello.index` as handler. For more information on routing, please see the [Routing documentation](#routing)
+#### 例子
 
-It means that every time a request `GET /hello` is sent to the server, Strapi will call the `index` action in the `Hello.js` controller.
-Our `index` action will return `Hello World!`. You can also return a JSON object.
+在这个例子中, 我们定义了一个路由 `route` 文件 `./api/hello/config/routes.json`, 处理程序 `Hello.index`. 有关路由的详细信息，请参阅 [Routing documentation](#routing)。
+
+这意味着每次向服务器发送请求 `GET /hello` 时，Strapi 将调用 `Hello.js` 控制器中的 `index` 操作。我们的索引动作将返回 `Hello World！`. 您还可以返回一个 JSON 对象。
 
 **Path —** `./api/hello/config/routes.json`.
 
@@ -626,59 +627,58 @@ module.exports = {
 ```
 
 ::: tip
-A route handler can only access the controllers defined in the `./api/**/controllers` folders.
+路由处理程序只能访问 `./api/**/controllers` 文件夹中定义的控制器。
 :::
 
 <!--- REQUESTS AND RESPONSES --->
 
-## Requests & Responses
+## Requests & Responses 请求 & 回应
 
-### Requests
+### Requests 请求
 
-The context object (`ctx`) contains all the requests related information. They are accessible through `ctx.request`, from [controllers](/developer-docs/latest/development/backend-customization.md#controllers) and [policies](/developer-docs/latest/development/backend-customization.md#policies).
+上下文对象(`ctx`)包含所有与请求相关的信息，可以通过 `ctx.request`、[控制器](/developer-docs/latest/development/backend-customization.md#controllers) 和 [策略](/developer-docs/latest/development/backend-customization.md#policies) 访问它们。
 
-Strapi passes the `body` on `ctx.request.body` and `files` through `ctx.request.files`
+Strapi 通过 `ctx.request.body` 和 `ctx.request.files` 传递 `body`
 
-For more information, please refer to the [Koa request documentation](http://koajs.com/#request).
+有关更多信息，请参考 [Koa 请求文档](http://koajs.com/#request)。
 
-### Responses
+### Responses 回应
 
-The context object (`ctx`) contains a list of values and functions useful to manage server responses. They are accessible through `ctx.response`, from [controllers](/developer-docs/latest/development/backend-customization.md#controllers) and [policies](/developer-docs/latest/development/backend-customization.md#policies).
+上下文对象(`ctx`)包含一系列用于管理服务器响应的值和函数。可以通过 `ctx.response`、[controllers](/developer-docs/latest/development/backend-customization.md#controllers) 和 [policies](/developer-docs/latest/development/backend-customization.md#policies) 访问它们。
 
-For more information, please refer to the [Koa response documentation](http://koajs.com/#response).
+详细信息, 访问 [Koa response documentation](http://koajs.com/#response).
 
 <!--- BEGINNING OF SERVICES --->
 
-## Services
+## Services 服务
 
-Services are a set of reusable functions. They are particularly useful to respect the DRY (don’t repeat yourself) programming concept and to simplify [controllers](#controllers) logic.
+服务是一组可重用的函数。它们在尊重 DRY (不要重复自己) 编程概念和简化 [controllers](#controllers) 逻辑方面特别有用。
 
-### Core services
+### 核心服务
 
-When you create a new `Content Type` or a new model, you will see a new empty service has been created. It is because Strapi builds a generic service for your models by default and allows you to override and extend it in the generated files.
+当您创建一个新的 `Content Type` 或者一个新的模型时，您将看到一个新的空服务已经被创建。这是因为 Strapi 默认为您的模型构建了一个通用服务，并允许您在生成的文件中覆盖和扩展它。
 
-#### Extending a Model Service
+#### 扩展模型服务
 
-Here are the core methods (and their current implementation).
-You can simply copy and paste this code to your own service file to customize the methods.
+以下是核心方法(及其当前实现)。您只需将此代码复制并粘贴到您自己的服务文件中，即可自定义方法。
 
-You can read about `strapi.query` calls [here](#queries).
+你可以在 [这里](#queries) 阅读 `strapi.query` 调用。
 
 ::: tip
-In the following example your controller, service and model are named `restaurant`.
+在下面的示例中，您的控制器、服务和模型被命名为 `restaurant`。
 :::
 
-#### Utils
+#### Utils 工具函数
 
-If you're extending the `create` or `update` service, first require the following utility function:
+如果你正在扩展 `create` 或者 `update` 服务，首先需要下面的工具函数:
 
 ```js
 const { isDraft } = require('strapi-utils').contentTypes;
 ```
 
-- `isDraft`: This function checks if the entry is a draft.
+- `isDraft`: 此函数检查条目是否为草稿.
 
-##### Collection Type
+##### Collection Type 集合类型
 
 :::: tabs
 
@@ -699,8 +699,8 @@ module.exports = {
 };
 ```
 
-- `params` (object): this represent filters for your find request.<br>
-  The object follow the URL query format, [refer to this documentation.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
+- `params` (object): 这表示用于查找请求的过滤器.<br>
+  对象遵循 URL 查询格式, [请参阅这份文件.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
 
 ```json
 {
@@ -713,7 +713,7 @@ module.exports = {
 }
 ```
 
-- `populate` (array): you have to mention data you want populate `["author", "author.name", "comment", "comment.content"]`
+- `populate` (array): 你必须提到你想要填充的数据 `["author", "author.name", "comment", "comment.content"]`
 
 :::
 
@@ -735,8 +735,8 @@ module.exports = {
 };
 ```
 
-- `params` (object): this represent filters for your find request.<br>
-  The object follow the URL query format, [refer to this documentation.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
+- `params` (object): 这表示用于查找请求的过滤器.<br>
+  对象遵循 URL 查询格式, [请参阅这份文件.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
 
 ```json
 {
@@ -748,7 +748,7 @@ module.exports = {
 }
 ```
 
-- `populate` (array): you have to mention data you want populate `["author", "author.name", "comment", "comment.content"]`
+- `populate` (array): 你必须提到你想要填充的数据 `["author", "author.name", "comment", "comment.content"]`
 
 :::
 
@@ -770,8 +770,8 @@ module.exports = {
 };
 ```
 
-- `params` (object): this represent filters for your find request.<br>
-  The object follow the URL query format, [refer to this documentation.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
+- `params` (object): 这表示用于查找请求的过滤器.<br>
+  对象遵循 URL 查询格式, [请参阅这份文件.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
 
 ```json
 {
@@ -909,8 +909,8 @@ module.exports = {
 };
 ```
 
-- `params` (object): this represent filters for your find request.<br>
-  The object follow the URL query format, [refer to this documentation.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
+- `params` (object): 这表示用于查找请求的过滤器.<br>
+  对象遵循 URL 查询格式, [请参阅这份文件.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
 
 ```json
 {
@@ -941,8 +941,8 @@ module.exports = {
 };
 ```
 
-- `params` (object): this represent filters for your find request.<br>
-  The object follow the URL query format, [refer to this documentation.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
+- `params` (object): 这表示用于查找请求的过滤器.<br>
+  对象遵循 URL 查询格式, [请参阅这份文件.](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters).
 
 ```json
 {
@@ -958,7 +958,7 @@ module.exports = {
 
 ::::
 
-##### Single Type
+##### Single Type 单一类型
 
 :::: tabs
 
@@ -982,7 +982,7 @@ module.exports = {
 };
 ```
 
-- `populate` (array): you have to mention data you want populate `["author", "author.name", "comment", "comment.content"]`
+- `populate` (array): 你必须提到你想要填充的数据 `["author", "author.name", "comment", "comment.content"]`
 
 :::
 
@@ -1054,18 +1054,18 @@ module.exports = {
 
 ::::
 
-### Custom services
+### 自定义服务
 
-You can also create custom services to build your own business logic.
+您还可以创建自定义服务来构建自己的业务逻辑。
 
-There are two ways to create a service.
+创建服务有两种方法。
 
-- Using the CLI `strapi generate:service restaurant`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
-- Manually create a JavaScript file named in `./api/**/services/`.
+- 使用 CLI `strapi generate:service restaurant`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
+- 手动创建 JavaScript 文件 `./api/**/services/`.
 
-#### Example
+#### 例子
 
-The goal of a service is to store reusable functions. An `email` service could be useful to send emails from different functions in our codebase:
+服务的目标是存储可重用的函数。`email` 服务可以从我们的代码库中的不同功能发送电子邮件:
 
 **Path —** `./api/email/services/Email.js`.
 
@@ -1098,10 +1098,10 @@ module.exports = {
 ```
 
 ::: tip
-please make sure you installed `nodemailer` (`npm install nodemailer`) for this example.
+请确保为此示例安装了 `nodemailer` (`npm install nodemailer`)。
 :::
 
-The service is now available through the `strapi.services` global variable. We can use it in another part of our codebase. For example a controller like below:
+现在可以通过 `strapi.services` 全局变量使用该服务。我们可以在代码库的另一部分使用它。例如下面这个控制器:
 
 **Path —** `./api/user/controllers/User.js`.
 
@@ -1125,15 +1125,15 @@ module.exports = {
 
 <!--- BEGINNING OF QUERIES --->
 
-## Queries
+## Queries 查询
 
-Strapi provides a utility function `strapi.query` to make database queries.
+Strapi 提供了一个实用函数 `strapi.query` 来进行数据库查询。
 
-You can just call `strapi.query('modelName', 'pluginName')` to access the query API for any model.
+您只需调用 `strapi.query('modelName', 'pluginName')` 就可以访问任何模型的查询 API。
 
-These queries handle for you specific Strapi features like `components`, `dynamic zones`, `filters` and `search`.
+这些查询为您处理特定的 Strapi 功能，如 `components`, `dynamic zones`, `filters` 和 `search`。
 
-### API Reference
+### API 参考
 
 :::: tabs
 
@@ -1141,10 +1141,9 @@ These queries handle for you specific Strapi features like `components`, `dynami
 
 #### `find`
 
-This method returns a list of entries matching Strapi filters.
-You can also pass a populate option to specify which relations you want to be populated.
+此方法返回匹配 Strapi 筛选器的条目列表。您还可以传递一个 populate 选项来指定要填充的关系。
 
-##### Examples
+##### 例子
 
 **Find by id**:
 
@@ -1176,10 +1175,9 @@ strapi.query('restaurant').find({ id_nin: [1], _start: 10 }, ['category', 'categ
 
 #### `findOne`
 
-This method returns the first entry matching some basic params.
-You can also pass a populate option to specify which relations you want to be populated.
+此方法返回与某些基本参数匹配的第一个条目。您还可以传递一个 populate 选项来指定要填充的关系。
 
-##### Examples
+##### 例子
 
 **Find one by id**:
 
@@ -1211,9 +1209,9 @@ strapi.query('restaurant').findOne({ id: 1 }, ['category', 'category.name']);
 
 #### `create`
 
-Creates an entry in the database and returns the entry.
+在数据库中创建一个条目并返回该条目。
 
-##### Example
+##### 例子
 
 ```js
 strapi.query('restaurant').create({
@@ -1257,9 +1255,9 @@ strapi.query('restaurant').create({
 
 #### `update`
 
-Updates an entry in the database and returns the entry.
+更新数据库中的条目并返回该条目。
 
-##### Examples
+##### 例子
 
 **Update by id**
 
@@ -1300,9 +1298,9 @@ strapi.query('restaurant').update(
 );
 ```
 
-When updating an entry with its components or dynamic zones beware that if you send the components without any `id` the previous components will be deleted and replaced. You can update the components by sending their `id` with the rest of the fields:
+在使用组件或动态区域更新条目时，请注意，如果发送的组件没有任何 `id`，则前面的组件将被删除和替换。你可以通过发送它们的 `id` 和其他字段来更新组件:
 
-**Update by id and update previous components**
+**通过 id 进行更新并更新以前的组件**
 
 ```js
 strapi.query('restaurant').update(
@@ -1345,7 +1343,7 @@ strapi.query('restaurant').update(
 );
 ```
 
-**Partial update by name**
+**按名称部分更新**
 
 ```js
 strapi.query('restaurant').update(
@@ -1362,18 +1360,17 @@ strapi.query('restaurant').update(
 
 #### `delete`
 
-Deletes an entry and returns its value before deletion.
-You can delete multiple entries at once with the passed params.
+在删除之前删除一个条目并返回其值。您可以使用传递的参数一次删除多个条目。
 
-##### Examples
+##### 例子
 
-**Delete one by id**
+**按 id 删除一个**
 
 ```js
 strapi.query('restaurant').delete({ id: 1 });
 ```
 
-**Delete multiple by field**
+**按字段删除多个**
 
 ```js
 strapi.query('restaurant').delete({ district: '_18th' });
@@ -1385,23 +1382,23 @@ strapi.query('restaurant').delete({ district: '_18th' });
 
 #### `count`
 
-Returns the count of entries matching Strapi filters.
+返回匹配 Strapi 筛选器的条目数。
 
-##### Examples
+##### 例子
 
-**Count by district**
+**按地区计算**
 
 ```js
 strapi.query('restaurant').count({ district: '_1st' });
 ```
 
-**Count by name contains**
+**按名称计数包含**
 
 ```js
 strapi.query('restaurant').count({ name_contains: 'food' });
 ```
 
-**Count by date less than**
+**按日期计数小于**
 
 ```js
 strapi.query('restaurant').count({ date_lt: '2019-08-01T00:00:00Z' });
@@ -1413,17 +1410,17 @@ strapi.query('restaurant').count({ date_lt: '2019-08-01T00:00:00Z' });
 
 #### `search`
 
-Returns entries based on a search on all fields allowing it. (this feature will return all entries on sqlite).
+基于对所有字段的搜索返回条目(此特性将返回 sqlite 中的所有条目)。
 
-##### Examples
+##### 例子
 
-**Search first ten starting at 20**
+**首先从 20 开始搜索 10**
 
 ```js
 strapi.query('restaurant').search({ _q: 'my search query', _limit: 10, _start: 20 });
 ```
 
-**Search and sort**
+**搜索和排序**
 
 ```js
 strapi.query('restaurant').search({ _q: 'my search query', _limit: 100, _sort: 'date:desc' });
@@ -1435,9 +1432,9 @@ strapi.query('restaurant').search({ _q: 'my search query', _limit: 100, _sort: '
 
 #### `countSearch`
 
-Returns the total count of entries based on a search. (this feature will return all entries on sqlite).
+返回基于搜索的条目总数(此特性将返回 sqlite 上的所有条目)。
 
-##### Example
+##### 例子
 
 ```js
 strapi.query('restaurant').countSearch({ _q: 'my search query' });
@@ -1447,17 +1444,17 @@ strapi.query('restaurant').countSearch({ _q: 'my search query' });
 
 ::::
 
-### Custom Queries
+### 自定义查询
 
-When you want to customize your services or create new ones you will have to build your queries with the underlying ORM models.
+当您希望自定义服务或创建新服务时，必须使用底层 ORM 模型构建查询。
 
-To access the underlying model:
+要访问底层模型:
 
 ```js
 strapi.query(modelName, plugin).model;
 ```
 
-Then you can run any queries available on the model. You should refer to the specific ORM documentation for more details:
+然后您可以在模型上运行任何可用的查询。有关更多细节，您应该参考特定 ORM 文档:
 
 :::: tabs
 
@@ -1465,9 +1462,9 @@ Then you can run any queries available on the model. You should refer to the spe
 
 #### Bookshelf
 
-Documentation: [https://bookshelfjs.org/](https://bookshelfjs.org/)
+文档: [https://bookshelfjs.org/](https://bookshelfjs.org/)
 
-**Example**
+**例子**
 
 ```js
 const result = await strapi
@@ -1482,21 +1479,19 @@ const fields = result.toJSON();
 
 #### Knex
 
-Knex.js can be used to build and make custom queries directly to the database.
+可以用 `Knex.js` 直接对数据库进行构建和自定义查询。
 
-Documentation: [http://knexjs.org/#Builder](http://knexjs.org/#Builder)
+文档: [http://knexjs.org/#Builder](http://knexjs.org/#Builder)
 
-You can access the Knex instance with:
+您可以使用以下命令访问 Knex 实例:
 
 ```js
 const knex = strapi.connections.default;
 ```
 
-You can then use Knex to build your own custom queries. You will lose all the functionalities of the model,
-but this could come handy if you are building a more custom schema.
-Please note that if you are using the [draft system](/developer-docs/latest/concepts/draft-and-publish.md), Strapi nullyfies all the Draft columns util they are published.
+然后可以使用 Knex 构建自己的定制查询。您将失去模型的所有功能，但是如果您正在构建一个更加自定义的模式，这可能会很方便。请注意，如果您使用的是 [draft system](/developer-docs/latest/concepts/draft-and-publish.md) ，那么在发布 Draft 列之前，Strapi 将使其为空。
 
-**Example**
+**例子**
 
 ```js
 const _ = require('lodash');
@@ -1516,10 +1511,9 @@ const result = await knex('restaurants')
 return (_.groupBy(result, 'chef');
 ```
 
-**We strongly suggest to sanitize any strings before making queries to the DB**
-Never attempt to make a raw query with data coming straight from the front-end; if you
-were looking for raw queries, please refer to [this section](http://knexjs.org/#Raw-Bindings)
-of the documentation.
+**我们强烈建议在对 DB 进行查询之前对任何字符串进行净化。**
+
+千万不要试图对直接来自前端的数据进行原始查询; 如果要查找 `raw` 原始查询，请参阅文档的 [这一部分](http://knexjs.org/#Raw-Bindings) 。
 
 :::
 
@@ -1527,9 +1521,9 @@ of the documentation.
 
 #### Mongoose
 
-Documentation: [https://mongoosejs.com/](https://mongoosejs.com/)
+文档: [https://mongoosejs.com/](https://mongoosejs.com/)
 
-**Example**
+**例子**
 
 ```js
 const result = strapi.query('restaurant').model.find({
@@ -1545,13 +1539,13 @@ const fields = result.map(entry => entry.toObject());
 
 <!--- BEGINNING OF MODELS --->
 
-## Models
+## Models 模型
 
-### Concepts
+### 概念
 
-#### Content Type's models
+#### 内容类型的模型
 
-Models are a representation of the database's structure. They are split into two separate files. A JavaScript file that contains the model options (e.g: lifecycle hooks), and a JSON file that represents the data structure stored in the database.
+模型是数据库结构的表示。它们被分成两个独立的文件。一个包含模型选项(例如: lifecycle hooks)的 JavaScript 文件，以及一个表示存储在数据库中的数据结构的 JSON 文件。
 
 **Path —** `./api/restaurant/models/Restaurant.js`.
 
@@ -1594,11 +1588,11 @@ module.exports = {
 }
 ```
 
-In this example, there is a `Restaurant` model which contains the attributes `cover`, `name` and `description`.
+在这个示例中，有一个 `Restaurant` 模型，其中包含了 `cover`、 `name` 和 `description` 属性。
 
-#### Component's models
+#### 组件的模型
 
-Another type of model is named `components`. A component is a data structure that can be used in one or many other API's model. There is no lifecycle related, only a JSON file definition.
+另一种类型的模型是命名 `components` 。组件是一种数据结构，可以在一个或多个其他 API 模型中使用。没有与生命周期相关的，只有一个 JSON 文件定义。
 
 **Path —** `./components/default/simple.json`
 
@@ -1619,48 +1613,50 @@ Another type of model is named `components`. A component is a data structure tha
 }
 ```
 
-In this example, there is a `Simple` component which contains the attribute `name`. And the component is in the category `default`.
+在这个示例中，有一个包含属性 `name` 的 `Simple` 组件。并且组件是 `default` 类别。
 
-#### Where are the models defined?
+#### 模型在哪里定义？
 
-The **Content Types** models are defined in each `./api/**/models/` folder. Every JavaScript or JSON file in these folders will be loaded as a model. They are also available through the `strapi.models` and `strapi.api.**.models` global variables. Usable everywhere in the project, they contain the ORM model object that they refer to. By convention, a model's name should be written in lowercase.
+**Content Types** 内容类型模型在每个中定义 `./api/**/models/` 这些文件夹中的每个 JavaScript 或 JSON 文件都将作为模型加载。它们也可以通过 `strapi.models` 和 `strapi.api.**.models` 建立全局变量模型。在项目的任何地方都可以使用，它们包含它们所引用的 ORM 模型对象。按照惯例，模型的名称应该用小写字母书写。
 
-The **Components** models are defined in the `./components` folder. Every component has to be inside a subfolder (the category name of the component).
+**Components** 模型定义在 `./components` 文件夹。每个组件都必须位于子文件夹(组件的类别名称)中。
 
-### How to create a model?
-
-::: tip
-If you are just starting out it is very convenient to generate some models with the Content Type Builder directly in the admin interface. You can then review the generated model mappings on the code level. The UI takes over a lot of validation tasks and gives you a feeling for available features.
-:::
-
-#### For Content Types models
-
-Use the CLI and run the following command `strapi generate:model restaurant name:string description:text`.<br>Read the [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
-
-This will create two files located at `./api/restaurant/models`:
-
-- `Restaurant.settings.json`: contains the list of attributes and settings. The JSON format makes the file easily editable.
-- `Restaurant.js`: imports `Restaurant.settings.json` and extends it with additional settings and life cycle callbacks.
+### 如何创建一个模型？
 
 ::: tip
-When you create a new API using the CLI (`strapi generate:api <name>`), a model is automatically created.
+如果您刚刚开始，在管理界面中直接使用 `Content Type Builder` 生成一些模型是非常方便的。然后，您可以在代码级别查看生成的模型映射。用户界面接管了许多验证任务，让您对可用的特性有一种感觉。
 :::
 
-#### For Components models
+#### 对于内容类型模型
 
-To create a component you will have to use the Content Type Builder from the Admin panel, there is not a cli generator for components.
+使用 CLI 并运行以下命令 `strapi generate:model restaurant name:string description:text`。
 
-Or you can create your component manually by following the file path described previously and by following the file structure described below.
+阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情。
 
-### Model settings
+这将创建两个位于 `./api/restaurant/models` 的文件:
 
-Additional settings can be set on models:
+- `Restaurant.settings.json`: 包含属性和设置列表。 JSON 格式使文件易于编辑.
+- `Restaurant.js`: 导入 `Restaurant.settings.json` 并通过附加设置和生命周期回调对其进行扩展.
 
-- `kind` (string) - Define if the model is a Collection Type (`collectionType`) of a Single Type (`singleType`) - _only for Content Types_
-- `connection` (string) - Connection name which must be used. 默认值: `default`.
-- `collectionName` (string) - Collection name (or table name) in which the data should be stored.
-- `globalId` (string) - Global variable name for this model (case-sensitive) - _only for Content Types_
-- `attributes` (object) - Define the data structure of your model. Find available options [below](#define-the-attributes).
+::: tip
+当您使用 CLI (`strapi generate:api <name>`)创建一个新的 API 时，会自动创建一个模型。
+:::
+
+#### 对于组件模型
+
+要创建组件，必须使用管理面板中的 Content Type Builder，因为没有组件的 cli 生成器。
+
+或者，您可以通过遵循前面描述的文件路径并遵循下面描述的文件结构来手动创建组件。
+
+### 模型设置
+
+可以在模型上设置其他设置:
+
+- `kind` (string) - 定义模型是否为集合类型 (`collectionType`) 的单一类别 (`singleType`) - _只适用于内容类型_
+- `connection` (string) - 必须使用的连接名称. 默认值: `default`.
+- `collectionName` (string) - 存储数据的集合名称(或表名称).
+- `globalId` (string) - 此模型的全局变量名 (case-sensitive) - _只适用于内容类型_
+- `attributes` (object) - 定义模型的数据结构. 查找可用的选项 [below](#define-the-attributes).
 
 **Path —** `Restaurant.settings.json`.
 
@@ -1674,25 +1670,23 @@ Additional settings can be set on models:
 }
 ```
 
-In this example, the model `Restaurant` will be accessible through the `Restaurants` global variable. The data will be stored in the `Restaurants_v1` collection or table and the model will use the `mongo` connection defined in `./config/database.js`
+在本例中，可以通过 `Restaurants` 全局变量访问模型 `Restaurant`。数据将存储在 `Restaurants_v1` `mongo` 集合或表中，模型将使用 `./config/database.js`
 
 ::: warning
-If not set manually in the JSON file, Strapi will adopt the filename as `globalId`.
-The `globalId` serves as a reference to your model within relations and Strapi APIs. If you chose to rename it (either by renaming your file or by changing the value of the `globalId`), you'd have to migrate your tables manually and update the references.
-Please note that you should not alter the Strapi's models `globalId` (plugins and core models) since they are used directly within Strapi APIs and other models' relations.
+如果没有在 JSON 文件中手动设置，Strapi 将采用文件名 `globalId`。`globalId` 作为关系和 Strapi api 中模型的参考。如果您选择重命名它(通过重命名文件或更改 `globalId` 的值) ，则必须手动迁移表并更新引用。请注意，您不应该更改 Strapi 的模型 `globalId` (插件和核心模型) ，因为它们直接用于 Strapi api 和其他模型的关系中。
 :::
 
 ::: tip
-The `connection` value can be changed whenever you want, but you should be aware that there is no automatic data migration process. Also if the new connection doesn't use the same ORM you will have to rewrite your queries.
+可以随时更改 `connection` 值，但是应该注意，没有自动数据迁移过程。另外，如果新连接不使用相同的 ORM，那么您将不得不重写查询。
 :::
 
-### Model information
+### 模型资料
 
-The info key on the model-json states information about the model. This information is used in the admin interface, when showing the model.
+`model-json` 表示关于模型的信息。当显示模型时，此信息用于管理界面。
 
-- `name`: The name of the model, as shown in admin interface.
-- `description`: The description of the model.
-- `icon`: The fontawesome V5 name - _only for Components_
+- `name`: 模型的名称，如管理界面中所示.
+- `description`: 模型的描述.
+- `icon`: `fontawesome V5` 的名字 - _只适用于组件_
 
 **Path —** `Restaurant.settings.json`.
 
@@ -1705,17 +1699,14 @@ The info key on the model-json states information about the model. This informat
 }
 ```
 
-### Model options
+### 模型选项
 
-The options key on the model-json states.
+模型上的选项键 model-json 状态。
 
-- `timestamps`: This tells the model which attributes to use for timestamps. Accepts either `boolean` or `Array` of strings where first element is create date and second element is update date. 默认值 when set to `true` for Bookshelf is `["created_at", "updated_at"]` and for MongoDB is `["createdAt", "updatedAt"]`.
-
-- `privateAttributes`: This configuration allows to treat a set of attributes as private, even if they're not actually defined as attributes in the model. Accepts an `Array` of strings. It could be used to remove from API responses timestamps or `_v` when using MongoDB. The set of `privateAttributes` defined in the model are merged with the `privateAttributes` defined in the global Strapi configuration.
-
-- `populateCreatorFields`: Configure whether the API response should include `created_by` and `updated_by` fields or not. Accepts a `boolean`. The default value is `false`.
-
-- `draftAndPublish`: Enable the draft and publish feature. Accepts a `boolean`. The default value is `false`.
+- `timestamps`: 时间戳, 这告诉模型使用哪些属性作为时间戳。接受 `boolean` 或字符串 `Array` ，其中第一个元素为 `create date`，第二个元素为 `update date`。对于 Bookshelf 设置为 true 时的默认值是 `["created_at", "updated_at"]` ，对于 MongoDB 设置为 `["createdAt", "updatedAt"]` 。
+- `privateAttributes`: 这种配置允许将一组属性视为私有属性，即使它们实际上没有在模型中定义为属性。接受字符串 `Array` 。当使用 MongoDB 时，它可以用来从 API 响应中删除时间戳或 `_v` 。模型中定义的 `privateAttributes` 集与全局 Strapi 配置中定义的 `privateAttributes` 合并。
+- `populateCreatorFields`: 配置 API 响应是否应该包含 `created_by` 和 `updated_by` 字段。接受一个布尔值。默认值为 `false` 。
+- `draftAndPublish`: 启用草稿和发布特性。接受一个 `boolean`。默认值为 `false`。
 
 **Path —** `Restaurant.settings.json`.
 
@@ -1730,9 +1721,9 @@ The options key on the model-json states.
 }
 ```
 
-### Define the attributes
+### 定义属性
 
-The following types are currently available:
+目前有以下几种类型:
 
 - `string`
 - `text`
@@ -1751,33 +1742,32 @@ The following types are currently available:
 - `json`
 - `uid`
 
-#### Validations
+#### Validations 验证
 
-You can apply basic validations to attributes. The following supported validations are _only supported by MongoDB_ database connections.
-If you're using SQL databases, you should use the native SQL constraints to apply them.
+您可以对属性应用基本的验证。以下支持的验证只有 MongoDB 数据库连接支持。如果使用 SQL 数据库，应该使用本地 SQL 约束来应用它们。
 
-- `required` (boolean) — If true, adds a required validator for this property.
-- `unique` (boolean) — Whether to define a unique index on this property.
-- `index` (boolean) — Adds an index on this property, this will create a [single field index](https://docs.mongodb.com/manual/indexes/#single-field) that will run in the background. _Only supported by MongoDB._
-- `max` (integer) — Checks if the value is greater than or equal to the given maximum.
-- `min` (integer) — Checks if the value is less than or equal to the given minimum.
+- `required` (boolean) — 如果为真，则为此属性添加一个必需的验证器.
+- `unique` (boolean) — 是否在此属性上定义唯一索引.
+- `index` (boolean) — 在此属性上添加索引，这将创建一个 [single field index](https://docs.mongodb.com/manual/indexes/#single-field) 可以在后台运行. _只支持 MongoDB._
+- `max` (integer) — 检查值是否大于或等于给定的最大值.
+- `min` (integer) — 检查值是否小于或等于给定的最小值.
 
-**Security validations**
+**安全验证**
 
-To improve the Developer Experience when developing or using the administration panel, the framework enhances the attributes with these "security validations":
+为了改善开发人员在开发或使用管理面板时的体验，该框架通过以下这些“安全验证”来增强属性:
 
-- `private` (boolean) — If true, the attribute will be removed from the server response. (This is useful to hide sensitive data).
-- `configurable` (boolean) - If false, the attribute isn't configurable from the Content Type Builder plugin.
-- `autoPopulate` (boolean) - If false, the related data will not populate within REST responses. (This will not stop querying the relational data on GraphQL)
+- `private` (boolean) — 如果为真，属性将从服务器响应中删除. (这对隐藏敏感数据很有用).
+- `configurable` (boolean) - 如果属性为 false，则无法从 Content Type Builder 插件配置该属性.
+- `autoPopulate` (boolean) - 如果为 false，相关数据将不会在 REST 响应中填充。(这不会停止查询 GraphQL 上的关系数据)
 
-#### Exceptions
+#### 例外
 
 **uid**
 
 - `targetField`(string) — The value is the name of an attribute that has `string` of the `text` type.
-- `options` (string) — The value is a set of options passed to [the underlying `uid` generator](https://github.com/sindresorhus/slugify). A caveat is that the resulting `uid` must abide to the following RegEx `/^[A-Za-z0-9-_.~]*$`.
+- `options` (string) — 该值是传递给 [the underlying `uid` generator](https://github.com/sindresorhus/slugify). 一个警告是 `uid` 必须遵守以下正则表达式 `/^[A-Za-z0-9-_.~]*$`.
 
-#### Example
+#### 例子
 
 **Path —** `Restaurant.settings.json`.
 
@@ -1805,17 +1795,17 @@ To improve the Developer Experience when developing or using the administration 
 }
 ```
 
-### Relations
+### Relations 关系
 
-Relations let you create links (relations) between your Content Types.
+关系允许您在内容类型之间创建链接(关系)。
 
 :::: tabs
 
 ::: tab One-Way
 
-One-way relationships are useful to link one entry to one other entry. However, only one of the models can be queried with its linked item.
+单向关系有助于将一个条目链接到另一个条目。但是，只能查询其中一个模型的链接项。
 
-##### Example
+##### 例子
 
 A `pet` can be owned by someone (a `user`).
 
@@ -1831,7 +1821,7 @@ A `pet` can be owned by someone (a `user`).
 }
 ```
 
-**Example**
+**例子**
 
 ```js
 // Create a pet
@@ -1849,9 +1839,9 @@ xhr.send(
 
 ::: tab Many-way
 
-Many-way relationships are useful to link one entry to many other entries. However, only one of the models can be queried with its linked items.
+多向关系有助于将一个条目链接到许多其他条目。但是，只能查询其中一个模型的链接项。
 
-##### Example
+##### 例子
 
 A `pet` can be owned by many people (multiple `users`).
 
@@ -1867,7 +1857,7 @@ A `pet` can be owned by many people (multiple `users`).
 }
 ```
 
-**Example**
+**例子**
 
 ```js
 // Create a pet
@@ -1885,9 +1875,9 @@ xhr.send(
 
 ::: tab One-to-One
 
-One-to-One relationships are useful when you have one entity that could be linked to only one other entity. _**And vice versa**_.
+当一个实体只能链接到另一个实体时，一对一关系非常有用。**反之亦然**。
 
-##### Example
+##### 例子
 
 A `user` can have one `address`. And this address is only related to this `user`.
 
@@ -1916,7 +1906,7 @@ A `user` can have one `address`. And this address is only related to this `user`
 }
 ```
 
-**Example**
+**例子**
 
 ```js
 // Create an address
@@ -1934,9 +1924,9 @@ xhr.send(
 
 ::: tab One-to-Many
 
-One-to-Many relationships are useful when an entry can be linked to multiple entries of another Content Type. And an entry of the other Content Type can be linked to only one entry.
+当一个条目可以链接到另一个 Content Type 的多个条目时，一对多关系非常有用。另一个 Content Type 条目只能链接到一个条目。
 
-##### Example
+##### 例子
 
 A `user` can have many `articles`, and an `article` can be related to only one `user` (author).
 
@@ -1965,7 +1955,7 @@ A `user` can have many `articles`, and an `article` can be related to only one `
 }
 ```
 
-**Examples**
+**例子**
 
 ```js
 // Create an article
@@ -1993,9 +1983,9 @@ xhr.send(
 
 ::: tab Many-to-Many
 
-Many-to-Many relationships are useful when an entry can be linked to multiple entries of another Content Type. And an entry of the other Content Type can be linked to many entries.
+当一个条目可以链接到另一个内容类型的多个条目时，多对多关系非常有用。另一个 Content Type 的条目可以链接到许多条目。
 
-##### Example
+##### 例子
 
 A `product` can be related to many `categories` and a `category` can have many `products`.
 
@@ -2033,7 +2023,7 @@ A `product` can be related to many `categories` and a `category` can have many `
 }
 ```
 
-**Example**
+**例子**
 
 ```js
 // Update a product
@@ -2051,8 +2041,7 @@ xhr.send(
 
 ::: tab Polymorphic
 
-Polymorphic relationships are the solution when you don't know which kind of model will be associated to your entry, or when you want to connect different types of models to a model.
-A common use case is an `Image` model that can be associated to different types of models (Article, Product, User, etc.).
+当您不知道哪种类型的模型将与您的条目相关联，或者当您希望将不同类型的模型连接到一个模型时，多态关系是一种解决方案。常见的用例是可以与不同类型的模型(文章、产品、用户等)相关联的 `Image` 模型。
 
 ##### Single vs Many
 
@@ -2081,9 +2070,9 @@ In other words, it means that an `Article` entry can relate to the same image as
 
 ##### Filter
 
-The `filter` attribute is optional (but we highly recommend to use it every time). If it's provided it adds a new match level to retrieve the related data.
+`filter` 属性是可选的(但我们强烈建议每次都使用它)。如果提供了，则添加一个新的匹配级别来检索相关数据。
 
-For example, the `Product` model might have two attributes which are associated to the `Image` model. To distinguish which image is attached to the `cover` field and which images are attached to the `pictures` field, we need to save and provide this to the database.
+例如，`Product` 模型可能有两个与 `Image` 模型相关联的属性。为了区分哪些图像附加到封面字段和哪些图像附加到 `pictures` 字段，我们需要保存并提供给数据库。
 
 **Path —** `./api/article/models/Product.settings.json`.
 
@@ -2102,9 +2091,9 @@ For example, the `Product` model might have two attributes which are associated 
 }
 ```
 
-The value of the `filter` attribute is the name of the column where the information is stored.
+`filter` 属性的值是存储信息的列的名称。
 
-##### Example
+##### 例子
 
 An `Image` model might belong to many `Article` models or `Product` models.
 
@@ -2151,13 +2140,13 @@ An `Image` model might belong to many `Article` models or `Product` models.
 
 ::::
 
-### Components
+### Components 组件
 
-Component fields let your create a relation between your Content Type and a Component structure.
+组件字段允许您在内容类型和组件结构之间创建关系。
 
-##### Example
+##### 例子
 
-Lets say we created an `openinghours` component in `restaurant` category.
+让我们说，我们创建了一个 `restaurant` 类的 `openinghours` 组件。
 
 **Path —** `./api/restaurant/models/Restaurant.settings.json`.
 
@@ -2314,11 +2303,11 @@ xhr.send(
 
 ### Dynamic Zone
 
-Dynamic Zone fields let you create a flexible space in which to compose content, based on a mixed list of components.
+Dynamic Zone 字段允许您创建一个灵活的空间，以便根据组件的混合列表编写内容。
 
-##### Example
+##### 例子
 
-Lets say we created an `slider` and `content` component in `article` category.
+假设我们在 `article` 类别中创建了一个 `slider` 和 `content` 组件。
 
 **Path —** `./api/article/models/Article.settings.json`.
 
@@ -2333,7 +2322,7 @@ Lets say we created an `slider` and `content` component in `article` category.
 }
 ```
 
-- `components` (array): Array of components that follows this format `<category>.<componentName>`.
+- `components` (array): 遵循此格式的组件数组 `<category>.<componentName>`.
 
 :::: tabs
 
@@ -2412,13 +2401,13 @@ xhr.send(
 
 ::::
 
-### Lifecycle hooks
+### 生命周期挂钩
 
-The lifecycle hooks are functions that get triggered when the Strapi [`queries`](/developer-docs/latest/development/backend-customization.md#queries) are called. They will get triggered automatically when you manage your content in the Admin Panel or when you develop custom code using `queries`·
+生命周期钩子是在调用 Strapi [`queries`](/developer-docs/latest/development/backend-customization.md#queries) 时触发的函数。当您在管理面板中管理内容或使用 `queries` 开发自定义代码时，它们将自动触发
 
-To configure a `ContentType` lifecycle hook you can set a `lifecycles` key in the `{modelName}.js` file located in the `./api/{apiName}/models` folder.
+要配置 `ContentType` 生命周期钩子，可以在 `{modelName}.js` 中设置 `lifecycles` 键。文件位于 `./api/{apiName}/models` 文件夹。
 
-#### Available Lifecycle hooks
+#### 可用的生命周期挂钩
 
 :::: tabs
 
@@ -2614,7 +2603,7 @@ _Parameters:_
 
 ::::
 
-#### Example
+#### 例子
 
 **Path —** `./api/restaurant/models/Restaurant.js`.
 
@@ -2632,7 +2621,7 @@ module.exports = {
 ```
 
 ::: tip
-You can mutate one of the parameters to change its properties. Make sure not to reassign the parameter as it will have no effect:
+您可以改变其中一个参数来改变它的属性。确保不要重新分配参数，因为它不会产生任何效果:
 
 **This will Work**
 
@@ -2663,9 +2652,9 @@ module.exports = {
 
 :::
 
-#### Custom use
+#### 定制使用
 
-When you are building custom ORM specific queries the lifecycles will not be triggered. You can however call a lifecycle function directly if you wish.
+当您构建定制 ORM 特定查询时，生命周期将不会被触发。然而，如果您愿意，您可以直接调用生命周期函数。
 
 **Bookshelf example**
 
@@ -2685,28 +2674,27 @@ module.exports = {
 ```
 
 ::: tip
-When calling a lifecycle function directly, you will need to make sure you call it with the expected parameters.
+当直接调用生命周期函数时，您需要确保使用预期的参数调用它。
 :::
 
 <!--- BEGINNING OF WEBHOOKS --->
 
 ## Webhooks
 
-Webhook is a construct used by an application to notify other applications that an event occurred. More precisely, webhook is a user-defined HTTP callback. Using a webhook is a good way to tell third party providers to start some processing (CI, build, deployment ...).
+Webhook 是应用程序用于通知其他应用程序发生事件的构造。更准确地说，webhook 是一个用户定义的 HTTP 回调。使用 webhook 是告诉第三方提供者开始某些处理(CI、构建、部署...)的好方法。
 
-The way a webhook works is by delivering information to a receiving application through HTTP requests (typically POST requests).
+Webhook 的工作方式是通过 HTTP 请求(通常是 POST 请求)将信息传递给接收应用程序。
 
-### User content type webhooks
+### 用户内容类型的网钩
 
-To prevent from unintentionally sending any user's information to other applications, Webhooks will not work for the User content type.
-If you need to notify other applications about changes in the Users collection, you can do so by creating [Lifecycle hooks](#lifecycle-hooks) inside the file `./extensions/users-permissions/models/User.js`.
+为了防止无意中将任何用户信息发送到其他应用程序，Webhooks 不适用于 User 内容类型。如果需要通知其他应用程序用户集合中的更改，可以通过在文件中创建 [Lifecycle hooks](#lifecycle-hooks) 来实现 `./extensions/users-permissions/models/User.js` .
 
-### Available configurations
+### 可用配置
 
-You can set webhook configurations inside the file `./config/server.js`.
+您可以在文件 `./config/server.js` 中设置 webhook 配置。
 
 - `webhooks`
-  - `defaultHeaders`: You can set default headers to use for your webhook requests. This option is overwritten by the headers set in the webhook itself.
+  - `defaultHeaders`: 你可以设置默认的标题来使用你的 webhook 请求。此选项被 webhook 本身中设置的头部覆盖.
 
 **Example configuration**
 
@@ -2720,14 +2708,13 @@ module.exports = {
 };
 ```
 
-### Securing your webhooks
+### 安全 webhooks
 
-Most of the time, webhooks make requests to public URLs, therefore it is possible that someone may find that URL and send it wrong information.
+大多数时候，webhooks 对公共 URL 发出请求，因此有可能有人发现这个 URL 并发送错误的信息。
 
-To prevent this from happening you can send a header with an authentication token. Using the Admin panel you would have to do it for every webhook.
-Another way is to define `defaultHeaders` to add to every webhook requests.
+为了防止这种情况发生，您可以使用认证标记发送标头。使用管理面板，你必须为每一个 webhook 做到这一点。另一种方法是定义 `defaultHeaders` 来添加到每个 webhook 请求中。
 
-You can configure these global headers by updating the file at `./config/server.js`:
+您可以通过更新 `./config/server.js` 文件来配置这些全局头文件:
 
 :::: tabs
 
@@ -2759,7 +2746,7 @@ module.exports = {
 
 ::::
 
-If you are developing the webhook handler yourself you can now verify the token by reading the headers.
+如果您正在自己开发 webhook 处理程序，现在可以通过读取标头来验证标记。
 
 <!--- ### Usage
 
@@ -2805,9 +2792,9 @@ You can delete a webhook by clicking on the `trash` icon.
 
 ![Delete webhook](../assets/concepts/webhooks/disable.png) --->
 
-### Available events
+### 可用事件
 
-By default Strapi webhooks can be triggered by the following events:
+默认情况下，Strapi webhooks 可以由以下事件触发:
 
 | Name              | Description                                           |
 | ----------------- | ----------------------------------------------------- |
@@ -2820,17 +2807,17 @@ By default Strapi webhooks can be triggered by the following events:
 | `media.update`    | Triggered when a media is updated.                    |
 | `media.delete`    | Triggered when a media is deleted.                    |
 
-\*only when `draftAndPublish` is enabled on this Content Type.
+\* 仅当在此内容类型上启用 `draftAndPublish` 时。
 
 ### Payloads
 
 :::tip NOTE
-Private fields and passwords are not sent in the payload.
+私有字段和密码不会在有效负载中发送。
 :::
 
 #### Headers
 
-When a payload is delivered to your webhook's URL, it will contain specific headers:
+当有效负载传递到你的 webhook 的 URL 时，它将包含特定的头部:
 
 | Header           | Description                                |
 | ---------------- | ------------------------------------------ |
@@ -2838,7 +2825,7 @@ When a payload is delivered to your webhook's URL, it will contain specific head
 
 #### `entry.create`
 
-This event is triggered when a new entry is created.
+创建新条目时触发此事件。
 
 **Example payload**
 
@@ -2864,7 +2851,7 @@ This event is triggered when a new entry is created.
 
 #### `entry.update`
 
-This event is triggered when an entry is updated.
+更新条目时触发此事件。
 
 **Example payload**
 
@@ -2890,7 +2877,7 @@ This event is triggered when an entry is updated.
 
 #### `entry.delete`
 
-This event is triggered when an entry is deleted.
+删除条目时触发此事件。
 
 **Example payload**
 
@@ -2916,7 +2903,7 @@ This event is triggered when an entry is deleted.
 
 #### `entry.publish`
 
-This event is triggered when an entry is published.
+发布条目时触发此事件。
 
 **Example payload**
 
@@ -2943,7 +2930,7 @@ This event is triggered when an entry is published.
 
 #### `entry.unpublish`
 
-This event is triggered when an entry is unpublished.
+未发布条目时触发此事件。
 
 **Example payload**
 
@@ -2970,7 +2957,7 @@ This event is triggered when an entry is unpublished.
 
 #### `media.create`
 
-This event is triggered when you upload a file on entry creation or through the media interface.
+当您在创建条目时或通过媒体界面上传文件时，将触发此事件。
 
 **Example payload**
 
@@ -2998,7 +2985,7 @@ This event is triggered when you upload a file on entry creation or through the 
 
 #### `media.update`
 
-This event is triggered when you replace a media or update the metadata of a media through the media interface.
+当您替换媒体或通过媒体界面更新媒体的元数据时，将触发此事件。
 
 **Example payload**
 
@@ -3026,7 +3013,7 @@ This event is triggered when you replace a media or update the metadata of a med
 
 #### `media.delete`
 
-This event is triggered only when you delete a media through the media interface.
+只有在通过媒体界面删除媒体时才会触发此事件。
 
 **Example payload**
 

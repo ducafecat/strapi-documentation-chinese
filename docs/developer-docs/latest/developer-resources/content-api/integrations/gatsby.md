@@ -78,7 +78,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 `./src/pages/index.js`
 
@@ -156,7 +156,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 `./src/pages/index.js`
 

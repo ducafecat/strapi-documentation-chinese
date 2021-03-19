@@ -135,7 +135,7 @@ npx create-strapi-app my-project --quickstart
 - 学习如何使用 Strapi with React ([Gatsby](https://strapi.io/blog/build-a-static-blog-with-gatsby-and-strapi) or [Next.js](https://strapi.io/blog/nextjs-react-hooks-strapi-food-app-1)) or Vue.js ([Nuxt.js](https://strapi.io/blog/cooking-a-deliveroo-clone-with-nuxt-vue-js-graphql-strapi-and-stripe-setup-part-1-7/)).
 - 你可以看一下 [教程](https://strapi.io/tutorials) 深入学习 Strapi.
 - 寻求帮助 [our community forum](https://forum.strapi.io).
-- Read the [source code](https://github.com/strapi/strapi), [contribute](https://github.com/strapi/strapi/blob/master/CONTRIBUTING.md) or [give a star](https://github.com/strapi/strapi) on GitHub.
+- 阅读 [source code](https://github.com/strapi/strapi), [contribute](https://github.com/strapi/strapi/blob/master/CONTRIBUTING.md) or [give a star](https://github.com/strapi/strapi) on GitHub.
 - 跟我们走 [Twitter](https://twitter.com/strapijs) 来获得最新的消息.
 - [加入 vibrant 和 Strapi 社区](https://slack.strapi.io) 在 Slack.
   :::

@@ -9,7 +9,7 @@ Thanks to the plugin `Email`, you can send email from your server or externals p
 In your custom controllers or services you may want to send email.
 By using the following function, Strapi will use the configured provider to send an email.
 
-**Example**
+**例子**
 
 ```js
 await strapi.plugins['email'].services.email.send({
@@ -35,7 +35,7 @@ The email plugin provides the service `sendTemplatedEmail` that compile the emai
 | `emailTemplate` | Object that contains `subject`, `text` and `html` as [lodash string templates](https://lodash.com/docs/4.17.15#template) | object | `{}`    |
 | `data`          | Object that contains the data used to compile the templates                                                              | object | `{}`    |
 
-**Example**
+**例子**
 
 ```js
 const emailTemplate = {
@@ -129,7 +129,7 @@ If you're using a different provider depending on your environment, you can spec
 :::
 
 ::: tip
-Only one email provider will be active at all time. If the email provider setting isn't picked up by strapi, verify you have put the file `plugins.js` in the correct folder, and with correct filename. The selection of email provider is done via configuration file only.  
+Only one email provider will be active at all time. If the email provider setting isn't picked up by strapi, verify you have put the file `plugins.js` in the correct folder, and with correct filename. The selection of email provider is done via configuration file only.
 :::
 
 ::: tip

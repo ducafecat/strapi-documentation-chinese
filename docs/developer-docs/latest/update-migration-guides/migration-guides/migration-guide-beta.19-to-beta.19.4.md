@@ -36,7 +36,7 @@ In order to stay database agnostic, we decided that the identifier in url params
 
 If your routes configuration still uses something else than `id`, please modify all of them as in the following example.
 
-### Example
+### 例子
 
 **Before -** `./api/**/config/routes.json`
 
@@ -72,7 +72,7 @@ As of beta.19.4, Strapi listens only to the host specified in the config (which 
 
 In some cases (with Heroku, Docker...), listening to `localhost` won't work. In that case, you need to edit your config to specify the correct host to listen to: a specific one if you know it or `0.0.0.0` otherwise.
 
-### Example
+### 例子
 
 **Before -** `./config/environments/**/server.js`
 

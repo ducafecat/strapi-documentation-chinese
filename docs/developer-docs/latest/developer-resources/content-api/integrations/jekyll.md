@@ -59,7 +59,7 @@ Execute a `GET` request on the `restaurant` Collection Type in order to fetch al
 
 Be sure that you activated the `find` permission for the `restaurant` Collection Type.
 
-### Example
+### 例子
 
 `./_layouts/home.html`
 
@@ -86,7 +86,7 @@ Execute a `GET` request on the `category` Collection Type in order to fetch a sp
 
 Be sure that you activated the `findOne` permission for the `category` Collection Type.
 
-### Example
+### 例子
 
 `./layouts/index.html`
 
@@ -126,13 +126,13 @@ strapi:
   # Collections, key is used to access in the strapi.collections
   # template variable
   collections:
-    # Example for a "posts" collection
+    # 例子 for a "posts" collection
     restaurants:
-      # Collection name (optional). Used to construct the url requested. Example: type `foo` would generate the following url `http://localhost:1337/foo`.
+      # Collection name (optional). Used to construct the url requested. 例子: type `foo` would generate the following url `http://localhost:1337/foo`.
       type: restaurants
 
     categories:
-      # Collection name (optional). Used to construct the url requested. Example: type `foo` would generate the following url `http://localhost:1337/foo`.
+      # Collection name (optional). Used to construct the url requested. 例子: type `foo` would generate the following url `http://localhost:1337/foo`.
       type: categories
       permalink: categories/:name
       layout: category.html

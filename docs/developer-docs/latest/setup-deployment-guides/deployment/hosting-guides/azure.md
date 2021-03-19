@@ -285,7 +285,7 @@ If we edit the `./config/database.js` file using `nano` we can replace a few key
 nano /srv/strapi/mystrapiapp/config/database.js
 ```
 
-Using the following example we will remove any private information:
+使用 following example we will remove any private information:
 
 ```js
 module.exports = ({ env }) => ({
@@ -312,7 +312,7 @@ module.exports = ({ env }) => ({
 Now we will install [PM2](https://pm2.keymetrics.io/docs/usage/quick-start/) to run Strapi as a service, and using the PM2 ecosystem config file we can define our environment variables.
 
 ::: tip
-Using the lifecycle file **is not** required and is entirely optional, you can instead define your environment variables via the CLI
+使用 lifecycle file **is not** required and is entirely optional, you can instead define your environment variables via the CLI
 :::
 
 Using Yarn, we will install PM2 globally, and adjust our `.bashrc` file to allow us to use global Yarn packages:
@@ -452,7 +452,7 @@ Below are some optional additions to secure your virtual machine and Strapi serv
 
 #### 1. Securing your virtual machine with a firewall
 
-Azure virtual machines come with a firewall at the host level (see previous instructions [here](#_5-networking)). However it is recommended that you use the built in Ubuntu firewall as well known as UFW or Uncomplicated Firewall.
+Azure virtual machines come with a firewall at the host level (see previous instructions [这里](#_5-networking)). However it is recommended that you use the built in Ubuntu firewall as well known as UFW or Uncomplicated Firewall.
 
 See the following [DigitalOcean guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-firewall-with-ufw-on-ubuntu-18-04) to see some examples of using UFW.
 
@@ -462,4 +462,4 @@ There are many different types of proxy services you could use, anything from lo
 
 #### 3. File upload providers
 
-There are many options for storing files outside of your virtual machine, Strapi have built a few and the community is constantly building new ones. See the [following guide](/developer-docs/latest/development/plugins/upload.md#create-providers) on searching for options as well as installing them.
+There are many options for storing files outside of your virtual machine, Strapi have built a few and the community is constantly building new ones. See the [以下指南](/developer-docs/latest/development/plugins/upload.md#create-providers) on searching for options as well as installing them.

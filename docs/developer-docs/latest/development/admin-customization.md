@@ -1,24 +1,24 @@
-# Admin panel customization
+# 管理面板定制
 
-## Admin extension
+## 管理扩展
 
-The admin panel is a `node_module` that is similar to a [plugin](/developer-docs/latest/development/plugin-customization.md), with the slight difference that it encapsulates all the installed plugins of your application.
+管理面板是一个类似于插件的 `node_module` ，只是它封装了应用程序所有已安装的 [插件](/developer-docs/latest/development/plugin-customization.md) 。
 
-To extend this package you will have to create an `admin` folder at the root of your application.
+要扩展此包，您必须在应用程序的根目录创建一个 `admin` 文件夹。
 
-In this folder you will be able to override admin files and functions.
+在这个文件夹中，您可以覆盖管理文件和函数。
 
-## Customization options
+## 定制选项
 
-The administration panel can be customized according to your needs, so you can make it reflect your identity.
+管理面板可以根据您的需要定制，因此您可以使它反映您的身份。
 
 ::: warning
-To apply your changes you need to [rebuild](#build) your admin panel
+要应用更改，需要 [重新构建](#build) 管理面板
 :::
 
-### Change access URL
+### 更改访问网址
 
-By default, the administration panel is exposed via [http://localhost:1337/admin](http://localhost:1337/admin). However, for security reasons, you can easily update this path. For more advanced settings please see the [server config](/developer-docs/latest/setup-deployment-guides/configurations.md#server) documentation.
+默认情况下，管理面板通过 [http://localhost:1337/admin](http://localhost:1337/admin) 。但是，出于安全原因，您可以轻松地更新此路径。有关更高级的设置，请参阅 [服务器配置](/developer-docs/latest/setup-deployment-guides/configurations.md#server) 文档。
 
 **Path —** `./config/server.js`.
 
@@ -32,24 +32,24 @@ module.exports = ({ env }) => ({
 });
 ```
 
-The panel will be available through [http://localhost:1337/dashboard](http://localhost:1337/dashboard) with the configuration above.
+这个面板可以通过上面的配置通过 [http://localhost:1337/dashboard](http://localhost:1337/dashboard) 打开新的窗口。
 
-### Development mode
+### 开发模式
 
-To enable the front-end development mode you need to start your application using the `--watch-admin` flag.
+要启用前端开发模式，您需要使用 `--watch-admin` 标志启动应用程序。
 
 ```bash
 cd my-app
 strapi develop --watch-admin
 ```
 
-With this option you can do the following:
+使用这个选项，你可以做以下操作:
 
-#### Customize the `strapi-admin` package
+#### 自定义 `strapi-admin` 软件包
 
-All files added in `my-app/admin/src/` will either be replaced or added
+在 `my-app/admin/src/` 中添加的所有文件都将被替换或添加
 
-**Example: Changing the available locales of your application**
+**示例: 更改应用程序的可用区域设置**
 
 ```bash
 # Create both the admin and admin/src/translations folders
@@ -80,14 +80,14 @@ export default trads;
 ```
 
 ::: tip
-With this modification only English and French will be available in your admin
+通过这个修改，只有英语和法语将可用于您的管理
 :::
 
-#### Customize a plugin
+#### 定制插件
 
-Similarly to the back-end override system, any file added in `my-app/extensions/<plugin-name>/admin/` will be copied and used instead of the original one (use with care).
+与后端覆盖系统类似，在 `my-app/extensions/<plugin-name>/admin/` 中添加的任何文件都将被复制并使用，而不是原始文件(请小心使用)。
 
-**Example: Changing the current WYSIWYG**
+**Example: 更改内容编辑器 WYSIWYG**
 
 ```bash
 cd my-app/extensions
@@ -113,35 +113,35 @@ const WysiwygWithErrors = props => <MyNewWYSIWYG {...props} />;
 export default WysiwygWithErrors;
 ```
 
-#### Styles
+#### Styles 样式
 
-The AdminUI package source can be easily found in `./node_modules/strapi-admin/src/`.
+可以在 `./node_modules/strapi-admin/src/` 中轻松找到 AdminUI 包源。
 
-For example, to change the top-left displayed admin panel's color, copy the `./node_modules/strapi-admin/admin/src/components/LeftMenu/LeftMenuHeader` folder to `./admin/src/components/LeftMenu/LeftMenuHeader` (create these folders if they don't exist) and change the styles inside `./admin/src/components/LeftMenu/LeftMenuHeader/Wrapper.js`.
+例如，要更改左上角显示的管理面板的颜色，请复制 `./node_modules/strapi-admin/admin/src/components/LeftMenu/LeftMenuHeader` 文件夹 `./admin/src/components/LeftMenu/LeftMenuHeader` (如果这些文件夹不存在，则创建它们)并更改其中的样式 `./admin/src/components/LeftMenu/LeftMenuHeader/Wrapper.js` .
 
-Thus, you are replacing the files that would normally be in `node_modules/strapi-admin/admin/src` and directing them to `admin/src/some/file/path`.
+因此，您正在替换通常位于 `node_modules/strapi-admin/admin/src` 中的文件，并将它们指向 `admin/src/some/file/path` 。
 
-To apply your changes you need to rebuild your admin panel
+要应用更改，需要重新构建管理面板
 
 ```
 npm run build
 ```
 
-#### Logo
+#### Logo 标志
 
-To change the top-left displayed admin panel's logo, add your custom image at `./admin/src/assets/images/logo-strapi.png`.
+要更改左上角显示的管理面板的徽标，请添加您的自定义图像到 `./admin/src/assets/images/logo-strapi.png`。
 
-To change the login page's logo, add your custom image at `./admin/src/assets/images/logo_strapi.png`.
+要更改登录页面的徽标，请在 `./admin/src/assets/images/logo_strapi.png` 添加自定义图像。
 
 ::: tip
-make sure the size of your image is the same as the existing one (434px x 120px).
+确保你的图像和现有的图像大小一样(434px x 120px)。
 :::
 
-#### Tutorial videos
+#### 禁用教学视频
 
-To disable the information box containing the tutorial videos, create a file at `./admin/src/config.js`
+要禁用包含教程视频的信息框，请在 `./admin/src/config.js` 创建一个文件
 
-Add the following configuration:
+添加以下配置:
 
 ```js
 export const LOGIN_LOGO = null;
@@ -150,9 +150,9 @@ export const SETTINGS_BASE_URL = '/settings';
 export const STRAPI_UPDATE_NOTIF = true;
 ```
 
-#### Changing the host and port
+#### 更改主机和端口
 
-By default, the front-development server runs on `localhost:8000`. However, you can change this setting by updating the following configuration:
+默认情况下，前端开发服务器运行在 `localhost:8000` 上。但是，您可以通过更新以下配置来更改此设置:
 
 **Path —** `./config/server.js`.
 
@@ -167,9 +167,9 @@ module.exports = ({ env }) => ({
 });
 ```
 
-### Build
+### Build 构建
 
-To build the administration, run the following command from the root directory of your project.
+若要生成管理，请从项目的根目录运行以下命令。
 
 :::: tabs
 
@@ -199,11 +199,13 @@ strapi build
 
 ::::
 
-This will replace the folder's content located at `./build`. Visit [http://localhost:1337/admin](http://localhost:1337/admin) to make sure your updates have been taken into account.
+这将替换位于 `./build` 。
 
-## Custom Webpack Config
+访问 [http://localhost:1337/admin](http://localhost:1337/admin)，确保你的更新已经被考虑在内。
 
-In order to extend the usage of webpack, you can define a function that extends its config inside `admin/admin.config.js`, like so:
+## 自定义 Webpack 配置
+
+为了扩展 webpack 的使用，可以在 `admin/admin.config.js` 中定义一个扩展配置的函数，如下所示:
 
 ```js
 module.exports = {
@@ -218,20 +220,20 @@ module.exports = {
 };
 ```
 
-## Deployment
+## Deployment 部署
 
-The administration is nothing more than a React front-end application calling an API. The front-end and the back-end are independent and can be deployed on different servers which brings us to different scenarios:
+管理只不过是一个调用 API 的 React 前端应用程序。前端和后端是独立的，可以部署在不同的服务器上，这就给我们带来了不同的场景:
 
-1. Deploy the entire project on the same server.
-2. Deploy the administration panel on another server (AWS S3, Azure, etc) than the API.
+1. 将整个项目部署在同一台服务器上.
+2. 将管理面板部署到 API 之外的另一台服务器(AWS S3、 Azure、 etc)上
 
-Let's dive into the build configurations for each case.
+让我们深入研究每种情况下的构建配置。
 
-### Deploy the entire project on the same server.
+### 将整个项目部署在同一台服务器上.
 
-You don't need to touch anything in your configuration file. This is the default behavior and the build configuration will be automatically set. The server will start on the defined port and the administration panel will be accessible through `http://yourdomain.com:1337/dashboard`.
+您不需要触摸配置文件中的任何内容。这是默认行为，生成配置将自动设置。服务器将在指定的端口启动，管理面板将通过 `http://yourdomain.com:1337/dashboard` 访问。
 
-You might want to change the path to access the administration panel. Here is the required configuration to change the path:
+您可能希望更改访问管理面板的路径。下面是修改路径所需的配置:
 
 **Path —** `./config/server.js`.
 
@@ -245,11 +247,11 @@ module.exports = ({ env }) => ({
 });
 ```
 
-**You have to rebuild the administration panel to make this work.** [Build instructions](/developer-docs/latest/development/admin-customization.md#build).
+**您必须重新构建管理面板才能使其工作。** [Build instructions](/developer-docs/latest/development/admin-customization.md#build).
 
-### Deploy the administration panel on another server (AWS S3, Azure, etc) than the API.
+### 将管理面板部署到 API 之外的另一台服务器 (AWS S3, Azure, etc).
 
-It's very common to deploy the front-end and the back-end on different servers. Here is the required configuration to handle this case:
+在不同的服务器上部署前端和后端是非常常见的。以下是处理这种情况所需的配置:
 
 **Path —** `./config/server.js`.
 
@@ -265,24 +267,23 @@ module.exports = ({ env }) => ({
 });
 ```
 
-After running `yarn build` with this configuration, the folder `build` will be created/overwritten. You can then use this folder to serve it from another server with the domain of your choice (ex: `http://yourfrontend.com`).
+使用此配置运行 `yarn build` 之后，将创建/覆盖文件夹 `build` 。然后，您可以使用这个文件夹从另一个服务器上提供您选择的域名(例如: `http://yourfrontend.com`)。
 
-The administration URL will then be `http://yourfrontend.com` and every request from the panel will hit the backend at `http://yourbackend.com`.
+然后管理 URL 将是 `http://yourfrontend.com` ，来自面板的每个请求将在 `http://yourfrontend.com` 时间点击后端。
 
 ::: tip 注意
-If you add a path to the `url` option, it won't prefix your app. To do so, you need to also use a proxy server like Nginx. More [here](/developer-docs/latest/setup-deployment-guides/deployment.md#optional-software-guides).
+如果你给 `url` 添加一个路径选项，它就不会给你的应用加上前缀。为此，您还需要使用 Nginx 这样的代理服务器。更多内容请点击[这里](/developer-docs/latest/setup-deployment-guides/deployment.md#optional-software-guides)。
 :::
 
-## Forgot Password Email
+## 忘记密码电子邮件
 
-### Customize forgot password email
+### 自定义忘记密码的电子邮件
 
-You may want to customize the forgot password email.
-You can do it by providing your own template (formatted as a [lodash template](https://lodash.com/docs/4.17.15#template)).
+您可能需要自定义忘记密码的电子邮件。您可以通过提供自己的模板(格式为 [lodash template](https://lodash.com/docs/4.17.15#template) 来实现这一点 )。
 
-The template will be compiled with the following variables: `url`, `user.email`, `user.username`, `user.firstname`, `user.lastname`.
+该模板将使用以下变量进行编译: `url`, `user.email`, `user.username`, `user.firstname`, `user.lastname` 。
 
-### Example
+### 例子
 
 **Path -** `./config/servers.js`
 

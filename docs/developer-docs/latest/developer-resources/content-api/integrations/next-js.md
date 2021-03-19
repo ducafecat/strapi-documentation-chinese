@@ -127,7 +127,7 @@ _Response_
 
 ::::
 
-### Example
+### 例子
 
 :::: tabs
 
@@ -228,7 +228,7 @@ Execute a `POST` request on the `restaurant` Collection Type in order to create 
 
 Be sure that you activated the `create` permission for the `restaurant` Collection Type and the `find` permission for the `category` Collection type.
 
-In this example a `japanese` category has been created which has the id: 3.
+在这个例子中 a `japanese` category has been created which has the id: 3.
 
 :::: tabs
 
@@ -300,7 +300,7 @@ _Response_
 
 ::::
 
-### Example
+### 例子
 
 :::: tabs
 

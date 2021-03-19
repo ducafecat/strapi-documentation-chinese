@@ -76,7 +76,7 @@ _Response_
 }
 ```
 
-### Examples
+### 例子
 
 These examples do not guide you to configure your client with Apollo for your [GraphQL endpoint](http://localhost:1337/graphql). Please follow the associated documentation for each client: ([React](https://www.apollographql.com/docs/react/get-started/) and [Vue.js](https://apollo.vuejs.org/guide/installation.html#_1-apollo-client) here)
 
@@ -201,7 +201,7 @@ _Response_
 }
 ```
 
-### Examples
+### 例子
 
 :::: tabs
 

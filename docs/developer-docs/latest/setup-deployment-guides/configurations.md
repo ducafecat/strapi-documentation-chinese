@@ -383,7 +383,7 @@ module.exports = ({ env }) => ({
 | `admin.auth.events.onConnectionError`   | 当管理员用户未能登录到管理面板时调用                                                                                                                                                                                                                                                                                                                                                                        | function          | `undefined`                                                                                                                      |
 | `admin.url`                             | 管理面板的网址。Default value: `/admin`. Note: If the url is relative, it will be concatenated with `url`.                                                                                                                                                                                                                                                                                                  | string            | `/admin`                                                                                                                         |
 | `admin.autoOpen`                        | 启动时启用或禁用管理打开                                                                                                                                                                                                                                                                                                                                                                                    | boolean           | `true`                                                                                                                           |
-| `admin.watchIgnoreFiles`                | 添加在开发过程中不应该被监视的自定义文件. See more [here](https://github.com/paulmillr/chokidar#path-filtering) (property `ignored`).                                                                                                                                                                                                                                                                       | Array(string)     | `[]`                                                                                                                             |
+| `admin.watchIgnoreFiles`                | 添加在开发过程中不应该被监视的自定义文件. See more [这里](https://github.com/paulmillr/chokidar#path-filtering) (property `ignored`).                                                                                                                                                                                                                                                                       | Array(string)     | `[]`                                                                                                                             |
 | `admin.host`                            | 对管理面板使用不同的主机. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                                                                               | string            | `localhost`                                                                                                                      |
 | `admin.port`                            | 对管理面板使用不同的端口. Only used along with `strapi develop --watch-admin`                                                                                                                                                                                                                                                                                                                               | string            | `8000`                                                                                                                           |
 | `admin.serveAdminPanel`                 | 如果为 false，将不会提供管理面板. Note: the `index.html` will still be served, see [defaultIndex option](/developer-docs/latest/setup-deployment-guides/configurations.md#global-middlewares)                                                                                                                                                                                                               | boolean           | `true`                                                                                                                           |
@@ -749,7 +749,7 @@ module.exports = strapi => {
 可选方案
 
 - `timeout` (integer): 定义加载中间件所允许的最大毫秒.
-- `load` (Object): 请参阅详细信息 [here](#load-order)
+- `load` (Object): 请参阅详细信息 [这里](#load-order)
 - `settings` (Object): 每个中间件的配置
   - `{middlewareName}` (Object): 配置一个中间件
     - `enabled` (boolean): 告诉 Strapi 是否运行中间件
@@ -1133,7 +1133,7 @@ Strapi 上的单点登录允许您为管理面板配置额外的登录和注册�
 
 #### 先决条件
 
-- 需要在3.5.0或更高版本上运行 Strapi 应用程序.
+- 需要在 3.5.0 或更高版本上运行 Strapi 应用程序.
 - 要在应用程序上配置 SSO，您将需要一个带有 Gold 计划的 EE 许可证.
 - 确保 Strapi 是您可以通过供应商访问的应用程序的一部分。例如，使用 Microsoft (Azure) Active Directory，您必须首先询问具有正确权限的人，以便将 Strapi 添加到允许的应用程序列表中。请参考您的提供商文档以了解更多相关信息
 
@@ -1191,7 +1191,7 @@ Passport 策略通常使用两个参数实例化它: 配置对象和验证函数
 
 ::: tip
 
-`strapi.admin.services.passport.getStrategyCallbackURL`  是一个 Strapi 帮助器，您可以使用它获取特定提供者的回调 URL。它接受提供程序名称作为参数并返回 URL。
+`strapi.admin.services.passport.getStrategyCallbackURL` 是一个 Strapi 帮助器，您可以使用它获取特定提供者的回调 URL。它接受提供程序名称作为参数并返回 URL。
 :::
 
 如果需要，这也是为 OAuth2 应用程序放置客户机 ID 和密钥的地方。
@@ -1206,7 +1206,7 @@ Passport 策略通常使用两个参数实例化它: 配置对象和验证函数
 
 - 如果 `error` 没有设置 `null`, 然后发送的数据被忽略，控制器将抛出一个错误.
 - 如果 SSO 的自动注册特性被禁用，则 `data` 对象只需要由 `email` 适配.
-- 如果启用了SSO的自动注册功能，那么您将需要（除了 `email` 之外）定义一个 `username` 属性，或者在 `data` 对象中定义 `firstname` 和 `lastname` 。
+- 如果启用了 SSO 的自动注册功能，那么您将需要（除了 `email` 之外）定义一个 `username` 属性，或者在 `data` 对象中定义 `firstname` 和 `lastname` 。
 
 ###### 添加一个 provider
 
@@ -1216,7 +1216,7 @@ Passport 策略通常使用两个参数实例化它: 配置对象和验证函数
 
 ::: warning
 
-像 [ldapauth](https://github.com/vesse/passport-ldapauth)  这样的策略不能立即生效，因为它们需要从管理面板发送额外的数据。如果希望向应用程序添加 LDAP 提供程序，则需要编写 [custom strategy](http://www.passportjs.org/packages/passport-custom/) 。你也可以使用 `Okta` 和 `Auth0` 等服务作为桥接服务。
+像 [ldapauth](https://github.com/vesse/passport-ldapauth) 这样的策略不能立即生效，因为它们需要从管理面板发送额外的数据。如果希望向应用程序添加 LDAP 提供程序，则需要编写 [custom strategy](http://www.passportjs.org/packages/passport-custom/) 。你也可以使用 `Okta` 和 `Auth0` 等服务作为桥接服务。
 :::
 
 ###### 配置 provider
@@ -1581,4 +1581,3 @@ module.exports = () => ({
   },
 });
 ```
-

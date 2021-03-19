@@ -1,6 +1,6 @@
 # Migrations guides
 
-Please also refer to the following [update guide](update-version.md) for a better understanding of how to update your project. 
+Please also refer to the following [update guide](update-version.md) for a better understanding of how to update your project.
 
 **Pay special attention to the [note](update-version.md#extensions) about upgrading if you are using the extensions system.**
 
@@ -8,7 +8,7 @@ Please also refer to the following [update guide](update-version.md) for a bette
 
 When upgrading you will need to follow every migration guide between your current version and the one you are upgrading to.
 
-**Example**
+**例子**
 
 If you were upgrading from the `3.0.0-beta.19.5` to `3.2.0`, here are the following guides you would have to follow:
 
@@ -25,7 +25,6 @@ If you were upgrading from the `3.0.0-beta.19.5` to `3.2.0`, here are the follow
 - [Migration guide from 3.2.3 to 3.2.4](migration-guides/migration-guide-3.2.3-to-3.2.4.md)
 - [Migration guide from 3.1.x to 3.2.3](migration-guides/migration-guide-3.1.x-to-3.2.x.md)
 - [Migration guide from 3.0.x to 3.1.x](migration-guides/migration-guide-3.0.x-to-3.1.x.md)
-
 
 ## Beta guides
 

@@ -46,11 +46,11 @@ Before migrating, you should first read the new [configuration documentation](/d
 
 #### Server
 
-Your server configuration should move from `./config/environments/{env}/server.json` to `./config/server.js` like shown [here](/developer-docs/latest/setup-deployment-guides/configurations.md#server).
+Your server configuration should move from `./config/environments/{env}/server.json` to `./config/server.js` like shown [这里](/developer-docs/latest/setup-deployment-guides/configurations.md#server).
 
 #### Database configuration
 
-Your database configuration should move from `./config/environments/{env}/database.json` to `./config/database.js` like shown [here](/developer-docs/latest/setup-deployment-guides/configurations.md#database).
+Your database configuration should move from `./config/environments/{env}/database.json` to `./config/database.js` like shown [这里](/developer-docs/latest/setup-deployment-guides/configurations.md#database).
 
 #### Middlewares
 
@@ -90,6 +90,7 @@ module.exports = {
 You can now move the middleware configurations from `application.json`, `language.json`, `security.json`, `request.json` and `response.json` files directly into the `settings` property.
 
 You can review all possible options in the [middleware documentation](/developer-docs/latest/setup-deployment-guides/configurations.md#configuration-and-activation-2).
+
 <!-- This hash link above generates an error with the check-links plugins but everything seems to be fine 🤷  So it's been added to the files to ignore, see config.js. -->
 
 ::: tip
@@ -147,7 +148,7 @@ Any custom configuration you have can still be used. You can read the [configura
 
 From now on, you will set your plugin configurations in `./config/plugins.js` or `./config/env/{env}/plugin.js`. Instead of using the extensions system to directly modify the plugin configuration.
 
-**Example**
+**例子**
 
 ```js
 module.exports = {
@@ -230,21 +231,21 @@ config
 
 We have replaced the old lifecycles that had a lot of issues with a new simpler lifecycle layer.
 
-You can read more [here](/developer-docs/latest/development/backend-customization.md#lifecycle-hooks).
+You can read more [这里](/developer-docs/latest/development/backend-customization.md#lifecycle-hooks).
 
 ## Email plugin settings
 
 Email plugin settings have been moved to files. Now you can configure your email provider directly in files.
 
-You can read the documentation [here](/developer-docs/latest/development/plugins/email.md#configure-the-plugin) to update.
+You can read the documentation [这里](/developer-docs/latest/development/plugins/email.md#configure-the-plugin) to update.
 
 Once you have setup your configuration, you can cleanup your database by deleting in the `core_store` model the data with the `key` equal to `plugin_email_provider`.
 
 ## GraphQL changes
 
-If you are using the graphql `register` mutation, the input and response types have changed. You can check the code [here](https://github.com/strapi/strapi/pull/6047).
+If you are using the graphql `register` mutation, the input and response types have changed. You can check the code [这里](https://github.com/strapi/strapi/pull/6047).
 
-The `changePassword` mutation got renamed to `resetPassword` to reflect what it does. You can check the code [here](https://github.com/strapi/strapi/pull/5655).
+The `changePassword` mutation got renamed to `resetPassword` to reflect what it does. You can check the code [这里](https://github.com/strapi/strapi/pull/5655).
 
 ## Remove `idAttribute` and `idAttributeType` options
 

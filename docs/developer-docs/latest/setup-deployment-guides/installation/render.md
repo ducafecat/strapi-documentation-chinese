@@ -5,14 +5,14 @@ This guide explains how to deploy a new Strapi project on [Render](https://rende
 With persistent disks and managed PostgreSQL databases, Render gives you multiple different ways to store your content. Render services come with fully managed SSL, so it's no longer necessary to set up a proxy server to secure your Strapi application. Since Render services are automatically restarted if they become unresponsive, you don't need to use a process manager like `pm2` either.
 
 ::: tip
-For more information consult [Render's Deploy Strapi guide](https://render.com/docs/deploy-strapi)
+详细信息 consult [Render's Deploy Strapi guide](https://render.com/docs/deploy-strapi)
 :::
 
 ### Step 1: Create a Render Account
 
 Visit [the Render dashboard](https://dashboard.render.com) to create an account if you don't already have one.
 
-### Step 2: Fork an Example Repository
+### Step 2: Fork an 例子 Repository
 
 Render maintains 3 Strapi on Render example repositories, which differ based on which database is used and where uploaded media library files are stored:
 

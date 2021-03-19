@@ -6,7 +6,7 @@ Relational fields are before all else regular fields, meaning that their content
 
 However, relational fields can point to one or several entries of the other content-type, this is why in the Content Manager it is possible to manage a content-type's relational fields to choose which entries are relevant.
 
-::: details Example
+::: details 例子
 In my Strapi admin panel I have created 2 collection types:
 
 - Restaurant, where each entry is a restaurant

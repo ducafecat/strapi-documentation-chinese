@@ -34,7 +34,7 @@ Choose these options:
   :::
   - In your terminal, use `pbcopy < ~/.ssh/id_rsa.pub` to copy your existing SSH public key, on your development computer, to the clipboard.
   - 点击 `New SSH Key` and paste in your `SSH Key`. `Name` this SSH key and then `Save`.
-    (Additional instructions on creating and using SSH Keys can be found [here](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-openssh/).)
+    (Additional instructions on creating and using SSH Keys can be found [这里](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-openssh/).)
 - **OPTIONAL:** `Choose a hostname` or leave as-is.
 - 点击 green `Create` button.
 
@@ -251,7 +251,7 @@ npm install pm2@latest -g
 
 ### The ecosystem.config.js file
 
-- You will need to configure an `ecosystem.config.js` file. This file will manage the **database connection variables** Strapi needs to connect to your database. The `ecosystem.config.js` will also be used by `pm2` to restart your project whenever any changes are made to files within the Strapi file system itself (such as when an update arrives from GitHub). You can read more about this file [here](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/).
+- You will need to configure an `ecosystem.config.js` file. This file will manage the **database connection variables** Strapi needs to connect to your database. The `ecosystem.config.js` will also be used by `pm2` to restart your project whenever any changes are made to files within the Strapi file system itself (such as when an update arrives from GitHub). You can read more about this file [这里](https://pm2.keymetrics.io/docs/usage/pm2-doc-single-page/).
 
   - You will need to open your `nano` editor and then `copy/paste` the following:
 
@@ -488,7 +488,7 @@ sudo systemctl start webhook
 sudo systemctl status webhook
 ```
 
-- You may test your **webhook** by following the instructions [here](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync#step-4-testing-the-webhook).
+- You may test your **webhook** by following the instructions [这里](https://www.digitalocean.com/community/tutorials/how-to-use-node-js-and-github-webhooks-to-keep-remote-projects-in-sync#step-4-testing-the-webhook).
 
 ### Further steps to take
 

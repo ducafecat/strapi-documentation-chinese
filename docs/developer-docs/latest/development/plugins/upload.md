@@ -18,9 +18,9 @@ module.exports = {
       enabled: true,
       multipart: true,
       formidable: {
-        maxFileSize: 200 * 1024 * 1024 // Defaults to 200mb
-      }
-    }
+        maxFileSize: 200 * 1024 * 1024, // Defaults to 200mb
+      },
+    },
   },
   //...
 };
@@ -29,13 +29,14 @@ module.exports = {
 #### Responsive Images
 
 When the `Enable responsive friendly upload` setting is enabled in the settings panel the plugin will generate the following responsive image sizes:
-| Name    | Largest Dimension |
+| Name | Largest Dimension |
 | :------ | :--------- |
-| large   | 1000px     |
-| medium  | 750px      |
-| small   | 500px      |
+| large | 1000px |
+| medium | 750px |
+| small | 500px |
 
 These sizes can be overridden in `config/plugins.js`:
+
 ```javascript
 module.exports = {
   upload: {
@@ -44,13 +45,14 @@ module.exports = {
       large: 1000,
       medium: 750,
       small: 500,
-      xsmall: 64
-    }
-  }
-}
+      xsmall: 64,
+    },
+  },
+};
 ```
+
 ::: warning
-  Breakpoint changes will only apply to new images, existing images will not be resized or have new sizes generated.
+Breakpoint changes will only apply to new images, existing images will not be resized or have new sizes generated.
 :::
 
 ## Endpoints
@@ -109,7 +111,7 @@ To upload files into your application.
 <script type="text/javascript">
   const formElement = document.querySelector('form');
 
-  formElement.addEventListener('submit', (e) => {
+  formElement.addEventListener('submit', e => {
     e.preventDefault();
 
     const request = new XMLHttpRequest();
@@ -138,7 +140,7 @@ To upload files that will be linked to a specific entry.
 - `source` (optional): The name of the plugin where the model is located.
 - `field`: The field of the entry which the file(s) will be precisely linked to.
 
-### Examples
+### 例子
 
 The `Restaurant` model attributes:
 
@@ -170,7 +172,7 @@ Code
 <script type="text/javascript">
   const formElement = document.querySelector('form');
 
-  formElement.addEventListener('submit', (e) => {
+  formElement.addEventListener('submit', e => {
     e.preventDefault();
 
     const request = new XMLHttpRequest();
@@ -190,7 +192,7 @@ You have to send FormData in your request body
 
 You can also add files during your entry creation.
 
-### Examples
+### 例子
 
 The `Restaurant` model attributes:
 
@@ -220,7 +222,7 @@ Code
 <script type="text/javascript">
   const formElement = document.querySelector('form');
 
-  formElement.addEventListener('submit', (e) => {
+  formElement.addEventListener('submit', e => {
     e.preventDefault();
 
     const request = new XMLHttpRequest();
@@ -358,14 +360,14 @@ By default Strapi accepts `localServer` configurations for locally uploaded file
 You can provide them by create or edit the file at `./config/plugins.js`. The example below set `max-age` header.
 
 ```js
-module.exports = ({ env })=>({
+module.exports = ({ env }) => ({
   upload: {
     providerOptions: {
       localServer: {
-        maxage: 300000
-      }
-    }
-  }
+        maxage: 300000,
+      },
+    },
+  },
 });
 ```
 
@@ -407,7 +409,7 @@ You can set a specific configuration in the `./config/env/{env}/plugins.js` conf
 
 ## Create providers
 
-You can create a Node.js module to implement a custom provider. Read the official documentation [here](https://docs.npmjs.com/creating-node-js-modules).
+You can create a Node.js module to implement a custom provider. 阅读 official documentation [这里](https://docs.npmjs.com/creating-node-js-modules).
 
 To work with strapi, your provider name must match the pattern `strapi-provider-upload-{provider-name}`.
 

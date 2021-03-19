@@ -19,7 +19,7 @@ This is everything you need to run Strapi on your local environment.
 
 #### Yarn (optional)
 
-You can also use **yarn** if you want [here](https://yarnpkg.com/en/docs/getting-started) are the instructions to get started with it.
+You can also use **yarn** if you want [这里](https://yarnpkg.com/en/docs/getting-started) are the instructions to get started with it.
 
 #### Databases
 

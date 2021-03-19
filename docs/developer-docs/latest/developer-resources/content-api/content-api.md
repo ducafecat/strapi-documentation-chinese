@@ -150,7 +150,7 @@ Here is the list of endpoints generated for each of your **Content Types**.
 
 ::::
 
-#### Examples
+#### 例子
 
 Here are some Content Type examples
 
@@ -295,7 +295,7 @@ Here are some Content Type examples
 
 ### Get entries
 
-Returns entries matching the query filters. You can read more about parameters [here](#api-parameters).
+Returns entries matching the query filters. You can read more about parameters [这里](#api-parameters).
 
 :::: tabs
 
@@ -459,7 +459,7 @@ GET http://localhost:1337/restaurants/1
 
 ### Count entries
 
-Returns the count of entries matching the query filters. You can read more about parameters [here](#api-parameters).
+Returns the count of entries matching the query filters. You can read more about parameters [这里](#api-parameters).
 
 :::: tabs
 
@@ -848,7 +848,7 @@ Filters are used as a suffix of a field name:
 | `ncontainss`      | Doesn't contain, case sensitive |
 | `null`            | Is null or not null             |
 
-#### Examples
+#### 例子
 
 ##### Find users having `John` as first name.
 
@@ -890,7 +890,7 @@ We strongly recommend using `qs` directly to generate complex queries instead of
 
 The filtering implicitly supports the `AND` operation when specifying an array of expressions in the filtering.
 
-**Examples**
+**例子**
 
 Restaurants that have 1 `stars` and a `pricing` less than or equal to 20:
 
@@ -918,7 +918,7 @@ await request(`/restaurants?${query}`);
 
 To use the `OR` operation, you will need to use the `_or` filter and specify an array of expressions on which to perform the operation.
 
-**Examples**
+**例子**
 
 Restaurants that have 1 `stars` OR a `pricing` greater than 30:
 
@@ -942,7 +942,7 @@ await request(`/restaurant?${query}`);
 
 The query engine implicitly uses the `OR` operation when you pass an array of values in an expression.
 
-**Examples**
+**例子**
 
 Restaurants that have 1 or 2 `stars`:
 
@@ -1029,7 +1029,7 @@ This feature isn't available for **polymorphic** relations. This relation type i
 
 Sort according to a specific field.
 
-#### Example
+#### 例子
 
 ##### Sort users by email.
 
@@ -1047,7 +1047,7 @@ Limit the size of the returned results.
 
 The default limit is `100`
 
-#### Example
+#### 例子
 
 ##### Limit the result length to 30.
 
@@ -1059,7 +1059,7 @@ You can require the full data set by passing a limit equal to `-1`.
 
 Skip a specific number of entries (especially useful for pagination).
 
-#### Example
+#### 例子
 
 ##### Get the second page of results.
 
@@ -1078,7 +1078,7 @@ Handled states are:
 - `live`: Return only published entries (default)
 - `preview`: Return both draft entries & published entries
 
-#### Example
+#### 例子
 
 ##### Get published articles
 

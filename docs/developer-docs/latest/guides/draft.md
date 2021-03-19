@@ -24,7 +24,7 @@ If you check the controller file of your generated API `./api/{content-type}/con
 
 And that is what we will do to filter to `published` status by default.
 
-## Example
+## 例子
 
 In our example we will use an Article content type. By default, when you fetch articles you will get all articles.
 Let's consider you don't want to expose articles that are in `draft` or `archive` status.

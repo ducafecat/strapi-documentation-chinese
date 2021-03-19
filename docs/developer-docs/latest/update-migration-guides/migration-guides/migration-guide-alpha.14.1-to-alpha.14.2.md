@@ -59,7 +59,7 @@ Then, delete your old `plugins` folder and replace it with the new one.
 ## ⚠️ Users API routes pluralized 💥
 
 Since the routes are now pluralized ([issue](https://github.com/strapi/strapi/issues/504) - [pr](https://github.com/strapi/strapi/pull/1725)) you might need to update them in your client app.
-Routes list [here](https://github.com/strapi/strapi/pull/1725/files#diff-8836e4ea317896c004860b47776c800f)
+Routes list [这里](https://github.com/strapi/strapi/pull/1725/files#diff-8836e4ea317896c004860b47776c800f)
 
 <br>
 

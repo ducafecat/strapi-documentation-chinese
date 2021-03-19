@@ -89,7 +89,7 @@ _Response_
 ]
 ```
 
-### Example
+### 例子
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -120,7 +120,7 @@ Execute a `POST` request on the `restaurant` Collection Type in order to create 
 
 Be sure that you activated the `create` permission for the `restaurant` Collection Type and the `find` permission for the `category` Collection type.
 
-In this example a `japanese` category has been created which has the id: 3.
+在这个例子中 a `japanese` category has been created which has the id: 3.
 
 _Request_
 
@@ -165,7 +165,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 ```dart
 import 'package:http/http.dart' as http;
@@ -251,7 +251,7 @@ _Response_
 }
 ```
 
-### Example
+### 例子
 
 ```dart
 import 'package:http/http.dart' as http;

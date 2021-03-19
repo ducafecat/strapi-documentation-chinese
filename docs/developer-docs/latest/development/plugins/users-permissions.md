@@ -724,7 +724,7 @@ Congrats, you're done!
 ### Email validation
 
 :::tip NOTE
-In production, make sure the `url` config property is set. Otherwise the validation link will redirect to `localhost`. More info on the config [here](/developer-docs/latest/setup-deployment-guides/configurations.md#server).
+In production, make sure the `url` config property is set. Otherwise the validation link will redirect to `localhost`. More info on the config [这里](/developer-docs/latest/setup-deployment-guides/configurations.md#server).
 :::
 
 After having registered, if you have set **Enable email confirmation** to **ON**, the user will receive a confirmation link by email. The user has to click on it to validate his/her registration.
@@ -830,9 +830,9 @@ case 'discord': {
 
 This code creates a `Purest` object that gives us a generic way to interact with the provider's REST API.
 
-For more specs on using the `Purest` module, please refer to the [Official Purest Documentation](https://github.com/simov/purest)
+For more specs on using the `Purest` module, 访问 the [Official Purest 文档](https://github.com/simov/purest)
 
-You may also want to take a look onto the numerous already made configurations [here](https://github.com/simov/purest-providers/blob/master/config/providers.json).
+You may also want to take a look onto the numerous already made configurations [这里](https://github.com/simov/purest-providers/blob/master/config/providers.json).
 
 ### Retrieve your user's information:
 
@@ -930,5 +930,5 @@ module.exports = {
 ```
 
 ::: tip
-You can learn more on configuration in the documentation [here](/developer-docs/latest/setup-deployment-guides/configurations.md)
+You can learn more on configuration in the documentation [这里](/developer-docs/latest/setup-deployment-guides/configurations.md)
 :::

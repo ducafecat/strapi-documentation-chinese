@@ -208,7 +208,7 @@ You can now only use the connector name instead of the complete package name.
 
 We have created new home pages for your api url.
 You will need to copy `index.html` and `production.html` into your `public` folder.
-You can find those two files [here](https://github.com/strapi/strapi/tree/master/packages/strapi-generate-new/lib/resources/files/public).
+You can find those two files [这里](https://github.com/strapi/strapi/tree/master/packages/strapi-generate-new/lib/resources/files/public).
 
 ## Updating `csp` options
 
@@ -295,7 +295,7 @@ Components now are placed into `categories`. To reflect this you must move your 
 Make sure to use `-` in your file names (Do not use spaces or underscores).
 :::
 
-### Example
+### 例子
 
 **Before**
 
