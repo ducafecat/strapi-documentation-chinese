@@ -1,37 +1,36 @@
-# Draft system
+# 草稿系统
 
-This guide will explain how to create a draft system that will allow you to manage draft, published, and archive status.
+本指南将解释如何创建一个草稿系统，允许您管理草案、发布和归档状态。
 
 ::: warning
-The native **Draft & Publish feature** has been released in **version 3.2**. We suggest you to use the native feature instead of this guide.
+原生的 `Draft & Publish 特性` 已经在 3.2 版本中发布。我们建议您使用本地特性而不是本指南。
 
-This guide is still useful if you want to see the concept of "force filtering" in action.
+如果你想了解“强制过滤”的概念，这篇指南仍然很有用。
 :::
 
-## Introduction
+## 引言
 
-What we want here is to fetch only data that has a `published` status.
+这里我们想要的是只获取具有 `published` 状态的数据。
 
-But we don't want to use [parameters](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters) (eg. /articles?status=published) because you can easily fake the params.
+但是我们不想使用 [parameters](/developer-docs/latest/developer-resources/content-api/content-api.md#api-parameters) (比如 `/articles?status=published` ) ，因为您可以轻松地伪造参数。
 
-To be able to do that, you have first to understand some concepts.
+要做到这一点，你必须首先理解一些概念。
 
-When you create a content type, it generates an API with the following list of [endpoints](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints).
+当您创建一个内容类型时，它会生成一个带有以下 [endpoints](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints) 列表的 API。
 
-Each of these endpoint triggers a controller action. Here is the list of [controller actions](/developer-docs/latest/development/backend-customization.md#controllers) that exist by default when a content type is created.
+这些端点中的每一个都触发一个 [控制器操作](/developer-docs/latest/development/backend-customization.md#controllers)。下面是创建内容类型时默认存在的控制器操作的列表。
 
-If you check the controller file of your generated API `./api/{content-type}/controller/{Content-Type}.js`, you will see an empty file. It is because all the default logic is managed by Strapi. But you can override these actions with your own code.
+如果您检查您生成的 API 的控制器文件。`./api/{content-type}/controller/{Content-Type}.js`，你会看到一个空文件。这是因为所有的默认逻辑都是由 Strapi 管理的。但是您可以使用自己的代码覆盖这些操作。
 
-And that is what we will do to filter to `published` status by default.
+这就是我们将要做的，默认情况下过滤到 `published` 状态。
 
 ## 例子
 
-In our example we will use an Article content type. By default, when you fetch articles you will get all articles.
-Let's consider you don't want to expose articles that are in `draft` or `archive` status.
+在我们的示例中，我们将使用 Article 内容类型。默认情况下，当您获取文章时，您将获得所有文章。假设您不想公开处于 `draft` 或 `archive` 状态的文章。
 
-To enforce this rule we will customize the action that fetches all articles to just fetch `published` articles.
+为了强制执行这个规则，我们将自定义获取所有文章的操作，以只获取已 `published` 的文章。
 
-To follow the example you will have to create a content type `articles` and add the following field definitions:
+要遵循这个例子，你需要创建一个内容类型的 `articles`，并添加以下字段定义:
 
 - `string` attribute named `title`
 - `text` attribute named `content`
@@ -56,14 +55,15 @@ To follow the example you will have to create a content type `articles` and add 
   }
 ```
 
-Then add some data with different `status`.
+然后添加一些不同 `status` 的数据。
 
-## Override controller action
+## 覆盖控制器操作
 
-To customize the function that fetches all our articles we will have to override the `find` function.
+要自定义获取所有文章的函数，我们必须重写 `find` 函数。
 
-First, to see the difference, let's request `GET /articles`. You will see all the data you created.
-Now let's start the customization.
+首先，为了看出区别，让我们请求 `GET /articles`。您将看到您创建的所有数据。
+
+现在让我们开始定制。
 
 **Path —** `./api/article/controller/Article.js`
 
@@ -75,13 +75,13 @@ module.exports = {
 };
 ```
 
-After saving the new function, let's restart the `GET /articles` request. We will see `strapi` as response.
+保存新函数之后，让我们重新启动 `GET /articles` 请求。
 
-## Get the data back
+## 把数据拿回来
 
-We now know the function we have to update, but we just want to customize the returned article values.
+我们现在知道了需要更新的函数，但是我们只想定制返回的项目值。
 
-In the [controller documentation](/developer-docs/latest/development/backend-customization.md#extending-a-model-controller) you will find the default implementation of every action. It will help you overwrite the fetch logic.
+在 [控制器 文章](/developer-docs/latest/development/backend-customization.md#extending-a-model-controller) 中，您将找到每个操作的默认实现。它将帮助您覆盖提取逻辑。
 
 **Path —** `./api/article/controller/Article.js`
 
@@ -102,14 +102,13 @@ module.exports = {
 };
 ```
 
-And now the data is back on `GET /articles`
+现在数据又回到了 `GET /articles` 上
 
-## Apply our changes
+## 应用我们的改变
 
-Here we want to force it to fetch articles that have status equal to `published`.
+在这里，我们希望强制它获取具有等于已 `published` 的状态的文章。
 
-The way to do that is to set `ctx.query.status` to `published`.
-It will force the filter of the query.
+这样做的方法是将 `ctx.query.status` 设置为 `published`。
 
 **Path —** `./api/article/controller/Article.js`
 
@@ -136,8 +135,8 @@ module.exports = {
 };
 ```
 
-And tada! Draft and archived articles disappeared.
+草稿和存档的文章不见了。
 
 ::: tip
-This guide can be applied to any other controller action.
+本指南可以应用于任何其他控制器操作。
 :::

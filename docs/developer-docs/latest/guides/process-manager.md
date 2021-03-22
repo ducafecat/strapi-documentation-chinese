@@ -2,19 +2,19 @@
 sidebarDepth: 2
 ---
 
-# Process manager
+# 过程管理器
 
-In this guide we will see how you can start a Strapi application using a process manager.
+在本指南中，我们将看到如何使用流程管理器启动 Strapi 应用程序。
 
 ::: tip
-在这个例子中 we will use [PM2](https://pm2.keymetrics.io/).
+在这个例子中，我们将使用 [PM2](https://pm2.keymetrics.io/)。
 :::
 
-## Install PM2
+## 安装 PM2
 
-PM2 allows you to keep your Strapi project alive and to reload it without downtime.
+`PM2` 允许您保持您的 Strapi 项目活着，并重新加载它没有停机。
 
-You will install PM2 globally
+你将在全球安装 PM2
 
 :::: tabs
 
@@ -28,15 +28,15 @@ You will install PM2 globally
 
 ::::
 
-## Basic usage
+## 基本用法
 
-### Starting with server.js file
+### 创建/编辑 server.js
 
-The basic usage to start an application with PM2 will be to run a command like this `pm2 start server.js`.
+使用 PM2 启动应用程序的基本用法是运行一个命令，如下面的 `pm2 start server.js`。
 
-But here we are facing an issue. In your project you don't have a `.js` file to run your Strapi application.
+但我们现在面临一个问题。在你的项目中，你没有一个 `.js` 文件来运行 Strapi 应用程序。
 
-So first let's create a `server.js` file that will let you run the `pm2` command.
+因此，首先让我们创建一个 `server.js` 文件，它可以让您运行 `pm2` 命令。
 
 **Path —** `./server.js`
 
@@ -45,26 +45,26 @@ const strapi = require('strapi');
 strapi().start();
 ```
 
-Now you will be able to start your server by running `pm2 start server.js`.
+现在你可以通过运行 `pm2 start server.js` 来启动服务器了。
 
-### Starting with strapi command
+### 从 strapi 命令开始
 
-By default there is two important commands.
+默认情况下有两个重要的命令。
 
-- `yarn develop` to start your project in development mode.
-- `yarn start` to start your app for production.
+- `yarn develop` 以开发模式启动项目.
+- `yarn start` 开始制作你的应用程序.
 
-You can also start your process manager using the `yarn start` command.
+您还可以使用 `yarn start` 命令启动流程管理器。
 
 `pm2 start npm --name app -- run start`
 
-## Configuration file
+## 配置文件
 
-PM2 lets you create a config file to save all information to start your server properly at anytime.
+`PM2` 允许您创建一个配置文件来保存所有信息，以便在任何时候正确启动服务器。
 
-By running `pm2 init` it will init an `ecosystem.config.js` in your application.
+通过运行 `pm2 init`，它将在你的应用程序中嵌入一个 `ecosystem.config.js`。
 
-Then replace the content of this file by the following code.
+然后用下面的代码替换该文件的内容。
 
 ```js
 module.exports = {
@@ -78,6 +78,6 @@ module.exports = {
 };
 ```
 
-And then run `pm2 start ecosystem.config.js` to start the pm2 process.
+然后运行 `pm2 start ecosystem.config.js` 启动 pm2 进程。
 
-You can see the full documentation of available configuration in the [PM2 ecosystem file documentation](https://pm2.keymetrics.io/docs/usage/application-declaration/).
+您可以在 [PM2 生态系统文件文档](https://pm2.keymetrics.io/docs/usage/application-declaration/) 中看到可用配置的完整文档。

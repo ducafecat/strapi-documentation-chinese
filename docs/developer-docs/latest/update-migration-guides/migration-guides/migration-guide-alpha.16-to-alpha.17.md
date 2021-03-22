@@ -2,8 +2,8 @@
 
 **Here are the major changes:**
 
-- Add plugin documentation
-- Add Cypress to test front-end geting started
+- 添加 plugin documentation
+- 添加 Cypress to test front-end geting started
 - Fix mongoose float/decimal
 
 **Useful links:**

@@ -17,7 +17,7 @@ touch main.dart
 
 We'll use [http](https://pub.dev/packages/http) for making HTTP requests.
 
-- Create a `pubspec.yaml` file containing the following:
+- 创建 a `pubspec.yaml` file containing the following:
 
 ```yaml
 name: my_app

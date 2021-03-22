@@ -6,7 +6,7 @@ Caddy has some very easy to use options relating to Let's encrypt and automated 
 
 ## Configuration
 
-The below configuration is based on "Caddy File" type, this is a single file config that Caddy will use to run the web server. There are multiple other options such as the Caddy REST API that this guide will not cover, you should review the [Caddy documentation](https://caddyserver.com/docs/) for further information on alternatives. You can also visit the [Caddy Community](https://caddy.community/) to speak with others relating to configuration questions.
+The below configuration is based on "Caddy File" type, this is a single file config that Caddy will use to run the web server. There are multiple other options such as the Caddy REST API that this guide will not cover, you should review the [Caddy 文章](https://caddyserver.com/docs/) for further information on alternatives. You can also visit the [Caddy Community](https://caddy.community/) to speak with others relating to configuration questions.
 
 ### Caddy file
 

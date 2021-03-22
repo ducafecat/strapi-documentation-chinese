@@ -42,7 +42,7 @@ When your plugin is installed, you just have to start your application and it wi
 
 The administration panel lets you configure the basic settings of this plugin.
 
-![Accessing the documentation](../../assets/plugins/documentation/open-doc.gif)
+![Accessing the 文章](../../assets/plugins/documentation/open-doc.gif)
 
 ## Administration panel
 
@@ -249,7 +249,7 @@ This plugin follows the OpenApi Specifications ([0AS.3.0.2](https://swagger.io/s
 
 ### Generated files
 
-When you start your server with this plugin installed it will automatically create the following files in your APIs (we will see how it works for the plugins). The plugin scans all the routes available in your model to create the `paths` field.
+When you start your server with this plugin installed it will automatically create the following files in your APIs (we will see how it works for the plugins). The plugin scans all the routes available in your model to create the `paths` 字段
 
 ```
 /my-strapi-project

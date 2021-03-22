@@ -1,35 +1,35 @@
-# Custom admin
+# 自定义管理
 
-In this guide we will see how you can customize the admin panel.
+在本指南中，我们将看到如何自定义管理面板。
 
-## Introduction
+## 引言
 
-For this example, we will see two things:
+在这个例子中，我们将看到两件事:
 
-1. The customization of the admin panel itself, by updating the content of the `/admin/` home page;
-2. How to update the interface of a plugin, by replacing the `date` format in the content manager list view.
+1. 管理面板本身的定制，通过更新 `/admin/` 主页;
+2. 如何更新插件的接口，通过替换 `date` 内容管理器列表视图中的格式.
 
-First, you will have to read about [admin panel customization](/developer-docs/latest/development/admin-customization.md), it will help you understand how to customize all of your application.
+首先，您将必须阅读 [管理面板定制](/developer-docs/latest/development/admin-customization.md) ，它将帮助您了解如何定制所有的应用程序。
 
-## Update the admin home page
+## 更新管理员主页
 
-If you are following the customization concept, you can already create a `./admin` folder in your application.
+如果遵循自定义概念，则可以在应用程序中创建 `./admin` 文件夹。
 
-### Target the file to update
+### 指定要更新的文件
 
-Then you will have to investigate into the [`strapi-admin`](https://github.com/strapi/strapi/tree/master/packages/strapi-admin) package to find the file that is used to display the admin panel home page.
+然后，您必须调查 [`strapi-admin`](https://github.com/strapi/strapi/tree/master/packages/strapi-admin) 包，以找到用于显示管理面板主页的文件。
 
-Here is the [HomePage container](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/admin/src/containers/HomePage/index.js) you will have to update.
+这里是[主页容器](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/admin/src/containers/HomePage/index.js) ，您必须更新。
 
-### Eject the file
+### 退出文件
 
-Let's eject this file to be able to customize it.
+让我们弹出这个文件，以便能够定制它。
 
 **Path —** `./admin/src/containers/HomePage/index.js`
 
-In this new file, paste the current [HomePage container](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/admin/src/containers/HomePage/index.js) code.
+在这个新文件中，粘贴当前的 [HomePage container](https://github.com/strapi/strapi/tree/master/packages/strapi-admin/admin/src/containers/HomePage/index.js) 代码。
 
-To run your application, run the following command:
+要运行应用程序，请运行以下命令:
 
 :::: tabs
 
@@ -51,11 +51,11 @@ npm run develop -- --watch-admin
 
 ::::
 
-If you visit the admin, nothing will have changed in the home page. And it's normal!
+如果你访问管理员，主页上什么都不会改变，这很正常！
 
-### Customize the file
+### 自定义文件
 
-To keep this example really simple, we will just reduce the HomePage to a more simple design.
+为了让这个例子保持简单，我们将把 HomePage 简化成一个更简单的设计。
 
 **Path —** `./admin/src/containers/HomePage/index.js`
 
@@ -81,33 +81,31 @@ const HomePage = ({ global: { plugins }, history: { push } }) => {
 export default memo(HomePage);
 ```
 
-Now the admin panel home page should just contain the sentence `Hello World!`.
+现在管理面板主页应该只包含句子 `Hello World`。
 
-## Update the Content Manager
+## 更新内容管理器
 
-If you are following the customization concept, you can already create a `./extensions/content-manager` folder in your application.
+如果遵循自定义概念，则可以在应用程序中创建 `./extensions/content-manager` 文件夹。
 
 ::: tip
-
-To be able to see the update, you will need to have a Content Type that has a `date` attribute.
-
+为了能够查看更新，您需要具有具有 `date` 属性的 Content Type。
 :::
 
-### Target the file to update
+### 指定要更新的文件
 
-Then you will have to investigate into the [`strapi-plugin-content-manager`](https://github.com/strapi/strapi/tree/master/packages/strapi-plugin-content-manager) package to find the file that is used to format the date for the list view.
+然后，您必须调查 [`strapi-plugin-content-manager`](https://github.com/strapi/strapi/tree/master/packages/strapi-plugin-content-manager) 包，以找到用于格式化列表视图日期的文件。
 
-Here is the [Row component](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/components/CustomTable/Row.js) which requires a [dedicated file](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/utils/dateFormats.js) to modify the date display.
+下面是 [Row component](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/components/CustomTable/Row.js) ，它需要一个 [dedicated file](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/utils/dateFormats.js) 来修改日期显示。
 
-### Eject the file
+### 退出文件
 
-Let's eject the file to be able to customize it.
+让我们弹出文件，以便能够定制它。
 
 **Path —** `./extensions/content-manager/admin/src/utils/dateFormats.js`
 
-In this new file, paste the current [dateFormats](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/utils/dateFormats.js) code.
+在这个新文件中，粘贴当前的 [dateFormats](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-content-manager/admin/src/utils/dateFormats.js) 代码。
 
-To run your application, run the following command:
+要运行应用程序，请运行以下命令:
 
 :::: tabs
 
@@ -129,13 +127,13 @@ npm run develop -- --watch-admin
 
 ::::
 
-If you visit the entry list view of your content type, nothing will have changed. And it's normal!
+如果您访问您的内容类型的条目列表视图，什么都不会改变。这是正常的！
 
 ### Customize the file
 
-In our example, we want to change the format of the date. We have to find in this file the line that manages the date format.
+在我们的示例中，我们希望更改日期的格式。我们必须在这个文件中找到管理日期格式的行。
 
-Here is the code you have to find:
+下面是你需要找到的代码:
 
 ```js
 const dateFormats = {
@@ -148,14 +146,14 @@ const dateFormats = {
 };
 ```
 
-Now let's replace `date: 'dddd, MMMM Do YYYY'` by `date: 'YYYY/MM/DD';`
+现在让我们替换日期: `date: 'dddd, MMMM Do YYYY'` by `date: 'YYYY/MM/DD';`;
 
-And tada, the date will now display with the new format.
+而且，日期现在将以新的格式显示。
 
-## Build the new admin
+## 建立新的管理员
 
-Well now you have the admin panel you want. But during all the process, the admin panel was updated on the run time because of the command `yarn develop --watch-admin` or `npm run develop -- --watch-admin`.
+现在你有了你想要的管理面板。但是在整个过程中，管理面板在运行时更新，因为命令 `yarn develop --watch-admin` 或 `npm run develop -- --watch-admin`。
 
-If you start your application using `yarn start` or `yarn develop` the admin will be the old version. Your updates are not applied.
+如果你开始你的应用程序使用 `yarn start` 或 `yarn develop` 管理将是老版本。未应用更新。
 
-To do so, you have to build the admin panel using the following command `yarn build`.
+为此，您必须使用下面的命令 `yarn build` 管理面板。

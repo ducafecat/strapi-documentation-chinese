@@ -1,16 +1,16 @@
-# Error catching
+# 错误捕获
 
-In this guide we will see how you can catch errors and send them to the Application Monitoring / Error Tracking Software you want.
+在本指南中，我们将了解如何捕获错误并将其发送到所需的应用程序监视/错误跟踪软件。
 
 ::: tip
-在这个例子中 we will use [Sentry](https://sentry.io).
+在这个例子中，我们将使用 [Sentry](https://sentry.io)。
 :::
 
-## Create a middleware
+## 创建一个中间件
 
-A [middleware](/developer-docs/latest/setup-deployment-guides/configurations.md#middlewares) will be used in order to catch the errors which will then be sent to Sentry.
+将使用一个 [中间件](/developer-docs/latest/setup-deployment-guides/configurations.md#middlewares) 来捕捉错误，然后将其发送到 Sentry。
 
-- Create a `./middlewares/sentry/index.js` file.
+- 创建 `./middlewares/sentry/index.js`.
 
 **Path —** `./middlewares/sentry/index.js`
 
@@ -26,13 +26,13 @@ module.exports = strapi => {
 };
 ```
 
-## Handle errors
+## 处理错误
 
-Here is the [Node.js client documentation](https://docs.sentry.io/platforms/node/).
+这是 [Node.js 客户端文档](https://docs.sentry.io/platforms/node/)。
 
-Install it with `yarn add @sentry/node` or `npm install @sentry/node --save`.
+安装 `yarn add @sentry/node` or `npm install @sentry/node --save`.
 
-- Now add the logic that will catch errors.
+- 然后写一些逻辑，我们来尝试捕捉错误
 
 **Path —** `./middlewares/sentry/index.js`
 
@@ -60,14 +60,14 @@ module.exports = strapi => {
 ```
 
 ::: warning
-It's important to call `throw(error);` to avoid stopping the middleware stack. If you don't re-throw the error, it won't be handled by the Strapi's error formatter and the api will never respond to the client.
+调用 `throw(error);` 非常重要，以避免停止中间件堆栈。如果您不重新抛出错误，那么它将不会被 Strapi 的错误格式化程序处理，并且 api 将永远不会响应客户机。
 :::
 
-## Configure the middleware
+## 配置中间件
 
-To ensure that your middleware catches all errors including those in other middleware, it needs to be added at the beginning of the stack but after the `boom` middleware.
+为了确保您的中间件捕获所有错误，包括其他中间件中的错误，需要在堆栈的开始添加它，但要在 `boom` 中间件之后添加。
 
-After, the sentry middleware captures and rethrows the error, boom will return an appropriate HTTP response to the client.
+之后，哨兵中间件捕获并重新抛出错误，`boom` 将向客户机返回适当的 HTTP 响应。
 
 **Path —** `./config/middleware.js`
 
@@ -80,7 +80,7 @@ module.exports = {
 };
 ```
 
-And finally you have to enable the middleware.
+最后，您必须启用中间件。
 
 **Path —** `./config/middleware.js`
 

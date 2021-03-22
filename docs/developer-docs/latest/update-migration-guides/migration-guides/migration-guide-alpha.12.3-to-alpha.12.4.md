@@ -2,9 +2,9 @@
 
 **Here are the major changes:**
 
-- Add search to content manager
-- Add bulk actions in content-manager
-- Add Enumeration type to content type builder
+- 添加 search to content manager
+- 添加 bulk actions in content-manager
+- 添加 Enumeration type to content type builder
 
 **Useful links:**
 

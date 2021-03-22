@@ -1,22 +1,22 @@
-# Count with GraphQL
+# 使用 GraphQL 进行计数
 
-This guide explains how to count data with a GraphQL query.
+本指南解释了如何使用 GraphQL 查询计数数据。
 
-The count aggregation currently has some issues and this feature is also not available for Bookshelf (SQL databases).
+计数聚合目前有一些问题，该特性也不适用于 `Bookshelf` (SQL 数据库)。
 
-With this guide we will code our own count query.
+有了这个指南，我们将编写我们自己的计数查询。
 
-Here is the [GraphQL documentation](/developer-docs/latest/development/plugins/graphql.md#customize-the-graphql-schema) which we will use to achieve our goal.
+下面是 [GraphQL 文档](/developer-docs/latest/development/plugins/graphql.md#customize-the-graphql-schema) ，我们将使用它来实现我们的目标。
 
-## Setup the application
+## 安装应用程序
 
-在这个例子中, we will use a **Restaurant** API.
+在本例中，我们将使用一个 **Restaurant** API。
 
-Make sure you have a **Content Type** with some entries.
+确保你有一个包含一些条目的 **Content Type**。
 
-## Create schema.graphql file
+## 创建 schema.graphql 文件
 
-To be able to add a new custom query (or mutation), we will have to create a `schema.graphql.js` file in your **Restaurant** API.
+为了能够添加一个新的自定义查询(或 mutation ) ，我们必须在您的 **Restaurant** API 中创建一个 `schema.graphql.js` 文件。
 
 **Path** — `./api/restaurant/config/schema.graphql.js`
 
@@ -29,11 +29,11 @@ module.exports = {
 };
 ```
 
-## Create count query
+## 创建计数查询
 
-The `count` query will call the [`count`](/developer-docs/latest/development/backend-customization.md#core-services) service function of the **Restaurant** API.
+`count` 查询将调用 `Restaurant` API 的 [`count`](/developer-docs/latest/development/backend-customization.md#core-services) 服务函数。
 
-It needs a JSON object as params, so we will add a `where` options in the GraphQL query.
+它需要一个 JSON 对象作为参数，因此我们将在 GraphQL 查询中添加一个 `where` 选项。
 
 **Path** — `./api/restaurant/config/schema.graphql.js`
 
@@ -56,11 +56,11 @@ module.exports = {
 };
 ```
 
-And tada, you can now request the `count` of your Content Type.
+而且，tada，你现在可以请求你的内容类型的 `count`。
 
-## Query example
+## 查询示例
 
-- Count all restaurants
+- 数一数所有的餐馆
 
 ```
 {
@@ -68,9 +68,9 @@ And tada, you can now request the `count` of your Content Type.
 }
 ```
 
-- Count all restaurants that have `_3rd` as district value.
+- 计算所有的餐厅，有 `_3rd` 作为地区价值
 
-Based on the [FoodAdvisor](https://github.com/strapi/foodadvisor) restraurant model.
+基于 [FoodAdvisor](https://github.com/strapi/foodadvisor) 约束模型。
 
 ```
 {

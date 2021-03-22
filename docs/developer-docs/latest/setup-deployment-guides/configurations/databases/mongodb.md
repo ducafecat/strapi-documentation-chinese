@@ -4,7 +4,7 @@
 
 ### 1. Install MongoDB on your development environment
 
-If you already have MongoDB installed locally and running as a background service, you may skip to [Install Strapi locally with MongoDB](#_2-install-strapi-locally-with-mongodb). (If you have additional questions, please see the official [MongoDB documentation](https://docs.mongodb.com/manual/installation/#tutorial-installation). )
+If you already have MongoDB installed locally and running as a background service, you may skip to [Install Strapi locally with MongoDB](#_2-install-strapi-locally-with-mongodb). (If you have additional questions, please see the official [MongoDB 文章](https://docs.mongodb.com/manual/installation/#tutorial-installation). )
 
 Please complete the installation steps appropriate to your operating system.
 
@@ -209,27 +209,27 @@ Follow these steps to configure a local Strapi project to use a [MongoDB Atlas](
 ### 1. Log in to your account to create a **Project** and a **Cluster**
 
 - First you need to `Create a new Project`.
-- Then click `Build a Cluster`, from the options page:
+- 然后 click `Build a Cluster`, from the options page:
   - Choose **AWS** as your **Cloud Provider & Region**.
   - Select a **Region**. (Note: some **Regions** do not have a _free tier_.)
   - In **Cluster Tier**, select **Shared Sandbox**, _Tier_ `MO`.
   - In **Cluster Name**, name your cluster.
-- 点击 green `Create Cluster` button. You will get a message that says, "_Your cluster is being created..._"
+- 点击 green `Create Cluster` 按钮 You will get a message that says, "_Your cluster is being created..._"
 
-### 2. Next, click on the `Database Access` in the left menu (under `Overview`):
+### 2. Next, click on the `Database Access` 在左边的菜单里 (under `Overview`):
 
 - 点击 green `+ ADD NEW USER` button:
   - Enter a `username`.
   - Enter a `password`.
   - Under `User Privileges` ensure **`Read and write to any database`** is selected. Then click `Add User` to save.
 
-### 3. Then `whitelist` your IP address. Click into `Network Access`, under `Security` in the left menu:
+### 3. Then `whitelist` your IP address. Click into `Network Access`, under `Security` 在左边的菜单里:
 
 - 点击 green `+ ADD IP ADDRESS`
 
   - Click `ADD CURRENT IP ADDRESS` or **manually** enter in an IP address to `whitelist`.
   - Leave a comment to label this IP Address. E.g. `Office`.
-  - Then click the green `Confirm` button.
+  - 然后 click the green `Confirm` 按钮
   - Delete the `0.0.0.0/0` configuration after testing the connection.
 
   ::: tip
@@ -247,7 +247,7 @@ Follow these steps to configure a local Strapi project to use a [MongoDB Atlas](
 
   - **Manually** enter in an IP address to `whitelist`, for your Strapi server.
   - Leave a comment to label this IP Address. E.g. `Heroku Server`
-  - Then click the green `Confirm` button.
+  - 然后 click the green `Confirm` 按钮
 
 ### 4. Retrieve database credentials
 

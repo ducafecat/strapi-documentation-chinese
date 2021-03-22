@@ -16,7 +16,7 @@ jekyll new jekyll-app
 
 Jekyll is a [Static Site Generator](https://www.staticgen.com/) and will fetch your content from Strapi at build time. You need to configure Jekyll to communicate with your Strapi application.
 
-- Add `jekyll-strapi` to your `Gemfile`
+- 添加 `jekyll-strapi` to your `Gemfile`
 
 ```
 group :jekyll_plugins do
@@ -25,7 +25,7 @@ group :jekyll_plugins do
 end
 ```
 
-- Add `jekyll-strapi` to your plugins in `_config.yml`.
+- 添加 `jekyll-strapi` to your plugins in `_config.yml`.
 
 ```yml
 plugins:
@@ -33,7 +33,7 @@ plugins:
   - jekyll-strapi
 ```
 
-- Add the configuration of Strapi at the end of the `_config.yml`.
+- 添加 the configuration of Strapi at the end of the `_config.yml`.
 
 ```yml
 strapi:
@@ -140,7 +140,7 @@ strapi:
       output: true
 ```
 
-- Create a `_layouts/category.html` file that will display the content of each one of your category:
+- 创建 a `_layouts/category.html` file that will display the content of each one of your category:
 
 ```html
 <h1>{{ page.document.name }}</h1>
@@ -162,4 +162,4 @@ Feel free to do the same for your restaurants!
 ## Conclusion
 
 Here is how to request your Collection Types in Strapi using Jekyll.
-Learn more about Jekyll with their [official documentation](https://jekyllrb.com/docs/).
+Learn more about Jekyll with their [official 文章](https://jekyllrb.com/docs/).

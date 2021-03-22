@@ -13,7 +13,7 @@ Best practices for using **AWS Amazon** services state to not use your root acco
 #### 1. Follow these instructions for [creating your Administrator IAM Admin User and Group](https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html)
 
 - Login as **root**.
-- Create **Administrator** role.
+- 创建 **Administrator** role.
 
 #### 2. Next, create a **regular user** for the creation and management of your Strapi project
 
@@ -91,14 +91,14 @@ In the top menu, near your IAM Account User name, select, from the dropdown, the
       ::: tip
       After setting up your Nginx rules and domain name with the proper aliases, you will need to delete the rule regarding port 1337 as this is for testing and setting up the project - **not for production**.
       :::
-- 点击 blue `Review and Launch` button.
-- Review the details, in the **Step 7: Review Instance Launch**, then click the blue `Launch` button. Now, you need to **select an existing key pair** or **create a new key pair**. To create a new key pair, do the following:
-  - Select the dropdown option `Create a new key pair`.
+- 点击 blue `Review and Launch` 按钮
+- Review the details, in the **Step 7: Review Instance Launch**, then click the blue `Launch` 按钮 Now, you need to **select an existing key pair** or **create a new key pair**. To create a new key pair, do the following:
+  - 选择 dropdown option `Create a new key pair`.
   - Name your the key pair name, e.g. `ec2-strapi-key-pair`
     ::: warning
     Download the **private key file** (.pem file). This file is needed, so note where it was downloaded.
     :::
-  - After downloading the file, click the blue `Launch Instances` button.
+  - After downloading the file, click the blue `Launch Instances` 按钮
 
 Your instance is now running. Continue to the next steps.
 
@@ -120,7 +120,7 @@ In the top menu bar, select the region that is the same as the EC2 instance, e.g
 
 #### 3. Create the database
 
-点击 orange `Create database` button.
+点击 orange `Create database` 按钮
 Follow these steps to complete installation of a `PostgreSQL` database:
 
 - **Engine Options:** 点击 `PostgreSQL`, version **PostgreSQL 10.x-R1**
@@ -134,7 +134,7 @@ Follow these steps to complete installation of a `PostgreSQL` database:
 - **OPTIONAL:** Review any further options (**DB Instance size**, **Storage**, **Connectivity**), and modify to your project needs.
 - You need to give you Database a name. Under **Additional configuration**:
   - **Additional configuration**, and then **Initial database name:** Give your database a name, e.g. `strapi`.
-- Review the rest of the options and click the orange, `Create database` button.
+- Review the rest of the options and click the orange, `Create database` 按钮
 
 After a few minutes, you may refresh your page and see that your database has been successfully created.
 
@@ -151,7 +151,7 @@ In the top menu, click on `Services` and do a search for `s3`, click on `Scalabl
 点击 the blue `Create bucket` button:
 
 - Give your bucket a unique name, under **Bucket name**, e.g. `my-project-name-images`.
-- Select the most appropriate region, under **Region**, e.g. `EU (Paris)` or `US East (N. Virgina)`.
+- 选择 most appropriate region, under **Region**, e.g. `EU (Paris)` or `US East (N. Virgina)`.
 - Click `Next`.
 - Configure any appropriate options for your project in the **Configure Options** page, and click `next`.
 - Under **Block public access**:
@@ -224,7 +224,7 @@ The last command `node -v && npm -v` should output two versions numbers, eg. `v1
 
 The following steps are based on [how to resolve access permissions from npmjs.com](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally):
 
-- Create a `.npm-global` directory and set the path to this directory for `node_modules`
+- 创建 a `.npm-global` directory and set the path to this directory for `node_modules`
 
 ```bash
 cd ~
@@ -232,7 +232,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ```
 
-- Create (or modify) a `~/.profile` file and add this line:
+- 创建 (or modify) a `~/.profile` file and add this line:
 
 ```bash
 sudo nano ~/.profile
@@ -600,7 +600,7 @@ http
       - Protocol: `TCP`
       - Port Range: `8080`
       - Source: `Custom` `0.0.0.0/0, ::/0`
-    - Then `Save`
+    - 然后 `Save`
 
 Earlier you setup `pm2` to start the services (your **Strapi project**) whenever the **EC2 instance** reboots or is started. You will now do the same for the `webhook` script.
 
@@ -615,7 +615,7 @@ echo $PATH
 /home/your-name/.npm-global/bin:/home/your-name/bin:/home/your-name/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
-- Create a `webhook.service` file:
+- 创建 a `webhook.service` file:
 
 ```bash
 sudo nano /etc/systemd/system/webhook.service
@@ -650,7 +650,7 @@ sudo systemctl enable webhook.service
 sudo systemctl start webhook
 ```
 
-- Check the status of the webhook:
+- 点击 the status of the webhook:
 
 ```bash
 sudo systemctl status webhook

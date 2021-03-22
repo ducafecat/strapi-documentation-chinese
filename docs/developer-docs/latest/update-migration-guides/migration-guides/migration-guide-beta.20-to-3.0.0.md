@@ -40,7 +40,7 @@ Some of the improvements are:
 - Less files.
 - Environment overwrites.
 
-Before migrating, you should first read the new [configuration documentation](/developer-docs/latest/setup-deployment-guides/configurations.md) to fully understand the changes.
+Before migrating, you should first read the new [configuration 文章](/developer-docs/latest/setup-deployment-guides/configurations.md) to fully understand the changes.
 
 ### Migrating
 
@@ -89,7 +89,7 @@ module.exports = {
 
 You can now move the middleware configurations from `application.json`, `language.json`, `security.json`, `request.json` and `response.json` files directly into the `settings` property.
 
-You can review all possible options in the [middleware documentation](/developer-docs/latest/setup-deployment-guides/configurations.md#configuration-and-activation-2).
+You can review all possible options in the [middleware 文章](/developer-docs/latest/setup-deployment-guides/configurations.md#configuration-and-activation-2).
 
 <!-- This hash link above generates an error with the check-links plugins but everything seems to be fine 🤷  So it's been added to the files to ignore, see config.js. -->
 
@@ -142,7 +142,7 @@ You can leave your policies as is, we didn't change how they work.
 
 #### Custom
 
-Any custom configuration you have can still be used. You can read the [configuration documentation](/developer-docs/latest/setup-deployment-guides/configurations.md) to know more.
+Any custom configuration you have can still be used. You can read the [configuration 文章](/developer-docs/latest/setup-deployment-guides/configurations.md) to know more.
 
 #### Plugin
 

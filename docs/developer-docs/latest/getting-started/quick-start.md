@@ -78,7 +78,7 @@ npx create-strapi-app my-project --quickstart
 
 打开 [**COLLECTION TYPES** - **Restaurants**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::restaurant.restaurant), 左侧菜单.
 
-- 点击 **+ Add New Restaurants** button. Type `Biscotte Restaurant` in the **Name** field. Type `Welcome to Biscotte restaurant! Restaurant Biscotte offers a cuisine based on fresh, quality products, often local, organic when possible, and always produced by passionate producers.` into the **Description** field.
+- 点击 **+ Add New Restaurants** 按钮 Type `Biscotte Restaurant` in the **Name** 字段 Type `Welcome to Biscotte restaurant! Restaurant Biscotte offers a cuisine based on fresh, quality products, often local, organic when possible, and always produced by passionate producers.` into the **Description** 字段
 - Click **Save**.
 
 如果返回 [**COLLECTION TYPES** - **Restaurants**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::restaurant.restaurant) ，您将在条目中看到您的餐厅列表。
@@ -87,12 +87,12 @@ npx create-strapi-app my-project --quickstart
 
 打开 [**COLLECTION TYPES** - **Categories**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::category.category).
 
-- 点击 **+ Add New Categories** button. Type `French Food` in the **Name** field. Select `Biscotte Restaurant`, on the right in the **Restaurant (0)** dropdown.
+- 点击 **+ Add New Categories** 按钮 Type `French Food` in the **Name** 字段 Select `Biscotte Restaurant`, on the right in the **Restaurant (0)** dropdown.
 - Click **Save**.
 
 返回到 [**COLLECTION TYPES** - **Categories**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::category.category)。你会在参赛作品中看到法国食品的分类。
 
-- 点击 **+ Add New Categories** button. Type `Brunch` in the **Category** field. **DO NOT ADD** `Biscotte Restaurant` to the `Restaurants` dropdown on the right.
+- 点击 **+ Add New Categories** 按钮 Type `Brunch` in the **Category** 字段 **DO NOT ADD** `Biscotte Restaurant` to the `Restaurants` dropdown on the right.
 - Click **Save**.
 
 您将在条目中看到 **早午餐** 类别。
@@ -100,7 +100,7 @@ npx create-strapi-app my-project --quickstart
 返回到 [**COLLECTION TYPES** - **Restaurants**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::restaurant.restaurant).
 
 - 点击 `Biscotte Restaurant`.
-- On the right, under **Categories(1)**, `select` the `Add an item...`, and add **Brunch** as a category for this restaurant, and click the **Save** button.
+- On the right, under **Categories(1)**, `select` the `Add an item...`, and add **Brunch** as a category for this restaurant, and click the **Save** 按钮
 
 现在您已经看到了使用关系字段类型在内容类型之间添加和连接关系的**两种不同方法**。
 
@@ -120,8 +120,8 @@ npx create-strapi-app my-project --quickstart
 返回到 [**COLLECTION TYPES** - **Categories**](http://localhost:1337/admin/plugins/content-manager/collectionType/application::category.category)
 
 - 点击 **Draft** button on the **Brunch** category.
-- Click **Publish** button.
-- In the **Please confirm** dialog, click **Yes, publish** button.
+- Click **Publish** 按钮
+- In the **Please confirm** dialog, click **Yes, publish** 按钮
 - Repeat for the **French food** category and **Biscotte Restaurant**.
 
 ## 9. 使用内容类型的 API

@@ -1,18 +1,18 @@
-# Secure your application
+# 确保你的应用程序安全
 
-In this guide we will see how you can secure your Strapi application by using a third party provider.
+在本指南中，我们将看到如何通过使用第三方提供商来保护您的 Strapi 应用程序。
 
 ::: tip
-在这个例子中 we will use [Sqreen](https://sqreen.com).
+在这个例子中，我们将使用 [Sqreen](https://sqreen.com)。
 :::
 
-Their [onboarding](https://my.sqreen.com/new-application#nodejs-agent) is really easy to follow and understand.
+他们的 [onboarding](https://my.sqreen.com/new-application#nodejs-agent) 真的很容易跟踪和理解。
 
-## Install Sqreen
+## 安装 Sqreen
 
-Sqreen is an Application Security Management tool that enables protection tailored to your stack, allowing unprecedented visibility into your security and ability to scale it in production.
+Sqreen 是一个应用程序安全管理工具，它可以根据您的堆栈定制保护，从而使您的安全性具有前所未有的可见性，并且能够在生产环境中扩展它。
 
-You will have to install Sqreen node_module in your application.
+你必须在你的应用程序中安装 `Sqreen` nodejs 模块。
 
 :::: tabs
 
@@ -26,11 +26,11 @@ You will have to install Sqreen node_module in your application.
 
 ::::
 
-## Start your application programmaticaly
+## 以编程方式启动应用程序
 
-We will have to require the Sqreen node_module in the file we use to start Strapi.
+我们必须在用于启动 Strapi 的文件中 `require Sqreen` node_module。
 
-To do so you will have to create a `server.js` file to be able to start our application by running `node server.js`.
+为此，您必须创建一个 `server.js` 文件，以便通过运行 `node server.js` 启动应用程序。
 
 **Path —** `./server.js`
 
@@ -39,16 +39,15 @@ const strapi = require('strapi');
 strapi().start();
 ```
 
-Now you can run `node server.js` and it will start your application.
+现在您可以运行 `node server.js`，它将启动您的应用程序。
 
-## Inject and configure Sqreen agent
+## 注入并配置 Sqreen 代理
 
-By following their Node.js onboarding, we need to require the Sqreen node_module where the server is started.
-Also, Sqreen has to be required just before Strapi to work!
+通过遵循他们的 Node.js 入职，我们需要服务器启动的 Sqreen 节点模块。而且，Sqreen 必须在斯特拉皮工作之前被要求！
 
-_This is the reason why we have created a `server.js` file._
+这就是我们创建 `server.js` 文件的原因。
 
-To do so, you will have to update this file.
+为此，您必须更新此文件。
 
 **Path —** `./server.js`
 
@@ -58,6 +57,6 @@ const strapi = require('strapi');
 strapi().start();
 ```
 
-To let Strapi and Sqreen sync, you will have to create a `./sqreen.json` file with your credentials.
+要让 Strapi 和 Sqreen 同步，您必须使用凭证创建一个 `./sqreen.json` 文件。
 
-Then start your server with `node server.js` and we are done.
+然后用 `node server.js` 启动服务器，我们就完成了。

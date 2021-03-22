@@ -2,7 +2,7 @@
 
 **Here are the major changes:**
 
-- Add Graphql Query For The Current User
+- 添加 Graphql Query For The Current User
 - Fix on GraphQL query relation data
 - Update documentation and translations
 

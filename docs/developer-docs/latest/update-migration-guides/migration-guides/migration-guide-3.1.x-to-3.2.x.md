@@ -13,7 +13,7 @@ Not updating your **extensions** can break your app in unexpected ways that we c
 This version requires some migration in the following cases:
 
 - You are using a `published_at` field in some of your models.
-- You followed the [Scheduled publication guide](/developer-docs/latest/guides/scheduled-publication.md) and used a `published_at` field.
+- You followed the [Scheduled publication guide](/developer-docs/latest/guides/scheduled-publication.md) and used a `published_at` 字段
 - You have extended the **Strapi-admin** **admin/src/translations/index.js**, so you have a `./admin/src/translations/index.js`
 
 Otherwise you can follow the basic [version update guide](/developer-docs/latest/update-migration-guides/update-version.md).

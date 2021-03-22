@@ -30,7 +30,7 @@ To access the admin panel:
 
 1. Go to the URL of your Strapi application's admin panel.
 2. Enter your credentials to log in.
-3. 点击 the **Log in** button. You should be redirected to the homepage of the admin panel.
+3. 点击 the **Log in** 按钮 You should be redirected to the homepage of the admin panel.
 
 ### Using SSO for authentication <GoldBadge withLinkIcon link="https://strapi.io/pricing" />
 
@@ -59,7 +59,7 @@ To modify your user information:
 | Password              | Write a new password in the textbox. You can click on the eye icon for the password to be shown.        |
 | Confirmation password | Write the same new password in the textbox. You can click on the eye icon for the password to be shown. |
 
-4. 点击 the **Save** button.
+4. 点击 the **Save** 按钮
 
 ---
 

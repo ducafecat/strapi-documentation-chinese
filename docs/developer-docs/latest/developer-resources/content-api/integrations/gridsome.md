@@ -20,7 +20,7 @@ Gridsome is a [Static Site Generator](https://www.staticgen.com/) and will fetch
 yarn add @gridsome/source-strapi
 ```
 
-- Add the `@gridsome/source-strapi` to the plugins section in the `gridsome-config.js` file:
+- 添加 the `@gridsome/source-strapi` to the plugins section in the `gridsome-config.js` file:
 
 ```js
 module.exports = {
@@ -221,7 +221,7 @@ module.exports = function(api) {
 };
 ```
 
-- Create a `./src/templates/Category.vue` file that will display the content of each one of your category:
+- 创建 a `./src/templates/Category.vue` file that will display the content of each one of your category:
 
 ```js
 <template>

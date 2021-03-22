@@ -1,4 +1,4 @@
-# Introduction to the Content-Types Builder
+# 引言 to the Content-Types Builder
 
 ::: warning 🚧 This section of the user guide is a work in progress. Stay tuned!
 <br>

@@ -28,7 +28,7 @@ Choose these options:
   :::
 - Choose a `datacenter` region nearest your audience, for example, `New York`.
 - **OPTIONAL:** Select additional options, for example, `[x] IPv6`.
-- Add your SSH key
+- 添加 your SSH key
   ::: tip
   We recommend you `add your SSH key` for better security.
   :::
@@ -36,7 +36,7 @@ Choose these options:
   - 点击 `New SSH Key` and paste in your `SSH Key`. `Name` this SSH key and then `Save`.
     (Additional instructions on creating and using SSH Keys can be found [这里](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-openssh/).)
 - **OPTIONAL:** `Choose a hostname` or leave as-is.
-- 点击 green `Create` button.
+- 点击 green `Create` 按钮
 
 **DigitalOcean** will create your **Droplet** and indicate the progress with a percentage bar. Once this is complete, you may continue to the next steps.
 
@@ -64,7 +64,7 @@ Use the instructions in section **Install Node using a PPA** from the official [
 
 After completing the steps to **install Node.js, NPM and the "build-essential package"**, you will manually change npm's default directory. The following steps are based on [how to resolve access permissions from npmjs.com](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally):
 
-- Create a `.npm-global` directory and set the path to this directory for `node_modules`
+- 创建 a `.npm-global` directory and set the path to this directory for `node_modules`
 
 ```bash
 cd ~
@@ -72,7 +72,7 @@ mkdir ~/.npm-global
 npm config set prefix '~/.npm-global'
 ```
 
-- Create (or modify) a `~/.profile` file and add this line:
+- 创建 (or modify) a `~/.profile` file and add this line:
 
 ```bash
 sudo nano ~/.profile
@@ -450,7 +450,7 @@ echo $PATH
 /home/your-name/.npm-global/bin:/home/your-name/bin:/home/your-name/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
 ```
 
-- Create a `webhook.service` file:
+- 创建 a `webhook.service` file:
 
 ```bash
 cd ~
@@ -482,7 +482,7 @@ sudo systemctl enable webhook.service
 sudo systemctl start webhook
 ```
 
-- Check the status of the webhook:
+- 点击 the status of the webhook:
 
 ```bash
 sudo systemctl status webhook

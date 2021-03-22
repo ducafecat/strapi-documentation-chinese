@@ -20,7 +20,7 @@ Gatsby is a [Static Site Generator](https://www.staticgen.com/) and will fetch y
 yarn add gatsby-source-strapi
 ```
 
-- Add the `gatsby-source-strapi` to the plugins section in the `gatsby-config.js` file:
+- 添加 the `gatsby-source-strapi` to the plugins section in the `gatsby-config.js` file:
 
 ```js
 {
@@ -240,7 +240,7 @@ exports.createPages = async ({ graphql, actions }) => {
 };
 ```
 
-- Create a `./src/templates/category.js` file that will display the content of each one of your category:
+- 创建 a `./src/templates/category.js` file that will display the content of each one of your category:
 
 ```js
 import React from 'react';

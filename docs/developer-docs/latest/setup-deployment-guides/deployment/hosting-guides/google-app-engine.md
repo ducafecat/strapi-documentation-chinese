@@ -2,10 +2,10 @@
 
 In this guide we are going to:
 
-- Create a new Strapi project
+- 创建 a new Strapi project
 - Configure PostgreSQL for the production enviroment
 - Deploy the app to Google App Engine
-- Add the [Google Cloud Storage file uploading plugin](https://github.com/Lith/strapi-provider-upload-google-cloud-storage) by [@Lith](https://github.com/Lith)
+- 添加 the [Google Cloud Storage file uploading plugin](https://github.com/Lith/strapi-provider-upload-google-cloud-storage) by [@Lith](https://github.com/Lith)
 
 ### New Strapi project
 

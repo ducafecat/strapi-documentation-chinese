@@ -2,26 +2,25 @@
 sidebarDepth: 2
 ---
 
-# Unit testing
+# 单元测试
 
-In this guide we will see how you can run basic unit tests for a Strapi application using a testing framework.
+在本指南中，我们将看到如何使用测试框架为 Strapi 应用程序运行基本单元测试。
 
 ::: tip
-在这个例子中 we will use [Jest](https://jestjs.io/) Testing Framework with a focus on simplicity and
-[Supertest](https://github.com/visionmedia/supertest) Super-agent driven library for testing node.js HTTP servers using a fluent API
+在这个例子中，我们将使用 [Jest](https://jestjs.io/) 测试框架，侧重于简单性，使用 [Supertest](https://github.com/visionmedia/supertest) Super-agent 驱动库，使用流畅的 API 测试 node.js 的 HTTP 服务器
 :::
 
 ::: warning
-Please note that this guide will not work if you are on Windows using the SQLite database due to how windows locks the SQLite file
+请注意，由于 Windows 锁定 SQLite 文件的方式，如果您在 Windows 上使用 SQLite 数据库，那么本指南将不起作用
 :::
 
-## Install test tools
+## 安装测试工具
 
-`Jest` contains a set of guidelines or rules used for creating and designing test cases - a combination of practices and tools that are designed to help testers test more efficiently.
+`Jest` 包含一组用于创建和设计测试用例的准则或规则——这是一组实践和工具的组合，旨在帮助测试人员更有效地进行测试。
 
-`Supertest` allows you to test all the `api` routes as they were instances of [http.Server](https://nodejs.org/api/http.md#http_class_http_server)
+`Supertest` 允许您测试所有的 api 路由，因为它们是 [http.Server](https://nodejs.org/api/http.md#http_class_http_server) 的实例
 
-`sqlite3` is used to create an on-disk database that is created and deleted between tests.
+`sqlite3` 用于创建磁盘上的数据库，该数据库在测试之间创建和删除。
 
 :::: tabs
 
@@ -34,9 +33,9 @@ Please note that this guide will not work if you are on Windows using the SQLite
 :::
 ::::
 
-Once this is done add this to `package.json` file
+完成后，将其添加到 `package.json` 文件中
 
-add `test` command to `scripts` section
+向 `scripts` 部分添加 `test` 命令
 
 ```json
   "scripts": {
@@ -48,7 +47,7 @@ add `test` command to `scripts` section
   },
 ```
 
-and add those line at the bottom of file
+然后在文件底部添加这些行
 
 ```json
   "jest": {
@@ -61,19 +60,17 @@ and add those line at the bottom of file
   }
 ```
 
-Those will inform `Jest` not to look for test inside the folder where it shouldn't.
+这将告诉 `Jest` 不要在文件夹中不应该查找测试。
 
-## Introduction
+## 引言
 
-### Testing environment
+### 测试环境
 
-Test framework must have a clean empty environment to perform valid test and also not to interfere with current database.
+测试框架必须有一个干净的空环境才能执行有效的测试，也不能干扰当前的数据库。
 
-Once `jest` is running it uses the `test` [environment](/developer-docs/latest/setup-deployment-guides/configurations.md#environment) (switching `NODE_ENV` to `test`)
-so we need to create a special environment setting for this purpose.
-Create a new config for test env `./config/env/test/database.json` and add the following value `"filename": ".tmp/test.db"` - the reason of that is that we want to have a separate sqlite database for tests, so our test will not touch real data.
-This file will be temporary, each time test is finished, we will remove that file that every time tests are run on the clean database.
-The whole file will look like this:
+一旦 `jest` 运行，它就会使用 `test` [environment](/developer-docs/latest/setup-deployment-guides/configurations.md#environment) 切换到 `test` ，因此我们需要为此创建一个特殊的环境设置。为 test env 创建一个新配置 `./config/env/test/database.json` 并添加以下值 `"filename": ".tmp/test.db"` ——原因是我们希望有一个单独的 sqlite 数据库用于测试，这样我们的测试就不会触及真正的数据。这个文件将是临时的，每次测试完成后，我们都会删除那个每次在干净的数据库上运行测试的文件。
+
+整个文件看起来像这样:
 
 **Path —** `./config/env/test/database.json`
 
@@ -99,12 +96,11 @@ The whole file will look like this:
 }
 ```
 
-### Strapi instance
+### Strapi 实例
 
-In order to test anything we need to have a strapi instance that runs in the testing eviroment,
-basically we want to get instance of strapi app as object, similar like creating an instance for [process manager](process-manager.md).
+为了测试我们需要一个运行在测试环境中的 strapi 实例，基本上我们希望得到 strapi 应用的实例作为对象，类似于为 [process manager](process-manager.md) 创建一个实例。
 
-These tasks require adding some files - let's create a folder `tests` where all the tests will be put and inside it, next to folder `helpers` where main Strapi helper will be in file strapi.js.
+这些任务需要添加一些文件——让我们创建一个文件夹测试，所有 `tests` 都将放在这个文件夹中，放在文件夹 `helpers` 旁边，而主要的 Strapi helper 将放在文件 Strapi.js 中。
 
 **Path —** `./tests/helpers/strapi.js`
 
@@ -130,9 +126,9 @@ async function setupStrapi() {
 module.exports = { setupStrapi };
 ```
 
-### Test strapi instance
+### 测试 strapi 实例
 
-We need a main entry file for our tests, one that will also test our helper file.
+我们需要一个用于测试的主条目文件，这个文件也将用于测试 helper 文件。
 
 **Path —** `./tests/app.test.js`
 
@@ -165,6 +161,8 @@ it('strapi is defined', () => {
 });
 ```
 
+实际上，这就是我们编写单元测试所需的全部内容。只要运行 `yarn test` ，看看你的第一次测试的结果
+
 Actually this is all we need for writing unit tests. Just run `yarn test` and see a result of your first test
 
 ```bash
@@ -181,22 +179,22 @@ Ran all test suites.
 ✨  Done in 5.73s.
 ```
 
-> Note: if you receive a timeout error for Jest, please add the following line right before the `beforeAll` method in the `app.test.js` file: `jest.setTimeout(15000)` and adjust the milliseconds value as you need.
+> Note: 如果您收到 `Jest` 的超时错误，请在`app.test.js` 文件中 `beforeAll` 方法之前添加以下行: `jest.setTimeout(15000)` ，并根据需要调整毫秒值。
 
-### Testing basic endpoint controller.
+### 基本端点控制器测试.
 
 ::: tip
-In the example we'll use and example `Hello world` `/hello` endpoint from [controllers](/developer-docs/latest/development/backend-customization.md#example-2) section.
+在这个示例中，我们将使用来自 [controllers](/developer-docs/latest/development/backend-customization.md#example-2) 部分的 `Hello world` `/hello` 端点。
 
 <!-- the link below is reported to have a missing hash by the check-links plugin, but everything is fine 🤷 -->
 
 :::
 
-Some might say that API tests are not unit but limited integration tests, regardless of nomenclature, let's continue with testing first endpoint.
+有些人可能会说 API 测试不是单元测试，而是有限的集成测试，不管命名法如何，让我们继续测试第一个端点。
 
-We'll test if our endpoint works properly and route `/hello` does return `Hello World`
+我们将测试端点是否正常工作，以及 route `/hello` 是否返回 `Hello World`
 
-Let's create a separate test file were `supertest` will be used to check if endpoint works as expected.
+让我们创建一个单独的测试文件，`supertest` 将用于检查端点是否按预期工作。
 
 **Path —** `./tests/hello/index.js`
 
@@ -214,13 +212,13 @@ it('should return hello world', async done => {
 });
 ```
 
-Then include this code to `./tests/app.test.js` at the bottom of that file
+然后将这段代码包含到该文件底部的 `./tests/app.test.js` 中
 
 ```js
 require('./hello');
 ```
 
-and run `yarn test` which should return
+然后进行 `yarn test`，测试结果应该返回
 
 ```bash
 ➜  my-project yarn test
@@ -239,12 +237,12 @@ Ran all test suites.
 ✨  Done in 9.09s.
 ```
 
-### Testing `auth` endpoint controller.
+### 测试 `auth` 端点控制器.
 
-In this scenario we'll test authentication login endpoint with two tests
+在这个场景中，我们将使用两个测试来测试身份验证登录端点
 
-1. Test `/auth/local` that should login user and return `jwt` token
-2. Test `/users/me` that should return users data based on `Authorization` header
+1. 测试 `/auth/local` 这应该登录用户和返回 `jwt` token
+2. 测试 `/users/me` 它应该返回用户基于 `Authorization` header 头信息
 
 **Path —** `./tests/user/index.js`
 
@@ -320,13 +318,13 @@ it('should return users data for authenticated user', async done => {
 });
 ```
 
-Then include this code to `./tests/app.test.js` at the bottom of that file
+然后将这段代码包含到该文件底部的 `./tests/app.test.js` 中
 
 ```js
 require('./user');
 ```
 
-All the tests above should return an console output like
+上面的所有测试应该返回一个控制台输出，如
 
 ```bash
 ➜  my-project git:(master) yarn test

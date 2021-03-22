@@ -88,7 +88,7 @@ You are welcome to tag this virtual machine to easily identify it and others par
 
 Finally review you configuration and wait for Azure to validate the configuration, on this page you will also see the price of your VM per hour. This price will vary based on the region and size of virtual machine you selected (along with any additional options).
 
-Once you have finished verifying your config hit the `Create` button. It may take a few minutes for your deployment to complete, you will see a log of the deployment on the next page. When it's finished you will see `Your deployment is complete`, simply hit `Go to resource`.
+Once you have finished verifying your config hit the `Create` 按钮 It may take a few minutes for your deployment to complete, you will see a log of the deployment on the next page. When it's finished you will see `Your deployment is complete`, simply hit `Go to resource`.
 
 ### Logging in and installing Strapi dependencies
 
@@ -133,7 +133,7 @@ curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash -
 sudo apt install nodejs -y
 ```
 
-Likewise for Yarn we will use the instructions from the [Yarn documentation](https://classic.yarnpkg.com/en/docs/install/#debian-stable):
+Likewise for Yarn we will use the instructions from the [Yarn 文章](https://classic.yarnpkg.com/en/docs/install/#debian-stable):
 
 ```bash
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
@@ -193,7 +193,7 @@ Likewise you can use any of the following installed locally on the virtual machi
 - PostgreSQL >= 10
 - SQLite >= 3
 
-In our example we will be using MariaDB 10.4 LTS using the MariaDB apt repo. Per the [documentation](https://downloads.mariadb.org/mariadb/repositories/#distro=Ubuntu&distro_release=bionic--ubuntu_bionic&mirror=digitalocean-sfo&version=10.4) we will use the following commands:
+In our example we will be using MariaDB 10.4 LTS using the MariaDB apt repo. Per the [文章](https://downloads.mariadb.org/mariadb/repositories/#distro=Ubuntu&distro_release=bionic--ubuntu_bionic&mirror=digitalocean-sfo&version=10.4) we will use the following commands:
 
 ```bash
 sudo apt-key adv --fetch-keys 'https://mariadb.org/mariadb_release_signing_key.asc'

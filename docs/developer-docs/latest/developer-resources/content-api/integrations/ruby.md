@@ -17,7 +17,7 @@ touch script.rb
 
 Many HTTP clients are available but in this documentation we'll use [HTTParty](https://github.com/jnunemaker/httparty).
 
-- Create a `Gemfile` containing the following:
+- 创建 a `Gemfile` containing the following:
 
 ```
 source "https://rubygems.org"

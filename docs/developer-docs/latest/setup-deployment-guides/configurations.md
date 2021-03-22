@@ -59,7 +59,7 @@ strapi.config.get('server.host', 'defaultValueIfUndefined');
     - `options` Options used for database connection.
       - `debug` (boolean): Show database exchanges and errors.
       - `autoMigration` (boolean): To disable auto tables/columns creation for SQL database.
-      - `pool` Options used for database connection pooling. For default value and more information, look at [Knex's pool config documentation](https://knexjs.org/#Installation-pooling).
+      - `pool` Options used for database connection pooling. For default value and more information, look at [Knex's pool config 文章](https://knexjs.org/#Installation-pooling).
         - `min` (integer): Minimum number of connections to keep in the pool.
         - `max` (integer): Maximum number of connections to keep in the pool.
         - `acquireTimeoutMillis` (integer): Maximum time in milliseconds to wait for acquiring a connection from the pool.

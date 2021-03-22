@@ -1,29 +1,29 @@
-# Create a slug system
+# 建立一个 slug 系统
 
-This guide will explain how to create a slug system for a Post, Article or any Content Type you want.
+本指南将解释如何创建一个 slug 系统的职位，文章或任何内容类型。
 
-## Create attributes
+## 创建属性
 
-To start building your slug system you need a `string` field as a **base** for your slug, in this example we will use `title`.
+要开始建造 slug 系统，你需要一个 `string` 字段作为 slug 的**基础**，在这个例子中我们将使用`title`。
 
-You will also need another `string` field that contains the slugified value of your `title`, in this case we will use `slug`.
+您还需要另一个 `string` 字段，其中包含 `title` 的放大值，在这种情况下，我们将使用`slug`。
 
 ![Slug fields](../assets/guides/slug/fields.png)
 
-## Configure the layout for the content editor
+## 配置内容编辑器的布局
 
-Let's configure the layout of the **edit page** to make it more user friendly for the content editor.
+让我们配置 **edit page** 的布局，使其对内容编辑器更加友好。
 
-- 点击 the **Article** link in the left menu.
-- Then on the `+ Add New Article` button.
-- And finally on the `Configure the layout` button.
+- 点击 the **Article** link 在左边的菜单里.
+- 然后 on the `+ Add New Article` 按钮
+- And finally on the `Configure the layout` 按钮
 
-Here we will be able to setup the `slug` field.
+在这里，我们将能够设置 `slug` 字段。
 
-- 点击 the `slug` field.
-- At the bottom of the page, edit the **placeholder** value to `Generated automatically based on the title`.
-- And click **OFF** for **Editable field** option.
-- Don't forget to save your updates.
+- 点击 the `slug` 字段
+- 在页面底部, 编辑 **占位符** 值 `Generated automatically based on the title`.
+- 点击 **OFF** for **Editable field** option.
+- 不要忘记保存你的更新.
 
 :::: tabs
 
@@ -47,11 +47,11 @@ Here we will be able to setup the `slug` field.
 
 ::::
 
-## Auto create/update the `slug` attribute
+## 自动创建/更新 `slug` 属性
 
-For that you will have to install `slugify` node module in your application.
+为此，您必须在应用程序中安装 `slugify` 节点模块。
 
-When it's done, you have to update the life cycle of the **Article** Content Type to auto complete the `slug` field.
+完成后，您必须更新**文章**内容类型的生命周期，以自动完成 `slug` 字段 。
 
 **Path —** `./api/article/models/Article.js`
 
@@ -108,8 +108,8 @@ module.exports = {
 
 ::::
 
-## Fetch article by `slug`
+## 获取文章 `slug`
 
-Then you will be able to fetch your **Articles** by this slug.
+这样你就可以用这个 `slug` 取你的 **Articles** 了。
 
-You will be able to find your articles by slug with this request `GET /articles?slug=my-article-slug`
+你可以通过这个请求 `GET /articles?slug=my-article-slug` 找到你的文章

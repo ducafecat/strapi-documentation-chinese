@@ -6,7 +6,7 @@ sidebarDepth: 2
 
 This plugin provides a way to protect your API with a full authentication process based on JWT. This plugin comes also with an ACL strategy that allows you to manage the permissions between the groups of users.
 
-To access the plugin admin panel, click on the **Settings** link in the left menu and then everything will be under the **USERS & PERMISSIONS PLUGIN** section.
+To access the plugin admin panel, click on the **Settings** link 在左边的菜单里 and then everything will be under the **USERS & PERMISSIONS PLUGIN** section.
 
 ## Concept
 
@@ -219,7 +219,7 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the OAuth Apps list page [https://github.com/settings/developers](https://github.com/settings/developers)
 - 点击 **New OAuth App** button
-- Fill the information (replace with your own ngrok url):
+- 填充 the information (replace with your own ngrok url):
   - **Application name**: Strapi GitHub auth
   - **Homepage URL**: `https://65e60559.ngrok.io`
   - **Application description**: Strapi provider auth description
@@ -229,7 +229,7 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **GitHub** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: 53de5258f8472c140917
   - **Client Secret**: fb9d0fe1d345d9ac7f83d7a1e646b37c554dae8b
@@ -254,20 +254,20 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the Developer Apps list page <br> [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
 - 点击 **Add a New App** button
-- Fill the **Display Name** in the modal and create the app
+- 填充 the **Display Name** in the modal and create the app
 - Setup a **Facebook Login** product
-- 点击 the **PRODUCTS > Facebook login > Settings** link in the left menu
-- Fill the information and save (replace with your own ngrok url):
+- 点击 the **PRODUCTS > Facebook login > Settings** link 在左边的菜单里
+- 填充 the information and save (replace with your own ngrok url):
   - **Valid OAuth Redirect URIs**: `https://65e60559.ngrok.io/connect/facebook/callback`
-- Then, click on **Settings** in the left menu
-- Then on **Basic** link
+- Then, click on **Settings** 在左边的菜单里
+- 然后 on **Basic** link
 - You should see your Application ID and secret, save them for later
 
 #### Strapi configuration
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Facebook** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: 2408954435875229
   - **Client Secret**: 4fe04b740b69f31ea410b9391ff3b5b0
@@ -286,20 +286,20 @@ The use of `ngrok` is not needed.
 
 - Visit the Google Developer Console <br> [https://console.developers.google.com/](https://console.developers.google.com/)
 - 点击 the **Select a project** dropdown in the top menu
-- Then click **NEW PROJECT** button
-- Fill the **Project name** input and create
+- 然后 click **NEW PROJECT** button
+- 填充 the **Project name** input and create
 
 Wait a few seconds while the application is created.
 
 - On the project dropdown, select your new project
 - 点击 **Go to APIs overview** under the **APIs** card
-- Then click on the **Credentials** link in the left menu
+- 然后 click on the **Credentials** link 在左边的菜单里
 - 点击 **OAuth consent screen** button
 - Choose **External** and click on **create**
-- Fill the **Application name** and save
-- Then click on **Create credentials** button
+- 填充 the **Application name** and save
+- 然后 click on **Create credentials** button
 - Choose **OAuth client ID** option
-- Fill the information:
+- 填充 the information:
   - **Name**: `Strapi Auth`
   - **Authorized redirect URIs**: `http://localhost:1337/connect/google/callback`
 - 点击 **OAuth 2.0 Client IDs** name of the client you just created
@@ -309,7 +309,7 @@ Wait a few seconds while the application is created.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Google** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: 226437944084-o2mojv5i4lfnng9q8kq3jkf5v03avemk.apps.googleusercontent.com
   - **Client Secret**: aiTbMoiuJQflSBy6uQrfgsni
@@ -328,15 +328,15 @@ The use of `ngrok` is not needed.
 
 - Visit the AWS Management Console <br> [https://aws.amazon.com/console/](https://aws.amazon.com/console/)
 - If needed, select your **Region** in the top right corner next to the Support dropdown
-- Select the **Services** dropdown in the top left corner
+- 选择 **Services** dropdown in the top left corner
 - 点击 **Cognito** in the `Security, Identity & Compliance` section
-- Then click on the **Manage User Pools** button
+- 然后 click on the **Manage User Pools** button
 - If applicable either create or use an existing user pool. You will find hereafter a tutorial to create a User Pool <br> [https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html](https://docs.aws.amazon.com/cognito/latest/developerguide/tutorial-create-user-pool.html)
 - Go to the **App clients** section in your cognito user pool and create a new client with the name `Strapi Auth` and set all the parameters and then click on **Create app client**
 - You should now have an **App client id** and by clicking on the button **Show Details** you will be able to see the **App client secret**. Do copy those two values **App client id** and **App client secret** somewhere for later use when configuring the AWS Cognito provider in Strapi.
 - Go to the **App integration section** and click on **App client settings**
 - Look for your app client named `Strapi Auth` and enable Cognito User Pool by checking it in the **Enabled Identity Providers** section of your newly created App client
-- Fill in your callback URL and Sign out URL with the value `http://localhost:1337/connect/cognito/callback` or the one provided by your AWS Cognito provider in Strapi
+- 填充 in your callback URL and Sign out URL with the value `http://localhost:1337/connect/cognito/callback` or the one provided by your AWS Cognito provider in Strapi
 - In the **Oauth 2.0** section select `Authorization code grant` and `Implicit grant` for the **Allowed OAuth Flows** and select `email`, `openid` and `profile` for the **Allowed OAuth Scopes**
 - You can now click on **Save changes** and if you have already configured your domain name then you should be able to see a link to the **Launch Hosted UI**. You can click on it in order to display the AWS Cognito login page. In case you haven't yet configured your domain name, use the link **Choose domain name** at the bottom right of the page in order to configure your domain name. On that page you will have an `Amazon Cognito Domain` section where a `Domain prefix` is already setup. Type a domain prefix to use for the sign-up and sign-in pages that are hosted by Amazon Cognito, this domain prefix together with the `.auth.YOUR_REGION.amazoncognito.com` will be the **Host URI (Subdomain)** value for your strapi configuration later on.
 
@@ -344,7 +344,7 @@ The use of `ngrok` is not needed.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Cognito** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: fill in the **App client id** (`5bd7a786qdupjmi0b3s10vegdt`)
   - **Client Secret**: fill in the **App client secret** (`19c5c78dsfsdfssfsdfhpdb4nkpb145vesdfdsfsffgh7vwd6g45jlipbpb`)
@@ -370,14 +370,14 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the Apps list page <br> [https://developer.twitter.com/en/apps](https://developer.twitter.com/en/apps)
 - 点击 **Create an app** button
-- Fill the information (replace with your own ngrok url):
+- 填充 the information (replace with your own ngrok url):
   - **App name**: Strapi Twitter auth
   - **Application description**: This is a demo app for Strapi auth
   - **Tell us how this app will be used**: - here write a message enough long -
 - At the end of the process you should see your Application ID and secret, save them for later
 - Go to you app setting and click on edit **Authentication settings**
 - Enable **3rd party authentication** AND **Request email address from users**
-- Fill the information (replace with your own ngrok url):
+- 填充 the information (replace with your own ngrok url):
   - **Callback URLs**: `https://65e60559.ngrok.io/connect/twitter/callback`
   - **Website URL**: `https://65e60559.ngrok.io`
   - **Privacy policy**: `https://d73e70e88872.ngrok.io`
@@ -387,7 +387,7 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Twitter** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: yfN4ycGGmKXiS1njtIYxuN5IH
   - **Client Secret**: Nag1en8S4VwqurBvlW5OaFyKlzqrXFeyWhph6CZlpGA2V3VR3T
@@ -406,18 +406,18 @@ The use of `ngrok` is not needed.
 
 - Visit the Apps list page on the developer portal <br> [https://discordapp.com/developers/applications/](https://discordapp.com/developers/applications/)
 - 点击 **New application** button
-- Fill the **name** and create
-- 点击 **OAuth2** in the left menu
+- 填充 the **name** and create
+- 点击 **OAuth2** 在左边的菜单里
 - And click on **Add redirect** button
-- Fill the **Redirect** input with `http://localhost:1337/connect/discord/callback` URL and save
-- 点击 **General information** in the left menu
+- 填充 the **Redirect** input with `http://localhost:1337/connect/discord/callback` URL and save
+- 点击 **General information** 在左边的菜单里
 - You should see your Application ID and secret, save them for later
 
 #### Strapi configuration
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Discord** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: 665118465148846081
   - **Client Secret**: iJbr7mkyqyut-J2hGvvSDch_5Dw5U77J
@@ -436,7 +436,7 @@ The use of `ngrok` is not needed.
 
 - Visit the Apps list page on the developer console <br> [https://dev.twitch.tv/console/apps](https://dev.twitch.tv/console/apps)
 - 点击 **Register Your Application** button
-- Fill the information:
+- 填充 the information:
   - **Name**: Strapi auth
   - **OAuth Redirect URLs**: `http://localhost:1337/connect/twitch/callback`
   - **Category**: Choose a category
@@ -448,7 +448,7 @@ The use of `ngrok` is not needed.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Twitch** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: amuy279g8wt68qlht3u4gek4oykh5j
   - **Client Secret**: dapssh10uo97gg2l25qufr8wen3yr6
@@ -473,11 +473,11 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the Developer Apps list page <br> [https://developers.facebook.com/apps/](https://developers.facebook.com/apps/)
 - 点击 **Add a New App** button
-- Fill the **Display Name** in the modal and create the app
+- 填充 the **Display Name** in the modal and create the app
 - Setup an **Instagram** product
-- 点击 the **PRODUCTS > Instagram > Basic Display** link in the left menu
-- Then click on the **Create new application** button (and valid the modal)
-- Fill the information (replace with your own ngrok url):
+- 点击 the **PRODUCTS > Instagram > Basic Display** link 在左边的菜单里
+- 然后 click on the **Create new application** button (and valid the modal)
+- 填充 the information (replace with your own ngrok url):
   - **Valid OAuth Redirect URIs**: `https://65e60559.ngrok.io/connect/instagram/callback`
   - **Deauthorize**: `https://65e60559.ngrok.io`
   - **Data Deletion Requests**: `https://65e60559.ngrok.io`
@@ -488,7 +488,7 @@ Don't forget to update the server url in the backend config file `config/server.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Instagram** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: 563883201184965
   - **Client Secret**: f5ba10a7dd78c2410ab6b8a35ab28226
@@ -507,21 +507,21 @@ The use of `ngrok` is not needed.
 
 - Visit the Apps list page <br> [https://vk.com/apps?act=manage](https://vk.com/apps?act=manage)
 - 点击 **Create app** button
-- Fill the information:
+- 填充 the information:
   - **Title**: Strapi auth
   - **Platform**: Choose **Website** option
   - **Website address**: `http://localhost:1337`
   - **Base domain**: `localhost`
-- 点击 the **Settings** link in the left menu
+- 点击 the **Settings** link 在左边的菜单里
 - 点击 the **Open API** link to enable this option
-- Fill the information:
+- 填充 the information:
   - **Authorized redirect URL**: `http://localhost:1337/connect/vk/callback`
 
 #### Strapi configuration
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **VK** provider
-- Fill the information:
+- 填充 the information:
   - **Enable**: `ON`
   - **Client ID**: 7276416
   - **Client Secret**: cFBUSghLXGuxqnCyw1N3
@@ -540,13 +540,13 @@ The use of `ngrok` is not needed.
 
 - Visit the Apps list page <br> [https://www.linkedin.com/developers/apps](https://www.linkedin.com/developers/apps)
 - 点击 **Create app** button
-- Fill the information:
+- 填充 the information:
   - **App name**: Strapi auth
   - **LinkedIn Page**: Enter a LinkedIn page name to associate with the app or click **Create a new LinkedIn Page** to create a new one
   - **App Logo**: Upload a square image that is at least 100x100 pixels.
 - 点击 the **Create app** to create the app
 - On the app page click on **Auth** tab
-- Fill the information:
+- 填充 the information:
   - **Authorized redirect URL**: `http://localhost:1337/connect/linkedin/callback`
 - On the app page click on **Products** tab.
 - Select `Sign In with LinkedIn` from the product list to enable it.
@@ -555,7 +555,7 @@ The use of `ngrok` is not needed.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **LinkedIn** provider
-- Fill the information:
+- 填充 the information:
   - **Enable**: `ON`
   - **Client ID**: 84witsxk641rlv
   - **Client Secret**: HdXO7a7mkrU5a6WN
@@ -575,7 +575,7 @@ The use of `ngrok` is not needed.
 - Visit the Reddit authorized applications preferences page <br> [https://www.reddit.com/prefs/apps](https://www.reddit.com/prefs/apps)
 - 点击 the **create another app...** button near the bottom
 - Select **web app** for the type
-- Fill the **name** and **redirect uri** input in
+- 填充 the **name** and **redirect uri** input in
 - 点击 **create app** button
 - Note that the **Client ID** is located under the app type (web app)
 
@@ -583,7 +583,7 @@ The use of `ngrok` is not needed.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Reddit** provider
-- Fill the information (replace with your own client ID and secret):
+- 填充 the information (replace with your own client ID and secret):
   - **Enable**: `ON`
   - **Client ID**: hmxSBOit0SCjSQ
   - **Client Secret**: gwR9hCjK_PMYVYNGeDLS4WLB8g7xqg
@@ -617,7 +617,7 @@ The use of `ngrok` is not needed.
 
 - Visit the User Permissions provider settings page <br> [http://localhost:1337/admin/settings/users-permissions/providers](http://localhost:1337/admin/settings/users-permissions/providers)
 - 点击 the **Auth0** provider
-- Fill the information:
+- 填充 the information:
   - Enable: `ON`
   - Client ID: `<Your Auth0 Client ID>`
   - Client ID: `<Your Auth0 Client Secret>`
@@ -635,8 +635,8 @@ Launch the backend and the [react login example app](https://github.com/strapi/s
 
 Once you have configured strapi and the provider, in your frontend app you have to :
 
-- Create a button that links to `GET STRAPI_BACKEND_URL/connect/${provider}` (ex: `https://strapi.mywebsite/connect/github`).
-- Create a frontend route like `FRONTEND_URL/connect/${provider}/redirect` that have to handle the `access_token` param and that have to request `STRAPI_BACKEND_URL/auth/${provider}/callback` with the `access_token` param. <br >
+- 创建 a button that links to `GET STRAPI_BACKEND_URL/connect/${provider}` (ex: `https://strapi.mywebsite/connect/github`).
+- 创建 a frontend route like `FRONTEND_URL/connect/${provider}/redirect` that have to handle the `access_token` param and that have to request `STRAPI_BACKEND_URL/auth/${provider}/callback` with the `access_token` param. <br >
   The JSON request response will be `{ "jwt": "...", "user": {...} }`.
 
 Now you can make authenticated requests 🎉 More info here: [token usage](#token-usage).

@@ -16,7 +16,7 @@ To deactivate the draft and publish feature for a content type:
 2. Select the collection or single type for which you want the draft and publish feature to be deactivated.
 3. 点击 the Edit <Fa-PencilAlt /> button to access the content type's configurations.
 4. 点击 the "Advanced Settings" tab.
-5. In the DRAFT/PUBLISH section, click on the **OFF** button.
+5. In the DRAFT/PUBLISH section, click on the **OFF** 按钮
 6. 点击 the **Finish** button to confirm the deactivation of the feature.
 
 ::: tip

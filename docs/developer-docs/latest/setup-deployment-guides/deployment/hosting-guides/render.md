@@ -151,7 +151,7 @@ The [Configuration doc](/developer-docs/latest/setup-deployment-guides/configura
 ### Step 5: Deploy
 
 1. Commit your changes and push them to GitHub or GitLab.
-2. In the Render dashboard select **YAML** in the side navigation and click the **New From YAML** button.
+2. In the Render dashboard select **YAML** in the side navigation and click the **New From YAML** 按钮
 3. Give Render permission to access your GitHub or GitLab repository if you haven't already.
 4. Select the repository and branch for your Strapi project and follow the prompts that appear. If you're using Cloudinary, you'll be asked to enter your account credentials as environment variables. Render encrypts environment variables and stores them securely.
 

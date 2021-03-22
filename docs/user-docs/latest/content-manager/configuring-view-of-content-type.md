@@ -9,7 +9,7 @@ On the right side of the list view interface, right above the table, a settings 
 ::: tip 注意
 The configurations only apply to the list view of the collection type from which the settings are accessed (i.e. disabling the filters or search options for a collection type will not automatically also disable these same options for all other collection types).
 <br>
-Note also that the explanations below explain how to permanently configure which fields are displayed in the table of the list view of your collection type. It is also possible to configure the displayed fields temporarily (see [Introduction to content manager](../content-manager/introduction-to-content-manager.md)).
+Note also that the explanations below explain how to permanently configure which fields are displayed in the table of the list view of your collection type. It is also possible to configure the displayed fields temporarily (see [引言 to content manager](../content-manager/introduction-to-content-manager.md)).
 :::
 
 ![Settings of a list view in the Content Manager](../assets/content-manager/content-manager_settings-list-view.png)
@@ -17,7 +17,7 @@ Note also that the explanations below explain how to permanently configure which
 ### List view settings
 
 1. In the list view of your collection type, click on the settings button <Fa-Cog />.
-2. 点击 the **Configure the view** button.
+2. 点击 the **Configure the view** 按钮
 3. In the Settings area, define your chosen new settings:
 
 | Setting name           | Instructions                                                                                   |
@@ -28,31 +28,31 @@ Note also that the explanations below explain how to permanently configure which
 | Entries per page       | Choose among the drop-down list the number of entries per page.                                |
 | Default sort attribute | Choose the sorting field and type that will be applied by default.                             |
 
-4. 点击 the **Save** button.
+4. 点击 the **Save** 按钮
 
 ### List view display
 
 1. In the list view of your collection type, click on the settings button <Fa-Cog />.
-2. 点击 the **Configure the view** button.
+2. 点击 the **Configure the view** 按钮
 3. In the View area, define what fields to display in the list view table, and in what order:
-   - 点击 add button ![icon add new](../assets/content-manager/icon_add.png) to add a new field.
-   - 点击 delete button ![icon delete](../assets/content-manager/icon_delete.png) to remove a field.
+   - 点击 add button ![icon add new](../assets/content-manager/icon_add.png) to add a new 字段
+   - 点击 delete button ![icon delete](../assets/content-manager/icon_delete.png) to remove a 字段
    - 点击 reorder button ![icon drag & drop](../assets/content-manager/icon_dragdrop.png) and drag and drop it to the place you want it to be displayed among the other fields.
 4. 点击 name of the field to access its available own settings:
 
 | Setting name              | Instructions                                                            |
 | ------------------------- | ----------------------------------------------------------------------- |
 | Label                     | Write the label to should be used for the field in the list view table. |
-| Enable sort on this field | 点击 **ON** or **OFF** to able or disable the sort on the field.        |
+| Enable sort on this field | 点击 **ON** or **OFF** to able or disable the sort on the 字段          |
 
-5. 点击 the **Save** button.
+5. 点击 the **Save** 按钮
 
 ::: tip 注意
 Relational fields can also be displayed in the list view. There are however some specificities to keep in mind:
 
-- Only one field can be displayed per relational field.
+- Only one field can be displayed per relational 字段
 - Only first-level fields can be displayed (i.e. fields from the relation of a relation can't be displayed).
-- If the displayed field contains more than one value, not all its values will be displayed, but a counter indicating the number of values. You can hover this counter to see a tooltip indicating the first 10 values of the relational field.
+- If the displayed field contains more than one value, not all its values will be displayed, but a counter indicating the number of values. You can hover this counter to see a tooltip indicating the first 10 values of the relational 字段
 
 Note also that relational fields have a couple limitations when it comes to sorting options:
 
@@ -68,32 +68,32 @@ In the edit view of a content type, in the right side of the interface, a **Conf
 
 ### Edit view settings
 
-1. In the edit view of your content type, click on the **Configure the view** button.
+1. In the edit view of your content type, click on the **Configure the view** 按钮
 2. In the Settings area, define your chosen new settings:
 
 | Setting name | Instructions                                                                          |
 | ------------ | ------------------------------------------------------------------------------------- |
 | Entry title  | Choose among the drop-down list the field that should be used as title for the entry. |
 
-3. 点击 the **Save** button.
+3. 点击 the **Save** 按钮
 
 ### Edit view display
 
-1. In the edit view of your content type, click on the **Configure the view** button.
+1. In the edit view of your content type, click on the **Configure the view** 按钮
 2. In the View area, define what fields to display in the list view table, and in what order:
-   - 点击 add button ![icon add new](../assets/content-manager/icon_add.png) to add a new field.
-   - 点击 delete button ![icon delete](../assets/content-manager/icon_delete.png) to remove a field.
+   - 点击 add button ![icon add new](../assets/content-manager/icon_add.png) to add a new 字段
+   - 点击 delete button ![icon delete](../assets/content-manager/icon_delete.png) to remove a 字段
    - 点击 reorder button ![icon drag & drop](../assets/content-manager/icon_dragdrop.png) and drag and drop it to the place you want it to be displayed among the other fields.
 3. 点击 name of a field to access its available own settings:
 
 | Setting name   | Instructions                                                                          |
 | -------------- | ------------------------------------------------------------------------------------- |
-| Label          | Write the label to should be used for the field.                                      |
+| Label          | Write the label to should be used for the 字段                                        |
 | Description    | Write a description for the field, to help other administrators fill it properly.     |
-| Placeholder    | Write the placeholder that should be displayed by default in the field.               |
+| Placeholder    | Write the placeholder that should be displayed by default in the 字段                 |
 | Editable field | 点击 **ON** or **OFF** to able or disable the edition of the field by administrators. |
 
-4. 点击 the **Save** button.
+4. 点击 the **Save** 按钮
 
 ::: warning IMPORTANT
 The settings and display of a component's fields cannot be managed and reordered through the entry's edit view configuration page. 点击 the **Set the component's layout** button of a component to access the component's own configuration page. You will find the exact same settings and display options as for the entry, but that will specifically apply to your component.
@@ -108,7 +108,7 @@ On the right side of the View area is displayed a Relational fields part. As in 
 To define what relational fields of an entry should be available in the edit view, the following options are available:
 
 - the **Insert another relational field** button, to add another relational field to your entry. If the button remains unclickable, it means that no other relational field can be added.
-- the delete button ![icon delete](../assets/content-manager/icon_delete.png), to remove a relational field.
+- the delete button ![icon delete](../assets/content-manager/icon_delete.png), to remove a relational 字段
 - the reorder button ![icon drag & drop](../assets/content-manager/icon_dragdrop.png), to drag and drop to the place you want your relational field to be displayed among the others.
 
 As for regular fields, it is possible to access the available settings of the relational fields by clicking on their name. Most settings are the same as for regular fields (see [Edit view display](./configuring-view-of-content-type.md#edit-view-display)) except for "Entry title" which is only available for relational fields. It is recommended to choose well the entry title of relational fields as the more comprehensive it is, the easier it will be for administrators to manage the content of relational fields from the edit view.

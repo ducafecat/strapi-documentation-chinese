@@ -33,30 +33,30 @@ If the Draft & Publish feature (see [Saving, publishing and deleting content](sa
 
 ## Managing one-choice relational fields
 
-Many-to-one, one-to-one, and one-way types of relation only allow to choose one entry per relational field.
+Many-to-one, one-to-one, and one-way types of relation only allow to choose one entry per relational 字段
 
 <img src="../assets/content-manager/RF_one-choice.png" width="45%">
 
 To select the only relevant relational field's entry:
 
-1. In the Relational fields box of your content-type's edit view, click on the drop-down list of the relational field.
+1. In the Relational fields box of your content-type's edit view, click on the drop-down list of the relational 字段
 2. Among the list of entries, choose one.
 
 ::: tip 💡 TIP
 点击 **Details** to be redirected to the edit view of the content-type the relational field originally belongs to. Make sure you save your page first, to avoid losing your last modifications.
 :::
 
-To remove the entry selected in the drop-down list, click on the ![icon delete](../assets/content-manager/icon_delete6.png) button.
+To remove the entry selected in the drop-down list, click on the ![icon delete](../assets/content-manager/icon_delete6.png) 按钮
 
 ## Managing multiple-choices relational fields
 
-Many-to-many, one-to-many, and many-ways types of relation allow to choose several entries per relational field.
+Many-to-many, one-to-many, and many-ways types of relation allow to choose several entries per relational 字段
 
 <img src="../assets/content-manager/RF_multiple-choices.png" width="40%">
 
 To select the relevant relational field's entries:
 
-1. In the Relational fields box of your content-type's edit view, click on the drop-down list of the relational field.
+1. In the Relational fields box of your content-type's edit view, click on the drop-down list of the relational 字段
 2. Among the list of entries, choose one.
 3. Repeat step 2 until all relevant entries have been chosen.
 

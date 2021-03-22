@@ -125,7 +125,7 @@ module.exports = {
 
 有几种方法可以创建一个策略 policy.
 
-- 使用 CLI `strapi generate:policy isAuthenticated`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
+- 使用 CLI `strapi generate:policy isAuthenticated`.<br>阅读 [CLI 文章](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 - 手动创建一个 JavaScript 文件，名字 `isAuthenticated.js` 放在 `./config/policies/` 目录下.
 
 **Path —** `./config/policies/isAuthenticated.js`.
@@ -583,7 +583,7 @@ module.exports = {
 
 创建控制器有两种方法:
 
-- 使用 CLI `strapi generate:controller restaurant`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) 了解详情.
+- 使用 CLI `strapi generate:controller restaurant`.<br>阅读 [CLI 文章](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-generate-controller) 了解详情.
 - 手动创建 JavaScript 文件 `./api/**/controllers`.
 
 #### 添加 Endpoints
@@ -594,7 +594,7 @@ module.exports = {
 
 #### 例子
 
-在这个例子中, 我们定义了一个路由 `route` 文件 `./api/hello/config/routes.json`, 处理程序 `Hello.index`. 有关路由的详细信息，请参阅 [Routing documentation](#routing)。
+在这个例子中, 我们定义了一个路由 `route` 文件 `./api/hello/config/routes.json`, 处理程序 `Hello.index`. 有关路由的详细信息，请参阅 [Routing 文章](#routing)。
 
 这意味着每次向服务器发送请求 `GET /hello` 时，Strapi 将调用 `Hello.js` 控制器中的 `index` 操作。我们的索引动作将返回 `Hello World！`. 您还可以返回一个 JSON 对象。
 
@@ -646,7 +646,7 @@ Strapi 通过 `ctx.request.body` 和 `ctx.request.files` 传递 `body`
 
 上下文对象(`ctx`)包含一系列用于管理服务器响应的值和函数。可以通过 `ctx.response`、[controllers](/developer-docs/latest/development/backend-customization.md#controllers) 和 [policies](/developer-docs/latest/development/backend-customization.md#policies) 访问它们。
 
-详细信息, 访问 [Koa response documentation](http://koajs.com/#response).
+详细信息, 访问 [Koa response 文章](http://koajs.com/#response).
 
 <!--- BEGINNING OF SERVICES --->
 
@@ -1060,7 +1060,7 @@ module.exports = {
 
 创建服务有两种方法。
 
-- 使用 CLI `strapi generate:service restaurant`.<br>阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
+- 使用 CLI `strapi generate:service restaurant`.<br>阅读 [CLI 文章](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情.
 - 手动创建 JavaScript 文件 `./api/**/services/`.
 
 #### 例子
@@ -1216,7 +1216,7 @@ strapi.query('restaurant').findOne({ id: 1 }, ['category', 'category.name']);
 ```js
 strapi.query('restaurant').create({
   name: 'restaurant name',
-  // this is a dynamiczone field. the order is persisted in db.
+  // this is a dynamiczone 字段 the order is persisted in db.
   content: [
     {
       __component: 'blog.rich-text',
@@ -1229,7 +1229,7 @@ strapi.query('restaurant').create({
       author: 1,
     },
   ],
-  // this is a component field. the order is persisted in db.
+  // this is a component 字段 the order is persisted in db.
   opening_hours: [
     {
       day_interval: 'Mon',
@@ -1631,7 +1631,7 @@ module.exports = {
 
 使用 CLI 并运行以下命令 `strapi generate:model restaurant name:string description:text`。
 
-阅读 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情。
+阅读 [CLI 文章](/developer-docs/latest/developer-resources/cli/CLI.md) 了解详情。
 
 这将创建两个位于 `./api/restaurant/models` 的文件:
 
@@ -2766,7 +2766,7 @@ You can test out a webhook with a test event: `trigger-test`. Open the webhook y
 
 ![Trigger ](../assets/concepts/webhooks/trigger_start.png)
 
-点击 the `Trigger` button.
+点击 the `Trigger` 按钮
 
 ![Trigger pending](../assets/concepts/webhooks/trigger.png)
 

@@ -42,7 +42,7 @@ For this example we are using the awesome [@nuxt/strapi](https://strapi.nuxtjs.o
 yarn add @nuxtjs/strapi
 ```
 
-- Add `@nuxtjs/strapi` to the module section of `nuxt.config.js` with the following settings.
+- 添加 `@nuxtjs/strapi` to the module section of `nuxt.config.js` with the following settings.
 
 ```js
 modules: ['@nuxtjs/strapi'],

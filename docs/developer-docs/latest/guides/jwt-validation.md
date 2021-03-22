@@ -1,8 +1,8 @@
-# JWT validation
+# JWT 验证
 
-In this guide we will see how to validate a `JWT` (JSON Web Token) with a third party service.
+在本指南中，我们将了解如何使用第三方服务验证 `JWT` (JSON Web Token)。
 
-When you sign in with the authentication route `POST /auth/local`, Strapi generates a `JWT` which lets your users request your API as an authenticated one.
+当您使用身份验证路由 `POST /auth/local` 登录时，Strapi 生成一个 `JWT`，它允许您的用户将您的 API 请求为身份验证的 API。
 
 ```json
 {
@@ -15,24 +15,24 @@ When you sign in with the authentication route `POST /auth/local`, Strapi genera
 }
 ```
 
-These users are managed in the application's database and can be managed via the admin dashboard.
+这些用户在应用程序的数据库中进行管理，可以通过管理仪表板进行管理。
 
-We can now imagine you have a `JWT` that comes from [Auth0](https://auth0.com) and you want to make sure the `JWT` is correct before allowing the user to use the Strapi API endpoints.
+我们现在可以想象您有一个来自 [Auth0](https://auth0.com) 的 `JWT` ，并且您希望在允许用户使用 Strapi API 端点之前确保 `JWT` 是正确的。
 
-## Customize the JWT validation function
+## 自定义 JWT 验证函数
 
-We will update the function that validates the `JWT`. This feature is powered by the **Users & Permissions** [插件](/developer-docs/latest/development/plugin-customization.md).
+我们将更新验证 `JWT` 的函数。该功能由 **Users & Permissions** [插件](/developer-docs/latest/development/plugin-customization.md) 提供。
 
-Here is the file we will have to customize: [permission.js](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-users-permissions/config/policies/permissions.js)
+下面是我们必须定制的文件: [permission.js](https://github.com/strapi/strapi/blob/master/packages/strapi-plugin-users-permissions/config/policies/permissions.js)
 
-- We have to create a file that follows this path `./extensions/users-permissions/config/policies/permissions.js`.
-- You will have to add in this new file, the same content of the original one.
+- 我们必须创建一个遵循此路径的文件 `./extensions/users-permissions/config/policies/permissions.js`.
+- 你必须在这个新文件中添加与原始文件相同的内容.
 
-Now we are ready to create our custom validation code.
+现在我们可以创建自定义验证代码了。
 
-## Write our own logic
+## 写出我们自己的逻辑
 
-First we have to define where we write our code.
+首先，我们必须定义我们在哪里编写代码。
 
 ```js
 const _ = require('lodash');
@@ -55,11 +55,11 @@ module.exports = async (ctx, next) => {
     }
 ```
 
-The `jwt.getToken` will throw an error if the token doesn't come from Strapi. So if it's not a Strapi `JWT` token, let's test if it's an Auth0 one.
+如果令牌不是来自 Strapi，则 `jwt.getToken` 将抛出一个错误。因此，如果它不是 Strapi `JWT` 令牌，那么让我们测试它是否是 `Auth0` 令牌。
 
-We will have to write our validation code before throwing an error.
+在抛出错误之前，我们必须编写验证代码。
 
-By using the [Auth0 get user profile](https://auth0.com/docs/api/authentication?http#get-user-info) documentation, you will verify a valid user matches with the current `JWT`
+通过使用 [Auth0 get user profile](https://auth0.com/docs/api/authentication?http#get-user-info) 文档，您将验证有效用户与当前 `JWT` 匹配
 
 ```js
 const _ = require('lodash');
@@ -97,5 +97,5 @@ module.exports = async (ctx, next) => {
 ```
 
 ::: warning
-In the code example we use `axios`, so you will have to install the dependency to make it work. You can choose another library if you prefer.
+在代码示例中，我们使用 `axios`，因此必须安装依赖项才能使其工作。如果您愿意，您可以选择另一个库。
 :::

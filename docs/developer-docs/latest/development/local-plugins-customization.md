@@ -159,7 +159,7 @@ module.exports = {
 }
 ```
 
-有关更多信息 [Policies documentation](/developer-docs/latest/development/backend-customization.md#policies) 了解详情.
+有关更多信息 [Policies 文章](/developer-docs/latest/development/backend-customization.md#policies) 了解详情.
 
 ## 前端开发
 
@@ -264,11 +264,11 @@ strapi.notification.warning('app.notification.warning');
 | blockerComponentProps     | object  | Props to provide to customise the [blockerComponent](https://github.com/strapi/strapi/blob/58588e10e5d15921b0966e20ce1bc6cde70df5cc/packages/strapi-helper-plugin/lib/src/components/BlockerComponent/index.js#L81-L86) |
 | description               | string  | Plugin's description retrieved from the package.json                                                                                                                                                                    |
 | id                        | string  | Id of the plugin from the `package.json`                                                                                                                                                                                |
-| initializer               | node    | Refer to the [Initializer documentation](#initializer)                                                                                                                                                                  |
-| injectedComponents        | array   | Refer to the [Injected Component documentation](#injected-components)                                                                                                                                                   |
+| initializer               | node    | Refer to the [Initializer 文章](#initializer)                                                                                                                                                                           |
+| injectedComponents        | array   | Refer to the [Injected Component 文章](#injected-components)                                                                                                                                                            |
 | isReady                   | boolean | The app will load until this property is true                                                                                                                                                                           |
 | mainComponent             | node    | The plugin's App container,                                                                                                                                                                                             |
-| menu                      | object  | Define where the link of your plugin will be set. Without this your plugin will not display a link in the left menu                                                                                                     |
+| menu                      | object  | Define where the link of your plugin will be set. Without this your plugin will not display a link 在左边的菜单里                                                                                                       |
 | name                      | string  | The plugin's name retrieved from the package.json                                                                                                                                                                       |
 | pluginLogo                | file    | The plugin's logo                                                                                                                                                                                                       |
 | preventComponentRendering | boolean | Whether or not display the plugin's blockerComponent instead of the main component                                                                                                                                      |
@@ -502,7 +502,7 @@ const Foo = props => (
 export default Foo;
 ```
 
-请参考 [the documentation](https://github.com/yahoo/react-intl/wiki/Components#formattedmessage) 了解更广泛的用法。
+请参考 [the 文章](https://github.com/yahoo/react-intl/wiki/Components#formattedmessage) 了解更广泛的用法。
 
 #### Global context
 

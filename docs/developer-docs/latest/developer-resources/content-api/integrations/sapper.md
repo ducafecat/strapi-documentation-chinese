@@ -530,4 +530,4 @@ _Response_
 ## Conclusion
 
 Here is how to request your Collection Types in Strapi using Sapper.
-Learn more about Svelte with their [official documentation](https://sapper.svelte.dev/docs)/
+Learn more about Svelte with their [official 文章](https://sapper.svelte.dev/docs)/

@@ -438,9 +438,9 @@ You can then publish it to make it available to the community.
 
 If you want to create your own provider without publishing it on **npm** you can follow these steps:
 
-- Create a `./providers/strapi-provider-upload-{provider-name}` folder in your root application folder.
-- Create your provider as explained in the [documentation](#create-providers) above.
-- Then update your `package.json` to link your `strapi-provider-upload-{provider-name}` dependency to point to the [local path](https://docs.npmjs.com/files/package.json#local-paths) of your provider.
+- 创建 a `./providers/strapi-provider-upload-{provider-name}` folder in your root application folder.
+- 创建 your provider as explained in the [文章](#create-providers) above.
+- 然后 update your `package.json` to link your `strapi-provider-upload-{provider-name}` dependency to point to the [local path](https://docs.npmjs.com/files/package.json#local-paths) of your provider.
 
 ```json
 {

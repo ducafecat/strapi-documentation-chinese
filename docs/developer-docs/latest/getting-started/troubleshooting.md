@@ -21,7 +21,7 @@ Strapi 将模型配置文件(定义模型模式的文件)存储在诸如 `api/re
 
 ## Strapi 是否负责内容的部署或迁移？
 
-Strapi 目前不提供任何工具，用于在不同环境之间迁移或部署数据更改(即。从开发到生产)。除了 Content-Manager 设置之外，要了解有关此选项的更多信息，请参阅以下 [CLI documentation](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-configuration-dump)。
+Strapi 目前不提供任何工具，用于在不同环境之间迁移或部署数据更改(即。从开发到生产)。除了 Content-Manager 设置之外，要了解有关此选项的更多信息，请参阅以下 [CLI 文章](/developer-docs/latest/developer-resources/cli/CLI.md#strapi-configuration-dump)。
 
 ## 用户无法登录到管理面板
 

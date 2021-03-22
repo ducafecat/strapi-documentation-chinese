@@ -2,7 +2,7 @@
 
 **Here are the major changes:**
 
-- Add plugin upload
+- 添加 plugin upload
 
 <br>
 

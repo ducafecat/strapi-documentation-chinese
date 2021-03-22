@@ -32,7 +32,7 @@ Visit [the Qovery dashboard](https://start.qovery.com) to create an account if y
 ### 4. Add a PostgreSQL database
 
 - 点击 add a **PostgreSQL** database.
-- Select the version
+- 选择 version
 - Give a name to your PostgreSQL databse.
 - 点击 **next**.
 
@@ -40,13 +40,13 @@ Visit [the Qovery dashboard](https://start.qovery.com) to create an account if y
 
 - 点击 add a **Storage**.
 - Give a name to your storage.
-- Select the storage type between Slow HDD, HDD, SSD, and Fast SSD. (SSD is recommended)
-- Select the size.
+- 选择 storage type between Slow HDD, HDD, SSD, and Fast SSD. (SSD is recommended)
+- 选择 size.
 - Give a mount point.
 
 ### 6. Deploy
 
-点击 the **Deploy** button. Your app should be deployed: you can see the status in real time by clicking on **Deployment logs**.
+点击 the **Deploy** 按钮 Your app should be deployed: you can see the status in real time by clicking on **Deployment logs**.
 
 ## Deploying with the CLI
 
@@ -84,7 +84,7 @@ routers:
 ```
 
 ::: tip TIP
-详细信息 about the `.qovery.yml` file, 访问 [the Qovery application documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications).
+详细信息 about the `.qovery.yml` file, 访问 [the Qovery application 文章](https://docs.qovery.com/docs/using-qovery/configuration/applications).
 :::
 
 ::: tip 注意
@@ -93,7 +93,7 @@ Alternatively, you can deploy your Strapi application with a PostgreSQL database
 
 ### 3. Add a Dockerfile (optional)
 
-By default, Qovery uses Buildpacks to build and run your Strapi application. But it is also possible to build and run your application by providing a `Dockerfile` (see [Quovery documentation](https://docs.qovery.com/docs/using-qovery/configuration/applications/#application-build) 了解详情).
+By default, Qovery uses Buildpacks to build and run your Strapi application. But it is also possible to build and run your application by providing a `Dockerfile` (see [Quovery 文章](https://docs.qovery.com/docs/using-qovery/configuration/applications/#application-build) 了解详情).
 
 ### 4. Deploy
 

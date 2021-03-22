@@ -1,14 +1,14 @@
-# Creating a new Field in the administration panel
+# 在管理面板中创建一个新的 Field
 
-In this guide we will see how you can create a new Field for your administration panel.
+在本指南中，我们将了解如何为管理面板创建新的 Field。
 
-## Introduction
+## 引言
 
-For this example, we will see how to change the WYSIWYG with [CKEditor](https://ckeditor.com/ckeditor-5/) in the **`Content Manager`** plugin by creating a new plugin which will add a new **Field** in your application.
+对于这个例子，我们将看到如何在 **`内容管理器`** 插件中通过创建一个新的插件来改变带有 [CKEditor](https://ckeditor.com/ckeditor-5/) 的所见即所得(WYSIWYG) ，这个插件将在你的应用程序中添加一个新的 **Field**。
 
-## Setup
+## 设置
 
-1. Create a new project:
+1. 创建一个新项目:
 
 :::: tabs
 
@@ -34,7 +34,7 @@ npx create-strapi-app my-app --quickstart --no-run
 
 ::::
 
-2. Generate a plugin:
+2. 生成一个插件:
 
 :::: tabs
 
@@ -67,7 +67,7 @@ strapi generate:plugin wysiwyg
 
 ::::
 
-3. Install the needed dependencies:
+3. 安装所需的依赖项:
 
 :::: tabs
 
@@ -91,7 +91,7 @@ npm install @ckeditor/ckeditor5-react @ckeditor/ckeditor5-build-classic
 
 ::::
 
-4. Start your application with the front-end development mode:
+4. 使用前端开发模式启动应用程序:
 
 :::: tabs
 
@@ -127,17 +127,17 @@ strapi develop --watch-admin
 
 ::::
 
-Once this step is over all we need to do is to create our new WYSIWYG which will replace the default one in the **Content Manager** plugin.
+一旦这一步完成，我们需要做的就是创建我们的新所见即所得，这将取代默认的 **内容管理器** 插件之一。
 
-### Creating the WYSIWYG
+### 创建 WYSIWYG
 
-In this part we will create three components:
+在这一部分，我们将创建三个组件:
 
-- MediaLib which will be used to insert media in the editor
-- Wysiwyg which will wrap the CKEditor with a label and the errors
-- CKEditor which will be the implementation of the new WYSIWYG
+- MediaLib 它将用于在编辑器中插入媒体
+- Wysiwyg 它将用一个标签和错误包装 CKEditor
+- CKEditor 这将是新的 WYSIWYG 的实现
 
-### Creating the MediaLib
+### 创建 MediaLib
 
 **Path —** `./plugins/wysiwyg/admin/src/components/MediaLib/index.js`
 
@@ -212,7 +212,7 @@ MediaLib.propTypes = {
 export default MediaLib;
 ```
 
-#### Creating the WYSIWYG Wrapper
+#### 创建 WYSIWYG Wrapper
 
 **Path —** `./plugins/wysiwyg/admin/src/components/Wysiwyg/index.js`
 
@@ -381,14 +381,13 @@ Editor.propTypes = {
 export default Editor;
 ```
 
-At this point we have simply created a new plugin which is mounted in our project but our custom **Field** has not been registered yet.
+在这一点上，我们只是创建了一个新的插件，这是挂载在我们的项目，但我们的自定义 **Field** 尚未注册。
 
-### Registering a our new Field
+### 注册我们的新 `Field`
 
-Since the goal of our plugin is to override the current WYSIWYG we don't want it to be displayed in the administration panel but we need it to register our new **Field**.
-In order to do so, we will simply **modify** the front-end entry point of our plugin.
+由于我们的目标是我们的插件覆盖当前 `WYSIWYG` ，我们不希望它显示在管理面板，但我们需要它注册我们的新 **Field** 。为了这样做，我们将简单地 **modify** 我们的插件的前端入口点。
 
-This file is already present. Please replace the content of this file wit the following:
+此文件已经存在。请用以下内容替换此文件的内容:
 
 **Path —** `./plugins/wysiwyg/admin/src/index.js`
 
@@ -423,7 +422,7 @@ export default strapi => {
 };
 ```
 
-Finally you will have to rebuild strapi so the new plugin is loaded correctly
+最后，你将不得不重建 strapi，使新的插件正确加载
 
 :::: tabs
 
@@ -454,7 +453,7 @@ strapi build
 ::::
 
 ::: tip
-If the plugin still doesn't show up, you should probably empty the `.cache` folder too.
+如果插件仍然没有出现，你可能也应该清空 `.cache` 文件夹。
 :::
 
-And VOILA, if you create a new `collectionType` or a `singleType` with a `richtext` field you will see the implementation of [CKEditor](https://ckeditor.com/ckeditor-5/) instead of the default WYSIWYG.
+如果您创建了一个新的 `collectionType` 或带有 `richtext` 字段的 `singleType`，那么您将看到 [CKEditor](https://ckeditor.com/ckeditor-5/) 的实现，而不是默认的 `WYSIWYG`。

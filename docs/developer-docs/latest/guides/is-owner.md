@@ -1,34 +1,33 @@
-# Create is owner policy
+# 创建所有者策略
 
-This guide will explain how to restrict content editing to content authors only.
+本指南将解释如何仅限制内容编辑内容的作者。
 
-## Introduction
+## 引言
 
-It is often required that the author of an entry is the only user allowed to edit or delete the entry.
+通常要求条目的作者是唯一允许编辑或删除条目的用户。
 
-This is a feature that is requested a lot and in this guide we will show how to implement it.
+这是一个要求很多的特性，在本指南中我们将展示如何实现它。
 
 ## 例子
 
-For this example, we will need an Article Content Type.
+对于这个例子，我们需要一个文章内容类型。
 
-Add a `text` field and a `relation` field for this Content Type.
+为此 Content Type 添加 `text` 字段和 `relation` 字段。
 
-The `relation` field is a **many-to-one** relation with User.<br>
-One User can have many Articles and one Article can have only one User.<br>
-Name the field `author` for the Article Content Type and `articles` on the User side.
+`relation` 字段是与用户的 **many-to-one** 关系。一个用户可以有多个文章和一个文章可以只有一个用户。
 
-Now we are ready to start customization.
+指定文章内容类型和用户端文章的字段作者。
 
-## Apply the author by default
+现在我们可以开始定制了。
 
-When we are creating a new Article via `POST /articles` we will need to set the authenticated user as the author of the article.
+## 默认情况下作者
 
-To do so we will customize the `create` controller function of the Article API.
+当我们通过 `POST/articles` 创建一个新文章时，我们需要将经过身份验证的用户设置为文章的作者。
 
-**Concepts we will use:**
-Here is the code of [core controllers](/developer-docs/latest/development/backend-customization.md#core-controllers).
-We will also use this [documentation](/developer-docs/latest/development/plugins/users-permissions.md#user-object-in-strapi-context) to access the current authenticated user information.
+为此，我们将自定义 Article API 的 `create` `controller` 函数。
+
+**我们的逻辑是这样:**
+先看这里控制器核心代码 [core controllers](/developer-docs/latest/development/backend-customization.md#core-controllers) 的代码。我们还将使用此 [文章](/developer-docs/latest/development/plugins/users-permissions.md#user-object-in-strapi-context) 访问当前经过身份验证的用户信息。
 
 **Path —** `./api/article/controllers/Article.js`
 
@@ -57,13 +56,13 @@ module.exports = {
 };
 ```
 
-Now, when an article is created, the authenticated user is automatically set as author of the article.
+现在，当创建一篇文章时，经过身份验证的用户将自动设置为文章的作者。
 
-## Limit the update
+## 限制更新
 
-Now we will restrict the update of articles only for the author.
+现在，我们将只对作者更新文章。
 
-We will use the same concepts as previously.
+我们将使用与前面相同的概念。
 
 **Path —** `./api/article/controllers/Article.js`
 
@@ -124,8 +123,8 @@ module.exports = {
 };
 ```
 
-And tada!
+还有，嗒嗒！
 
 ::: tip
-For the delete action, it will be the exact same check as the update action.
+对于删除操作，它将与更新操作完全相同。
 :::

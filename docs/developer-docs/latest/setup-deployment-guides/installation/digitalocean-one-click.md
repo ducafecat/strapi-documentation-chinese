@@ -20,7 +20,7 @@ To create a project head over to the Strapi [listing on the marketplace](https:/
 - Keep the selected Starter - Standard Plan
 - Select your virtual machine size (minimum of 2 GB/1 CPU)
 - Choose your datacenter (closest to you or your target area)
-- Add a new SSH key, if you are on windows you can follow [this guide](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-putty/)
+- 添加 a new SSH key, if you are on windows you can follow [this guide](https://www.digitalocean.com/docs/droplets/how-to/add-ssh-keys/create-with-putty/)
 - Give your virtual machine a hostname
 - (optional) Enable backups
 - Finally hit Create Droplet!
@@ -57,7 +57,7 @@ The DigitalOcean one-click application uses Nginx to proxy http on port 80 to St
 
 The example config included by default is located at `/etc/nginx/sites-available/strapi.conf` and the upstream block is located at `/etc/nginx/conf.d/upstream.conf`
 
-To learn more about the Nginx proxy options you can view the Nginx proxy [documentation](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
+To learn more about the Nginx proxy options you can view the Nginx proxy [文章](http://nginx.org/en/docs/http/ngx_http_proxy_module.html).
 
 :::: tabs
 

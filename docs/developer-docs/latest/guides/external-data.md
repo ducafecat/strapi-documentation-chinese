@@ -1,14 +1,14 @@
-# Fetching external data
+# 获取外部数据
 
-This guide explains how to fetch data from an external service to use it in your app.
+本指南解释了如何从外部服务中获取数据以便在应用程序中使用。
 
-在这个例子中 we will see how to daily fetch Docker pull count to store the result in your database.
+在这个示例中，我们将看到如何每天获取 Docker 拉计数，以便将结果存储在数据库中。
 
-## Content Type settings
+## 内容类型设置
 
-First, we need to create a Content Type, in this example we will call it `hit` with a `date` and `count` attribute.
+首先，我们需要创建一个 `Content Type`，在这个例子中，我们将它命名为 `date` 和 `count` 属性 `hit`。
 
-Your Content Type should look like this:
+你的内容类型应该是这样的:
 
 **Path —** `./api/hit/models/Hit.settings.json`
 
@@ -36,9 +36,9 @@ Your Content Type should look like this:
 }
 ```
 
-## Fetch the data
+## 获取数据
 
-Now we will create a function that will be usable everywhere in your strapi application.
+现在我们将创建一个函数，该函数将在您的 strapi 应用程序中的任何地方都可用。
 
 **Path —** `./config/functions/docker.js`
 
@@ -52,11 +52,11 @@ module.exports = async () => {
 };
 ```
 
-`data` contains all the data received from the Docker Hub API. What we want here is to add the `pull_count` value in your database.
+`data` 包含从 dockerhub API 接收的所有数据。这里我们需要在数据库中添加 `pull_count` 值。
 
-## Create a `hit` entry
+## 创建一个 `hit entry` 条目
 
-let's programmatically create the entry.
+让我们以编程方式创建条目。
 
 **Path —** `./config/functions/docker.js`
 
@@ -73,13 +73,13 @@ module.exports = async () => {
 };
 ```
 
-With this code, everytime this function is called it will fetch the docker repo's data and insert the current `pull_count` with the corresponding date in your Strapi database.
+使用这段代码，每次调用这个函数时，它都会获取 docker repo 的数据，并在 Strapi 数据库中插入当前的 `pull_count` 和相应的日期。
 
-## Call the function
+## 调用函数
 
-Here is how to call the function in your application `strapi.config.functions.docker()`
+下面是如何调用应用程序 `strapi.config.functions.docker()` 中的函数
 
-So let's execute this function everyday at 2am. For this we will use a [CRON tasks](/developer-docs/latest/setup-deployment-guides/configurations.md#cron-tasks).
+所以让我们每天凌晨 2 点执行这个函数，为此我们将使用 [CRON tasks](/developer-docs/latest/setup-deployment-guides/configurations.md#cron-tasks)。
 
 **Path —** `./config/functions/cron.js`
 

@@ -3,7 +3,7 @@
 **Here are the major changes:**
 
 - Email providers Mailgun and Sendgrid
-- Add Arabic language
+- 添加 Arabic language
 
 **Useful links:**
 

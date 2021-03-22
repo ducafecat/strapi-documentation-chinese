@@ -1,40 +1,38 @@
-# Custom data response
+# 自定义数据响应
 
-In this guide we will see how you can customize your API's response.
+在本指南中，我们将看到如何定制 API 的响应。
 
-## Introduction
+## 引言
 
-To be able to update the default data response you have first to understand how it works.
+为了能够更新默认数据响应，必须首先了解它是如何工作的
 
-When you create a content type, it generates an API with the following list of [endpoints](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints).
+当您创建一个内容类型时，它会生成一个带有以下 [endpoints](/developer-docs/latest/developer-resources/content-api/content-api.md#api-endpoints) 列表的 API。
 
-Each of these endpoint triggers a controller action. Here is the list of [controller actions](/developer-docs/latest/development/backend-customization.md#controllers) that exist by default when a content type is created.
+这些端点中的每一个都触发一个 [控制器操作](/developer-docs/latest/development/backend-customization.md#controllers) 。下面是创建内容类型时默认存在的控制器操作的列表。
 
-If you check the controller file of your generated API `./api/{content-type}/controller/{Content-Type}.js`, you will see an empty file. It is because all the default logic is managed by Strapi. But you can override these actions with your own code.
+如果您检查您生成的 API 的控制器文件 `./api/{content-type}/controller/{Content-Type}.js` ，你会看到一个空文件。这是因为所有的默认逻辑都是由 Strapi 管理的。但是您可以使用自己的代码覆盖这些操作。
 
-And that is what we will do to manage our custom data response.
+这就是我们管理自定义数据响应所要做的。
 
 ## 例子
 
-In our example we will use a restaurant type with a chef. By default when you fetch restaurants, you will get all information for the chef.
-Let's consider you don't want to expose the chef's email for privacy reasons.
+在我们的示例中，我们将使用一个带有厨师的餐厅类型。默认情况下，当您取餐厅时，您将获得厨师的所有信息。让我们考虑一下，出于隐私原因，你不想暴露厨师的邮件。
 
-To enforce this rule we will customize the action that fetches all restaurants and remove the email from the returned data.
+为了强制执行这个规则，我们将自定义获取所有餐馆的操作，并从返回的数据中删除电子邮件。
 
-To follow the example you will have to create a content type `restaurant` and add the following field definition:
+按照这个例子，你需要创建一个内容类型的 `restaurant` ，并添加以下字段定义:
 
 - `string` attribute named `name`
 - `text` attribute named `description`
 - `relation` attribute **Restaurant** (`chef`) - **User** has many **Restaurants** - **Users** (`restaurants`)
 
-Then add some data.
+然后添加一些数据。
 
-## Override controller action
+## 覆盖控制器操作
 
-To customize the function that fetch all our restaurants we will have to override the `find` function.
+为了定制获取所有餐厅的函数，我们必须覆盖 `find` 函数。
 
-First, to see the difference, let's request `GET /restaurants`. You will see all the data you created.
-Now let's start the customization.
+首先，为了看出区别，让我们请求 `GET /restaurants`。您将看到您创建的所有数据。现在让我们开始定制。
 
 **Path —** `./api/restaurant/controller/Restaurant.js`
 
@@ -46,13 +44,13 @@ module.exports = {
 };
 ```
 
-After saving the new function, let's restart the `GET /restaurants` request. We will see `strapi` as response.
+保存新函数之后，让我们重新启动 `GET /restaurants` 请求。
 
-## Get the data back
+## 把数据拿回来
 
-We now know the function we have to update, but we just want to customize the returned restaurant values.
+我们现在知道了需要更新的函数，但是我们只是想定制返回的 `restaurant` 值。
 
-In the [controller documentation](/developer-docs/latest/development/backend-customization.md#extending-a-model-controller) you will find the default implementation of every actions. It will help you overwrite the fetch logic.
+在 [controller 文章](/developer-docs/latest/development/backend-customization.md#extending-a-model-controller) 中，您将找到每个操作的默认实现。它将帮助您覆盖提取逻辑。
 
 **Path —** `./api/restaurant/controller/Restaurant.js`
 
@@ -73,13 +71,13 @@ module.exports = {
 };
 ```
 
-And now the data is back on `GET /restaurants`
+现在，关于 `GET /restaurants` 的数据又回来了
 
-## Apply our changes
+## 应用我们的改变
 
-We can see the `find` function returns the result of the `map`. And the map function just sanitizes all entries.
+我们可以看到 `find` 函数返回 `map` 的结果，而 `map` 函数只是对所有条目进行 `sanitizes` 。
 
-So instead of just returning the sanitized entry, we will also remove the chef email of each restaurant.
+因此，我们不仅要返回经过 `sanitized` 的条目，还要删除每个餐厅的厨师电子邮件。
 
 **Path —** `./api/restaurant/controller/Restaurant.js`
 
@@ -108,8 +106,8 @@ module.exports = {
 };
 ```
 
-And tada! The email disappeared.
+然后，电子邮件消失了。
 
 ::: tip
-This guide can be applied to any other controller action.
+本指南可以应用于任何其他控制器操作。
 :::

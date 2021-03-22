@@ -20,15 +20,15 @@ You can use the **One-Click** button or follow these steps.
 
 - 点击 `+ Add project` button
 - Select `Use a template` option and click `Next`
-- Fill your `Project name` and `Region` then click `Next`
+- 填充 your `Project name` and `Region` then click `Next`
 
 **Choose Strapi template.**
 
 Search for the Strapi template using the search bar.
 
 - 点击 the search bar
-- Fill `strapi`
-- Select the Strapi template
+- 填充 `strapi`
+- 选择 Strapi template
 - Click `Next`
 
 ::: tip INFO
@@ -40,6 +40,6 @@ After few second a Strapi application will be setup with a PostgreSQL database.
 Now to visit your application.
 
 - 点击 `Settings`
-- Then `Domains` in the left menu
+- 然后 `Domains` 在左边的菜单里
 
 You will see the Platform.sh domain name that is used for your app.

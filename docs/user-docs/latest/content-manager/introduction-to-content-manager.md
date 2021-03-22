@@ -1,4 +1,4 @@
-# Introduction to the Content Manager
+# 引言 to the Content Manager
 
 The Content Manager is a core plugin of Strapi. It is a feature that is always activated by default and cannot be deleted. It is accessible both when the application is in a development and production environment.
 
@@ -25,7 +25,7 @@ From the list view, it is possible to:
 - configure the fields displayed in the table of the list view (4).
 
 ::: tip 💡 TIP
-Sorting can be enabled for any field displayed in the list view table (see [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md)). 点击 a field name, in the header of the table, to sort on that field.
+Sorting can be enabled for any field displayed in the list view table (see [Configuring the views of a content type](../content-manager/configuring-view-of-content-type.md)). 点击 a field name, in the header of the table, to sort on that 字段
 :::
 
 ### Filtering entries
@@ -36,15 +36,15 @@ Right above the list view table, on the left side of the interface, a **Filters*
 
 To set a new filter:
 
-1. 点击 the **Filters** button.
+1. 点击 the **Filters** 按钮
 2. 点击 the 1st drop-down list to choose the field on which the condition will be applied.
 3. 点击 the 2nd drop-down list to choose the type of condition to apply.
 4. Enter the value of the condition in the 3rd box.
 5. (optional) 点击 the add button ![icon add new](../assets/content-manager/icon_add2.png) to add another condition-based filter.
-6. 点击 the **Apply** button.
+6. 点击 the **Apply** 按钮
 
 ::: tip 注意
-When active, filters are displayed next to the **Filters** button. They can be removed by clicking on the delete icon ![icon delete](../assets/content-manager/icon_delete2.png).
+When active, filters are displayed next to the **Filters** 按钮 They can be removed by clicking on the delete icon ![icon delete](../assets/content-manager/icon_delete2.png).
 :::
 
 ### Creating a new entry

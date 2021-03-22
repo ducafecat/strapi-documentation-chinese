@@ -2,7 +2,7 @@
 
 **Here are the major changes:**
 
-- Add database store config
+- 添加 database store config
 - New lib input
 
 <br>

@@ -60,7 +60,7 @@ Create a [new Strapi project](/developer-docs/latest/getting-started/quick-start
 
 ::: tip 注意
 
-If you plan to use **MongoDB** with your project, [refer to the create a Strapi project with MongoDB section of the documentation](/developer-docs/latest/setup-deployment-guides/configurations/databases/mongodb.md#install-mongodb-locally) then, jump to step 4.
+If you plan to use **MongoDB** with your project, [refer to the create a Strapi project with MongoDB section of the 文章](/developer-docs/latest/setup-deployment-guides/configurations/databases/mongodb.md#install-mongodb-locally) then, jump to step 4.
 
 :::
 
@@ -200,7 +200,7 @@ yarn add pg-connection-string
 
 #### 4. Create your Heroku database config file for production
 
-Create new subfolders in `./config` like so: `/[env]/production`, then create a new `database.js` in iti (see [environment documentation](/developer-docs/latest/setup-deployment-guides/configurations.md#environment)). Your path should look like this: `./config/env/production/database.js`. When you run locally you should be using the `./config/database.js` which could be set to use SQLite, however it's recommended you use PostgreSQL locally also, for information on configuring your local database, please see the [database documentation](/developer-docs/latest/setup-deployment-guides/configurations.md#database).
+Create new subfolders in `./config` like so: `/[env]/production`, then create a new `database.js` in iti (see [environment 文章](/developer-docs/latest/setup-deployment-guides/configurations.md#environment)). Your path should look like this: `./config/env/production/database.js`. When you run locally you should be using the `./config/database.js` which could be set to use SQLite, however it's recommended you use PostgreSQL locally also, for information on configuring your local database, please see the [database 文章](/developer-docs/latest/setup-deployment-guides/configurations.md#database).
 
 `Path: ./config/env/production/database.js`
 

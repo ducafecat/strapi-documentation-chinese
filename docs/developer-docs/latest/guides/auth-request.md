@@ -1,47 +1,47 @@
-# Authenticated request
+# 认证请求
 
-In this guide you will see how you can request the API as an authenticated user.
+在本指南中，您将看到如何作为经过身份验证的用户请求 API。
 
-## Introduction
+## 引言
 
-To show you many of the concepts on the [roles and permissions](/developer-docs/latest/development/plugins/users-permissions.md) part, we will use many users and roles.
+为了向您展示关于 [角色和权限](/developer-docs/latest/development/plugins/users-permissions.md) 部分的许多概念，我们将使用许多用户和角色。
 
-After that we will see the [authentication workflow](/developer-docs/latest/development/plugins/users-permissions.md#authentication) to get a `JWT` and use it for an API request.
+在此之后，我们将看到获取 JWT 的 [身份验证工作流](/developer-docs/latest/development/plugins/users-permissions.md#authentication) ，并将其用于 API 请求。
 
-We will have one group of users that will be able to only fetch **Articles** and an other group that will be able to fetch, create and update **Articles**.
+我们将有一组用户，将能够只提取 **Articles** 和其他组，将能够提取，创建和更新 **Articles**。
 
-## Setup
+## 设置
 
-### Create Content Type
+### 创建内容类型
 
-Lets create a new Content Type **Article**
+让我们创建一个新的内容类型 **Article**
 
-- 点击 `Content Type Builder` in the left menu
-- Then `+ Create new content-type`
-- Fill `Display name` with `article`
-- Create 2 fields
+- 点击 `Content Type Builder` 在左边的菜单里
+- 然后 `+ Create new content-type`
+- 填充 `Display name` with `article`
+- 创建 2 个字段
   - **Text** short named `title`
   - **Rich text** named `content`
 - And save this new Content Type
 
-Then create some **Articles** from the Content Manager.
+然后从内容管理器创建一些 **Articles** 。
 
-### Create Roles & Permissions
+### 创建角色和权限
 
-We will create 2 new groups to manage available actions for different kind of users.
+我们将创建两个新的组来管理不同类型用户的可用操作。
 
-- 点击 `Settings` in the left menu
-- Select the `Roles` under `USERS & PERMISSIONS PLUGIN` section
-- Then `+ Add New Role`
-- Fill `name` with `Author`
-- Check `Select All` for the Application Article Content Type.
-- And save the new role
+- 点击 `Settings` 在左边的菜单里
+- 选择 `Roles` 下面 `USERS & PERMISSIONS PLUGIN` 部分
+- 然后 `+ Add New Role`
+- 填充 `name` 与 `Author`
+- 点击 `Select All` 选中文章类型.
+- 点击保存这个新角色
 
-And repeat the operation for the `Reader` group and check `find`, `findOne` and `count`.
+然后对 `Reader` 组重复操作， `find`、 `findOne` 和 `count`。
 
-### Create users
+### 创建用户
 
-Finally create **2 users** with the following data.
+最后使用以下数据创建 **2 个用户** 。
 
 **User 1**
 
@@ -57,13 +57,13 @@ Finally create **2 users** with the following data.
 - **password**: strapi
 - **role**: Reader
 
-## Login as a Reader
+## 作为一个读者登录
 
-To login as a user your will have to follow the [login documentation](/developer-docs/latest/development/plugins/users-permissions.md#login).
+要以用户身份登录，您必须遵循 [登录文档](/developer-docs/latest/development/plugins/users-permissions.md#login) 。
 
-Here is the API route for the authentication `/auth/local`.
+这是是身份验证 `/auth/local` 的 API 路由。
 
-You have to request it in **POST**.
+你必须在 **POST** 中请求它。
 
 :::: tabs
 
@@ -84,7 +84,7 @@ console.log(data);
 
 ::: tab Postman
 
-If you are using **Postman** for example you will have to set the `body` as `raw` with the `JSON (application/json)` type.
+例如，如果使用 Postman，则必须将 `body` 设置为 `JSON (application/JSON)`类型的 `raw`。
 
 ```json
 {
@@ -97,7 +97,7 @@ If you are using **Postman** for example you will have to set the `body` as `raw
 
 ::::
 
-The API response contains the **user's JWT** in the `jwt` key.
+API 响应在 `JWT` 键中包含 `用户的JWT`
 
 ```json
 {
@@ -110,13 +110,13 @@ The API response contains the **user's JWT** in the `jwt` key.
 }
 ```
 
-You will have to store this `JWT` in your application, it's important because you will have to use it the next requests.
+您必须将这个 `JWT` 存储在您的应用程序中，这很重要，因为您必须在接下来的请求中使用它。
 
 ### Fetch articles
 
-Let's fetch Articles you created.
+让我们获取您创建的文章。
 
-To do so, you will have to fetch `/articles` route in **GET**.
+要做到这一点，您必须在 **GET** 中执行请求 `/articles` 路由。
 
 ```js
 import axios from 'axios';
@@ -126,9 +126,9 @@ const { data } = await axios.get('http://localhost:1337/articles');
 console.log(data);
 ```
 
-Here you should receive a **403 error** because you are not allowed, as Public user, to access to the **articles**.
+这里您应该会收到一个 **403 错误**，因为您作为 Public 用户不允许访问这些**文章**。
 
-You should use the `JWT` in the request to say that you can access to this data as **Reader user**.
+您应该在请求中使用 `JWT` 来说明您可以作为 `Reader 用户` 访问这些数据。
 
 ```js
 import axios from 'axios';
@@ -143,11 +143,11 @@ const { data } = await axios.get('http://localhost:1337/articles', {
 console.log(data);
 ```
 
-And tada you have access to the data.
+而且你可以访问这些数据。
 
-### Create an Article
+### 创建一篇文章
 
-To do so, you will have to request the `/articles` route in **POST**.
+为此，您必须在 **POST** 中请求 `/articles` 路由
 
 ```js
 import axios from 'axios';
@@ -166,8 +166,8 @@ const {data} = await axios
 console.log(data);
 ```
 
-If you request this as a **Reader user**, you will receive a **403 error**. It's because the **Reader role** does not have access to the create function of the **Article** Content Type.
+如果您以 **Reader 用户** 的身份请求此操作，您将收到一个 **403 错误**。这是因为 **Reader 角色**无法访问 **Article** Content Type 的 **create** 函数。
 
-To fix that you will have to login with the **Author user** and use its `JWT` into the request to create an **Article**.
+要解决这个问题，必须使用 **Author 用户**登录，并在请求中使用其 `JWT` 创建一篇文章。
 
-With that done, you will be able to create an **Article**.
+完成这些之后，您将能够创建一篇**文章**。

@@ -53,7 +53,7 @@ Repeatable components are also a combination of fields, but they allow to create
 
 To add a new entry and display its combination of fields:
 
-1. 点击 the ![icon add to content](../assets/content-manager/icon_add4.png) **Add new entry** button.
+1. 点击 the ![icon add to content](../assets/content-manager/icon_add4.png) **Add new entry** 按钮
 2. Fill in the fields of the component.
 
 The repeatable component entries can be reordered or deleted directly in the edit view, using buttons displayed on the right of the entry area.
@@ -72,7 +72,7 @@ Dynamic zones are a combination of components, which themselves are composed of 
 ![Writing content for a dynamic zone](../assets/content-manager/edit-view_dynamic-zone1.png)
 ![Writing content for a dynamic zone](../assets/content-manager/edit-view_dynamic-zone3.png)
 
-1. 点击 the ![icon add to content](../assets/content-manager/icon_add3.png) **Add to content** button.
+1. 点击 the ![icon add to content](../assets/content-manager/icon_add3.png) **Add to content** 按钮
 2. Choose a component available for the dynamic zone.
 3. Fill in the fields of the component.
 
