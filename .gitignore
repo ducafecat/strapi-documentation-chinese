@@ -109,3 +109,4 @@ dist
 # IDE
 .idea
 .vscode
+docs/.vuepress/dist

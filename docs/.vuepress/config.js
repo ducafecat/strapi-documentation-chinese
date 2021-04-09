@@ -164,8 +164,8 @@ const checklinksIgnoredFiles = [
 module.exports = {
   title: '',
   port: 8080,
-  description: 'The headless CMS developers love.',
-  base: '/documentation/',
+  description: 'Strapi 中文文档.',
+  base: '/',
   plugins: {
     '@vuepress/medium-zoom': {},
     'vuepress-plugin-element-tabs': {},
@@ -185,7 +185,7 @@ module.exports = {
       'link',
       {
         rel: 'icon',
-        href: 'https://strapi.io/assets/favicon-32x32.png',
+        href: 'https://doc.getstrapi.cn/assets/favicon-32x32.png',
       },
     ],
     [
@@ -206,7 +206,7 @@ module.exports = {
       'meta',
       {
         property: 'og:url',
-        content: 'https://strapi.io/documentation/',
+        content: 'https://doc.getstrapi.cn/',
       },
     ],
     [
@@ -220,7 +220,7 @@ module.exports = {
       'meta',
       {
         property: 'og:image',
-        content: 'https://strapi.io/documentation/assets/meta.png',
+        content: 'https://doc.getstrapi.cn/assets/meta.png',
       },
     ],
     [
@@ -242,7 +242,7 @@ module.exports = {
       'meta',
       {
         property: 'twitter:url',
-        content: 'https://strapi.io/documentation/',
+        content: 'https://doc.getstrapi.cn/',
       },
     ],
     [
@@ -270,7 +270,7 @@ module.exports = {
       'meta',
       {
         property: 'twitter:image',
-        content: 'http://strapi.io/assets/images/strapi-website-preview.png',
+        content: 'http://doc.getstrapi.cn/assets/images/strapi-website-preview.png',
       },
     ],
   ],
@@ -346,15 +346,15 @@ module.exports = {
             items: [
               {
                 text: 'Website',
-                link: 'https://strapi.io',
+                link: 'https://doc.getstrapi.cn',
               },
               {
                 text: 'Blog',
-                link: 'https://strapi.io/blog',
+                link: 'https://doc.getstrapi.cn/blog',
               },
               {
                 text: 'StrapiConf 2021',
-                link: 'https://www.strapi.io/strapi-conf-2021',
+                link: 'https://doc.getstrapi.cn/strapi-conf-2021',
               },
             ],
           },
